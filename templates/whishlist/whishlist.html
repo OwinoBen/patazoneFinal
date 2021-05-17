@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+     <div class="page-title-wrapper">
+                <h1 class="page-title">
+                    <span class="base" data-ui-id="page-title-wrapper">My Wish List</span>
+                </h1>
+            </div>
+            <a id="contentarea" tabindex="-1"></a>
+            <div class="page messages">
+                <div data-placeholder="messages"></div>
+                <div data-bind="scope: 'messages'">
+                    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+                    <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+                        class="messages">
+                        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                            <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+                    <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+        data: messages().messages, as: 'message'
+    }">
+                        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                            <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column main"><input name="form_key" type="hidden" value="4Ve7VVG45MdfZ3f7" />
+                    <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+                        <!-- ko template: getTemplate() -->
+                        <!-- /ko -->
+                    </div>
+                    <div class="toolbar wishlist-toolbar"></div>
+                    <form class="form-wishlist-items" id="wishlist-view-form" data-mage-init='{"wishlist":{
+          "addToCartUrl":{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/cart\/","data":{"item":"%item%","uenc":""}},
+          "addAllToCartUrl":{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/allcart\/","data":{"wishlist_id":"13","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3dpc2hsaXN0L2luZGV4L2luZGV4Lw,,"}},
+          "commentString":""},
+          "validation": {}}' action="https://mageblueskytech.com/dukamarket/en3/wishlist/index/update/wishlist_id/13/"
+                        method="post">
+                        <div class="message info empty"><span>You have no items in your wish list.</span></div>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                            </div>
+                            <div class="secondary">
+                                <a href="https://mageblueskytech.com/dukamarket/en3/customer/account/"
+                                    class="action back">
+                                    <span>Back</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <script id="form-tmpl" type="text/x-magento-template">
+      <form id="wishlist-hidden-form" method="post" action="<%- data.url %>" class="no-display">
+          <% if (data.qty) { %>
+          <input name="qty" value="<%- data.qty %>">
+          <% } %>
+
+          <% if (data.item) { %>
+          <input name="item" value="<%- data.item %>">
+          <% } %>
+
+          <% if (data.entity) { %>
+          <input name="entity" value="<%- data.entity %>">
+          <% } %>
+      </form>
+    </script>
+                    <div class="toolbar wishlist-toolbar"><br></div>
+                </div>
+                <div class="sidebar sidebar-main">
+                    <div class="block block-collapsible-nav">
+                        <div class="title block-collapsible-nav-title"
+                            data-mage-init='{"toggleAdvanced": {"toggleContainers": "#block-collapsible-nav", "selectorsToggleClass": "active"}}'>
+                            <strong>
+                                My Account </strong>
+                        </div>
+                        <div class="content block-collapsible-nav-content" id="block-collapsible-nav">
+                            <ul class="nav items">
+                                <li class="nav item"><a href="../account/account.html">My Account</a></li>
+                                <li class="nav item"><a href="../orders/order.html">My Orders</a></li>
+                                <li class="nav item"><a href="../products/downloads.html">My Downloadable Products</a></li>
+                                <li class="nav item current"><strong>My Wish List</strong></li>
+                                <li class="nav item">
+                                    <span class="delimiter"></span>
+                                </li>
+                                <li class="nav item"><a href="../account/address.html">Address Book</a></li>
+                                <li class="nav item"><a href="../account/accountEdit.html">Account Information</a></li>
+                                <li class="nav item"><a href="../payment/paymentMethods.html">Stored Payment Methods</a>
+                                </li>
+                                <li class="nav item">
+                                    <span class="delimiter"></span>
+                                </li>
+                                <li class="nav item"><a href="../products/productReview.html">My Product Reviews</a></li>
+                                <li class="nav item"><a href="../newsLetter/newsletter.html">Newsletter Subscriptions</a>
+                                </li>
+                                <li class="nav item"><a
+                                        href="https://mageblueskytech.com/dukamarket/en3/customer/account/logout/">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar sidebar-additional">
+                    <div class="block block-compare" data-bind="scope: 'compareProducts'"
+                        data-role="compare-products-sidebar">
+                        <div class="block-title">
+                            <strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong>
+                            <span class="counter qty no-display"
+                                data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span>
+                        </div>
+                        <!-- ko if: compareProducts().count -->
+                        <div class="block-content no-display" aria-labelledby="block-compare-heading"
+                            data-bind="css: {'no-display': !compareProducts().count}">
+                            <ol id="compare-items" class="product-items product-items-names"
+                                data-bind="foreach: compareProducts().items">
+                                <li class="product-item">
+                                    <input type="hidden" class="compare-item-id" data-bind="value: id" />
+                                    <strong class="product-item-name">
+                                        <a data-bind="attr: {href: product_url}, html: name"
+                                            class="product-item-link"></a>
+                                    </strong>
+                                    <a href="#" data-bind="attr: {'data-post': remove_url}"
+                                        title="Remove&#x20;This&#x20;Item" class="action delete">
+                                        <span>Remove This Item</span>
+                                    </a>
+                                </li>
+                            </ol>
+                            <div class="actions-toolbar">
+                                <div class="primary">
+                                    <a data-bind="attr: {'href': compareProducts().listUrl}"
+                                        class="action compare primary"><span>Compare</span></a>
+                                </div>
+                                <div class="secondary">
+                                    <a id="compare-clear-all" href="#" class="action clear"
+                                        data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}">
+                                        <span>Clear All</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko ifnot: compareProducts().count -->
+                        <div class="empty">You have no items to compare.</div>
+                        <!-- /ko -->
+                    </div>
+                    <div class="block block-reorder" data-bind="scope: 'lastOrderedItems'">
+                        <div class="block-title no-display"
+                            data-bind="css: {'no-display': !lastOrderedItems().items || lastOrderedItems().items.length === 0}">
+                            <strong id="block-reorder-heading" role="heading" aria-level="2">
+                                Recently Ordered </strong>
+                        </div>
+                        <div class="block-content no-display"
+                            data-bind="css: {'no-display': !lastOrderedItems().items || lastOrderedItems().items.length === 0}"
+                            aria-labelledby="block-reorder-heading">
+                            <form method="post" class="form reorder"
+                                action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/addgroup/"
+                                id="reorder-validate-detail">
+                                <strong class="subtitle">Last Ordered Items</strong>
+                                <ol id="cart-sidebar-reorder" class="product-items product-items-names"
+                                    data-bind="foreach: lastOrderedItems().items">
+                                    <li class="product-item">
+                                        <div class="field item choice">
+                                            <label class="label" data-bind="attr: {'for': 'reorder-item-' + id}">
+                                                <span>Add to Cart</span>
+                                            </label>
+                                            <div class="control">
+                                                <input type="checkbox" name="order_items[]" data-bind="attr: {
+                                        id: 'reorder-item-' + id,
+                                        value: id,
+                                        title: is_saleable ? 'Add to Cart' :
+                                         'Product is not salable.'
+                                   },
+                                   disable: !is_saleable" class="checkbox"
+                                                    data-validate='{"validate-one-checkbox-required-by-name": true}' />
+                                            </div>
+                                        </div>
+                                        <strong class="product-item-name">
+                                            <a data-bind="attr: {href: url}" class="product-item-link">
+                                                <span data-bind="text: name"></span>
+                                            </a>
+                                        </strong>
+                                    </li>
+                                </ol>
+                                <div id="cart-sidebar-reorder-advice-container"></div>
+                                <div class="actions-toolbar">
+                                    <div class="primary" data-bind="visible: isShowAddToCart">
+                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    </div>
+                                    <div class="secondary">
+                                        <a class="action view"
+                                            href="https://mageblueskytech.com/dukamarket/en3/customer/account/#my-orders-table">
+                                            <span>View All</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="block block-wishlist" data-bind="scope: 'wishlist'">
+                        <div class="block-title">
+                            <strong role="heading" aria-level="2">My Wish List</strong>
+                            <!-- ko if: wishlist().counter -->
+                            <span data-bind="text: wishlist().counter" class="counter"></span>
+                            <!-- /ko -->
+                        </div>
+                        <div class="block-content">
+                            <strong class="subtitle">Last Added Items</strong>
+                            <!-- ko if: wishlist().counter -->
+                            <ol class="product-items no-display" id="wishlist-sidebar"
+                                data-bind="foreach: wishlist().items, css: {'no-display': null}">
+                                <li class="product-item">
+                                    <div class="product-item-info">
+                                        <a class="product-item-photo"
+                                            data-bind="attr: { href: product_url, title: product_name }">
+                                            <!-- ko template: {name: $data.image.template, data: $data.image} -->
+                                            <!-- /ko -->
+                                        </a>
+                                        <div class="product-item-details">
+                                            <strong class="product-item-name">
+                                                <a data-bind="attr: { href: product_url }" class="product-item-link">
+                                                    <span data-bind="text: product_name"></span>
+                                                </a>
+                                            </strong>
+                                            <div data-bind="html: product_price"></div>
+                                            <div class="product-item-actions">
+                                                <!-- ko if: product_is_saleable_and_visible -->
+                                                <div class="actions-primary">
+                                                    <!-- ko if: product_has_required_options -->
+                                                    <a href="#" data-bind="attr: {'data-post': add_to_cart_params}"
+                                                        class="action tocart primary">
+                                                        <span>Add to Cart</span>
+                                                    </a>
+                                                    <!-- /ko -->
+                                                    <!-- ko ifnot: product_has_required_options -->
+                                                    <button type="button" class="action tocart primary"
+                                                        data-bind="attr: {'data-post': add_to_cart_params}">
+                                                        <span>Add to Cart</span>
+                                                    </button>
+                                                    <!-- /ko -->
+                                                </div>
+                                                <!-- /ko -->
+                                                <div class="actions-secondary">
+                                                    <a href="#" data-bind="attr: {'data-post': delete_item_params}"
+                                                        title="Remove&#x20;This&#x20;Item"
+                                                        class="btn-remove action delete">
+                                                        <span>Remove This Item</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
+                                <div class="primary">
+                                    <a class="action details"
+                                        href="https://mageblueskytech.com/dukamarket/en3/wishlist/"
+                                        title="Go&#x20;to&#x20;Wish&#x20;List">
+                                        <span>Go to Wish List</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                            <!-- ko ifnot: wishlist().counter -->
+                            <div class="empty">You have no items in your wish list.</div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock content %}

@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Contact Us</span>
+    </h1>
+</div>
+<div class="page messages">
+    <div data-placeholder="messages"></div>
+    <div data-bind="scope: 'messages'">
+        <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+            class="messages">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: messages().messages && messages().messages.length > 0 -->
+        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+data: messages().messages, as: 'message'
+}">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+<div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+        </div>
+        <div class="container-min">
+            <p class="margin_0" style="text-align: center;">Hi, friends!</p>
+            <h1 class="regular size-60" style="text-align: center;">Contact Us</h1>
+            <p style="text-align: center;">The most important part of improving at photography has been
+                sharing it. Sign up for an Exposure account,<br>or post regularly to Tumblr, or both. Tell
+                people you’re trying to get better at photography. When you talk about it, other <br>people
+                get excited about it. There are few plugins and apps available for this purpose.</p>
+        </div>
+        <section class="full-width"><img style="display: block; margin-left: auto; margin-right: auto;"
+                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/cotact-banner.jpg" alt="">
+        </section>
+        <section>
+            <div class="container-min">
+                <h4 class="size-14 color_primary uppercase"
+                    style="text-align: center; margin-bottom: 1.5rem;">Contact Us</h4>
+                <h3 class="size-36 margin_0" style="text-align: center;"><span class="regular">Hello, We are
+                        Patazone Market.</span></h3>
+                <h3 class="size-36" style="text-align: center;">Contact Us For Any Questions</h3>
+                <p style="text-align: center;">The perfect way to enjoy brewing tea on low hanging fruit to
+                    identify. Duis autem vel eum iriure dolor in hendrerit in vulputate velit<br>esse
+                    molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most
+                    important part of improving at photography has been sharing it. <br>Sign up for an
+                    Exposure account, or post regularly to Tumblr, or both.</p>
+                <div class="our-store">
+                    <div class="store-list owl-carousel owl-theme" data-items="4" data-bigdesktop="4"
+                        data-smalldesktop="3" data-bigtablet="3" data-tablet="2" data-smalltablet="2"
+                        data-mobile="1" data-margin="30" data-dots="false" data-autoplay="true"
+                        data-speed="500">
+                        <div class="col-content">
+                            <div class="store-picture"><img
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/contact-us-1.jpg"
+                                    alt=""></div>
+                            <div class="store-info">
+                                <div class="company flex-layout center_vertical">
+                                    <div class="col-img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/flag1.png"
+                                            alt=""></div>
+                                    <div class="col-content">
+                                        <p class="size-12 grey margin_0" style="line-height: 1.5;">
+                                            Dukanmarekt Digital Store</p>
+                                        <h4 class="margin_0 size-14">FRANCE</h4>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="store-address">
+                                <p class="margin_0">Add: S9 Heaven Stress, Beverly Hill, USA.</p>
+                                <p class="margin_0">Phone: +1 (800) 123 456 789</p>
+                                <p class="margin_0">Email: <a href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="5a1935342e3b392e1a3f283f342e323f373f74393537">[email&#160;protected]</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-content">
+                            <div class="store-picture"><img
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/contact-us-2.jpg"
+                                    alt=""></div>
+                            <div class="store-info">
+                                <div class="company flex-layout center_vertical">
+                                    <div class="col-img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/flag2.png"
+                                            alt=""></div>
+                                    <div class="col-content">
+                                        <p class="size-12 grey margin_0" style="line-height: 1.5;">
+                                            Dukanmarekt Digital Store</p>
+                                        <h4 class="margin_0 size-14">FRANCE</h4>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="store-address">
+                                <p class="margin_0">Add: S9 Heaven Stress, Beverly Hill, USA.</p>
+                                <p class="margin_0">Phone: +1 (800) 123 456 789</p>
+                                <p class="margin_0">Email: <a href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="cf8ca0a1bbaeacbb8faabdaaa1bba7aaa2aae1aca0a2">[email&#160;protected]</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-content">
+                            <div class="store-picture"><img
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/contact-us-3.jpg"
+                                    alt=""></div>
+                            <div class="store-info">
+                                <div class="company flex-layout center_vertical">
+                                    <div class="col-img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/flag3.png"
+                                            alt=""></div>
+                                    <div class="col-content">
+                                        <p class="size-12 grey margin_0" style="line-height: 1.5;">
+                                            Dukanmarekt Digital Store</p>
+                                        <h4 class="margin_0 size-14">FRANCE</h4>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="store-address">
+                                <p class="margin_0">Add: S9 Heaven Stress, Beverly Hill, USA.</p>
+                                <p class="margin_0">Phone: +1 (800) 123 456 789</p>
+                                <p class="margin_0">Email: <a href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="34775b5a40555740745146515a405c5159511a575b59">[email&#160;protected]</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-content">
+                            <div class="store-picture"><img
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/contact-us-4.jpg"
+                                    alt=""></div>
+                            <div class="store-info">
+                                <div class="company flex-layout center_vertical">
+                                    <div class="col-img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/flag4.png"
+                                            alt=""></div>
+                                    <div class="col-content">
+                                        <p class="size-12 grey margin_0" style="line-height: 1.5;">
+                                            Dukanmarekt Digital Store</p>
+                                        <h4 class="margin_0 size-14">FRANCE</h4>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="store-address">
+                                <p class="margin_0">Add: S9 Heaven Stress, Beverly Hill, USA.</p>
+                                <p class="margin_0">Phone: +1 (800) 123 456 789</p>
+                                <p class="margin_0">Email: <a href="/cdn-cgi/l/email-protection"
+                                        class="__cf_email__"
+                                        data-cfemail="84c7ebeaf0e5e7f0c4e1f6e1eaf0ece1e9e1aae7ebe9">[email&#160;protected]</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="full-width"><iframe
+                src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near"
+                width="100%" height="500" frameborder="0" marginwidth="0" scrolling="no"
+                aria-label="London Eye, London, United Kingdom"></iframe></section>
+        <div class="container-min">
+            <div class="row contact-us">
+                <div class="col-lg-6">
+                    <p class="size-18">Information Questions</p>
+                    <h2>Prequently asked questions</h2>
+                    <div class="panel-group">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5>Will I receive the same product that I see in the picture?</h5>
+                            </div>
+                            <div class="panel-collapse collapse">
+                                <p>Consectetur cras scelerisque dis nec mi vestibulum ullamcorper turpis
+                                    enim natoque tempus a malesuada suspendisse iaculis adipiscing himenaeos
+                                    tincidunt.Tellus pharetra dis nostra urna a scelerisque id parturient
+                                    ullamcorper ullamcorper class ad consectetur tristique et.</p>
+                                <p>Hendrerit mollis facilisi odio a montes scelerisque a scelerisque justo a
+                                    praesent conubia aenean mi tempor.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5>Where can i view my sales receipt?</h5>
+                            </div>
+                            <div class="panel-collapse collapse">
+                                <p>Consectetur cras scelerisque dis nec mi vestibulum ullamcorper turpis
+                                    enim natoque tempus a malesuada suspendisse iaculis adipiscing himenaeos
+                                    tincidunt.Tellus pharetra dis nostra urna a scelerisque id parturient
+                                    ullamcorper ullamcorper class ad consectetur tristique et.</p>
+                                <p>Hendrerit mollis facilisi odio a montes scelerisque a scelerisque justo a
+                                    praesent conubia aenean mi tempor.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5>How can I return an items?</h5>
+                            </div>
+                            <div class="panel-collapse collapse">
+                                <p>Consectetur cras scelerisque dis nec mi vestibulum ullamcorper turpis
+                                    enim natoque tempus a malesuada suspendisse iaculis adipiscing himenaeos
+                                    tincidunt.Tellus pharetra dis nostra urna a scelerisque id parturient
+                                    ullamcorper ullamcorper class ad consectetur tristique et.</p>
+                                <p>Hendrerit mollis facilisi odio a montes scelerisque a scelerisque justo a
+                                    praesent conubia aenean mi tempor.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5>Will you restock items indicated as “out of stock?”</h5>
+                            </div>
+                            <div class="panel-collapse collapse">
+                                <p>Consectetur cras scelerisque dis nec mi vestibulum ullamcorper turpis
+                                    enim natoque tempus a malesuada suspendisse iaculis adipiscing himenaeos
+                                    tincidunt.Tellus pharetra dis nostra urna a scelerisque id parturient
+                                    ullamcorper ullamcorper class ad consectetur tristique et.</p>
+                                <p>Hendrerit mollis facilisi odio a montes scelerisque a scelerisque justo a
+                                    praesent conubia aenean mi tempor.</p>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5>Where can I ship my order?</h5>
+                            </div>
+                            <div class="panel-collapse collapse">
+                                <p>Consectetur cras scelerisque dis nec mi vestibulum ullamcorper turpis
+                                    enim natoque tempus a malesuada suspendisse iaculis adipiscing himenaeos
+                                    tincidunt.Tellus pharetra dis nostra urna a scelerisque id parturient
+                                    ullamcorper ullamcorper class ad consectetur tristique et.</p>
+                                <p>Hendrerit mollis facilisi odio a montes scelerisque a scelerisque justo a
+                                    praesent conubia aenean mi tempor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="form contact"
+                        action="https://mageblueskytech.com/dukamarket/en3/contact/index/post/"
+                        id="contact-form" method="post" data-hasrequired="&#x2A;&#x20;Required&#x20;Fields"
+                        data-mage-init='{"validation":{}}'>
+                        <fieldset class="fieldset">
+                            <p class="size-18"><span>Information About us</span></p>
+                            <h2><span>Contact us for any questions</span></h2>
+                            <div class="row field">
+                                <div class="field name required col-sm-6">
+                                    <div class="control">
+                                        <input name="name" id="name" title="Name" value="benson&#x20;opondo"
+                                            class="input-text" type="text" data-validate="{required:true}"
+                                            placeholder="Your name" />
+                                    </div>
+                                </div>
+                                <div class="field email required col-sm-6">
+                                    <div class="control">
+                                        <input name="email" id="email" title="Your&#x20;email"
+                                            value="owinoben2020&#x40;gmail.com" class="input-text"
+                                            type="email"
+                                            data-validate="{required:true, 'validate-email':true}"
+                                            placeholder="Your mail" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field telephone">
+                                <div class="control">
+                                    <input name="telephone" id="telephone" title="Phone&#x20;Number"
+                                        value="" class="input-text" type="text"
+                                        placeholder="Phone number" />
+                                </div>
+                            </div>
+                            <div class="field comment required">
+                                <div class="control">
+                                    <textarea name="comment" id="comment"
+                                        title="What&#x2019;s&#x20;on&#x20;your&#x20;mind&#x3F;"
+                                        placeholder="What’s on your mind?" class="input-text" cols="5"
+                                        rows="3" data-validate="{required:true}"></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <input type="hidden" name="hideit" id="hideit" value="" />
+                                <button type="submit" title="Ask&#x20;a&#x20;question"
+                                    class="action submit primary">
+                                    <span>Ask a question</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

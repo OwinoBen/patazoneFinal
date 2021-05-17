@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="page messages">
+    <div data-placeholder="messages"></div>
+    <div data-bind="scope: 'messages'">
+        <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+            class="messages">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: messages().messages && messages().messages.length > 0 -->
+        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+data: messages().messages, as: 'message'
+}">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+<div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="4Ve7VVG45MdfZ3f7" />
+        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+        </div>
+        <section class="full-width">
+            <div class="banner-about-top absolute-content"><img
+                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-about-us.jpg"
+                    alt="">
+                <div class="content">
+                    <h1 class="size-60 regular" style="text-align: center;"><span
+                            style="color: #ffffff;">About Us</span></h1>
+                    <p style="text-align: center;"><span style="color: #ddd;">A wonderful serenity has taken
+                            possession of my entire soul, like these<br>sweet mornings of spring which I
+                            enjoy with my whole heart.</span></p>
+                    <div class="action-more flex-layout no-wrap" style="text-align: center;"><a class="btn"
+                            title="View more" href="#">View more</a><a class="btn"
+                            style="background-color: #fff; color: #222;" title="See project" href="#">See
+                            project</a></div>
+                </div>
+            </div>
+        </section>
+        <section class="about-top container-min">
+            <div class="row">
+                <div class="about-left col-md-7">
+                    <h5 class="color_primary size-14 uppercase" style="text-align: left;">About Our Online
+                        Store</h5>
+                    <h2 class="size-36 light margin_bottom_0">Hello,</h2>
+                    <h2 class="size-36">With 25+ Years Of Experience</h2>
+                    <p class="size-18"><span style="color: #222; line-height: 2;">"Over 25 years Dukamarket
+                            helping companies reach their <br>financial and branding goals.</span></p>
+                    <p style="line-height: 2;">The perfect way to enjoy brewing tea on low hanging fruit to
+                        identify. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+                        molestie consequat, vel illum dolore eu feugiat nulla facilisis. For me, the most
+                        important part of improving at photography. The perfect way to enjoy brewing tea on
+                        low hanging fruit to identify. Duis autem vel eum iriure dolor in hendrerit in
+                        vulputate velit esse molestie consequat.</p>
+                </div>
+                <div class="about-right col-sm-5 d-none d-md-block">
+                    <div><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-about-us1.png"
+                            alt=""></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-work section full-width"
+            style="background: #f3f5f6; padding: 6rem 0;">
+            <div class="container-min">
+                <div class="title-block">
+                    <h5 class="color_primary uppercase size-14  margin_0" style="text-align: center;">How it
+                        works</h5>
+                    <h2 class="size-36" style="text-align: center;">Complete Customer Ideas</h2>
+                    <p style="text-align: center;">The perfect way to enjoy brewing tea on low hanging fruit
+                        to identify. Duis autem vel eum iriure dolor in hendrerit<br>in vulputate velit esse
+                        molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                </div>
+                <div class="owl-carousel owl-theme" data-items="3" data-bigdesktop="3" data-smalldesktop="3"
+                    data-bigtablet="3" data-tablet="3" data-smalltablet="2" data-mobile="1" data-margin="30"
+                    data-loop="true" data-center="false" data-stagepadding="" data-nav="false"
+                    data-navnext="" data-navprev="" data-dots="true" data-autoplay="false">
+                    <div class="col-content">
+                        <div class="flex-layout no-wrap space-between center_vertical">
+                            <p><img src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-1.png"
+                                    alt=""></p>
+                            <p class="size-80">01</p>
+                        </div>
+                        <h3 class="size-18" style="text-align: left;">Admin Verify Details</h3>
+                        <p style="text-align: left;">Sed ut perspiciatis unde omnis iste natus error<br>sit
+                            accusantium doloremque laudantium totam<br>rem aperiam, eaqueipsa quae
+                            veritatis.</p>
+                    </div>
+                    <div class="col-content">
+                        <div class="flex-layout no-wrap space-between center_vertical">
+                            <p><img src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-2.png"
+                                    alt=""></p>
+                            <p class="size-80">02</p>
+                        </div>
+                        <h3 class="size-18" style="text-align: left;">Send The Solution</h3>
+                        <p style="text-align: left;">Sed ut perspiciatis unde omnis iste natus error<br>sit
+                            accusantium doloremque laudantium totam<br>rem aperiam, eaqueipsa quae
+                            veritatis.</p>
+                    </div>
+                    <div class="col-content">
+                        <div class="flex-layout no-wrap space-between center_vertical">
+                            <p><img src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-3.png"
+                                    alt=""></p>
+                            <p class="size-80">03</p>
+                        </div>
+                        <h3 class="size-18" style="text-align: left;">Complete Profile</h3>
+                        <p style="text-align: left;">Sed ut perspiciatis unde omnis iste natus error<br>sit
+                            accusantium doloremque laudantium totam<br>rem aperiam, eaqueipsa quae
+                            veritatis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="setcion creative  container-min">
+            <div class="title-block">
+                <h5 class="color_primary uppercase size-14  margin_0" style="text-align: center;">TECHNOLOGY
+                    INDEX</h5>
+                <h2 class="size-36" style="text-align: center;">Let’s Get Creative</h2>
+                <p style="text-align: center;">The perfect way to enjoy brewing tea on low hanging fruit to
+                    identify. Duis autem vel eum iriure dolor in hendrerit<br>in vulputate velit esse
+                    molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="col-img"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-about-us-2.jpg"
+                            alt=""></div>
+                    <div class="col-content">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="flex-layout">
+                                    <div class="img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-4.png"
+                                            alt=""></div>
+                                    <h2 class="margin_0">8262+</h2>
+                                </div>
+                                <h3 class="size-18">Active Clients</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus<br>sit accusantium doloremque
+                                    laudantium totam.</p>
+                            </div>
+                            <div class="col-6">
+                                <div class="flex-layout">
+                                    <div class="img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-4.png"
+                                            alt=""></div>
+                                    <h2 class="margin_0">4268+</h2>
+                                </div>
+                                <h3 class="size-18">Projects Done</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus<br>sit accusantium doloremque
+                                    laudantium totam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-img"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-about-us-3.jpg"
+                            alt=""></div>
+                    <div class="col-content">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="flex-layout">
+                                    <div class="img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-4.png"
+                                            alt=""></div>
+                                    <h2 class="margin_0">643+</h2>
+                                </div>
+                                <h3 class="size-18">Team Advisors</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus<br>sit accusantium doloremque
+                                    laudantium totam.</p>
+                            </div>
+                            <div class="col-6">
+                                <div class="flex-layout">
+                                    <div class="img"><img
+                                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/icon-about-4.png"
+                                            alt=""></div>
+                                    <h2 class="margin_0">269k</h2>
+                                </div>
+                                <h3 class="size-18">Users Online</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus<br>sit accusantium doloremque
+                                    laudantium totam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section our-team section full-width" style="background: #f3f5f6; padding: 6rem 0;">
+            <div class="container-min">
+                <div class="title-block">
+                    <h5 class="color_primary uppercase size-14  margin_0" style="text-align: center;">THE
+                        TEAM</h5>
+                    <h2 class="size-36" style="text-align: center;">Meet Our Team</h2>
+                    <p style="text-align: center;">The perfect way to enjoy brewing tea on low hanging fruit
+                        to identify. Duis autem vel eum iriure dolor in hendrerit<br>in vulputate velit esse
+                        molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                </div>
+                <div class="owl-carousel owl-theme" data-items="3" data-bigdesktop="3" data-smalldesktop="3"
+                    data-bigtablet="3" data-tablet="3" data-smalltablet="2" data-mobile="1" data-margin="30"
+                    data-loop="true" data-center="false" data-stagepadding="" data-nav="false"
+                    data-navnext="" data-navprev="" data-dots="true" data-autoplay="false">
+                    <div class="col-content" style="text-align: center;">
+                        <div class="border-radius border-3"><img
+                                style="display: block; margin-left: auto; margin-right: auto;"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/team1.png"
+                                alt=""></div>
+                        <div class="col-infor" style="text-align: center;">
+                            <h5 class="size-14 uppercase margin_0">John Doe</h5>
+                            <p><span style="color: #999999;">CEO &amp; Pounder</span></p>
+                            <p>Sed ut perspiciatis unde omnis iste<br>natus error sitaccusantium doloremque
+                                laudan<br>totam rem aperiam.</p>
+                        </div>
+                    </div>
+                    <div class="col-content" style="text-align: center;">
+                        <div class="border-radius border-3" style="text-align: center;"><img
+                                style="display: block; margin-left: auto; margin-right: auto;"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/team2.png"
+                                alt=""></div>
+                        <div class="col-infor">
+                            <h5 class="size-14 uppercase margin_0">Youngly</h5>
+                            <p><span style="color: #999999;">Finace Manager</span></p>
+                            <p>Sed ut perspiciatis unde omnis iste<br>natus error sitaccusantium doloremque
+                                laudan<br>totam rem aperiam.</p>
+                        </div>
+                    </div>
+                    <div class="col-content">
+                        <div class="border-radius border-3" style="text-align: center;"><img
+                                style="display: block; margin-left: auto; margin-right: auto;"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/team3.png"
+                                alt=""></div>
+                        <div class="col-infor">
+                            <h5 class="size-14 uppercase margin_0" style="text-align: center;">Erenteam</h5>
+                            <p style="text-align: center;"><span style="color: #999999;">Design
+                                    Manager</span></p>
+                            <p style="text-align: center;">Sed ut perspiciatis unde omnis iste<br>natus
+                                error sitaccusantium doloremque laudan<br>totam rem aperiam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section connect margin_0">
+            <div class="container-min">
+                <div class="title-block">
+                    <h5 class="color_primary uppercase size-14  margin_0" style="text-align: center;">
+                        location store</h5>
+                    <h2 class="size-36" style="text-align: center;">Where We Are</h2>
+                    <p style="text-align: center;">The perfect way to enjoy brewing tea on low hanging fruit
+                        to identify. Duis autem vel eum iriure dolor in hendrerit<br>in vulputate velit esse
+                        molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                </div>
+                <div class="owl-carousel owl-theme" data-items="4" data-bigdesktop="4" data-smalldesktop="3"
+                    data-bigtablet="3" data-tablet="3" data-smalltablet="2" data-mobile="1" data-margin="30"
+                    data-loop="true" data-center="false" data-stagepadding="" data-nav="false"
+                    data-navnext="" data-navprev="" data-dots="true" data-autoplay="false">
+                    <div class="col-content"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/about-store-1.png"
+                            alt="">
+                        <div class="top">
+                            <h4 class="size-16">92 Rue Pelleport - Paris</h4>
+                        </div>
+                        <p>Adress: 116 Example Street 68, Mahattan<br>Phone: (+800) 123 456 7891<br>Email:
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                data-cfemail="82e3f0efe3ecebe3c2e5efe3ebeeace1edef">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                    <div class="col-content"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/about-store-2.png"
+                            alt="">
+                        <div class="top">
+                            <h4 class="size-16">26 Stanley Rd - London</h4>
+                        </div>
+                        <p>Adress: 116 Example Street 68, Mahattan<br>Phone: (+800) 123 456 7891<br>Email:
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                data-cfemail="05647768646b6c64456268646c692b666a68">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                    <div class="col-content"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/about-store-3.png"
+                            alt="">
+                        <div class="top">
+                            <h4 class="size-16">32 Prospect Heights - New York</h4>
+                        </div>
+                        <p>Adress: 116 Example Street 68, Mahattan<br>Phone: (+800) 123 456 7891<br>Email:
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                data-cfemail="2140534c404f484061464c40484d0f424e4c">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                    <div class="col-content"><img
+                            src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                            data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/about-store-2.png"
+                            alt="">
+                        <div class="top">
+                            <h4 class="size-16">86 Georgia Rd - Turkey</h4>
+                        </div>
+                        <p>Adress: 116 Example Street 68, Mahattan<br>Phone: (+800) 123 456 7891<br>Email:
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                data-cfemail="e687948b87888f87a6818b878f8ac885898b">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock content %}

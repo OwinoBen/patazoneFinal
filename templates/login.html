@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<a id="contentarea" tabindex="-1"></a>
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" >Customer Login</span>
+    </h1>
+</div>
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Contact Us</span>
+    </h1>
+</div>
+<div class="page messages">
+    <div data-placeholder="messages"></div>
+    <div data-bind="scope: 'messages'">
+        <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+            class="messages">
+            <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: messages().messages && messages().messages.length > 0 -->
+        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+        data: messages().messages, as: 'message'
+    }">
+            <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+</div>
+<div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="85q7pageqhdRSnjT" />
+        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+        </div>
+        <div class="login-container">
+            <div class="block block-customer-login">
+                <div class="block-title">
+                    <strong id="block-customer-login-heading" role="heading" aria-level="2">Registered
+                        Customers</strong>
+                </div>
+                <div class="block-content" aria-labelledby="block-customer-login-heading">
+                    <form class="form form-login"
+                        action=""
+                        method="post" id="login-form" data-mage-init='{"validation":{}}'>
+                        <input name="form_key" type="hidden" value="85q7pageqhdRSnjT"/>
+                        <fieldset class="fieldset login" data-hasrequired="* Required Fields">
+                            <div class="field note">If you have an account, sign in with your email address.</div>
+                            <div class="field email required">
+                                <label class="label" for="email"><span>Email</span></label>
+                                <div class="control">
+                                    <input name="login[username]" value="" autocomplete="off" id="email" type="email"
+                                        class="input-text" title="Email" data-mage-init='{"mage/trim-input":{}}'
+                                        data-validate="{required:true, 'validate-email':true}">
+                                </div>
+                            </div>
+                            <div class="field password required">
+                                <label for="pass" class="label"><span>Password</span></label>
+                                <div class="control">
+                                    <input name="login[password]" type="password" autocomplete="off" class="input-text"
+                                        id="pass" title="Password" data-validate="{required:true}">
+                                </div>
+                            </div>
+                            <div class="actions-toolbar">
+                                <div class="primary"><button style="background-color: #b92227;" type="submit" class="action login primary" name="send"
+                                        id="send2"><span>Sign In</span></button></div>
+                                <div class="secondary"><a class="action remind"
+                                        href="https://mageblueskytech.com/dukamarket/en3/customer/account/forgotpassword/"><span>Forgot
+                                            Your Password?</span></a></div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="block block-new-customer">
+                <div class="block-title">
+                    <strong id="block-new-customer-heading" role="heading" aria-level="2">New Customers</strong>
+                </div>
+                <div class="block-content" aria-labelledby="block-new-customer-heading">
+                    <p>Creating an account has many benefits: check out faster, keep more than one address, track orders
+                        and more.</p>
+                    <div class="actions-toolbar" >
+                        <div class="primary"  >
+                            <a href="" 
+                                class="action create primary" style="background: #b92227;"><span>Create an Account</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

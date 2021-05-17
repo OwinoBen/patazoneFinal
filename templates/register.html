@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<a id="contentarea" tabindex="-1"></a>
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Create New Customer Account</span>
+    </h1>
+</div>
+<div class="page messages">
+    <div data-placeholder="messages"></div>
+    <div data-bind="scope: 'messages'">
+        <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+            class="messages">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: messages().messages && messages().messages.length > 0 -->
+        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+data: messages().messages, as: 'message'
+}">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+<div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="4ag7cJxqhR23FSa7" />
+        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+        </div>
+        <form class="form create account form-create-account"
+            action="" method="post"
+            id="form-validate" enctype="multipart/form-data" autocomplete="off">
+            <input name="form_key" type="hidden" value="4ag7cJxqhR23FSa7" />
+            <fieldset class="fieldset create info">
+                <legend class="legend"><span>Personal Information</span></legend><br>
+                <input type="hidden" name="success_url" value="">
+                <input type="hidden" name="error_url" value="">
+                <div class="field field-name-firstname required">
+                    <label class="label" for="firstname"><span>First Name</span></label>
+                    <div class="control">
+                        <input type="text" id="firstname" name="firstname" value="" title="First&#x20;Name"
+                            class="input-text required-entry" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field field-name-lastname required">
+                    <label class="label" for="lastname"><span>Last Name</span></label>
+                    <div class="control">
+                        <input type="text" id="lastname" name="lastname" value="" title="Last&#x20;Name"
+                            class="input-text required-entry" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field choice newsletter">
+                    <input type="checkbox" name="is_subscribed"
+                        title="Sign&#x20;Up&#x20;for&#x20;Newsletter" value="1" id="is_subscribed"
+                        class="checkbox">
+                    <label for="is_subscribed" class="label">
+                        <span>Sign Up for Newsletter</span>
+                    </label>
+                </div>
+                <div class="field choice">
+                    <input type="checkbox" name="assistance_allowed_checkbox"
+                        title="Allow&#x20;remote&#x20;shopping&#x20;assistance" value="1"
+                        id="assistance_allowed_checkbox" class="checkbox">
+                    <label for="assistance_allowed_checkbox" class="label">
+                        <span>Allow&#x20;remote&#x20;shopping&#x20;assistance</span>
+                    </label>
+                    <input type="hidden" name="assistance_allowed" value="" />
+                    <div class="field-tooltip toggle">
+                        <span id="tooltip-label" class="label"><span>Tooltip</span></span>
+                        <span id="tooltip" class="field-tooltip-action action-help" tabindex="0"
+                            data-toggle="dropdown"
+                            data-bind="mageInit: {'dropdown':{'activeClass': '_active', 'parent': '.field-tooltip.toggle'}}"
+                            aria-labelledby="tooltip-label" aria-haspopup="true" aria-expanded="false"
+                            role="button">
+                        </span>
+                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+                            This&#x20;allows&#x20;merchants&#x20;to&#x20;&quot;see&#x20;what&#x20;you&#x20;see&quot;&#x20;and&#x20;take&#x20;actions&#x20;on&#x20;your&#x20;behalf&#x20;in&#x20;order&#x20;to&#x20;provide&#x20;better&#x20;assistance.
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset create account" data-hasrequired="&#x2A;&#x20;Required&#x20;Fields">
+                <legend class="legend"><span>Sign-in Information</span></legend><br>
+                <div class="field required">
+                    <label for="email_address" class="label"><span>Email</span></label>
+                    <div class="control">
+                        <input type="email" name="email" autocomplete="email" id="email_address" value=""
+                            title="Email" class="input-text" data-mage-init='{"mage/trim-input":{}}'
+                            data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="password" class="label"><span>Password</span></label>
+                    <div class="control">
+                        <input type="password" name="password" id="password" title="Password"
+                            class="input-text" data-password-min-length="8"
+                            data-password-min-character-sets="3"
+                            data-validate="{required:true, 'validate-customer-password':true}"
+                            autocomplete="off">
+                        <div id="password-strength-meter-container" data-role="password-strength-meter"
+                            aria-live="polite">
+                            <div id="password-strength-meter" class="password-strength-meter">
+                                Password Strength:
+                                <span id="password-strength-meter-label"
+                                    data-role="password-strength-meter-label">
+                                    No Password </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field confirmation required">
+                    <label for="password-confirmation" class="label">
+                        <span>Confirm Password</span>
+                    </label>
+                    <div class="control">
+                        <input type="password" name="password_confirmation" title="Confirm&#x20;Password"
+                            id="password-confirmation" class="input-text"
+                            data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset additional_info">
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Create&#x20;an&#x20;Account"  style="background: #b92227;">
+                        <span>Create an Account</span>
+                    </button>
+                </div>
+                <div class="secondary">
+                    <a class="action back"
+                        href="" style="background: #b92227;"> 
+                        <span>Back</span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

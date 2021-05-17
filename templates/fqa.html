@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Frequently Asked Questions</span>
+    </h1>
+</div>
+<div class="page messages">
+    <div data-placeholder="messages"></div>
+    <div data-bind="scope: 'messages'">
+        <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
+            class="messages">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: messages().messages && messages().messages.length > 0 -->
+        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+data: messages().messages, as: 'message'
+}">
+            <div data-bind="attr: {
+class: 'message-' + message.type + ' ' + message.type + ' message',
+'data-ui-id': 'message-' + message.type
+}">
+                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+<div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+        </div>
+        <div class="block faq-list">
+            <div class="list-questions">
+                <ul class="level1 list-unstyled">
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>At vero eos et accusamus et iusto odio
+                                dignissimos ducimus qui blanditiis?</a></h4>
+                        <div class="answer">
+                            <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum
+                                et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda
+                                est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
+                                debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae
+                                sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
+                                delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
+                                perferendis doloribus asperiores repellat.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>What is Lorem Ipsum?</a></h4>
+                        <div class="answer">
+                            <p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                                text ever since the 1500s, when an unknown printer took a galley of type and
+                                scrambled it to make a type specimen book.&nbsp;</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>The standard Lorem Ipsum passage, used
+                                since the 1500s?</a></h4>
+                        <div class="answer">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>Why don't you ship to my country?</a>
+                        </h4>
+                        <div class="answer">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+                                porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
+                                dolore magnam aliquam quaerat voluptatem.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>Ut labore et dolore magna aliqua. Ut
+                                enim ad?</a></h4>
+                        <div class="answer">
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi&nbsp;</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>I have forgotten my username, now
+                                what?</a></h4>
+                        <div class="answer">
+                            <p>Cras neque nulla, convallis non commodo et, euismod nonsese. At vero eos et
+                                accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                voluptatum deleniti atque corrupti</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>What methods of payment are
+                                accepted?</a></h4>
+                        <div class="answer">
+                            <p>Cras neque nulla, convallis non commodo et, euismod nonsese. At vero eos et
+                                accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                voluptatum deleniti atque corrupti</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <h4 class="question"><a><i class="toogle"></i>How long will it take for my items to
+                                arrive?</a></h4>
+                        <div class="answer">
+                            <p>Lorem ipsum dolor sit amet isse potenti. Vesquam ante aliquet lacusemper
+                                elit. Cras neque nulla, convallis non commodo et, euismod nonsese. At vero
+                                eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                                molestias excepturi sint occaecati cupiditate non provident, similique sunt
+                                in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+                                fuga.</p>
+                            <p>Cras neque nulla, convallis non commodo et, euismod nonsese. At vero eos et
+                                accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                voluptatum deleniti atque corrupti</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

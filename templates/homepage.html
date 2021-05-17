@@ -1,0 +1,2715 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a id="contentarea" tabindex="-1"></a>
+<div class="page messages">
+  <div data-placeholder="messages"></div>
+  <div data-bind="scope: 'messages'">
+    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+    <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+      <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+        <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+    <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+        data: messages().messages, as: 'message'
+    }">
+      <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+        <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+  </div>
+</div>
+<div class="columns">
+  <div class="column main">
+    <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+    <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+      <!-- ko template: getTemplate() -->
+      <!-- /ko -->
+    </div>
+    <div class="row no-wrap-desktop col-on-top section no-wrap-desktop">
+      <div class="col-slide">
+        <div class="
+                    section
+                    no-full-width
+                    slider-wrapper
+                    theme-default
+                    wrapper-the-blue-sky-slider
+                  ">
+          <div id="rokanthemes-slidebanner-4">
+            <div class="nivoSlider-loading-page-still-unsuc">
+              <div class="nivoslider-show-loading-in-web d-none d-md-block" style="min-height: 400px"></div>
+              <div class="
+                          nivoslider-show-loading-in-mobile
+                          d-block d-md-none
+                        " style="min-height: 300px"></div>
+              <span></span>
+            </div>
+            <div class="container-the-blue-sky-slider nivoSlider">
+              <a href="shop.html" title="Digital 03 - Side show"><img class="banner-nivo-slider-mobile-and-web no-lazy"
+                  alt="Digital 03 - Side show" title="#htmlcaption10"
+                  data-src-mobile="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide-mobile-1.png"
+                  data-src-desktop="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide1.png"
+                  src="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide1.png" /></a>
+              <a href="shop.html" title="Digital 03 - Side show"><img class="banner-nivo-slider-mobile-and-web no-lazy"
+                  alt="Digital 03 - Side show" title="#htmlcaption14"
+                  data-src-mobile="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide-mobile-2.png"
+                  data-src-desktop="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide2.png"
+                  src="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide2.png" /></a>
+              <a href="shop.html" title="Digital 03 - Side show"><img class="banner-nivo-slider-mobile-and-web no-lazy"
+                  alt="Digital 03 - Side show" title="#htmlcaption15"
+                  data-src-mobile="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide-mobile-3.png"
+                  data-src-desktop="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide3.png"
+                  src="https://mageblueskytech.com/dukamarket/media/slidebanner/h/3/h3-slide3.png" /></a>
+            </div>
+            <div class="
+                        container-the-blue-sky-banner-text
+                        nivo-html-caption nivo-caption
+                      " id="htmlcaption10">
+              <div class="
+                          banner-postion-fixed
+                          the-blue-sky-banner-text
+                          left_center
+                        ">
+                <div class="container">
+                  <h5 class="animate__animated animate__slideInUp has-bg" style="color: #222222">
+                    HOT deal
+                  </h5>
+                  <h2 class="
+                              animate__animated animate__slideInRight
+                              light
+                            " style="color: #ffffff">
+                    Limited
+                  </h2>
+                  <h2 class="animate__animated animate__slideInLeft" style="color: #ffffff">
+                    Hot week deals
+                  </h2>
+                  <p class="animate__animated animate__slideInUp" style="color: #ffffff">
+                    Discount 20% On Products
+                  </p>
+                  <a href="shop.html" title="Discover Now" class="
+                              btn
+                              button-style-nivo-slider
+                              animate__animated animate__zoomIn
+                              hidden-xs
+                            " style="color: #222222">Discover Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="
+                        container-the-blue-sky-banner-text
+                        nivo-html-caption nivo-caption
+                      " id="htmlcaption14">
+              <div class="
+                          banner-postion-fixed
+                          the-blue-sky-banner-text
+                          left_center
+                        ">
+                <div class="container">
+                  <h5 class="
+                              animate__animated animate__slideInDown
+                              has-bg
+                            " style="color: #222222">
+                    HOT sale
+                  </h5>
+                  <h2 class="animate__animated animate__slideInDown light" style="color: #ffffff">
+                    Big sale
+                  </h2>
+                  <h2 class="animate__animated animate__fadeInLeft" style="color: #ffffff">
+                    Top Accessories
+                  </h2>
+                  <p class="animate__animated animate__slideInLeft" style="color: #ffffff">
+                    Best Sport Edition 2022
+                  </p>
+                  <a href="shop.html" title="Discover Now" class="
+                              btn
+                              button-style-nivo-slider
+                              animate__animated animate__zoomIn
+                              hidden-xs
+                            " style="color: #222222">Discover Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="
+                        container-the-blue-sky-banner-text
+                        nivo-html-caption nivo-caption
+                      " id="htmlcaption15">
+              <div class="
+                          banner-postion-fixed
+                          the-blue-sky-banner-text
+                          left_center
+                        ">
+                <div class="container">
+                  <h5 class="animate__animated animate__fadeIn has-bg" style="color: #222222">
+                    Best Sport Edition 2022
+                  </h5>
+                  <h2 class="animate__animated animate__slideInLeft light" style="color: #ffffff">
+                    Gear 360
+                  </h2>
+                  <h2 class="animate__animated animate__slideInRight" style="color: #ffffff">
+                    wireless earbuds
+                  </h2>
+                  <p class="animate__animated animate__slideInUp" style="color: #ffffff">
+                    Top Quality Earbuds & Accessories
+                  </p>
+                  <a href="shop.html" title="Discover Now" class="
+                              btn
+                              button-style-nivo-slider
+                              animate__animated animate__fadeIn
+                              hidden-xs
+                            " style="color: #222222">Discover Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-banner-beside">
+        <div class="banner section row">
+          <div class="col-lg-6 col-md-6 d-none d-lg-block">
+            <div class="
+                        col-banner
+                        left
+                        center
+                        shadow
+                        radius
+                        absolute-content-image
+                        lazyload-content
+                      ">
+              <div class="banner-img no-animation hover-light-effect">
+                <img
+                  src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                  data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-h2-4-1.jpg" alt="" />
+              </div>
+              <div class="content">
+                <h3 class="size-24 regular get-size-vw">
+                  <a href="#"><span style="color: #ffffff">New Style</span><br /><span style="color: #ffffff">Bluetooh
+                      Speaker
+                    </span></a>
+                </h3>
+                <p class="size-16 get-size-vw">
+                  <span style="color: #ffffff">Free Shipping 20km</span>
+                </p>
+              </div>
+            </div>
+            <div class="
+                        col-banner
+                        left
+                        center
+                        shadow
+                        radius
+                        absolute-content-image
+                        lazyload-content
+                      ">
+              <div class="banner-img no-animation hover-light-effect">
+                <img
+                  src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                  data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-h2-4-2.jpg" alt="" />
+              </div>
+              <div class="content">
+                <h3 class="size-24 regular get-size-vw">
+                  <a href="#"><span style="color: #ffffff">Limited</span><br /><span style="color: #ffffff">Top Camera
+                    </span></a>
+                </h3>
+                <p class="size-16 get-size-vw">
+                  <span style="color: #ffffff">Top Quality Products</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="
+                        col-banner
+                        space-between
+                        center
+                        middle
+                        shadow
+                        radius
+                        absolute-content-image
+                        lazyload-content
+                      " style="height: 100%; background: #21b792">
+              <div class="banner-img no-animation hover-light-effect">
+                <img
+                  src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                  data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-h2-4-3.jpg" alt="" />
+              </div>
+              <div class="content space-between">
+                <div class="content-top" style="text-align: center">
+                  <h6 class="has-bg uppercase" style="text-align: center">
+                    Hot Sale
+                  </h6>
+                  <p class="size-18 get-size-vw margin_0" style="text-align: center">
+                    <span style="color: #ffffff">Xbox Wireless</span>
+                  </p>
+                  <h3 class="size-26 regular get-size-vw margin_0" style="text-align: center">
+                    <a href="#"><span style="color: #ffffff">Sale Up To 50% Off</span></a>
+                  </h3>
+                </div>
+                <div class="button-wrap">
+                  <a class="btn transparent small" style="color: #ffffff" title="shop now" href="#">SHOP NOW</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section shipping-block">
+      <div class="shipping-support">
+        <div class="row space-around">
+          <div class="col-auto col-lg-3 col-6">
+            <div class="col-content flex-layout center_hozital no-wrap">
+              <i class="fas fa-truck-moving" ><span class="hidden">icon icon-tracking</span></i>
+              <div class="content">
+                <h6 class="footer-title uppercase">Free Delivery</h6>
+                <p>For all orders over $120</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto col-lg-3 col-6">
+            <div class="col-content flex-layout center_hozital no-wrap">
+              <i class="fas fa-hand-holding-usd" ><span class="hidden">icon icon-tracking</span></i>
+              <div class="content">
+                <h6 class="footer-title uppercase">Safe Payment</h6>
+                <p>If goods have problems</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto col-lg-3 col-6">
+            <div class="col-content flex-layout center_hozital no-wrap">
+              <em class="icon icon-help-center" aria-hidden="true"><span class="hidden">icon
+                  icon-help-center</span></em>
+              <div class="content">
+                <h6 class="footer-title uppercase">24/7 Help Center</h6>
+                <p>24/7 Customer Support</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto col-lg-3 col-6">
+            <div class="col-content flex-layout center_hozital no-wrap">
+              <em class="icon icon-confidence" aria-hidden="true"><span class="hidden">icon
+                  icon-friendly-services</span></em>
+              <div class="content">
+                <h6 class="footer-title uppercase">Return money</h6>
+                <p>If goods have problems</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto col-lg-3 col-6 hidden-xl">
+            <div class="col-content flex-layout center_hozital no-wrap">
+              <em class="icon icon-friendly-services" aria-hidden="true"><span class="hidden">icon
+                  icon-help-center</span></em>
+              <div class="content">
+                <h6 class="footer-title uppercase">
+                  Friendly Services
+                </h6>
+                <p>30 day satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section full-width has-white-bg" style="background: #fff">
+      <div class="container">
+        <div class="
+                    section
+                    hot-deal-tab-slider hot-deal-tab-slider-customcss
+                    section-product
+                  ">
+          <div class="rokan-title">
+            <div class="supper-deal-title flex-layout space-between">
+              <h3 class="title-deal module-title">
+                <span>Flash Deals</span>
+              </h3>
+              <div class="right-deal flex-layout no-wrap-desktop">
+                <h5 class="sub-title-deal hidden-xs">
+                  Hurry Up! Offer ends in:
+                </h5>
+                <div class="super-deal-countdown" data-date="03/26/2023"></div>
+              </div>
+            </div>
+          </div>
+          <div class="products wrapper grid products-grid">
+            <div class="
+                        products
+                        list
+                        items
+                        product-items
+                        owl-carousel owl-theme
+                      " data-rtl="false" data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
+              data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0" data-loop="true"
+              data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1" data-nav="true"
+              data-navnext="" data-navprev="" data-rewind="true" data-dots="false" data-autoplay="false"
+              data-speed="500">
+              <div class="item-load group-rows-fixed-supper-deal item-row">
+                <div class="item product product-item">
+                  <div class="product-item-info">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                      class="product photo product-item-photo" tabindex="-1">
+                      <span class="
+                                  image0
+                                  image-switch
+                                  product-image-container
+                                ">
+                        <img class="product-image"
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/2/9/29_1_1.jpg"
+                          width="550" height="550" alt="Blue G9 Pro 2020 Battery Unlocked" />
+                      </span>
+                    </a>
+                    <div class="product-label">
+                      <span class="onsale">
+                        <span class="value">18%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load group-rows-fixed-supper-deal item-row">
+                <div class="item product product-item">
+                  <div class="product-item-info">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html"
+                      class="product photo product-item-photo" tabindex="-1">
+                      <span class="
+                                  image0
+                                  image-switch
+                                  product-image-container
+                                ">
+                        <img class="product-image"
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/4/14.jpg"
+                          width="550" height="550" alt="Samsung Galaxy International Vs" />
+                      </span>
+                    </a>
+                    <div class="product details product-item-details">
+                      <strong class="product name product-item-name">
+                        <a class="product-item-link"
+                          href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html">
+                          Samsung Galaxy International Vs
+                        </a>
+                      </strong>
+                      <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                        <div class="rating-summary">
+                          <span class="label"><span>Rating:</span></span>
+                          <div class="rating-result" title="60%">
+                            <span style="width: 60%"> </span>
+                          </div>
+                        </div>
+                        <div class="reviews-actions">
+                          <a class="action view"
+                            href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#reviews">
+                            <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                            <span>Review</span>
+                          </a>
+                          <a class="action add"
+                            href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#review-form">Add
+                            Your Review</a>
+                        </div>
+                      </div>
+                      <div class="price-box price-final_price" data-role="priceBox" data-product-id="4"
+                        data-price-box="product-id-4">
+                        <span class="
+                                    price-container
+                                    price-final_price&#x20;tax&#x20;weee
+                                  ">
+                          <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
+                              class="price">$70.00</span></span>
+                        </span>
+                      </div>
+                      <div class="product-sold">
+                        <div class="ruler-sold">
+                          <div class="ruler-sold-count" style="width: 30%"></div>
+                        </div>
+                        <div class="count-sold-available">
+                          <div class="count-sold">
+                            Sold: <span> 300/700 </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-item-inner">
+                        <div class="product actions product-item-actions">
+                          <div class="actions-primary">
+                            <form data-role="tocart-form" data-product-sku="Digital007"
+                              action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/4/"
+                              method="post">
+                              <input type="hidden" name="product" value="4" />
+                              <input type="hidden" name="uenc"
+                                value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzQv" />
+                              <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                              <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                style="background-color: #b92227">
+                                <span>Add to Cart</span>
+                              </button>
+                            </form>
+                          </div>
+                          <div data-role="add-to-links" class="actions-secondary">
+                            <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":4,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              data-action="add-to-wishlist" role="button">
+                              <span>Wish List</span>
+                            </a>
+                            <a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"4","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              role="button">
+                              <span>Add to Compare</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load group-rows-fixed-supper-deal item-row">
+                <div class="item product product-item">
+                  <div class="product-item-info">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html"
+                      class="product photo product-item-photo" tabindex="-1">
+                      <span class="
+                                  image0
+                                  image-switch
+                                  product-image-container
+                                ">
+                        <img class="product-image"
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/_/1.jpg"
+                          width="550" height="550" alt="Zmmyr 200Pcs Dust Flat Mouth" />
+                      </span>
+                    </a>
+                    <div class="product details product-item-details">
+                      <strong class="product name product-item-name">
+                        <a class="product-item-link"
+                          href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html">
+                          Zmmyr 200Pcs Dust Flat Mouth
+                        </a>
+                      </strong>
+                      <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                        <div class="rating-summary">
+                          <span class="label"><span>Rating:</span></span>
+                          <div class="rating-result" title="100%">
+                            <span style="width: 100%"> </span>
+                          </div>
+                        </div>
+                        <div class="reviews-actions">
+                          <a class="action view"
+                            href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#reviews">
+                            <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                            <span>Review</span>
+                          </a>
+                          <a class="action add"
+                            href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#review-form">Add
+                            Your Review</a>
+                        </div>
+                      </div>
+                      <div class="price-box price-final_price" data-role="priceBox" data-product-id="5"
+                        data-price-box="product-id-5">
+                        <span class="
+                                    price-container
+                                    price-final_price&#x20;tax&#x20;weee
+                                  ">
+                          <span data-price-amount="90" data-price-type="finalPrice" class="price-wrapper"><span
+                              class="price">$90.00</span></span>
+                        </span>
+                      </div>
+                      <div class="product-sold">
+                        <div class="ruler-sold">
+                          <div class="ruler-sold-count" style="width: 24.8%"></div>
+                        </div>
+                        <div class="count-sold-available">
+                          <div class="count-sold">
+                            Sold: <span> 248/752 </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-item-inner">
+                        <div class="product actions product-item-actions">
+                          <div class="actions-primary">
+                            <form data-role="tocart-form" data-product-sku="Digital0034"
+                              action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/5/"
+                              method="post">
+                              <input type="hidden" name="product" value="5" />
+                              <input type="hidden" name="uenc"
+                                value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzUv" />
+                              <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                              <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                style="background-color: #b92227">
+                                <span>Add to Cart</span>
+                              </button>
+                            </form>
+                          </div>
+                          <div data-role="add-to-links" class="actions-secondary">
+                            <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":5,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              data-action="add-to-wishlist" role="button">
+                              <span>Wish List</span>
+                            </a>
+                            <a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"5","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              role="button">
+                              <span>Add to Compare</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load group-rows-fixed-supper-deal item-row">
+                <div class="item product product-item">
+                  <div class="product-item-info">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html"
+                      class="product photo product-item-photo" tabindex="-1">
+                      <span class="
+                                  image0
+                                  image-switch
+                                  product-image-container
+                                ">
+                        <img class="product-image"
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/2/12.jpg"
+                          width="550" height="550" alt="A80 Pro 4G Unlocked Cell Phones" />
+                      </span>
+                    </a>
+                    <div class="product details product-item-details">
+                      <strong class="product name product-item-name">
+                        <a class="product-item-link"
+                          href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html">
+                          A80 Pro 4G Unlocked Cell Phones
+                        </a>
+                      </strong>
+                      <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                        <div class="rating-summary">
+                          <span class="label"><span>Rating:</span></span>
+                          <div class="rating-result" title="100%">
+                            <span style="width: 100%"> </span>
+                          </div>
+                        </div>
+                        <div class="reviews-actions">
+                          <a class="action view"
+                            href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#reviews">
+                            <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                            <span>Review</span>
+                          </a>
+                          <a class="action add"
+                            href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#review-form">Add
+                            Your Review</a>
+                        </div>
+                      </div>
+                      <div class="price-box price-final_price" data-role="priceBox" data-product-id="6"
+                        data-price-box="product-id-6">
+                        <span class="
+                                    price-container
+                                    price-final_price&#x20;tax&#x20;weee
+                                  ">
+                          <span data-price-amount="120" data-price-type="finalPrice" class="price-wrapper"><span
+                              class="price">$120.00</span></span>
+                        </span>
+                      </div>
+                      <div class="product-sold">
+                        <div class="ruler-sold">
+                          <div class="ruler-sold-count" style="width: 16%"></div>
+                        </div>
+                        <div class="count-sold-available">
+                          <div class="count-sold">
+                            Sold: <span> 160/840 </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-item-inner">
+                        <div class="product actions product-item-actions">
+                          <div class="actions-primary">
+                            <form data-role="tocart-form" data-product-sku="Digital006"
+                              action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/6/"
+                              method="post">
+                              <input type="hidden" name="product" value="6" />
+                              <input type="hidden" name="uenc"
+                                value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzYv" />
+                              <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                              <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                style="background-color: #b92227">
+                                <span>Add to Cart</span>
+                              </button>
+                            </form>
+                          </div>
+                          <div data-role="add-to-links" class="actions-secondary">
+                            <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":6,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              data-action="add-to-wishlist" role="button">
+                              <span>Wish List</span>
+                            </a>
+                            <a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare"
+                              data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"6","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                              role="button">
+                              <span>Add to Compare</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="banner section banner-middle margin_0">
+            <div class="row row-10">
+              <div class="col-md-8 col-lg-6 col-10-padding">
+                <div class="row row-10">
+                  <div class="col-sm-6 col-10-padding">
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              ">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-1.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Cameras</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              ">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-2.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Accessories</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-10-padding">
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              " style="background: #afafaf; height: 100%">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-3.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Keyboard &amp;
+                            accessories</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="
+                          col-md-4 col-lg-6
+                          d-none d-md-block
+                          col-10-padding
+                        ">
+                <div class="row row-10">
+                  <div class="col-12 col-lg-6 col-10-padding">
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              ">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-4.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Smartphone</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              ">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-5.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Speaker &amp; audio</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 d-none d-lg-block col-10-padding">
+                    <div class="
+                                col-banner
+                                bottom
+                                center
+                                radius
+                                as-desktop
+                                absolute-content-image
+                                lazyload-content
+                              " style="background: #201f25; height: 100%">
+                      <div class="banner-img">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-category-6.png" alt="" />
+                      </div>
+                      <div class="content">
+                        <div class="button-wrap">
+                          <a class="btn auto_padding light small" title="shop now" href="shop">Gamepad and
+                            controller</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section group-product">
+      <div class="row row-10">
+        <div class="col-12 col-10-padding">
+          <div class="rokan-title has-see-all">
+            <h3 class="module-title">
+              <span style="color: #222; border-bottom: 1px Solid #b92227">Top Featured Products</span>
+            </h3>
+            <div class="see-all"><a href="shop">See All</a></div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-10-padding d-none d-xl-block">
+          <div class="
+                      section section-product
+                      wrapper_product_tabs
+                      container_horizontal_tab_postions
+                      count_product_tab_1
+                    ">
+            <div class="content_block" data-href="expages/featured.html">
+              <div class="columns" style="width: 100%">
+                <div class="column main">
+                  <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                  <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+                    <!-- ko template: getTemplate() -->
+                    <!-- /ko -->
+                  </div>
+                  <div class="products wrapper list products-list">
+                    <ol class="
+                                products
+                                list
+                                items
+                                product-items
+                                owl-carousel
+                              ">
+                      <div class="item-row" style="width: max-content">
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-1793172482
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo" src="img/images/oneplus.jpg"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/5/35.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-1793172482 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-1793172482 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label">
+                              <span class="onsale">
+                                <span class="value">-25%</span>
+                              </span>
+                            </div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                  OnePlus Nord N10 5G Unlocked
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="100%">
+                                    <span style="width: 100%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                    <span>Review</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="1"
+                                data-price-box="product-id-1">
+                                <span class="special-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Special Price</span>
+                                    <span id="product-price-1" data-price-amount="59.99" data-price-type="finalPrice"
+                                      class="price-wrapper"><span class="price">$59.99</span></span>
+                                  </span>
+                                </span>
+                                <span class="old-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Regular Price</span>
+                                    <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
+                                      class="price-wrapper"><span class="price">$79.99</span></span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital001"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/1/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="1" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8xLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-2833141512
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo"
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/0/30_1.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="Unlocked&#x20;Galaxy&#x20;Mobile&#x20;Phone" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-2833141512 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-2833141512 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label"></div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html">
+                                  Unlocked Galaxy Mobile Phone
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="90%">
+                                    <span style="width: 90%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                    <span>Reviews</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="2"
+                                data-price-box="product-id-2">
+                                <span class="
+                                            price-container
+                                            price-final_price&#x20;tax&#x20;weee
+                                          ">
+                                  <span id="product-price-2" data-price-amount="81" data-price-type="finalPrice"
+                                    class="price-wrapper"><span class="price">$81.00</span></span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital002"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/2/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="2" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8yLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":2,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"2","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                      <div class="item-row">
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-31796370639
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo"
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/2/9/29_1_1.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="Blue&#x20;G9&#x20;Pro&#x20;2020&#x20;Battery&#x20;Unlocked" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-31796370639 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-31796370639 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label">
+                              <span class="onsale">
+                                <span class="value">-18%</span>
+                              </span>
+                            </div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html">
+                                  Blue G9 Pro 2020 Battery Unlocked
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="87%">
+                                    <span style="width: 87%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">3</span>&nbsp;
+                                    <span>Reviews</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="3"
+                                data-price-box="product-id-3">
+                                <span class="special-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Special Price</span>
+                                    <span id="product-price-3" data-price-amount="90" data-price-type="finalPrice"
+                                      class="price-wrapper"><span class="price">$90.00</span></span>
+                                  </span>
+                                </span>
+                                <span class="old-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Regular Price</span>
+                                    <span id="old-price-3" data-price-amount="110" data-price-type="oldPrice"
+                                      class="price-wrapper"><span class="price">$110.00</span></span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital003"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/3/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="3" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8zLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":3,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"3","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-10-padding">
+          <div class="
+                      section section-product
+                      wrapper_category_product_tabs
+                      container_horizontal_tab_postions
+                      short_description
+                    " id="category_product_tab_1472736973">
+            <div class="widget-tabs fixed_only_one_category">
+              <ul>
+                <li>
+                  <a class="" href="expages/featured.html" data-href="expages/featured.html">
+                    <span>Top Deals</span>
+                  </a>
+                </li>
+              </ul>
+              <div class="widget-category-tab-banner">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-10-padding">
+          <div class="
+                      section section-product
+                      wrapper_product_tabs
+                      container_horizontal_tab_postions
+                      count_product_tab_1
+                    " id="product_tab_757348416">
+            <div class="content_block" data-href="">
+              <div class="columns" style="width: 100%">
+                <div class="column main">
+                  <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                  <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+                    <!-- ko template: getTemplate() -->
+                    <!-- /ko -->
+                  </div>
+                  <div class="products wrapper list products-list">
+                    <ol class="
+                                products
+                                list
+                                items
+                                product-items
+                                owl-carousel
+                              ">
+                      <div class="item-row" style="width: max-content">
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-1793172482
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo" src="img/images/oneplus.jpg"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/5/35.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-1793172482 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-1793172482 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label">
+                              <span class="onsale">
+                                <span class="value">-25%</span>
+                              </span>
+                            </div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                  OnePlus Nord N10 5G Unlocked
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="100%">
+                                    <span style="width: 100%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                    <span>Review</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="1"
+                                data-price-box="product-id-1">
+                                <span class="special-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Special Price</span>
+                                    <span id="product-price-1" data-price-amount="59.99" data-price-type="finalPrice"
+                                      class="price-wrapper"><span class="price">$59.99</span></span>
+                                  </span>
+                                </span>
+                                <span class="old-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Regular Price</span>
+                                    <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
+                                      class="price-wrapper"><span class="price">$79.99</span></span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital001"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/1/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="1" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8xLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-2833141512
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo"
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/0/30_1.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="Unlocked&#x20;Galaxy&#x20;Mobile&#x20;Phone" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-2833141512 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-2833141512 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label"></div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html">
+                                  Unlocked Galaxy Mobile Phone
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="90%">
+                                    <span style="width: 90%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                    <span>Reviews</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="2"
+                                data-price-box="product-id-2">
+                                <span class="
+                                            price-container
+                                            price-final_price&#x20;tax&#x20;weee
+                                          ">
+                                  <span id="product-price-2" data-price-amount="81" data-price-type="finalPrice"
+                                    class="price-wrapper"><span class="price">$81.00</span></span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital002"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/2/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="2" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8yLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":2,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"2","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                      <div class="item-row">
+                        <li class="item product product-item">
+                          <div class="product-item-info" data-container="product-list">
+                            <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                              class="product photo product-item-photo" tabindex="-1">
+                              <span class="
+                                          product-image-container
+                                          product-image-container-31796370639
+                                        ">
+                                <span class="product-image-wrapper">
+                                  <img class="product-image-photo"
+                                    src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/2/9/29_1_1.jpg"
+                                    loading="lazy" width="125" height="125"
+                                    alt="Blue&#x20;G9&#x20;Pro&#x20;2020&#x20;Battery&#x20;Unlocked" /></span>
+                              </span>
+                              <style>
+                                .product-image-container-31796370639 {
+                                  width: 125px;
+                                }
+
+                                .product-image-container-31796370639 span.product-image-wrapper {
+                                  padding-bottom: 100%;
+                                }
+                              </style>
+                            </a>
+                            <div class="product-label">
+                              <span class="onsale">
+                                <span class="value">-18%</span>
+                              </span>
+                            </div>
+                            <div class="
+                                        product
+                                        details
+                                        product-item-details
+                                      ">
+                              <strong class="product name product-item-name">
+                                <a class="product-item-link"
+                                  href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html">
+                                  Blue G9 Pro 2020 Battery Unlocked
+                                </a>
+                              </strong>
+                              <div class="product-reviews-summary" itemscope
+                                itemtype="http://schema.org/AggregateRating">
+                                <div class="rating-summary">
+                                  <span class="label"><span>Rating:</span></span>
+                                  <div class="rating-result" title="87%">
+                                    <span style="width: 87%"> </span>
+                                  </div>
+                                </div>
+                                <div class="reviews-actions">
+                                  <a class="action view"
+                                    href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#reviews">
+                                    <span itemscope itemtype="https://schema.org/reviewCount">3</span>&nbsp;
+                                    <span>Reviews</span>
+                                  </a>
+                                  <a class="action add"
+                                    href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#review-form">Add
+                                    Your Review</a>
+                                </div>
+                              </div>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="3"
+                                data-price-box="product-id-3">
+                                <span class="special-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Special Price</span>
+                                    <span id="product-price-3" data-price-amount="90" data-price-type="finalPrice"
+                                      class="price-wrapper"><span class="price">$90.00</span></span>
+                                  </span>
+                                </span>
+                                <span class="old-price">
+                                  <span class="
+                                              price-container
+                                              price-final_price&#x20;tax&#x20;weee
+                                            ">
+                                    <span class="price-label">Regular Price</span>
+                                    <span id="old-price-3" data-price-amount="110" data-price-type="oldPrice"
+                                      class="price-wrapper"><span class="price">$110.00</span></span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="
+                                          product
+                                          description
+                                          product-item-description
+                                        ">
+                                <p>
+                                  Typi non habent claritatem insitam est
+                                  usus legentis in qui facit orum
+                                  claritatem lectores legere me lius
+                                  quod legunt saepius. Sit amet conse
+                                  ctetur adipisicing elit sed do eiusmod
+                                  tempor.
+                                </p>
+                              </div>
+                              <div class="product-item-inner">
+                                <div class="
+                                            product
+                                            actions
+                                            product-item-actions
+                                          ">
+                                  <div class="actions-primary">
+                                    <form data-role="tocart-form" data-product-sku="Digital003"
+                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/3/"
+                                      method="post">
+                                      <input type="hidden" name="product" value="3" />
+                                      <input type="hidden" name="uenc"
+                                        value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8zLw,," />
+                                      <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+                                      <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary">
+                                        <span>Add to Cart</span>
+                                      </button>
+                                    </form>
+                                  </div>
+                                  <div data-role="add-to-links" class="actions-secondary">
+                                    <a href="#" class="action towishlist" title="Add&#x20;to&#x20;Wish&#x20;List"
+                                      aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":3,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      data-action="add-to-wishlist" role="button">
+                                      <span>Wish List</span>
+                                    </a>
+                                    <a href="#" class="action tocompare" title="Add to Compare"
+                                      aria-label="Add to Compare"
+                                      data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"3","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                      role="button">
+                                      <span>Add to Compare</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-10-padding d-none d-xl-block">
+          <div class="
+                      section section-product
+                      wrapper_product_tabs
+                      container_horizontal_tab_postions
+                      count_product_tab_1
+                    " id="product_tab_1595192247">
+            <div class="content_block"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background: #b92227;">
+      <div class="section auto-play" style="text-align: center; background: #b92227">
+        <div class="notification-text flex-layout no-wrap">
+          <span style="color: #fff; white-space: nowrap">Free UK delivery - Return over $100.00 ( Excluding Homeware
+            ) | Free UK Collect From Store</span>
+          <span style="color: #fff; white-space: nowrap">Design Week / 15% Off the website / Code:
+            AYOSALE-2020</span>
+          <span style="color: #fff; white-space: nowrap">Orders shipping as usual. See more: COVID-19 FAQ</span>
+          <span style="color: #fff; white-space: nowrap">Always iconic. Now organic. Introducing the $20 Organic
+            Tee.</span>
+          <span style="color: #fff; white-space: nowrap">With each receipt over $150 from AYO Store get voucher 15%
+            off immediately.</span>
+        </div>
+      </div>
+    </div>
+    <div class="section full-width has-white-bg margin_bottom_0" style="background: #fff">
+      <div class="container">
+        <div class="banner section banner-middle owl-carousel owl-theme" data-items="3" data-bigdesktop="3"
+          data-smalldesktop="2" data-bigtablet="2" data-tablet="2" data-smalltablet="2" data-mobile="1" data-margin="20"
+          data-loop="true" data-center="false" data-mousedrag="false" data-touchdrag="true" data-stagepadding=""
+          data-nav="false" data-navnext="" data-navprev="" data-rewind="false" data-dots="true" data-autoplay="true">
+          <div class="
+                      col-banner
+                      left
+                      center
+                      left
+                      center
+                      shadow
+                      radius
+                      absolute-content-image
+                      lazyload-content
+                    ">
+            <div class="banner-img no-animation hover-light-effect">
+              <img
+                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-banner-middle-1.png" alt="" />
+            </div>
+            <div class="content">
+              <p class="size-16 regular margin_0">
+                <a href="#"><span style="color: #ffc000">Top Sale Products</span></a>
+              </p>
+              <p class="size-24 margin_0">
+                <span style="color: #ffffff">Top Super Laptop 2022</span>
+              </p>
+              <p class="size-16">
+                <span style="color: #ffffff">Discount 20% On Products</span>
+              </p>
+            </div>
+          </div>
+          <div class="
+                      col-banner
+                      left
+                      center
+                      middle
+                      shadow
+                      radius
+                      absolute-content-image
+                      lazyload-content
+                    ">
+            <div class="banner-img no-animation hover-light-effect">
+              <img
+                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-banner-middle-2.png" alt="" />
+            </div>
+            <div class="content">
+              <p class="size-16 regular margin_0">
+                <a href="#"><span style="color: #ffc000">Top Sale Products</span></a>
+              </p>
+              <p class="size-24 margin_0">
+                <span style="color: #ffffff">Top Super Laptop 2022</span>
+              </p>
+              <p class="size-16">
+                <span style="color: #ffffff">Discount 20% On Products</span>
+              </p>
+            </div>
+          </div>
+          <div class="
+                      col-banner
+                      left
+                      center
+                      middle
+                      shadow
+                      radius
+                      absolute-content-image
+                      lazyload-content
+                    ">
+            <div class="banner-img no-animation hover-light-effect">
+              <img
+                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/h3-banner-middle-3.png" alt="" />
+            </div>
+            <div class="content">
+              <p class="size-16 regular margin_0">
+                <a href="#"><span style="color: #ffc000">Top Sale Products</span></a>
+              </p>
+              <p class="size-24 margin_0">
+                <span style="color: #ffffff">Top Super Laptop 2022</span>
+              </p>
+              <p class="size-16">
+                <span style="color: #ffffff">Discount 20% On Products</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="container">
+          <div class="
+                      section section-product
+                      wrapper_category_product_tabs
+                      container_horizontal_tab_postions
+                    " id="category_product_tab_843580351">
+            <div class="rokan-title">
+              <h3 class="module-title">
+                <span>Top Selling Products</span>
+              </h3>
+            </div>
+            <div class="widget-tabs">
+              <ul>
+                <li>
+                  <a class=""
+                    href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/8/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                    data-href="https://mageblueskytech.com/dukamarket/en3/laptop-ipad.html">
+                    <span>Tablets & Mobile Phone</span>
+                  </a>
+                </li>
+                <li>
+                  <a class=""
+                    href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/9/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                    data-href="https://mageblueskytech.com/dukamarket/en3/cameras-photography.html">
+                    <span>Home & Accessories</span>
+                  </a>
+                </li>
+                <li>
+                  <a class=""
+                    href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/11/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                    data-href="https://mageblueskytech.com/dukamarket/en3/home-kitchen.html">
+                    <span>Kitchen accessories</span>
+                  </a>
+                </li>
+                <li>
+                  <a class=""
+                    href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/14/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                    data-href="https://mageblueskytech.com/dukamarket/en3/toys-hobbies.html">
+                    <span>Toys & Hobbies </span>
+                  </a>
+                </li>
+              </ul>
+              <div class="widget-category-tab-banner">
+                <div class="products wrapper grid products-grid">
+                  <div class="
+                              products
+                              list
+                              items
+                              product-items
+                              owl-carousel owl-theme
+                            " data-rtl="false" data-items="6" data-bigdesktop="8" data-smalldesktop="4"
+                    data-bigtablet="4" data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
+                    data-loop="true" data-center="false" data-mousedrag="true" data-touchdrag="true"
+                    data-stagepadding="1" data-nav="true" data-navnext="" data-navprev="" data-rewind="true"
+                    data-dots="false" data-autoplay="false" data-speed="500">
+                    <div class="
+                                item-load
+                                group-rows-fixed-supper-deal
+                                item-row
+                              ">
+                      <div class="item product product-item">
+                        <div class="product-item-info">
+                          <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                            class="product photo product-item-photo" tabindex="-1">
+                            <span class="
+                                        image0
+                                        image-switch
+                                        product-image-container
+                                      ">
+                              <img class="product-image"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/2/9/29_1_1.jpg"
+                                width="550" height="550" alt="Blue G9 Pro 2020 Battery Unlocked" />
+                            </span>
+                          </a>
+                          <div class="product-label">
+                            <span class="onsale">
+                              <span class="value">18%</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="
+                                item-load
+                                group-rows-fixed-supper-deal
+                                item-row
+                              ">
+                      <div class="item product product-item">
+                        <div class="product-item-info">
+                          <a href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html"
+                            class="product photo product-item-photo" tabindex="-1">
+                            <span class="
+                                        image0
+                                        image-switch
+                                        product-image-container
+                                      ">
+                              <img class="product-image"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/4/14.jpg"
+                                width="550" height="550" alt="Samsung Galaxy International Vs" />
+                            </span>
+                          </a>
+                          <div class="product details product-item-details">
+                            <strong class="product name product-item-name">
+                              <a class="product-item-link"
+                                href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html">
+                                Samsung Galaxy International Vs
+                              </a>
+                            </strong>
+                            <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                              <div class="rating-summary">
+                                <span class="label"><span>Rating:</span></span>
+                                <div class="rating-result" title="60%">
+                                  <span style="width: 60%"> </span>
+                                </div>
+                              </div>
+                              <div class="reviews-actions">
+                                <a class="action view"
+                                  href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#reviews">
+                                  <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                  <span>Review</span>
+                                </a>
+                                <a class="action add"
+                                  href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#review-form">Add
+                                  Your Review</a>
+                              </div>
+                            </div>
+                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="4"
+                              data-price-box="product-id-4">
+                              <span class="
+                                          price-container
+                                          price-final_price&#x20;tax&#x20;weee
+                                        ">
+                                <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
+                                    class="price">$70.00</span></span>
+                              </span>
+                            </div>
+                            <div class="product-sold">
+                              <div class="ruler-sold">
+                                <div class="ruler-sold-count" style="width: 30%"></div>
+                              </div>
+                              <div class="count-sold-available">
+                                <div class="count-sold">
+                                  Sold: <span> 300/700 </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="product-item-inner">
+                              <div class="
+                                          product
+                                          actions
+                                          product-item-actions
+                                        ">
+                                <div class="actions-primary">
+                                  <form data-role="tocart-form" data-product-sku="Digital007"
+                                    action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/4/"
+                                    method="post">
+                                    <input type="hidden" name="product" value="4" />
+                                    <input type="hidden" name="uenc"
+                                      value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzQv" />
+                                    <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                                    <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                      style="background-color: #b92227">
+                                      <span>Add to Cart</span>
+                                    </button>
+                                  </form>
+                                </div>
+                                <div data-role="add-to-links" class="actions-secondary">
+                                  <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":4,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    data-action="add-to-wishlist" role="button">
+                                    <span>Wish List</span>
+                                  </a>
+                                  <a href="#" class="action tocompare" title="Add to Compare"
+                                    aria-label="Add to Compare"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"4","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    role="button">
+                                    <span>Add to Compare</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="
+                                item-load
+                                group-rows-fixed-supper-deal
+                                item-row
+                              ">
+                      <div class="item product product-item">
+                        <div class="product-item-info">
+                          <a href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html"
+                            class="product photo product-item-photo" tabindex="-1">
+                            <span class="
+                                        image0
+                                        image-switch
+                                        product-image-container
+                                      ">
+                              <img class="product-image"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/_/1.jpg"
+                                width="550" height="550" alt="Zmmyr 200Pcs Dust Flat Mouth" />
+                            </span>
+                          </a>
+                          <div class="product details product-item-details">
+                            <strong class="product name product-item-name">
+                              <a class="product-item-link"
+                                href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html">
+                                Zmmyr 200Pcs Dust Flat Mouth
+                              </a>
+                            </strong>
+                            <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                              <div class="rating-summary">
+                                <span class="label"><span>Rating:</span></span>
+                                <div class="rating-result" title="100%">
+                                  <span style="width: 100%"> </span>
+                                </div>
+                              </div>
+                              <div class="reviews-actions">
+                                <a class="action view"
+                                  href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#reviews">
+                                  <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                  <span>Review</span>
+                                </a>
+                                <a class="action add"
+                                  href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#review-form">Add
+                                  Your Review</a>
+                              </div>
+                            </div>
+                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="5"
+                              data-price-box="product-id-5">
+                              <span class="
+                                          price-container
+                                          price-final_price&#x20;tax&#x20;weee
+                                        ">
+                                <span data-price-amount="90" data-price-type="finalPrice" class="price-wrapper"><span
+                                    class="price">$90.00</span></span>
+                              </span>
+                            </div>
+                            <div class="product-sold">
+                              <div class="ruler-sold">
+                                <div class="ruler-sold-count" style="width: 24.8%"></div>
+                              </div>
+                              <div class="count-sold-available">
+                                <div class="count-sold">
+                                  Sold: <span> 248/752 </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="product-item-inner">
+                              <div class="
+                                          product
+                                          actions
+                                          product-item-actions
+                                        ">
+                                <div class="actions-primary">
+                                  <form data-role="tocart-form" data-product-sku="Digital0034"
+                                    action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/5/"
+                                    method="post">
+                                    <input type="hidden" name="product" value="5" />
+                                    <input type="hidden" name="uenc"
+                                      value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzUv" />
+                                    <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                                    <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                      style="background-color: #b92227">
+                                      <span>Add to Cart</span>
+                                    </button>
+                                  </form>
+                                </div>
+                                <div data-role="add-to-links" class="actions-secondary">
+                                  <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":5,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    data-action="add-to-wishlist" role="button">
+                                    <span>Wish List</span>
+                                  </a>
+                                  <a href="#" class="action tocompare" title="Add to Compare"
+                                    aria-label="Add to Compare"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"5","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    role="button">
+                                    <span>Add to Compare</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="
+                                item-load
+                                group-rows-fixed-supper-deal
+                                item-row
+                              ">
+                      <div class="item product product-item">
+                        <div class="product-item-info">
+                          <a href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html"
+                            class="product photo product-item-photo" tabindex="-1">
+                            <span class="
+                                        image0
+                                        image-switch
+                                        product-image-container
+                                      ">
+                              <img class="product-image"
+                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/2/12.jpg"
+                                width="550" height="550" alt="A80 Pro 4G Unlocked Cell Phones" />
+                            </span>
+                          </a>
+                          <div class="product details product-item-details">
+                            <strong class="product name product-item-name">
+                              <a class="product-item-link"
+                                href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html">
+                                A80 Pro 4G Unlocked Cell Phones
+                              </a>
+                            </strong>
+                            <div class="product-reviews-summary" itemscope itemtype="http://schema.org/AggregateRating">
+                              <div class="rating-summary">
+                                <span class="label"><span>Rating:</span></span>
+                                <div class="rating-result" title="100%">
+                                  <span style="width: 100%"> </span>
+                                </div>
+                              </div>
+                              <div class="reviews-actions">
+                                <a class="action view"
+                                  href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#reviews">
+                                  <span itemscope itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                  <span>Review</span>
+                                </a>
+                                <a class="action add"
+                                  href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#review-form">Add
+                                  Your Review</a>
+                              </div>
+                            </div>
+                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="6"
+                              data-price-box="product-id-6">
+                              <span class="
+                                          price-container
+                                          price-final_price&#x20;tax&#x20;weee
+                                        ">
+                                <span data-price-amount="120" data-price-type="finalPrice" class="price-wrapper"><span
+                                    class="price">$120.00</span></span>
+                              </span>
+                            </div>
+                            <div class="product-sold">
+                              <div class="ruler-sold">
+                                <div class="ruler-sold-count" style="width: 16%"></div>
+                              </div>
+                              <div class="count-sold-available">
+                                <div class="count-sold">
+                                  Sold: <span> 160/840 </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="product-item-inner">
+                              <div class="
+                                          product
+                                          actions
+                                          product-item-actions
+                                        ">
+                                <div class="actions-primary">
+                                  <form data-role="tocart-form" data-product-sku="Digital006"
+                                    action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw%2C%2C/product/6/"
+                                    method="post">
+                                    <input type="hidden" name="product" value="6" />
+                                    <input type="hidden" name="uenc"
+                                      value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMdyUyQyUyQy9wcm9kdWN0LzYv" />
+                                    <input name="form_key" type="hidden" value="rQalEXmb2sBx9cxf" />
+                                    <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                      style="background-color: #b92227">
+                                      <span>Add to Cart</span>
+                                    </button>
+                                  </form>
+                                </div>
+                                <div data-role="add-to-links" class="actions-secondary">
+                                  <a href="#" class="action towishlist" title="" aria-label="Add to Wish List"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":6,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    data-action="add-to-wishlist" role="button">
+                                    <span>Wish List</span>
+                                  </a>
+                                  <a href="#" class="action tocompare" title="Add to Compare"
+                                    aria-label="Add to Compare"
+                                    data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"6","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
+                                    role="button">
+                                    <span>Add to Compare</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="widget box-section block-recent-posts section">
+          <div class="rokan-title has-see-all">
+            <h3 class="module-title">
+              <span>From the Blog</span><a class="see-all" href="blog/">See All</a>
+            </h3>
+            <div class="rokan-description blog-description">
+              <p></p>
+            </div>
+          </div>
+          <div class="post-list-wrapper">
+            <div class="blog-list-post owl-carousel owl-theme" data-rtl="false" data-items="5" data-bigdesktop="5"
+              data-smalldesktop="4" data-bigtablet="4" data-tablet="3" data-smalltablet="3" data-mobile="2.2"
+              data-margin="30" data-loop="true" data-center="false" data-mousedrag="false" data-touchdrag="true"
+              data-stagepadding="0" data-nav="true" data-navnext="" data-navprev="" data-rewind="false"
+              data-dots="false" data-autoplay="false" data-speed="250">
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/features-to-look-for-on-good-camera-phones">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/14.jpg"
+                          alt="Features To Look For On Camera Phones" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Headphone"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/headphone">Headphone</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/features-to-look-for-on-good-camera-phones">
+                            Features To Look For On Camera Phones
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          The last of a series of dinner chairs wegner
+                          designed based on inspiration from antique
+                          Chinese armchairs. The gently rounded top
+                          together with the back
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/features-to-look-for-on-good-camera-phones"
+                          title="Features To Look For On Camera Phones">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Mar 11 2021</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-gaming-headset">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/22.jpg"
+                          alt="Differences Between Good &amp; Bad Phone" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Photography"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/photography">Photography</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-gaming-headset">
+                            Differences Between Good &amp; Bad Phone
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          The last of a series of dinner chairs wegner
+                          designed based on inspiration from antique
+                          Chinese armchairs. The gently rounded top
+                          together with the back
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-gaming-headset"
+                          title="Differences Between Good &amp; Bad Phone">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Mar 10 2021</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/19-things-to-look-out-for-in-a-smartphone-camera">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/3_122.jpg"
+                          alt="19 Things To Look Out For In A Smartphone Camera" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Dukamarket"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/duka-market">Dukamarket</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/19-things-to-look-out-for-in-a-smartphone-camera">
+                            6 Things To Look Out For In A Smartphone
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          The last of a series of dinner chairs wegner
+                          designed based on inspiration from antique
+                          Chinese armchairs. The gently rounded top
+                          together with the back
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/19-things-to-look-out-for-in-a-smartphone-camera"
+                          title="6 Things To Look Out For In A Smartphone">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Feb 09 2021</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-headset">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/4_12.jpg"
+                          alt="Tips on How to choose the best headset?" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Photography"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/photography">Photography</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-headset">
+                            Tips on How to choose the best headset?
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          The last of a series of dinner chairs wegner
+                          designed based on inspiration from antique
+                          Chinese armchairs. The gently rounded top
+                          together with the back
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/8-tips-on-how-to-choose-the-best-headset"
+                          title="Tips on How to choose the best headset?">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Feb 08 2021</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/5-tips-for-choosing-the-best-android-camera-phone">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/6_1.jpg"
+                          alt="tips for choosing the best camera phone" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Creative"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/creative">Creative</a>,
+                      <a title="Image" href="https://mageblueskytech.com/dukamarket/en3/blog/category/image">Image</a>,
+                      <a title="Music" href="https://mageblueskytech.com/dukamarket/en3/blog/category/music">Music</a>,
+                      <a title="Travel"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/travel">Travel</a>,
+                      <a title="Uncategorized"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/uncategorized">Uncategorized</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/5-tips-for-choosing-the-best-android-camera-phone">
+                            tips for choosing the best camera phone
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          The last of a series of dinner chairs wegner
+                          designed based on inspiration from antique
+                          Chinese armchairs. The gently rounded top
+                          together with the back
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/5-tips-for-choosing-the-best-android-camera-phone"
+                          title="tips for choosing the best camera phone">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Jan 06 2021</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load post-holder item-post-full has-thumb">
+                <div class="post-item">
+                  <div class="blog-post-thumb">
+                    <div class="post-ftimg-hld">
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/post/bring-to-the-table-win-win-survival-strategies">
+                        <img
+                          src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                          data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/2210.jpg"
+                          alt="Special Limited Edition &amp; Silver  Summicron" />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-post-info">
+                    <div class="item post-categories">
+                      <a title="Image" href="https://mageblueskytech.com/dukamarket/en3/blog/category/image">Image</a>,
+                      <a title="Music" href="https://mageblueskytech.com/dukamarket/en3/blog/category/music">Music</a>,
+                      <a title="Travel"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/travel">Travel</a>,
+                      <a title="Uncategorized"
+                        href="https://mageblueskytech.com/dukamarket/en3/blog/category/uncategorized">Uncategorized</a>
+                    </div>
+                    <div class="post-header">
+                      <div class="post-title-holder clearfix">
+                        <h3 class="post-title">
+                          <a class="post-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blog/post/bring-to-the-table-win-win-survival-strategies">
+                            Special Limited Edition &amp; Silver
+                            Summicron
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="post-info">
+                        <div class="item post-author">
+                          <span class="label">Post by:</span>
+                          <span class="value">
+                            <a title="tony pham"
+                              href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
+                              tony pham
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <div class="post-description clearfix">
+                        <div class="post-text-hld clearfix">
+                          <p>
+                            The last of a series of dinner chairs wegner
+                            designed based on inspiration from antique
+                            Chinese armchairs. The gently rounded top
+                            together with the back
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-bottom">
+                      <div class="flex-layout space-between no-wrap">
+                        <a class="post-read-more"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/post/bring-to-the-table-win-win-survival-strategies"
+                          title="Special Limited Edition &amp; Silver  Summicron">
+                          Read more
+                        </a>
+                        <div class="item post-posed-date hidden-xs">
+                          <span class="value"><span class="value">Aug 07 2019</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section full-width has-white-bg not-padding" style="background: #fff">
+      <div class="container">
+        <div class="block-widget-rokanthemes-brand section">
+          <div class="block-content">
+            <div class="owl-carousel owl-theme" data-rtl="false" data-items="7" data-bigdesktop="6"
+              data-smalldesktop="5" data-bigtablet="4" data-tablet="4" data-smalltablet="3" data-mobile="2.2"
+              data-margin="20" data-loop="true" data-center="false" data-mousedrag="true" data-touchdrag="true"
+              data-stagepadding="1" data-nav="false" data-navnext="" data-navprev="" data-rewind="true"
+              data-dots="false" data-autoplay="false" data-speed="1200">
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/iqvia.html" title="Iqvia"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_02.png"
+                        alt="Iqvia" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/impact.html" title="Impact"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_03.png"
+                        alt="Impact" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/creative.html" title="Creative"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_04.png"
+                        alt="Creative" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/carrentals.html" title="CarRentals"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"
+                        alt="CarRentals" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/carvoodoo.html" title="Carvoodoo"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_06.png"
+                        alt="Carvoodoo" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/carmentor.html" title="Carmentor"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"
+                        alt="Carmentor" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="item-load item-row-slider-brand">
+                <div class="brand-item">
+                  <div class="brand-image">
+                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/leedsgreen.html" title="Leedsgreen"><img
+                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_01.png"
+                        alt="Leedsgreen" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
