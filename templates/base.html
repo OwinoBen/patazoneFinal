@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/print.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/darktheme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/googleApi.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/css/all.css' %}">
 
@@ -1521,7 +1522,7 @@
     <script type="text/x-magento-init">
       {
           "body": {
-              "pageCache": {"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_bluesky_dukamarket_digital_03"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/dukamarket\/en3\/"},"versionCookieName":"private_content_version"}        }
+              "pageCache": {"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_bluesky_dukamarket_digital_03"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/dukamarket\/en3\/"},"versionCookieName":"private_content_version"}  }
       }
     </script>
     <script>
@@ -1559,7 +1560,7 @@
       });
     </script>
     <script>
-      require([
+      define([
         "jquery",
         "mage/mage",
         "rokanthemes/timecircles",
@@ -1907,20 +1908,20 @@
         });
       });
     </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Ui/js/core/app": {
-                  "components": {
-                      "storage-manager": {
-                          "component": "Magento_Catalog/js/storage-manager",
-                          "appendTo": "",
-                          "storagesConfiguration" : {"recently_viewed_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/rest\/en3\/V1\/products-render-info"},"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"allowToSendRequest":null}}                        }
-                  }
-              }
-          }
-      }
-    </script>
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Ui/js/core/app": {#}
+{#                  "components": {#}
+{#                      "storage-manager": {#}
+{#                          "component": "Magento_Catalog/js/storage-manager",#}
+{#                          "appendTo": "",#}
+{#                          "storagesConfiguration" : {"recently_viewed_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/rest\/en3\/V1\/products-render-info"},"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"allowToSendRequest":null}}                        }#}
+{#                  }#}
+{#              }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
     <script>
       require(["jquery"], function ($) {
         require(["rokanthemes/lazyloadimg"], function (lazy) {
