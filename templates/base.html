@@ -35,7 +35,7 @@
 
   <body
     data-container="body"
-    data-mage-init='{"loaderAjax": {}, "loader": { "icon": "https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/loader-2.gif"}}'
+    data-mage-init='{"loaderAjax": {}, "loader": { "icon": "{% static 'images/loader-2.gif' %}"}}'
     id="html-body"
     class="
       bluesky-page-preloader
@@ -69,19 +69,14 @@
       <a
         href="javascript: void(0);"
         class="btn-close newletter_popup_close"
-        style="background-color: #b92227"
-        ><i class="fa fa-close" style="color: #ffffff"></i
+        ><i class="fa fa-times" style="color: #fff; font-size: 24px"></i
       ></a>
       <div class="col-newsletter-popup col-content">
         <div class="col-img-bg-pupup"></div>
         <div class="content-popup">
           <div class="content">
             <div class="logo_popup">
-              <img
-                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/newsletter/logo/default/icon-email-popup.png"
-                alt="Logo Newsletter"
-              />
+                <i class="fas fa-envelope-open-text" style="color: #b92227; font-size: 60px;"></i>
             </div>
             <p style="color: #b92227">
               SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !
@@ -92,7 +87,7 @@
           <form
             class="form subscribe"
             novalidate
-            action="https://mageblueskytech.com/dukamarket/en3/newsletter/subscriber/new/"
+            action=" "
             method="post"
             data-mage-init='{"validation": {"errorClass": "mage-error"}}'
             id="newsletter-validate-popup"
@@ -179,49 +174,12 @@
                               data-trigger-keypress-button="true"
                             >
                               <strong class="view-en3">
-                                <span>English 3</span>
+                                  <a href="#">
+                                <span>Track My Order</span>
+                                      </a>
                               </strong>
                             </div>
-                            <ul
-                              class="dropdown switcher-dropdown"
-                              data-target="dropdown"
-                            >
-                              <li class="view-en1 switcher-option">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en1/"
-                                >
-                                  English
-                                </a>
-                              </li>
-                              <li class="view-en2 switcher-option">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en2/"
-                                >
-                                  English 2
-                                </a>
-                              </li>
-                              <li class="view-en4 switcher-option">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en4/"
-                                >
-                                  English 4
-                                </a>
-                              </li>
-                              <li class="view-en5 switcher-option">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en5/"
-                                >
-                                  English 5
-                                </a>
-                              </li>
-                              <li class="view-en6 switcher-option">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en6/"
-                                >
-                                  English 6
-                                </a>
-                              </li>
-                            </ul>
+
                           </div>
                         </div>
                         <div
@@ -242,35 +200,10 @@
                               data-trigger-keypress-button="true"
                             >
                               <strong class="language-USD">
-                                <span>USD - US Dollar</span>
+                                <span>KE - Shillings</span>
                               </strong>
                             </div>
-                            <ul
-                              class="dropdown switcher-dropdown"
-                              data-target="dropdown"
-                            >
-                              <li class="currency-BZD switcher-option">
-                                <a
-                                  href="#"
-                                  data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/directory\/currency\/switch\/","data":{"currency":"BZD","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
-                                  >BZD - Belize Dollar</a
-                                >
-                              </li>
-                              <li class="currency-EUR switcher-option">
-                                <a
-                                  href="#"
-                                  data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/directory\/currency\/switch\/","data":{"currency":"EUR","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
-                                  >EUR - Euro</a
-                                >
-                              </li>
-                              <li class="currency-YER switcher-option">
-                                <a
-                                  href="#"
-                                  data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/directory\/currency\/switch\/","data":{"currency":"YER","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zLw,,"}}'
-                                  >YER - Yemeni Rial</a
-                                >
-                              </li>
-                            </ul>
+
                           </div>
                         </div>
                       </div>
@@ -278,8 +211,8 @@
                     <div class="hotline">
                       <p>
                         Need Help?
-                        <a title="+001 123 456 789" href="tel:+001123456789"
-                          >+001 123 456 789</a
+                        <a title="+254700 588885" href="tel:+254700 588885"
+                          >+254700 588885</a
                         >
                       </p>
                     </div>
@@ -330,8 +263,8 @@
             >
               <div class="logo-container">
                 <div class="logo-site">
-                  <span data-action="toggle-nav" class="action nav-toggle"
-                    ><span>Toggle Nav</span></span
+                  <i data-action="toggle-nav" class="fa fa-bars action nav-toggle"
+                    ></i
                   >
                   <a
                     class="logo"
@@ -789,7 +722,6 @@
                                 type="submit"
                                 title="Search"
                                 class=" action search"
-                                style="background-color: #b92227"
                               ><i class="icon-search icon-large"></i>
                                 <span>Search</span>
                               </button>
@@ -922,7 +854,7 @@
       </main>
       <footer class="page-footer" style="background-color: #212529; color: #ffffff;">
         <div id="focus-area"></div>
-        <div id="back-top" class=""><i class="icon icon-chevrons-up"></i></div>
+        <div id="back-top" class=""><i class="fas fa-angle-double-up"></i>  </div>
         <div class="footer-container enable-mobile-menu layout-3">
           <div class="footer-top">
             <div class="footer content">
@@ -1028,7 +960,7 @@
                                       <button
                                         class="action subscribe primary"
                                         title="Subscribe"
-                                        type="submit" style="background: #b92227;"
+                                        type="submit" style="background: #e8393f;"
                                       >
                                         <span>Subscribe</span>
                                       </button>
@@ -1196,41 +1128,41 @@
       window.description =
         "Log in to view your shopping cart and receive \r\nmany great deals from the store.";
     </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "rokanthemes/ajaxsuite"    : {
-                      "loginUrl": "https://mageblueskytech.com/dukamarket/en3/customer/account/login/",
-                      "customerId": "",
-                      "ajaxCart" : {
-                          "enabled" : 1,
-                          "actionAfterSuccess" : "popup"
-                      },
-                      "ajaxWishList" : {
-                          "enabled" : 1,
-                          "WishlistUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/wishlist/add/"
-                      },
-                      "ajaxCompare" : {
-                          "enabled" : 1,
-                          "CompareUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/compare/add/"
-                      }
-                  }
-          }
-      }
-    </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "rokanthemes/quickview"    : {
-                      "quickviewUrl": "https://mageblueskytech.com/dukamarket/en3/quickview/product/view/",
-                      "buttonText": "Quick View",
-                      "classInsertPosition": ".product-item-actions",
-                      "actionInsert": "append",
-                      "isEnabled": "1"
-                  }
-          }
-      }
-    </script>
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "rokanthemes/ajaxsuite"    : {#}
+{#                      "loginUrl": "https://mageblueskytech.com/dukamarket/en3/customer/account/login/",#}
+{#                      "customerId": "",#}
+{#                      "ajaxCart" : {#}
+{#                          "enabled" : 1,#}
+{#                          "actionAfterSuccess" : "popup"#}
+{#                      },#}
+{#                      "ajaxWishList" : {#}
+{#                          "enabled" : 1,#}
+{#                          "WishlistUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/wishlist/add/"#}
+{#                      },#}
+{#                      "ajaxCompare" : {#}
+{#                          "enabled" : 1,#}
+{#                          "CompareUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/compare/add/"#}
+{#                      }#}
+{#                  }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "rokanthemes/quickview"    : {#}
+{#                      "quickviewUrl": "https://mageblueskytech.com/dukamarket/en3/quickview/product/view/",#}
+{#                      "buttonText": "Quick View",#}
+{#                      "classInsertPosition": ".product-item-actions",#}
+{#                      "actionInsert": "append",#}
+{#                      "isEnabled": "1"#}
+{#                  }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
     <script>
       document.querySelector("#cookie-status").style.display = "none";
     </script>
@@ -1241,18 +1173,18 @@
           }
       }
     </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "mage/cookies": {
-                  "expires": null,
-                  "path": "\u002Fdukamarket",
-                  "domain": ".mageblueskytech.com",
-                  "secure": false,
-                  "lifetime": "3600"
-              }
-          }
-      }
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "mage/cookies": {#}
+{#                  "expires": null,#}
+{#                  "path": "\u002Fdukamarket",#}
+{#                  "domain": ".mageblueskytech.com",#}
+{#                  "secure": false,#}
+{#                  "lifetime": "3600"#}
+{#              }#}
+{#          }#}
+{#      }#}
     </script>
     <script>
       window.cookiesConfig = window.cookiesConfig || {};
@@ -1362,47 +1294,47 @@
         });
       });
     </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Ui/js/core/app": {
-                  "components": {
-                      "searchsuiteautocomplete_form": {
-                          "component": "MageWorx_SearchSuiteAutocomplete/js/autocomplete"
-                      },
-                      "searchsuiteautocompleteBindEvents": {
-                          "component": "MageWorx_SearchSuiteAutocomplete/js/bindEvents",
-                          "config": {
-                              "searchFormSelector": "#search_mini_form",
-                              "searchButtonSelector": "button.search",
-                              "inputSelector": "#search, #mobile_search, .minisearch .search input[type=\"text\"]",
-                              "searchDelay": "500"
-                          }
-                      },
-                      "searchsuiteautocompleteDataProvider": {
-                          "component": "MageWorx_SearchSuiteAutocomplete/js/dataProvider",
-                          "config": {
-                              "url": "https://mageblueskytech.com/dukamarket/en3/mageworx_searchsuiteautocomplete/ajax/index/"
-                          }
-                      }
-                  }
-              }
-          }
-      }
-    </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Ui/js/core/app": {
-                  "components": {
-                      "wishlist": {
-                          "component": "Magento_Wishlist/js/view/wishlist"
-                      }
-                  }
-              }
-          }
-      }
-    </script>
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Ui/js/core/app": {#}
+{#                  "components": {#}
+{#                      "searchsuiteautocomplete_form": {#}
+{#                          "component": "MageWorx_SearchSuiteAutocomplete/js/autocomplete"#}
+{#                      },#}
+{#                      "searchsuiteautocompleteBindEvents": {#}
+{#                          "component": "MageWorx_SearchSuiteAutocomplete/js/bindEvents",#}
+{#                          "config": {#}
+{#                              "searchFormSelector": "#search_mini_form",#}
+{#                              "searchButtonSelector": "button.search",#}
+{#                              "inputSelector": "#search, #mobile_search, .minisearch .search input[type=\"text\"]",#}
+{#                              "searchDelay": "500"#}
+{#                          }#}
+{#                      },#}
+{#                      "searchsuiteautocompleteDataProvider": {#}
+{#                          "component": "MageWorx_SearchSuiteAutocomplete/js/dataProvider",#}
+{#                          "config": {#}
+{#                              "url": "https://mageblueskytech.com/dukamarket/en3/mageworx_searchsuiteautocomplete/ajax/index/"#}
+{#                          }#}
+{#                      }#}
+{#                  }#}
+{#              }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Ui/js/core/app": {#}
+{#                  "components": {#}
+{#                      "wishlist": {#}
+{#                          "component": "Magento_Wishlist/js/view/wishlist"#}
+{#                      }#}
+{#                  }#}
+{#              }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
     <script>
       window.checkout = {
         shoppingCartUrl:
@@ -1437,15 +1369,15 @@
         },
       };
     </script>
-    <script type="text/x-magento-init">
-      {
-          "[data-block='minicart']": {
-              "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"Magento_Checkout\/js\/view\/cart-item-renderer","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
-          "*": {
-              "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620272518\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
-          }
-      }
-    </script>
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "[data-block='minicart']": {#}
+{#              "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"Magento_Checkout\/js\/view\/cart-item-renderer","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },#}
+{#          "*": {#}
+{#              "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620272518\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"#}
+{#          }#}
+{#      }#}
+{#    </script>#}
     <script type="text/x-magento-init">
       {
           "*": {
@@ -1469,61 +1401,61 @@
         baseUrl: "https:\/\/mageblueskytech.com\/dukamarket\/en3\/",
       };
     </script>
-    <script type="text/x-magento-init">
-      {
-          "#authenticationPopup": {
-              "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
-          "*": {
-              "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620272518\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
-          }
-      }
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "#authenticationPopup": {#}
+{#              "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },#}
+{#          "*": {#}
+{#              "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620272518\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"#}
+{#          }#}
+{#      }#}
+{#    </script>#}
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Customer/js/section-config": {#}
+{#                  "sections": {"stores\/store\/switch":["*"],"stores\/store\/switchrequest":["*"],"directory\/currency\/switch":["*"],"*":["messages"],"customer\/account\/logout":["*","recently_viewed_product","recently_compared_product","persistent"],"customer\/account\/loginpost":["*"],"customer\/account\/createpost":["*"],"customer\/account\/editpost":["*"],"customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart","directory-data"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"braintree\/googlepay\/placeorder":["cart","checkout-data"]},#}
+{#                  "clientSideSections": ["checkout-data","cart-data","chatData"],#}
+{#                  "baseUrls": ["https:\/\/mageblueskytech.com\/dukamarket\/en3\/"],#}
+{#                  "sectionNames": ["messages","customer","compare-products","last-ordered-items","cart","directory-data","captcha","instant-purchase","loggedAsCustomer","persistent","review","wishlist","chatData","recently_viewed_product","recently_compared_product","product_data_storage","paypal-billing-agreement"]            }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Customer/js/customer-data": {#}
+{#                  "sectionLoadUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Fsection\u002Fload\u002F",#}
+{#                  "expirableSectionLifetime": 60,#}
+{#                  "expirableSectionNames": ["cart","persistent"],#}
+{#                  "cookieLifeTime": "3600",#}
+{#                  "updateSessionUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Faccount\u002FupdateSession\u002F"#}
+{#              }#}
+{#          }#}
+{#      }#}
+{#    </script>#}
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "*": {#}
+{#              "Magento_Customer/js/invalidation-processor": {#}
+{#                  "invalidationRules": {#}
+{#                      "website-rule": {#}
+{#                          "Magento_Customer/js/invalidation-rules/website-rule": {#}
+{#                              "scopeConfig": {#}
+{#                                  "websiteId": "1"#}
+{#                              }#}
+{#                          }#}
+{#                      }#}
+{#                  }#}
+{#              }#}
+{#          }#}
+{#      }#}
     </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Customer/js/section-config": {
-                  "sections": {"stores\/store\/switch":["*"],"stores\/store\/switchrequest":["*"],"directory\/currency\/switch":["*"],"*":["messages"],"customer\/account\/logout":["*","recently_viewed_product","recently_compared_product","persistent"],"customer\/account\/loginpost":["*"],"customer\/account\/createpost":["*"],"customer\/account\/editpost":["*"],"customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart","directory-data"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"braintree\/googlepay\/placeorder":["cart","checkout-data"]},
-                  "clientSideSections": ["checkout-data","cart-data","chatData"],
-                  "baseUrls": ["https:\/\/mageblueskytech.com\/dukamarket\/en3\/"],
-                  "sectionNames": ["messages","customer","compare-products","last-ordered-items","cart","directory-data","captcha","instant-purchase","loggedAsCustomer","persistent","review","wishlist","chatData","recently_viewed_product","recently_compared_product","product_data_storage","paypal-billing-agreement"]            }
-          }
-      }
-    </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Customer/js/customer-data": {
-                  "sectionLoadUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Fsection\u002Fload\u002F",
-                  "expirableSectionLifetime": 60,
-                  "expirableSectionNames": ["cart","persistent"],
-                  "cookieLifeTime": "3600",
-                  "updateSessionUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Faccount\u002FupdateSession\u002F"
-              }
-          }
-      }
-    </script>
-    <script type="text/x-magento-init">
-      {
-          "*": {
-              "Magento_Customer/js/invalidation-processor": {
-                  "invalidationRules": {
-                      "website-rule": {
-                          "Magento_Customer/js/invalidation-rules/website-rule": {
-                              "scopeConfig": {
-                                  "websiteId": "1"
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-      }
-    </script>
-    <script type="text/x-magento-init">
-      {
-          "body": {
-              "pageCache": {"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_bluesky_dukamarket_digital_03"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/dukamarket\/en3\/"},"versionCookieName":"private_content_version"}  }
-      }
+{#    <script type="text/x-magento-init">#}
+{#      {#}
+{#          "body": {#}
+{#              "pageCache": {"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_bluesky_dukamarket_digital_03"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/dukamarket\/en3\/"},"versionCookieName":"private_content_version"}  }#}
+{#      }#}
     </script>
     <script>
       require(["jquery", "rokanthemes/nivoSlider"], function ($, nivoSlider) {
@@ -1560,7 +1492,7 @@
       });
     </script>
     <script>
-      define([
+      require([
         "jquery",
         "mage/mage",
         "rokanthemes/timecircles",
