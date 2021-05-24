@@ -4,7 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractUser
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def createUser(self, email, name=None, password=None, is_active=True, is_staff=False, is_admin=False):
+    def create_user(self, email, name=None, password=None, is_active=True, is_staff=False, is_admin=False):
         if not email:
             raise ValueError("Email required")
         if not password:
@@ -20,8 +20,8 @@ class UserManager(BaseUserManager):
         user_obj.save(using=self._db)
         return user_obj
 
-    def createStaff(self, email, name=None, password=None):
-        user = self.createUser(
+    def create_staffuser(self, email, name=None, password=None):
+        user = self.create_user(
             email,
             name=name,
             password=password,
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, name=None, password=None):
-        user = self.createUser(
+        user = self.create_user(
             email,
             name=name,
             password=password,
@@ -41,11 +41,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=True)
-    admin = models.BooleanField(default=True)
+    staff = models.BooleanField(default=False)
+    admin = models.BooleanField(default=False)
 
     date_registered = models.DateTimeField(auto_now_add=True)
 
