@@ -90,7 +90,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255,blank=True, unique=True)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)
     active = models.BooleanField(default=True)

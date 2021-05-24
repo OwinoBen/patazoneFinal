@@ -4,7 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractUser
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, email, name=None, password=None, is_active=True, is_staff=False, is_admin=False):
+    def create_user(self, email, name=None, password=None, is_active=True, is_staff=False, is_admin=False, is_vendor = False):
         if not email:
             raise ValueError("Email required")
         if not password:
@@ -17,6 +17,7 @@ class UserManager(BaseUserManager):
         user_obj.staff = is_staff
         user_obj.admin = is_admin
         user_obj.is_active = is_active
+        user_obj.is_vendor = is_vendor
         user_obj.save(using=self._db)
         return user_obj
 
@@ -46,7 +47,7 @@ class User(AbstractUser):
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
-
+    is_vendor = models.BooleanField(default=False)
     date_registered = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'email'
