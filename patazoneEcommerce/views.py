@@ -20,3 +20,7 @@ def frequentquiz(request):
     context = {}
     return render(request, "fqa.html", context)
 
+def featured(request):
+    context = {}
+    return render(request, "featured.html", context)
+

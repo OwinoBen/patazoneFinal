@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import homepage, aboutpage, contactus, frequentquiz
+from .views import homepage, aboutpage, contactus, frequentquiz,featured
 from accounts.views import createAccount, login
 from products.views import product
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('fqa_page/', frequentquiz, name="fqa"),
     path('accounts', createAccount, name="account"),
     path('customer/login', login, name="login"),
+    path('featured', featured, name="featured"),
     path('', include('accounts.urls', namespace="register")),
 ]
 if settings.DEBUG:

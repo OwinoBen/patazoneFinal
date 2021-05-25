@@ -1,0 +1,622 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block content %}
+<a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+          <div data-placeholder="messages"></div>
+          <div data-bind="scope: 'messages'">
+            <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+            <div
+              aria-atomic="true"
+              role="alert"
+              data-bind="foreach: { data: cookieMessages, as: 'message' }"
+              class="messages"
+            >
+              <div
+                data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }"
+              >
+                <div
+                  data-bind="html: $parent.prepareMessageForHtml(message.text)"
+                ></div>
+              </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: messages().messages && messages().messages.length > 0 -->
+            <div
+              aria-atomic="true"
+              role="alert"
+              class="messages"
+              data-bind="foreach: {
+        data: messages().messages, as: 'message'
+    }"
+            >
+              <div
+                data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }"
+              >
+                <div
+                  data-bind="html: $parent.prepareMessageForHtml(message.text)"
+                ></div>
+              </div>
+            </div>
+            <!-- /ko -->
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column main">
+            <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG" />
+            <div
+              id="authenticationPopup"
+              data-bind="scope:'authenticationPopup', style: {display: 'none'}"
+            >
+              <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+            <div class="products wrapper list products-list">
+              <ol class="products list items product-items owl-carousel">
+                <div class="item-row">
+                  <li class="item product product-item">
+                    <div
+                      class="product-item-info"
+                      data-container="product-list"
+                    >
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                        class="product photo product-item-photo"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="
+                            product-image-container
+                            product-image-container-1793172482
+                          "
+                        >
+                          <span class="product-image-wrapper">
+                            <img
+                              class="product-image-photo"
+                              src="img/images/oneplus.jpg"
+                              data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/5/35.jpg"
+                              loading="lazy"
+                              width="125"
+                              height="125"
+                              alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked"
+                          /></span>
+                        </span>
+                        <style>
+                          .product-image-container-1793172482 {
+                            width: 125px;
+                          }
+                          .product-image-container-1793172482
+                            span.product-image-wrapper {
+                            padding-bottom: 100%;
+                          }
+                        </style>
+                      </a>
+                      <div class="product-label">
+                        <span class="onsale">
+                          <span class="value">-25%</span>
+                        </span>
+                      </div>
+                      <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                          <a
+                            class="product-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                          >
+                            OnePlus Nord N10 5G Unlocked
+                          </a>
+                        </strong>
+                        <div
+                          class="product-reviews-summary"
+                          itemscope
+                          itemtype="http://schema.org/AggregateRating"
+                        >
+                          <div class="rating-summary">
+                            <span class="label"><span>Rating:</span></span>
+                            <div class="rating-result" title="100%">
+                              <span style="width: 100%"> </span>
+                            </div>
+                          </div>
+                          <div class="reviews-actions">
+                            <a
+                              class="action view"
+                              href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#reviews"
+                            >
+                              <span
+                                itemscope
+                                itemtype="https://schema.org/reviewCount"
+                                >1</span
+                              >&nbsp;
+                              <span>Review</span>
+                            </a>
+                            <a
+                              class="action add"
+                              href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form"
+                              >Add Your Review</a
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="price-box price-final_price"
+                          data-role="priceBox"
+                          data-product-id="1"
+                          data-price-box="product-id-1"
+                        >
+                          <span class="special-price">
+                            <span
+                              class="
+                                price-container
+                                price-final_price&#x20;tax&#x20;weee
+                              "
+                            >
+                              <span class="price-label">Special Price</span>
+                              <span
+                                id="product-price-1"
+                                data-price-amount="59.99"
+                                data-price-type="finalPrice"
+                                class="price-wrapper"
+                                ><span class="price">$59.99</span></span
+                              >
+                            </span>
+                          </span>
+                          <span class="old-price">
+                            <span
+                              class="
+                                price-container
+                                price-final_price&#x20;tax&#x20;weee
+                              "
+                            >
+                              <span class="price-label">Regular Price</span>
+                              <span
+                                id="old-price-1"
+                                data-price-amount="79.99"
+                                data-price-type="oldPrice"
+                                class="price-wrapper"
+                                ><span class="price">$79.99</span></span
+                              >
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="product description product-item-description"
+                        >
+                          <p>
+                            Typi non habent claritatem insitam est usus legentis
+                            in qui facit orum claritatem lectores legere me lius
+                            quod legunt saepius. Sit amet conse ctetur
+                            adipisicing elit sed do eiusmod tempor.
+                          </p>
+                        </div>
+                        <div class="product-item-inner">
+                          <div class="product actions product-item-actions">
+                            <div class="actions-primary">
+                              <form
+                                data-role="tocart-form"
+                                data-product-sku="Digital001"
+                                action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/1/"
+                                method="post"
+                              >
+                                <input type="hidden" name="product" value="1" />
+                                <input
+                                  type="hidden"
+                                  name="uenc"
+                                  value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8xLw,,"
+                                />
+                                <input
+                                  name="form_key"
+                                  type="hidden"
+                                  value="o39Rir2hZnJ8lvxG"
+                                />
+                                <button
+                                  type="submit"
+                                  title="Add&#x20;to&#x20;Cart"
+                                  class="action tocart primary"
+                                >
+                                  <span>Add to Cart</span>
+                                </button>
+                              </form>
+                            </div>
+                            <div
+                              data-role="add-to-links"
+                              class="actions-secondary"
+                            >
+                              <a
+                                href="#"
+                                class="action towishlist"
+                                title="Add&#x20;to&#x20;Wish&#x20;List"
+                                aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                data-action="add-to-wishlist"
+                                role="button"
+                              >
+                                <span>Wish List</span>
+                              </a>
+                              <a
+                                href="#"
+                                class="action tocompare"
+                                title="Add to Compare"
+                                aria-label="Add to Compare"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                role="button"
+                              >
+                                <span>Add to Compare</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item product product-item">
+                    <div
+                      class="product-item-info"
+                      data-container="product-list"
+                    >
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html"
+                        class="product photo product-item-photo"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="
+                            product-image-container
+                            product-image-container-2833141512
+                          "
+                        >
+                          <span class="product-image-wrapper">
+                            <img
+                              class="product-image-photo"
+                              src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                              data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/0/30_1.jpg"
+                              loading="lazy"
+                              width="125"
+                              height="125"
+                              alt="Unlocked&#x20;Galaxy&#x20;Mobile&#x20;Phone"
+                          /></span>
+                        </span>
+                        <style>
+                          .product-image-container-2833141512 {
+                            width: 125px;
+                          }
+                          .product-image-container-2833141512
+                            span.product-image-wrapper {
+                            padding-bottom: 100%;
+                          }
+                        </style>
+                      </a>
+                      <div class="product-label"></div>
+                      <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                          <a
+                            class="product-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html"
+                          >
+                            Unlocked Galaxy Mobile Phone
+                          </a>
+                        </strong>
+                        <div
+                          class="product-reviews-summary"
+                          itemscope
+                          itemtype="http://schema.org/AggregateRating"
+                        >
+                          <div class="rating-summary">
+                            <span class="label"><span>Rating:</span></span>
+                            <div class="rating-result" title="90%">
+                              <span style="width: 90%"> </span>
+                            </div>
+                          </div>
+                          <div class="reviews-actions">
+                            <a
+                              class="action view"
+                              href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#reviews"
+                            >
+                              <span
+                                itemscope
+                                itemtype="https://schema.org/reviewCount"
+                                >2</span
+                              >&nbsp;
+                              <span>Reviews</span>
+                            </a>
+                            <a
+                              class="action add"
+                              href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#review-form"
+                              >Add Your Review</a
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="price-box price-final_price"
+                          data-role="priceBox"
+                          data-product-id="2"
+                          data-price-box="product-id-2"
+                        >
+                          <span
+                            class="
+                              price-container
+                              price-final_price&#x20;tax&#x20;weee
+                            "
+                          >
+                            <span
+                              id="product-price-2"
+                              data-price-amount="81"
+                              data-price-type="finalPrice"
+                              class="price-wrapper"
+                              ><span class="price">$81.00</span></span
+                            >
+                          </span>
+                        </div>
+                        <div
+                          class="product description product-item-description"
+                        >
+                          <p>
+                            Typi non habent claritatem insitam est usus legentis
+                            in qui facit orum claritatem lectores legere me lius
+                            quod legunt saepius. Sit amet conse ctetur
+                            adipisicing elit sed do eiusmod tempor.
+                          </p>
+                        </div>
+                        <div class="product-item-inner">
+                          <div class="product actions product-item-actions">
+                            <div class="actions-primary">
+                              <form
+                                data-role="tocart-form"
+                                data-product-sku="Digital002"
+                                action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/2/"
+                                method="post"
+                              >
+                                <input type="hidden" name="product" value="2" />
+                                <input
+                                  type="hidden"
+                                  name="uenc"
+                                  value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8yLw,,"
+                                />
+                                <input
+                                  name="form_key"
+                                  type="hidden"
+                                  value="o39Rir2hZnJ8lvxG"
+                                />
+                                <button
+                                  type="submit"
+                                  title="Add&#x20;to&#x20;Cart"
+                                  class="action tocart primary"
+                                >
+                                  <span>Add to Cart</span>
+                                </button>
+                              </form>
+                            </div>
+                            <div
+                              data-role="add-to-links"
+                              class="actions-secondary"
+                            >
+                              <a
+                                href="#"
+                                class="action towishlist"
+                                title="Add&#x20;to&#x20;Wish&#x20;List"
+                                aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":2,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                data-action="add-to-wishlist"
+                                role="button"
+                              >
+                                <span>Wish List</span>
+                              </a>
+                              <a
+                                href="#"
+                                class="action tocompare"
+                                title="Add to Compare"
+                                aria-label="Add to Compare"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"2","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                role="button"
+                              >
+                                <span>Add to Compare</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+                <div class="item-row">
+                  <li class="item product product-item">
+                    <div
+                      class="product-item-info"
+                      data-container="product-list"
+                    >
+                      <a
+                        href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                        class="product photo product-item-photo"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="
+                            product-image-container
+                            product-image-container-31796370639
+                          "
+                        >
+                          <span class="product-image-wrapper">
+                            <img
+                              class="product-image-photo"
+                              src="https://mageblueskytech.com/dukamarket/static/version1620877543/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                              data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/2/9/29_1_1.jpg"
+                              loading="lazy"
+                              width="125"
+                              height="125"
+                              alt="Blue&#x20;G9&#x20;Pro&#x20;2020&#x20;Battery&#x20;Unlocked"
+                          /></span>
+                        </span>
+                        <style>
+                          .product-image-container-31796370639 {
+                            width: 125px;
+                          }
+                          .product-image-container-31796370639
+                            span.product-image-wrapper {
+                            padding-bottom: 100%;
+                          }
+                        </style>
+                      </a>
+                      <div class="product-label">
+                        <span class="onsale">
+                          <span class="value">-18%</span>
+                        </span>
+                      </div>
+                      <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                          <a
+                            class="product-item-link"
+                            href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                          >
+                            Blue G9 Pro 2020 Battery Unlocked
+                          </a>
+                        </strong>
+                        <div
+                          class="product-reviews-summary"
+                          itemscope
+                          itemtype="http://schema.org/AggregateRating"
+                        >
+                          <div class="rating-summary">
+                            <span class="label"><span>Rating:</span></span>
+                            <div class="rating-result" title="87%">
+                              <span style="width: 87%"> </span>
+                            </div>
+                          </div>
+                          <div class="reviews-actions">
+                            <a
+                              class="action view"
+                              href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#reviews"
+                            >
+                              <span
+                                itemscope
+                                itemtype="https://schema.org/reviewCount"
+                                >3</span
+                              >&nbsp;
+                              <span>Reviews</span>
+                            </a>
+                            <a
+                              class="action add"
+                              href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#review-form"
+                              >Add Your Review</a
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="price-box price-final_price"
+                          data-role="priceBox"
+                          data-product-id="3"
+                          data-price-box="product-id-3"
+                        >
+                          <span class="special-price">
+                            <span
+                              class="
+                                price-container
+                                price-final_price&#x20;tax&#x20;weee
+                              "
+                            >
+                              <span class="price-label">Special Price</span>
+                              <span
+                                id="product-price-3"
+                                data-price-amount="90"
+                                data-price-type="finalPrice"
+                                class="price-wrapper"
+                                ><span class="price">$90.00</span></span
+                              >
+                            </span>
+                          </span>
+                          <span class="old-price">
+                            <span
+                              class="
+                                price-container
+                                price-final_price&#x20;tax&#x20;weee
+                              "
+                            >
+                              <span class="price-label">Regular Price</span>
+                              <span
+                                id="old-price-3"
+                                data-price-amount="110"
+                                data-price-type="oldPrice"
+                                class="price-wrapper"
+                                ><span class="price">$110.00</span></span
+                              >
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="product description product-item-description"
+                        >
+                          <p>
+                            Typi non habent claritatem insitam est usus legentis
+                            in qui facit orum claritatem lectores legere me lius
+                            quod legunt saepius. Sit amet conse ctetur
+                            adipisicing elit sed do eiusmod tempor.
+                          </p>
+                        </div>
+                        <div class="product-item-inner">
+                          <div class="product actions product-item-actions">
+                            <div class="actions-primary">
+                              <form
+                                data-role="tocart-form"
+                                data-product-sku="Digital003"
+                                action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/3/"
+                                method="post"
+                              >
+                                <input type="hidden" name="product" value="3" />
+                                <input
+                                  type="hidden"
+                                  name="uenc"
+                                  value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8zLw,,"
+                                />
+                                <input
+                                  name="form_key"
+                                  type="hidden"
+                                  value="o39Rir2hZnJ8lvxG"
+                                />
+                                <button
+                                  type="submit"
+                                  title="Add&#x20;to&#x20;Cart"
+                                  class="action tocart primary"
+                                >
+                                  <span>Add to Cart</span>
+                                </button>
+                              </form>
+                            </div>
+                            <div
+                              data-role="add-to-links"
+                              class="actions-secondary"
+                            >
+                              <a
+                                href="#"
+                                class="action towishlist"
+                                title="Add&#x20;to&#x20;Wish&#x20;List"
+                                aria-label="Add&#x20;to&#x20;Wish&#x20;List"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":3,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                data-action="add-to-wishlist"
+                                role="button"
+                              >
+                                <span>Wish List</span>
+                              </a>
+                              <a
+                                href="#"
+                                class="action tocompare"
+                                title="Add to Compare"
+                                aria-label="Add to Compare"
+                                data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"3","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
+                                role="button"
+                              >
+                                <span>Add to Compare</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ol>
+            </div>
+          </div>
+        </div>
+{% endblock content %}
