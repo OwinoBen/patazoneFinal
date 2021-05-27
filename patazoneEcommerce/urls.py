@@ -23,6 +23,7 @@ from django.urls import path, include
 from .views import homepage, aboutpage, contactus, frequentquiz,featured
 from accounts.views import createAccount, login
 from products.views import product
+from shop.views import shopViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('accounts', createAccount, name="account"),
     path('customer/login', login, name="login"),
     path('featured', featured, name="featured"),
+    path('shop', shopViews, name="shop"),
     path('', include('accounts.urls', namespace="register")),
 ]
 if settings.DEBUG:
