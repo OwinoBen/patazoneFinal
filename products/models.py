@@ -52,6 +52,12 @@ class ProductQuerySet(models.query.QuerySet):
     def flashDeals(self):
         return self.filter(flash=True, active=True)
 
+    def newDeals(self):
+        return self.filter(new=True, active=True)
+
+    def onsaleDeals(self):
+        return self.filter(onSale=True, active=True)
+
     def searchProduct(self, query):
         lookups = (Q(title__icontains=query) |
                    Q(description__icontains=query) |
@@ -74,6 +80,12 @@ class ProductManager(models.Manager):
     def flashDeals(self):
         return self.get_queryset().flashDeals()
 
+    def newDeals(self):
+        return self.get_queryset().newDeals()
+
+    def onSaleDeals(self):
+        return self.get_queryset().onsaleDeals()
+
     def getProduct_by_id(self, id):
         queryset = self.get_queryset().filter(id=id)
         if queryset.count() == 1:
@@ -93,6 +105,9 @@ class Product(models.Model):
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)
+    onSale = models.BooleanField(default=False)
+    onsaleValue = models.IntegerField(default=0)
+    new = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     upload_Date = models.DateTimeField(auto_now_add=True)
     is_digital = models.BooleanField(default=False)
