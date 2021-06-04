@@ -24,6 +24,7 @@ from .views import homepage, aboutpage, contactus, frequentquiz,featured
 from accounts.views import createAccount, login
 from products.views import product
 from shop.views import shopViews
+from carts.views import cartView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('customer/login', login, name="login"),
     path('featured', featured, name="featured"),
     path('shop', shopViews, name="shop"),
+    path('cart_view', cartView, name="cart"),
     path('', include('accounts.urls', namespace="register")),
 ]
 if settings.DEBUG:
