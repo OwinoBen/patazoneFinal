@@ -4,7 +4,7 @@ body {
     font-family: Rubik, sans-serif
 }
 
-button, .cart.table-wrapper .actions-toolbar > .action, .action-gift, .action.primary, .action-primary, .btn, {
+button, .cart.table-wrapper .actions-toolbar > .action, .action-gift, .action.primary, .action-primary, .btn {
     font-family: Rubik, sans-serif
 }
 
