@@ -10,7 +10,7 @@ def get_last_month_data(today):
     this_month_start = datetime.datetime(today.year, today.month, 1)
     last_month_end = this_month_start - datetime.timedelta(days=1)
     last_month_start = datetime.datetime(last_month_end.year, last_month_end.month, 1)
-    return (last_month_start, last_month_end)
+    return last_month_start, last_month_end
 
 
 def get_filename(path):
