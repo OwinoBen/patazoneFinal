@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from django.contrib.auth.models import (
-    AbstractBaseUser, BaseUserManager
+    AbstractBaseUser, BaseUserManager, PermissionsMixin
 )
 
 from django.core.mail import send_mail
@@ -31,7 +31,7 @@ class UserManager(BaseUserManager):
         )
         user_obj.set_password(password)
         user_obj.staff = is_staff
-        user_obj.admin = is_admin
+        user_obj.is_superuser = is_admin
         user_obj.is_active = is_active
         user_obj.is_vendor = is_vendor
         user_obj.save(using=self._db)
@@ -57,13 +57,13 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
-    admin = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     is_vendor = models.BooleanField(default=False)
     date_registered = models.DateTimeField(auto_now_add=True)
 
@@ -96,7 +96,7 @@ class User(AbstractBaseUser):
 
     @property
     def is_admin(self):
-        return self.admin
+        return self.is_superuser
 
 
 class EmailActivationQuerySet(models.query.QuerySet):

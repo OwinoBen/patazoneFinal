@@ -35,8 +35,8 @@ def cart_home(request):
 
 
 def cartView(request):
-    contect = {}
-    return render(request, 'cart.html', contect)
+    context = {}
+    return render(request, 'cart.html', context)
 
 
 def updateCart(request):
@@ -100,7 +100,7 @@ def checkoutHome(request):
             order_obj.save()
 
     if request.method == "POST":
-        #         CHEKING IF ORDER IS DONE
+        #         CHECKING IF ORDER IS DONE
         is_prepared = order_obj.check_done()
         if is_prepared:
             did_charge, crg_msg = billing_profile.charge(order_obj)
