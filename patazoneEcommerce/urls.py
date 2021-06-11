@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+import carts
 from .views import homepage, aboutpage, contactus, frequentquiz,featured
 from accounts.views import createAccount, login
 from products.views import product
@@ -37,6 +38,7 @@ urlpatterns = [
     path('featured', featured, name="featured"),
     path('shop', shopViews, name="shop"),
     path('cart_view', cartView, name="cart"),
+    path('cart_view', include(("carts.urls", carts),namespace='cart')),
     path('', include('accounts.urls', namespace="register")),
 ]
 if settings.DEBUG:

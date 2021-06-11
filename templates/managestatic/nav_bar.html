@@ -1,0 +1,761 @@
+{% load static %}
+    <div class="enable-sticky-header"></div>
+    <div id="cookie-status">
+      The store will not work correctly in the case when cookies are disabled.
+    </div>
+    <noscript>
+      <div class="message global noscript">
+        <div class="content">
+          <p>
+            <strong>JavaScript seems to be disabled in your browser.</strong>
+            <span>
+              For the best experience on our site, be sure to turn on Javascript
+              in your browser.
+            </span>
+          </p>
+        </div>
+      </div>
+    </noscript>
+    <div
+      id="newsletter_pop_up"
+      class="newsletterpopup"
+      style="background: #ffffff"
+    >
+      <a
+        href="javascript: void(0);"
+        class="btn-close newletter_popup_close"
+        ><i class="fa fa-times" style="color: #fff; font-size: 24px"></i
+      ></a>
+      <div class="col-newsletter-popup col-content">
+        <div class="col-img-bg-pupup"></div>
+        <div class="content-popup">
+          <div class="content">
+            <div class="logo_popup">
+                <i class="fas fa-envelope-open-text" style="color: #b92227; font-size: 60px;"></i>
+            </div>
+            <p style="color: #b92227">
+              SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !
+            </p>
+            <h2 style="color: #b92227">Sale 20% OFF</h2>
+            <p style="color: #b92227">ON YOUR NEXT PURCHASE</p>
+          </div>
+          <form
+            class="form subscribe"
+            novalidate
+            action=" "
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-popup"
+          >
+            <div class="field newsletter">
+              <div class="control">
+                <input
+                  name="email"
+                  type="email"
+                  id="newsletter-popup"
+                  placeholder="Enter your email address"
+                  data-validate="{required:true, 'validate-email':true}"
+                  style="border-color: #b92227; color: #000000"
+                />
+              </div>
+            </div>
+            <div class="actions">
+              <button
+                class="action subscribe primary"
+                style="background-color: #ff7979"
+                title="Subscribe"
+                type="submit"
+              >
+                <span>Subscribe</span>
+              </button>
+            </div>
+            <div class="subscribe-bottom flex-layout no-wrap center">
+              <div class="input-check-box">
+                <input type="checkbox" id="newsletter_popup_dont_show_again" />
+                <span class="checkmark"></span>
+              </div>
+              <label
+                for="newsletter_popup_dont_show_again"
+                style="color: #000000"
+                >Do not show this popup again</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="page-wrapper lazyload-image" >
+      <header class="page-header" >
+        <div
+          class="header-container layout-2 layout-3-additional sticky-header"
+        >
+          <div class="topbar hidden-xs hidden-sticky">
+            <div class="container" >
+              <div class="topbar-inner">
+                <div
+                  class="
+                    flex-layout
+                    space-between
+                    center_vertical center-mobile
+                  "
+                >
+                  <div
+                    class="
+                      col-left col-top-link
+                      flex-layout
+                      center_vertical
+                      hidden-sm
+                      no-wrap-desktop
+                    "
+                  >
+                    <div class="language-currency">
+                      <div class="container-setting-language-currency">
+                        <div
+                          class="switcher language switcher-language"
+                          data-ui-id="language-switcher"
+                          id="switcher-language"
+                        >
+                          <strong class="label switcher-label"
+                            ><span>Language</span></strong
+                          >
+                          <div
+                            class="actions dropdown options switcher-options"
+                          >
+                            <div
+                              class="action toggle switcher-trigger"
+                              id="switcher-language-trigger"
+                              data-mage-init='{"dropdown":{}}'
+                              data-toggle="dropdown"
+                              data-trigger-keypress-button="true"
+                            >
+                              <strong class="view-en3">
+                                  <a href="#">
+                                <span>Track My Order</span>
+                                      </a>
+                              </strong>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div
+                          class="switcher currency switcher-currency"
+                          id="switcher-currency"
+                        >
+                          <strong class="label switcher-label"
+                            ><span>Currency</span></strong
+                          >
+                          <div
+                            class="actions dropdown options switcher-options"
+                          >
+                            <div
+                              class="action toggle switcher-trigger"
+                              id="switcher-currency-trigger"
+                              data-mage-init='{"dropdown":{}}'
+                              data-toggle="dropdown"
+                              data-trigger-keypress-button="true"
+                            >
+                              <strong class="language-USD">
+                                <span>KE - Shillings</span>
+                              </strong>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hotline">
+                      <p>
+                        Need Help?
+                        <a title="+254700 588885" href="tel:+254700 588885"
+                          >+254700 588885</a
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-right col-top-link flex-layout center_vertical"
+                  >
+                    <div class="topbar-menu hozital-menu">
+                      <ul class="hozital-menu">
+                        <li>
+                          <a title="Order Tracking" href="auth/login.html"
+                            >My account</a
+                          >
+                        </li>
+                        <li>
+                          <a title="About Us" href="{% url 'about' %}">About Us</a>
+                        </li>
+                        <li>
+                          <a title="Contact Us" href="{% url 'contact' %}"
+                            >Contact Us</a
+                          >
+                        </li>
+                        <li><a title="FAQs" href="{% url 'fqa' %}">FAQs</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              header
+              panel
+              flex-layout-sticky
+              center_vertical
+              no-wrap-desktop
+            "
+          >
+            <div
+              class="
+                flex-layout
+                space-between
+                center_vertical
+                no-wrap-desktop
+                header-middle
+              "
+            >
+              <div class="logo-container">
+                <div class="logo-site">
+                  <i data-action="toggle-nav" class="fa fa-bars action nav-toggle"
+                    ></i
+                  >
+                  <a
+                    class="logo"
+                    href="{% url 'home' %}"
+                    title=""
+                    aria-label="store logo"
+                  >
+                  <img id="cart-icon" >
+                    <img
+                    src="{% static 'images/logo.png' %}"
+                      title=""
+                      alt=""
+                      width="201"
+                      height="28"
+                    />
+                  </a>
+                </div>
+                <div class="primary-menu-container mobile-style">
+                  <span
+                    data-action="toggle-nav"
+                    class="action nav-toggle d-xl-none sticky-toggle"
+                    ><span>Toggle Nav</span></span
+                  >
+                  <div
+                    class="
+                      navigation
+                      custommenu
+                      main-nav
+                      nav-sections
+                      mobile-style
+                    "
+                    role="navigation"
+                  >
+                    <div class="close-menu-mobile">
+                      <a href="#" id="close-menu">Close</a>
+                    </div>
+                    <div class="menu-mobile-title d-block d-xl-none" style="background-color: #b92227;">
+                      <a class="active" data-menu="custommenu-list" href="#"
+                        >Menu</a
+                      >
+                    </div>
+                    <ul class="custommenu-list menu">
+                      <li class="ui-menu-item level0 classic">
+                        <a class="level-top" href="index.html">Home</a>
+                      </li>
+                      <li
+                        class="
+                          ui-menu-item
+                          level0
+                          fullwidth
+                          menu-item-has-children
+                          parent
+                        "
+                      >
+                        <div class="open-children-toggle"></div>
+                        <a
+                          href="https://mageblueskytech.com/dukamarket/en3/shop.html"
+                          class="level-top"
+                          >Shop</a
+                        >
+                        <div class="level0 submenu">
+                          <div class="row">
+                            <ul
+                              class="
+                                subchildmenu
+                                col-sm-9
+                                mega-columns
+                                columns4
+                              "
+                            >
+                              <li class="ui-menu-item level1 parent">
+                                <div class="open-children-toggle"></div>
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories.html"
+                                  ><span>Computer Accessories</span></a
+                                >
+                                <ul class="subchildmenu">
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/blue-light-blocking.html"
+                                      ><span>Blue Light Blocking </span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cable-security-devices.html"
+                                      ><span>Cable Security Devices</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cables-interconnects.html"
+                                      ><span>Cables & Interconnects</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cleaning-repair.html"
+                                      ><span>Cleaning & Repair</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/computer-cable-adapters.html"
+                                      ><span>Computer Cable Adapters</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/game-hardware.html"
+                                      ><span>Game Hardware</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/hard-drive-accessories.html"
+                                      ><span>Hard Drive Accessories</span></a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="ui-menu-item level1 parent">
+                                <div class="open-children-toggle"></div>
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals.html"
+                                  ><span>Peripherals</span></a
+                                >
+                                <ul class="subchildmenu">
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/input-devices.html"
+                                      ><span>Input Devices</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/keyboards.html"
+                                      ><span>Keyboards</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/mice-accessories.html"
+                                      ><span>Mice & Accessories</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/memory-card-accessories.html"
+                                      ><span>Memory Card Accessories</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/memory-cards.html"
+                                      ><span>Memory Cards</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/monitor-accessories.html"
+                                      ><span>Monitor Accessories</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/printer-accessories.html"
+                                      ><span>Printer Accessories</span></a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="ui-menu-item level1 parent">
+                                <div class="open-children-toggle"></div>
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories.html"
+                                  ><span>Video Accessories</span></a
+                                >
+                                <ul class="subchildmenu">
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/printer-ink-toner.html"
+                                      ><span>Printer Ink & Toner</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/racks-cabinets.html"
+                                      ><span>Racks & Cabinets</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/scanner-accessories.html"
+                                      ><span>Scanner Accessories</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/usb-gadgets.html"
+                                      ><span>USB Gadgets</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/usb-hubs.html"
+                                      ><span>USB Hubs</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/uninterruptible.html"
+                                      ><span>Uninterruptible</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/power-supply-ups.html"
+                                      ><span>Power Supply (UPS)</span></a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="ui-menu-item level1 parent">
+                                <div class="open-children-toggle"></div>
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media.html"
+                                  ><span>Blank Media</span></a
+                                >
+                                <ul class="subchildmenu">
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/computer-headsets.html"
+                                      ><span>Computer Headsets</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/computer-speakers.html"
+                                      ><span>Computer Speakers</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/webcam-stands-mounts.html"
+                                      ><span>Webcam Stands & Mounts</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/laptop-accessories.html"
+                                      ><span>Laptop Accessories</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/networking-products.html"
+                                      ><span>Networking Products</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/power-strips-surge.html"
+                                      ><span>Power Strips & Surge</span></a
+                                    >
+                                  </li>
+                                  <li class="ui-menu-item level2">
+                                    <a
+                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/tablet-accessories.html"
+                                      ><span>Tablet Accessories</span></a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                            <div class="menu-right-block col-sm-3">
+                              <p>
+                                <img
+                                  style="float: right"
+                                  src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                  data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-menu.png"
+                                  alt="Banner Menu"
+                                />
+                              </p>
+                            </div>
+                          </div>
+                          <div class="menu-bottom-block">
+                            <p style="text-align: center">
+                              <strong>30% Off</strong> the shipping of your
+                              first order with the code:
+                              <strong>DUKA-SALE30</strong>
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        class="
+                          ui-menu-item
+                          level0
+                          classic
+                          menu-item-has-children
+                          parent
+                        "
+                      >
+                        <a class="level-top">Page</a>
+                        <div class="open-children-toggle">&nbsp;</div>
+                        <div class="level0 submenu">
+                          <div class="row">
+                            <ul class="subchildmenu">
+                              <li class="ui-menu-item level2">
+                                <a href="store/storelocal.html"
+                                  >Store Locator</a
+                                >
+                              </li>
+                              <li class="ui-menu-item level2">
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/rokanthemes-brand.html"
+                                  >Shop by brand</a
+                                >
+                              </li>
+                              <li class="ui-menu-item level2">
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/rokanfaq"
+                                  >Faq</a
+                                >
+                              </li>
+                              <li class="ui-menu-item level2">
+                                <a
+                                  href="https://mageblueskytech.com/dukamarket/en3/404/"
+                                  >404 page</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="ui-menu-item level0">
+                        <a
+                          class="level-top"
+                          href="https://mageblueskytech.com/dukamarket/en3/blog/"
+                          >Blog</a
+                        >
+                      </li>
+                      <li class="ui-menu-item level0 classic">
+                        <a
+                          class="level-top"
+                          href="https://mageblueskytech.com/dukamarket/en3/contact/"
+                          >Contact us</a
+                        >
+                      </li>
+                      <li class="ui-menu-item level0 classic">
+                        <a
+                          class="level-top"
+                          href="https://mageblueskytech.com/dukamarket/en3/about-us/"
+                          >About us</a
+                        >
+                      </li>
+                      <li
+                        class="
+                          my_account_link_custom
+                          ui-menu-item
+                          level0
+                          classic
+                        "
+                      >
+                        <a
+                          href="https://mageblueskytech.com/dukamarket/en3/customer/account/"
+                          title="My Account"
+                          class="level-top"
+                          >My Account</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="top-search-not-dropdown button-search-full">
+                <div class="block block-search">
+                  <div class="block-content">
+                    <div class="dropdown">
+                      <div class="dropdown-toggle">
+                        <div class="top-search">
+
+                          <span class="text">Search</span>
+                        </div>
+                      </div>
+                      <form
+                        class="form minisearch search-content cat-search"
+                        id="search_mini_form"
+                        action=""
+                        method="get"
+                      >
+                        <div class="search-form">
+                          <div class="field-by-cat-search hidden-xs">
+                            <select name="cat" id="choose_category">
+                              <option value="">All Categories</option>
+                              <option value="3">Top Deals</option>
+                              <option value="5">Top Featured Products</option>
+                              <option value="6">Top Selling Products</option>
+                              <option value="10">Cameras & Accessories</option>
+                              <option value="8">Tablets & Mobile Phone</option>
+                              <option value="7">Computer & Desktop</option>
+                              <option value="11">Kitchen accessories</option>
+                              <option value="9">Home & Accessories</option>
+                              <option value="12">Sport & Outdoors</option>
+                              <option value="13">Audio & Headphones</option>
+                              <option value="14">Toys & Hobbies</option>
+                              <option value="17">Fashion & Clothing</option>
+                              <option value="16">Decor & Furniture</option>
+                              <option value="50">Shop</option>
+                              <option value="161">Stereo Headphones</option>
+                            </select>
+                          </div>
+                          <div class="field search">
+                            <label class="label" or="search-input-autocomplate" data-role="minisearch-label">
+                              <span>Search</span>
+                            </label>
+                            <div class="control">
+                              <input id="search-input-autocomplate"
+                                type="text"
+                                name="q"
+                                value=""
+                                placeholder="Search entire store here..."
+                                class="input-text search-form"
+                                maxlength="128"
+                                role="combobox"
+                                aria-haspopup="false"
+                                aria-autocomplete="both"
+                                aria-expanded="false"
+                                autocomplete="off"
+                              />
+                              <div
+                                id="search_autocomplete"
+                                class="search-autocomplete"
+                              ></div>
+                              <div
+                                data-bind="scope: 'searchsuiteautocomplete_form'"
+                              >
+                              </div>
+                            </div>
+                            <div class="actions">
+                              <button
+                                type="submit"
+                                title="Search"
+                                class=" action search"
+                              ><i class="icon-search icon-large"></i>
+                                <span>Search</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-action col-right">
+                <div class="flex-layout center_vertical" >
+                  <ul
+                    class="
+                      flex-layout
+                      action-header
+                      center_vertical
+                      no-wrap-desktop
+                    "
+                  >
+                    <li class="account-link-header hidden-xs">
+                        <i class="far fa-user fa-2x" style="margin-right: 5px"></i>
+                      <ul class="header links">
+                        <li class="link authorization-link" data-label="or">
+                          <a href="{% url 'login' %}"
+                            ><span class="text">Sign In</span></a
+                          >
+                        </li>
+                        <li>
+                          <a href="{% url 'account' %}" id="idkNjDRaNV"
+                            >Create an Account</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li
+                      class="link wishlist hidden-xs"
+                      data-bind="scope: 'wishlist'"
+                    >
+
+                      <a href="whish/whitelist.html">
+                          <i class="far fa-heart fa-2x" style="margin-right: 5px;"></i>
+                        <span>
+                          <span class="text">Favorite</span>
+                          <span>My Wish List</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="minicart-li-content-show-hide">
+                        <div data-block="minicart" class="minicart-wrapper">
+                            <a class="action showcart" href="{% url 'cart' %}" data-bind="scope: 'minicart_content'">
+                            <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
+                          <span class="counter qty empty" style="background-color: #b92227;margin-left: 45px;" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                            <span class="total-mini-cart-item" >
+                              0
+                            </span>
+                          </span>
+                          <span class="mini-cart-text">
+                            <span class="text">My Cart</span>
+                            <span class="content-cart hidden-xs">
+
+                              <span
+                                class="total-mini-cart-price"
+                                data-bind="html: getCartParam('subtotal')"
+                              ></span>
+                              <span class="total-mini-cart-price"
+                                ><span class="price">Ksh0.00</span></span>
+                            </span>
+                          </span>
+                        </a>
+                        <div
+                          class="block block-minicart"
+                          data-role="dropdownDialog">
+                          <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel wrapper">
+          <div class="panel header">
+            <a class="action skip contentarea" href="#contentarea">
+              <span> Skip to Content </span>
+            </a>
+          </div>
+        </div>
+      </header>
