@@ -532,7 +532,6 @@
                             </div>
                         </div>
                         <div id="cart-totals" class="cart-totals" data-bind="scope:'block-totals'">
-                            <!-- ko template: getTemplate() -->
                             <div class="table-wrapper" data-bind="blockLoader: isLoading">
                                 <table class="data table totals">
                                     <caption class="table-caption" data-bind="text: $t('Total')">Total</caption>
@@ -540,19 +539,16 @@
                                     <tr class="totals sub">
                                         <th data-bind="i18n: title" class="mark" scope="row">Subtotal</th>
                                         <td class="amount">
-                                            <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
-                                                  data-th="Subtotal">$59.99</span>
+                                            <span class="price" data-th="Subtotal">$59.99</span>
                                         </td>
                                     </tr>
                                     <tr class="totals shipping excl">
                                         <th class="mark" scope="row">
                                             <span class="label" data-bind="i18n: title">Shipping</span>
-                                            <!-- ko if: haveToShowCoupon() --><!-- /ko -->
                                             <span class="value" data-bind="text: getShippingMethodTitle()">(Flat Rate - Fixed)</span>
                                         </th>
                                         <td class="amount">
-                                            <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
-                                                  data-th="Shipping">$5.00</span>
+                                            <span class="price" data-th="Shipping">$5.00</span>
                                         </td>
                                     </tr>
 
@@ -560,41 +556,33 @@
                                         <th class="mark" scope="row">
                                             <strong data-bind="i18n: title">Order Total</strong>
                                         </th>
-                                        <td data-bind="attr: {'data-th': title}" class="amount" data-th="Order Total">
-                                            <strong><span class="price"
-                                                          data-bind="text: getValue()">$64.99</span></strong>
+                                        <td class="amount" data-th="Order Total">
+                                            <strong><span class="price" data-bind="text: getValue()">$64.99</span></strong>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /ko -->
                         </div>
                         <div class="block discount" id="block-discount" data-collapsible="true" role="tablist">
                             <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="false"
                                  tabindex="0">
-                                <strong id="block-discount-heading" role="heading" aria-level="2">Apply Discount
-                                    Code</strong>
+                                <strong id="block-discount-heading" role="heading" aria-level="2">Apply Discount Code</strong>
                             </div>
                             <div class="content" data-role="content" aria-labelledby="block-discount-heading"
                                  role="tabpanel" aria-hidden="true" style="display: none;">
-                                <form id="discount-coupon-form"
-                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/couponPost/"
-                                      method="post">
+                                <form id="discount-coupon-form" action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/couponPost/" method="post">
                                     <div class="fieldset coupon">
                                         <input type="hidden" name="remove" id="remove-coupon" value="0">
                                         <div class="field">
-                                            <label for="coupon_code"
-                                                   class="label"><span>Enter discount code</span></label>
+                                            <label for="coupon_code" class="label"><span>Enter discount code</span></label>
                                             <div class="control">
-                                                <input type="text" class="input-text" id="coupon_code"
-                                                       name="coupon_code" value="" placeholder="Enter discount code">
+                                                <input type="text" class="input-text" id="coupon_code" name="coupon_code" value="" placeholder="Enter discount code">
                                             </div>
                                         </div>
                                         <div class="actions-toolbar">
                                             <div class="primary">
-                                                <button class="action apply primary" type="button"
-                                                        value="Apply Discount">
+                                                <button class="action apply primary" type="button" value="Apply Discount">
                                                     <span>Apply Discount</span>
                                                 </button>
                                             </div>
@@ -605,8 +593,7 @@
                         </div>
                         <ul class="checkout methods items checkout-methods-items">
                             <li class="item">
-                                <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout"
-                                        class="action primary checkout">
+                                <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary checkout">
                                     <span>Proceed to Checkout</span>
                                 </button>
                             </li>
@@ -614,8 +601,7 @@
                             </li>
                         </ul>
                     </div>
-                    <form action="#" method="post"
-                          id="form-validate" class="form form-cart">
+                    <form action="#" method="post" id="form-validate" class="form form-cart">
                         <input name="form_key" type="hidden" value="Fzk6y9ovq1rLFrac">
                         <div class="cart table-wrapper">
                             <table id="shopping-cart-table" class="cart-table cart items data table">

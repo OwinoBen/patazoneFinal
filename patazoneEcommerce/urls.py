@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django import urls
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 
 from django.contrib import admin
@@ -25,7 +26,7 @@ from .views import homepage, aboutpage, contactus, frequentquiz,featured
 from accounts.views import createAccount, login
 from products.views import product
 from shop.views import shopViews
-from carts.views import cartView
+from carts.views import cartView,updateCart
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,7 +39,7 @@ urlpatterns = [
     path('featured', featured, name="featured"),
     path('shop', shopViews, name="shop"),
     path('cart_view', cartView, name="cart"),
-    path('cart_view', include(("carts.urls", carts),namespace='cart')),
+    url(r'^cart/', include(("carts.urls", carts),namespace='cart')),
     path('', include('accounts.urls', namespace="register")),
 ]
 if settings.DEBUG:

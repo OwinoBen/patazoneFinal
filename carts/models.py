@@ -15,14 +15,15 @@ class CartManager(models.Manager):
         if qs.count() == 1:
             new_obj = False
             cart_obj = qs.first()
-            if request.user.is_authenticated() and cart_obj.user is None:
+            if request.user.is_authenticated and cart_obj.user is None:
                 cart_obj.user = request.user
                 cart_obj.save()
+
         else:
             cart_obj = Cart.objects.new(user=request.user)
-            new_object = True
+            new_obj = True
             request.session['cart_id'] = cart_obj.id
-            return cart_obj, new_object
+        return cart_obj, new_obj
 
     def new(self, user=None):
         user_object = None
@@ -40,7 +41,7 @@ class Cart(models.Model):
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    objects = CartManager
+    objects = CartManager()
 
     def __str__(self):
         return str(self.id)

@@ -199,60 +199,19 @@
             </div>
           </div>
           <div
-            class="
-              header
-              panel
-              flex-layout-sticky
-              center_vertical
-              no-wrap-desktop
-            "
-          >
-            <div
-              class="
-                flex-layout
-                space-between
-                center_vertical
-                no-wrap-desktop
-                header-middle
-              "
-            >
+            class="header panel flex-layout-sticky center_vertical no-wrap-desktop">
+            <div class="flex-layout space-between center_vertical no-wrap-desktop header-middle">
               <div class="logo-container">
                 <div class="logo-site">
-                  <i data-action="toggle-nav" class="fa fa-bars action nav-toggle"
-                    ></i
-                  >
-                  <a
-                    class="logo"
-                    href="{% url 'home' %}"
-                    title=""
-                    aria-label="store logo"
-                  >
+                  <i data-action="toggle-nav" class="fa fa-bars action nav-toggle"></i>
+                  <a class="logo" href="{% url 'home' %}" title="" aria-label="store logo">
                   <img id="cart-icon" >
-                    <img
-                    src="{% static 'images/logo.png' %}"
-                      title=""
-                      alt=""
-                      width="201"
-                      height="28"
-                    />
+                    <img src="{% static 'images/logo.png' %}" title="" alt="" width="201" height="28"/>
                   </a>
                 </div>
                 <div class="primary-menu-container mobile-style">
-                  <span
-                    data-action="toggle-nav"
-                    class="action nav-toggle d-xl-none sticky-toggle"
-                    ><span>Toggle Nav</span></span
-                  >
-                  <div
-                    class="
-                      navigation
-                      custommenu
-                      main-nav
-                      nav-sections
-                      mobile-style
-                    "
-                    role="navigation"
-                  >
+                  <span data-action="toggle-nav" class="action nav-toggle d-xl-none sticky-toggle"><span>Toggle Nav</span></span>
+                  <div class="navigation custommenu main-nav nav-sections mobile-style" role="navigation">
                     <div class="close-menu-mobile">
                       <a href="#" id="close-menu">Close</a>
                     </div>
@@ -266,30 +225,12 @@
                         <a class="level-top" href="index.html">Home</a>
                       </li>
                       <li
-                        class="
-                          ui-menu-item
-                          level0
-                          fullwidth
-                          menu-item-has-children
-                          parent
-                        "
-                      >
+                        class="ui-menu-item level0 fullwidth menu-item-has-children parent">
                         <div class="open-children-toggle"></div>
-                        <a
-                          href="https://mageblueskytech.com/dukamarket/en3/shop.html"
-                          class="level-top"
-                          >Shop</a
-                        >
+                        <a href="https://mageblueskytech.com/dukamarket/en3/shop.html" class="level-top">Shop</a>
                         <div class="level0 submenu">
                           <div class="row">
-                            <ul
-                              class="
-                                subchildmenu
-                                col-sm-9
-                                mega-columns
-                                columns4
-                              "
-                            >
+                            <ul class="subchildmenu col-sm-9 mega-columns columns4">
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
@@ -298,8 +239,7 @@
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/blue-light-blocking.html"
+                                    <a href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/blue-light-blocking.html"
                                       ><span>Blue Light Blocking </span></a
                                     >
                                   </li>
@@ -721,7 +661,7 @@
                             <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
                           <span class="counter qty empty" style="background-color: #b92227;margin-left: 45px;" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
                             <span class="total-mini-cart-item" >
-                              0
+                              {{ request.session.cart_items }}
                             </span>
                           </span>
                           <span class="mini-cart-text">
