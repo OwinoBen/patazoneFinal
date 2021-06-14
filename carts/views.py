@@ -30,7 +30,7 @@ def cart_detail_api_view(request):
 
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
-    cart = {"cart_object": cart_obj}
+    cart = {"cart_obj": cart_obj}
     return render(request, 'cart.html', cart)
 
 

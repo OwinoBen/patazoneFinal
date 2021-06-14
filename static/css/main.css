@@ -13316,8 +13316,10 @@
     speak: none;
     text-align: center;
   }
-  .cart.table-wrapper .actions-toolbar a.action-delete:before {
-    content: "\e616";
+  .cart.table-wrapper .actions-toolbar a.action-delete{
+      font-family: "Font Awesome 5 Brands";
+	font-weight: 400;
+	content: "\f099";
   }
   .cart.table-wrapper .action.help.map {
     font-weight: 400;

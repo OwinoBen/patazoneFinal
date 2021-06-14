@@ -604,6 +604,7 @@
                     <form action="#" method="post" id="form-validate" class="form form-cart">
                         <input name="form_key" type="hidden" value="Fzk6y9ovq1rLFrac">
                         <div class="cart table-wrapper">
+                            {% if cart_obj.products.exists %}
                             <table id="shopping-cart-table" class="cart-table cart items data table">
                                 <caption class="table-caption">Shopping Cart Items</caption>
                                 <thead>
@@ -615,16 +616,17 @@
                                 </tr>
                                 </thead>
                                 <tbody class="cart item cart-body">
+                                {% for product in cart_obj.products.all %}
                                 <tr class="item-info">
                                     <td data-th="Item" class="col item">
-                                        <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                                        <a href='#'
                                            title="OnePlus Nord N10 5G Unlocked" tabindex="-1"
                                            class="product-item-photo">
                                             <span class="product-image-container product-image-container-11119834517" style="width: 100px;">
                                             <span class="product-image-wrapper" style="padding-bottom: 100%;">
                                             <img class="product-image-photo lazy-loaded transition"
-                                                 src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/2d7e4c53c1b6205362b69199e9d601c1/3/5/35.jpg"
-                                                 loading="lazy" width="100" height="100" alt="OnePlus Nord N10 5G Unlocked" style="display: block;"></span>
+                                                 src="{{ product.imageURL }}"
+                                                 loading="lazy" width="100" height="100" alt="{{ product.title }}" style="display: block;"></span>
                                             </span>
                                             <style>.product-image-container-11119834517 {
                                                 width: 100px;
@@ -636,15 +638,14 @@
                                         </a>
                                         <div class="product-item-details">
                                             <strong class="product-item-name">
-                                                <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">OnePlus
-                                                    Nord N10 5G Unlocked</a>
+                                                <a href='#'>{{ product.title }}</a>
                                             </strong>
                                         </div>
                                     </td>
                                     <td class="col price" data-th="Price">
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
-                                        <span class="price">$59.99</span> </span>
+                                        <span class="price">{{product.price}}</span> </span>
                                         </span>
                                     </td>
                                     <td class="col qty box-tocart" data-th="Qty">
@@ -669,10 +670,11 @@
                                     <td class="col subtotal" data-th="Subtotal">
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
-                                        <span class="price">$59.99</span> </span>
+                                        <span class="price">{{product.subtotal}}</span> </span>
                                         </span>
                                     </td>
                                 </tr>
+
                                 <tr class="item-actions">
                                     <td colspan="4">
                                         <div class="actions-toolbar">
@@ -686,13 +688,16 @@
                                                 <span>Edit</span>
                                             </a>
                                             <a href="#" title="Remove item" class="action action-delete">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
                                                 <span>Remove item </span>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
+                            {% endif %}
                         </div>
                         <div class="cart main actions">
                             <a class="action continue" href="{% url 'shop' %}"

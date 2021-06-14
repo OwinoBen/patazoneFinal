@@ -99,7 +99,7 @@ class ProductManager(models.Manager):
 class Product(models.Model):
     title = models.CharField(max_length=120)
     category = models.CharField(max_length=120, choices=CATEGORY)
-    slug = models.SlugField(max_length=255,blank=True, unique=True)
+    slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
@@ -114,10 +114,10 @@ class Product(models.Model):
 
     objects = ProductManager()
 
-
-
     def get_absolute_url(self):
-        return reverse("products:detail", kwargs={"slug": self.slug})
+        # return reverse("products:detail", kwargs={"slug": self.slug})
+        # return reverse("products:detail", args=[str(self.slug)])
+        return reverse("products:detail", args=(str(self.slug),))
 
     def __str__(self):
         return self.title

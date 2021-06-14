@@ -657,7 +657,7 @@
                     </li>
                     <li class="minicart-li-content-show-hide">
                         <div data-block="minicart" class="minicart-wrapper">
-                            <a class="action showcart" href="{% url 'cart' %}" data-bind="scope: 'minicart_content'">
+                            <a class="action showcart" href="{% url 'cart:home' %}" data-bind="scope: 'minicart_content'">
                             <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
                           <span class="counter qty empty" style="background-color: #b92227;margin-left: 45px;" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
                             <span class="total-mini-cart-item" >

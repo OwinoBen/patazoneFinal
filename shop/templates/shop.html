@@ -172,7 +172,7 @@
                                     <div class="product details product-item-details">
                                         <strong class="product name product-item-name">
                                             <a class="product-item-link"
-                                               href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                               href="{% url 'cart:home' products.id %} ">
                                                 {{ products.title }} </a>
                                         </strong>
                                         <div class="product-reviews-summary short">
@@ -244,9 +244,7 @@
                     </ol>
                 </div>
                 <div class="modal modals-wrapper" id="quickCheck" tabindex="-1" aria-labelledby="quickCheck">
-                    <aside role="dialog"
-                           class="modal-popup popup-authentication popup-ajaxsuite modal-slide_inner-scroll"
-                           aria-describedby="modal-content-51" data-role="" data-type="" tabindex="0">
+                    <aside role="dialog" class="modal-popup popup-authentication popup-ajaxsuite modal-slide_inner-scroll" aria-describedby="modal-content-51" data-role="" data-type="" tabindex="0">
                         <div data-role="focusable-start" tabindex="0"></div>
                         <div class="modal-inner-wrap" data-role="focusable-scope">
                             <header class="modal-header">
@@ -255,10 +253,8 @@
                                 </button>
                             </header>
                             <div id="modal-content-51" class="modal-content" data-role="content">
-                                <div class="block-authentication"
-                                     data-bind="afterRender: setModalElement, blockLoader: isLoading" style="">
-                                    <div class="bg-login-popup"
-                                         data-bind="style: { backgroundImage: 'url(\'' + window.backgroundUrl + '\')' }">
+                                <div class="block-authentication" data-bind="afterRender: setModalElement, blockLoader: isLoading" style="">
+                                    <div class="bg-login-popup">
                                         <div class="login-content">
                                             <img class="logo" data-bind="attr: {src: window.logoUrl}"
                                                  src="https://mageblueskytech.com/dukamarket/media/rokanthemes/pupuplogo/default/wishlist-popup-logo-1.png">
@@ -274,76 +270,44 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="block block-customer-login" data-bind="attr: {'data-label': $t('or')}"
-                                         data-label="or">
+                                    <div class="block block-customer-login" data-bind="attr: {'data-label': $t('or')}" data-label="or">
                                         <div class="block-form-login">
                                             <div class="block-title">
-                                                <strong id="block-customer-login-heading" role="heading" aria-level="2"
-                                                        data-bind="i18n: 'Sign in'">Sign in</strong>
+                                                <strong id="block-customer-login-heading" role="heading" aria-level="2" data-bind="i18n: 'Sign in'">Sign in</strong>
                                             </div>
-                                            <!-- ko foreach: getRegion('messages') -->
-                                            <!-- ko template: getTemplate() -->
                                             <div data-role="checkout-messages" class="messages"
                                                  data-bind="visible: isVisible(), click: removeAll">
-                                                <!-- ko foreach: messageContainer.getErrorMessages() --><!--/ko-->
-                                                <!-- ko foreach: messageContainer.getSuccessMessages() --><!--/ko-->
                                             </div>
-                                            <!-- /ko -->
-                                            <!--/ko-->
-                                            <!-- ko foreach: getRegion('before') --><!-- /ko -->
                                             <div class="block-content" aria-labelledby="block-customer-login-heading">
-                                                <form class="form form-login" method="post"
-                                                      data-bind="event: {submit: login }" id="login-form">
+                                                <form class="form form-login" method="post" id="login-form">
                                                     <div class="fieldset login"
                                                          data-bind="attr: {'data-hasrequired': $t('* Required Fields')}"
                                                          data-hasrequired="* Required Fields">
                                                         <div class="field email required">
-                                                            <label class="label" for="customer-email"><span
-                                                                    data-bind="i18n: 'Email Address'">Email Address</span></label>
+                                                            <label class="label" for="customer-email"><span>Email Address</span></label>
                                                             <div class="control">
-                                                                <input name="username" id="customer-email" type="email"
-                                                                       class="input-text"
-                                                                       data-bind="attr: {autocomplete: autocomplete}"
-                                                                       data-validate="{required:true, 'validate-email':true}"
-                                                                       autocomplete="off">
+                                                                <input name="username" id="customer-email" type="email" class="input-text" autocomplete="off">
                                                             </div>
                                                         </div>
                                                         <div class="field password required">
                                                             <label for="pass" class="label"><span
                                                                     data-bind="i18n: 'Password'">Password</span></label>
                                                             <div class="control">
-                                                                <input name="password" type="password"
-                                                                       class="input-text" id="pass"
-                                                                       data-bind="attr: {autocomplete: autocomplete}"
-                                                                       data-validate="{required:true}"
-                                                                       autocomplete="off">
+                                                                <input name="password" type="password" class="input-text" id="pass" data-validate="{required:true}" autocomplete="off">
                                                             </div>
-                                                            <a class="action"
-                                                               data-bind="attr: {href: forgotPasswordUrl}"
-                                                               href="https://mageblueskytech.com/dukamarket/en3/customer/account/forgotpassword/">
+                                                            <a class="action" href="https://mageblueskytech.com/dukamarket/en3/customer/account/forgotpassword/">
                                                                 <span data-bind="i18n: 'Forgot Your Password?'">Forgot Your Password?</span>
                                                             </a>
                                                         </div>
-                                                        <!-- ko foreach: getRegion('additional-login-form-fields') -->
-                                                        <!-- ko template: getTemplate() -->
-                                                        <input name="captcha_form_id" type="hidden"
-                                                               data-bind="value: formId,  attr: {'data-scope': dataScope}"
-                                                               value="user_login" data-scope="">
-                                                        <!-- ko if: (isRequired() && getIsVisible())--><!-- /ko -->
-                                                        <!-- /ko -->
-                                                        <!-- /ko -->
+                                                        <input name="captcha_form_id" type="hidden">
                                                         <div class="actions-toolbar">
                                                             <input name="context" type="hidden" value="checkout">
                                                             <div class="primary">
-                                                                <button type="submit"
-                                                                        class="action action-login secondary"
-                                                                        name="send" id="send2">
+                                                                <button type="submit" class="action action-login secondary" name="send" id="send2">
                                                                     <span data-bind="i18n: 'Sign In'">Sign In</span>
                                                                 </button>
                                                             </div>
-                                                            <a class="action action-register"
-                                                               data-bind="attr: {href: registerUrl}"
-                                                               href="https://mageblueskytech.com/dukamarket/en3/customer/account/create/">
+                                                            <a class="action action-register" href="#">
                                                                 <span data-bind="i18n: 'Create an Account'">Create an Account</span>
                                                             </a>
                                                         </div>
@@ -358,537 +322,13 @@
                         </div>
                         <div data-role="focusable-end" tabindex="0"></div>
                     </aside>
-                    <aside role="dialog"
-                           class="modal-popup quickview quickview-popup-wrapper modal-slide"
-                           aria-labelledby="modal-title-52" aria-describedby="modal-content-52" data-role="modal"
-                           data-type="popup" tabindex="0">
-                        <div data-role="focusable-start" tabindex="0"></div>
-                        <div class="modal-inner-wrap" data-role="focusable-scope">
-                            <header class="modal-header">
 
-                                <h1 id="modal-title-52" class="modal-title" data-role="title">
-
-                                    Quick View
-
-
-                                </h1>
-
-                                <button class="action-close" data-role="closeBtn" type="button">
-                                    <span>Close</span>
-                                </button>
-                            </header>
-                            <div id="modal-content-52" class="modal-content" data-role="content">
-                                <div id="quickViewContainer6" class="quickviewContainer">
-                                    <div class="product-main-content">
-                                        <div class="product media"><a id="gallery-prev-area" tabindex="-1"></a>
-                                            <div class="action-skip-wrapper"><a class="action skip gallery-next-area"
-                                                                                href="#gallery-next-area">
-    <span>
-        Skip to the end of the images gallery    </span>
-                                            </a>
-                                            </div>
-
-                                            <div class="gallery-placeholder" data-gallery-role="gallery-placeholder"
-                                                 style="">
-
-
-                                                <div class="fotorama--hidden"></div>
-                                                <style>.fotorama1622161630496 .fotorama__nav--thumbs .fotorama__nav__frame {
-                                                    padding: 2px;
-                                                    height: 90px
-                                                }
-
-                                                .fotorama1622161630496 .fotorama__thumb-border {
-                                                    height: 90px;
-                                                    border-width: 2px;
-                                                    margin-top: 2px
-                                                }</style>
-                                                <div class="fotorama-item fotorama fotorama1622161630496"
-                                                     data-gallery-role="gallery">
-                                                    <div data-gallery-role="fotorama__focusable-start"
-                                                         tabindex="-1"></div>
-                                                    <div class="fotorama__wrap fotorama__wrap--css3 fotorama__wrap--slide fotorama__wrap--toggle-arrows fotorama__wrap--no-controls"
-                                                         style="min-width: 0px; max-width: 100%;">
-                                                        <div class="fotorama__stage"
-                                                             data-fotorama-stage="fotorama__stage"
-                                                             style="left: 92px; width: 475px; height: 383px;">
-                                                            <div class="fotorama__fullscreen-icon"
-                                                                 data-gallery-role="fotorama__fullscreen-icon"
-                                                                 tabindex="0" aria-label="Exit fullscreen" role="button"
-                                                                 style="right: 92px;"></div>
-                                                            <div class="fotorama__arr fotorama__arr--prev" tabindex="0"
-                                                                 role="button" aria-label="Previous"
-                                                                 data-gallery-role="arrow">
-                                                                <div class="fotorama__arr__arr"></div>
-                                                            </div>
-                                                            <div class="fotorama__stage__shaft fotorama__grab"
-                                                                 tabindex="0" data-gallery-role="stage-shaft"
-                                                                 style="max-width: 393px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); margin-left: 0px; width: 475px;">
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img magnify-wheel-loaded fotorama__active"
-                                                                     aria-hidden="false" style="left: 0px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/2/12-1.jpg"
-                                                                     data-active="true"><img
-                                                                        src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/2/12-1.jpg"
-                                                                        alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                        class="fotorama__img" aria-hidden="false"></div>
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
-                                                                     aria-hidden="true" data-active="false"
-                                                                     style="left: -477px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/2/12.jpg">
-                                                                    <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/2/12.jpg"
-                                                                         alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                         class="fotorama__img" aria-hidden="false">
-                                                                </div>
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img magnify-wheel-loaded"
-                                                                     aria-hidden="true" style="left: 477px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/3/13.jpg"
-                                                                     data-active="false"><img
-                                                                        src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/1/3/13.jpg"
-                                                                        alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                        class="fotorama__img" aria-hidden="false"></div>
-                                                            </div>
-                                                            <div class="fotorama__arr fotorama__arr--next" tabindex="0"
-                                                                 role="button" aria-label="Next"
-                                                                 data-gallery-role="arrow" style="right: 92px;">
-                                                                <div class="fotorama__arr__arr"></div>
-                                                            </div>
-                                                            <div class="fotorama__video-close"></div>
-                                                            <div class="fotorama__zoom-in zoom-in-loaded"
-                                                                 data-gallery-role="fotorama__zoom-in"
-                                                                 aria-label="Zoom in" role="button" tabindex="0"></div>
-                                                            <div class="fotorama__zoom-out zoom-out-loaded"
-                                                                 data-gallery-role="fotorama__zoom-out"
-                                                                 aria-label="Zoom out" role="button" tabindex="0"></div>
-                                                            <div class="fotorama__spinner"></div>
-                                                        </div>
-                                                        <div class="fotorama__nav-wrap fotorama__nav-wrap--vertical"
-                                                             data-gallery-role="nav-wrap">
-                                                            <div class="fotorama__nav fotorama__nav--thumbs"
-                                                                 style="width: 90px; height: 475px;">
-
-                                                                <div class="fotorama__thumb__arr fotorama__thumb__arr--left fotorama__arr--disabled"
-                                                                     role="button" aria-label="Previous"
-                                                                     data-gallery-role="arrow" tabindex="-1"
-                                                                     disabled="disabled">
-                                                                    <div class="fotorama__thumb--icon"></div>
-                                                                </div>
-                                                                <div class="fotorama__nav__shaft"
-                                                                     style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                                                                    <div class="fotorama__thumb-border"
-                                                                         style="transition-duration: 0ms; transform: translate3d(0px, 92px, 0px); width: 90px; height: 90px;"></div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="A80 Pro 4G Unlocked Cell Phones"
-                                                                         style="width: 90px;" data-active="false">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/1/2/12.jpg"
-                                                                                 alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb fotorama__active"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="A80 Pro 4G Unlocked Cell Phones"
-                                                                         style="width: 90px;" data-active="true">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/1/2/12-1.jpg"
-                                                                                 alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="A80 Pro 4G Unlocked Cell Phones"
-                                                                         style="width: 90px;" data-active="false">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/1/3/13.jpg"
-                                                                                 alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="A80 Pro 4G Unlocked Cell Phones"
-                                                                         style="width: 90px;">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/1/3/13-1.jpg"
-                                                                                 alt="A80 Pro 4G Unlocked Cell Phones"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="fotorama__thumb__arr fotorama__thumb__arr--right fotorama__arr--disabled"
-                                                                     role="button" aria-label="Next"
-                                                                     data-gallery-role="arrow" tabindex="-1"
-                                                                     disabled="disabled">
-                                                                    <div class="fotorama__thumb--icon"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div data-gallery-role="fotorama__focusable-end"
-                                                         tabindex="-1"></div>
-                                                </div>
-                                                <div class="magnifier-preview magnify-hidden"
-                                                     data-gallery-role="magnifier" id="preview"
-                                                     style="display: none;"></div>
-
-                                                <div class="fotorama--hidden"></div>
-                                                <style>.fotorama1622162389974 .fotorama__nav--thumbs .fotorama__nav__frame {
-                                                    padding: 2px;
-                                                    height: 90px
-                                                }
-
-                                                .fotorama1622162389974 .fotorama__thumb-border {
-                                                    height: 90px;
-                                                    border-width: 2px;
-                                                    margin-top: 2px
-                                                }</style>
-                                                <div class="fotorama-item fotorama fotorama1622162389974"
-                                                     data-gallery-role="gallery">
-                                                    <div data-gallery-role="fotorama__focusable-start"
-                                                         tabindex="-1"></div>
-                                                    <div class="fotorama__wrap fotorama__wrap--css3 fotorama__wrap--slide fotorama__wrap--toggle-arrows"
-                                                         style="min-width: 0px; max-width: 100%;">
-                                                        <div class="fotorama__stage"
-                                                             data-fotorama-stage="fotorama__stage"
-                                                             style="left: 92px; width: 485px; height: 393px;">
-                                                            <div class="fotorama__fullscreen-icon"
-                                                                 data-gallery-role="fotorama__fullscreen-icon"
-                                                                 tabindex="0" aria-label="Exit fullscreen" role="button"
-                                                                 style="right: 92px;"></div>
-                                                            <div class="fotorama__arr fotorama__arr--prev" tabindex="0"
-                                                                 role="button" aria-label="Previous"
-                                                                 data-gallery-role="arrow">
-                                                                <div class="fotorama__arr__arr"></div>
-                                                            </div>
-                                                            <div class="fotorama__stage__shaft fotorama__grab"
-                                                                 tabindex="0" data-gallery-role="stage-shaft"
-                                                                 style="max-width: 403px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); margin-left: 0px; width: 485px;">
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active"
-                                                                     aria-hidden="false" data-active="true"
-                                                                     style="left: 0px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/0/30_1.jpg">
-                                                                    <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/0/30_1.jpg"
-                                                                         alt="Unlocked Galaxy Mobile Phone"
-                                                                         class="fotorama__img" aria-hidden="false">
-                                                                </div>
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
-                                                                     aria-hidden="true" style="left: -487px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/5/35-1_1.jpg">
-                                                                    <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/5/35-1_1.jpg"
-                                                                         alt="Unlocked Galaxy Mobile Phone"
-                                                                         class="fotorama__img" aria-hidden="false">
-                                                                </div>
-                                                                <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
-                                                                     aria-hidden="true" style="left: 487px;"
-                                                                     href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/2/9/29_1.jpg">
-                                                                    <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/2/9/29_1.jpg"
-                                                                         alt="Unlocked Galaxy Mobile Phone"
-                                                                         class="fotorama__img" aria-hidden="false">
-                                                                </div>
-                                                            </div>
-                                                            <div class="fotorama__arr fotorama__arr--next" tabindex="0"
-                                                                 role="button" aria-label="Next"
-                                                                 data-gallery-role="arrow" style="right: 92px;">
-                                                                <div class="fotorama__arr__arr"></div>
-                                                            </div>
-                                                            <div class="fotorama__video-close"></div>
-                                                            <div class="fotorama__zoom-in"
-                                                                 data-gallery-role="fotorama__zoom-in"
-                                                                 aria-label="Zoom in" role="button" tabindex="0"></div>
-                                                            <div class="fotorama__zoom-out"
-                                                                 data-gallery-role="fotorama__zoom-out"
-                                                                 aria-label="Zoom out" role="button" tabindex="0"></div>
-                                                            <div class="fotorama__spinner"></div>
-                                                        </div>
-                                                        <div class="fotorama__nav-wrap fotorama__nav-wrap--vertical"
-                                                             data-gallery-role="nav-wrap">
-                                                            <div class="fotorama__nav fotorama__nav--thumbs"
-                                                                 style="width: 90px; height: 485px;">
-
-                                                                <div class="fotorama__thumb__arr fotorama__thumb__arr--left fotorama__arr--disabled"
-                                                                     role="button" aria-label="Previous"
-                                                                     data-gallery-role="arrow" tabindex="-1"
-                                                                     disabled="disabled">
-                                                                    <div class="fotorama__thumb--icon"></div>
-                                                                </div>
-                                                                <div class="fotorama__nav__shaft"
-                                                                     style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                                                                    <div class="fotorama__thumb-border"
-                                                                         style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); width: 90px; height: 90px;"></div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb fotorama__active"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="Unlocked Galaxy Mobile Phone"
-                                                                         style="width: 90px;" data-active="true">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/3/0/30_1.jpg"
-                                                                                 alt="Unlocked Galaxy Mobile Phone"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="Unlocked Galaxy Mobile Phone"
-                                                                         style="width: 90px;">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/2/9/29_1.jpg"
-                                                                                 alt="Unlocked Galaxy Mobile Phone"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="Unlocked Galaxy Mobile Phone"
-                                                                         style="width: 90px;">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/3/5/35_1.jpg"
-                                                                                 alt="Unlocked Galaxy Mobile Phone"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
-                                                                         data-nav-type="thumb"
-                                                                         aria-label="Unlocked Galaxy Mobile Phone"
-                                                                         style="width: 90px;">
-                                                                        <div class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img">
-                                                                            <img src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/4d15f6f346b8aa5d265629c92c4af71e/3/5/35-1_1.jpg"
-                                                                                 alt="Unlocked Galaxy Mobile Phone"
-                                                                                 class="fotorama__img"
-                                                                                 aria-hidden="false">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="fotorama__thumb__arr fotorama__thumb__arr--right fotorama__arr--disabled"
-                                                                     role="button" aria-label="Next"
-                                                                     data-gallery-role="arrow" tabindex="-1"
-                                                                     disabled="disabled">
-                                                                    <div class="fotorama__thumb--icon"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div data-gallery-role="fotorama__focusable-end"
-                                                         tabindex="-1"></div>
-                                                </div>
-                                                <div class="magnifier-preview" data-gallery-role="magnifier"
-                                                     id="preview" style="display: none;"></div>
-                                            </div>
-
-
-                                            <div class="action-skip-wrapper"><a class="action skip gallery-prev-area"
-                                                                                href="#gallery-prev-area">
-                                             <span>
-                                                    Skip to the beginning of the images gallery
-                                             </span>
-                                            </a>
-                                            </div>
-                                            <a id="gallery-next-area" tabindex="-1"></a>
-                                        </div>
-                                        <div class="product-info-main">
-                                            <div class="page-title-wrapper product">
-                                                <h1 class="page-title">
-                                                    <span class="base" data-ui-id="page-title-wrapper" itemprop="name">A80 Pro 4G Unlocked Cell Phones</span>
-                                                </h1>
-                                            </div>
-                                            <div class="product-reviews-summary" itemscope=""
-                                                 itemtype="http://schema.org/AggregateRating">
-                                                <div class="rating-summary">
-                                                    <span class="label"><span>Rating:</span></span>
-                                                    <div class="rating-result" title="100%">
-                                                         <span style="width:100%">
-                                                         </span>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-actions">
-                                                    <a class="action view"
-                                                       href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#reviews">
-                                                        <span itemscope=""
-                                                              itemtype="https://schema.org/reviewCount">1</span>&nbsp;
-                                                        <span>Review</span>
-                                                    </a>
-                                                    <a class="action add"
-                                                       href="https://mageblueskytech.com/dukamarket/en3/a80-pro-4g-unlocked-cell-phones.html#review-form">Add
-                                                        Your Review</a>
-                                                </div>
-                                            </div>
-                                            <div class="product-info-price">
-                                                <div class="price-box price-final_price" data-role="priceBox"
-                                                     data-product-id="6" data-price-box="product-id-6">
-
-
-                                                    <span class="price-container price-final_price tax weee">
-                                                        <span id="product-price-6" data-price-amount="120" data-price-type="finalPrice" class="price-wrapper "><span
-                                                                class="price">$120.00</span>
-                                                        </span>
-                                                    </span>
-
-                                                </div>
-                                            </div>
-                                            <div class="stock available" title="Availability">
-                                                <span>In stock</span>
-                                            </div>
-                                            <div class="product-info-stock-sku">
-                                                <div class="product attribute sku">
-                                                    <strong class="type">SKU</strong>
-                                                    <div class="value" itemprop="sku">Digital006</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="product attribute overview">
-                                                <div class="value" itemprop="description"><p>Typi non habent claritatem
-                                                    insitam est usus legentis in qui facit orum claritatem lectores
-                                                    legere me lius quod legunt saepius. Sit amet conse ctetur
-                                                    adipisicing elit sed do eiusmod tempor.</p></div>
-                                            </div>
-
-                                            <div class="product-add-form">
-                                                <form data-product-sku="Digital006"
-                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGFsb2cvcHJvZHVjdC92aWV3L2lkLzYvcXVpY2t2aWV3LzEv/product/6/"
-                                                      method="post" id="product_addtocart_form" novalidate="novalidate">
-                                                    <input type="hidden" name="product" value="6">
-                                                    <input type="hidden" name="selected_configurable_option" value="">
-                                                    <input type="hidden" name="related_product"
-                                                           id="related-products-field" value="">
-                                                    <input type="hidden" name="item" value="6">
-                                                    <input name="form_key" type="hidden" value="MrbF4eXYnvMecTIA">
-                                                    <div class="box-tocart">
-                                                        <div class="fieldset">
-                                                            <div class="field qty up-down flex-layout no-wrap">
-                                                                <div class="control">
-                                                                    <input type="number" name="qty" id="qty"
-                                                                           maxlength="12" value="1" title="Quantity"
-                                                                           class="input-text qty"
-                                                                           data-validate="{&quot;required-number&quot;:true,&quot;validate-item-quantity&quot;:{&quot;minAllowed&quot;:1,&quot;maxAllowed&quot;:10000}}"
-                                                                           novalidate="novalidate">
-                                                                </div>
-                                                                <div class="click-up-down flex-layout no-wrap column">
-                                                                    <a class="qty-up-fixed-onclick qty-up"
-                                                                       href="#"><span
-                                                                            class="icon-chevron-up"></span></a>
-                                                                    <a class="qty-down-fixed-onclick qty-down" href="#"><span
-                                                                            class="icon-chevron-down"></span></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <button type="submit" title="Add to Cart"
-                                                                        class="action primary tocart"
-                                                                        id="product-addtocart-button">
-                                                                    <span>Add to Cart</span>
-                                                                </button>
-
-                                                                <div id="instant-purchase"
-                                                                     data-bind="scope:'instant-purchase'">
-                                                                    <!-- ko template: getTemplate() --><!-- /ko -->
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-
-
-                                            <div class="product-social-links">
-                                                <div class="product-addto-links" data-role="add-to-links">
-                                                    <a href="javascript:void(0);"
-                                                       class="action towishlist trigger-auth-popup"
-                                                       data-action="ajax-popup-login"><span>Add to Wish List</span></a>
-
-
-                                                    <a href="#"
-                                                       data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;6&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3F1aWNrdmlldy9wcm9kdWN0L3ZpZXcvaWQvNi9xdWlja3ZpZXcvMQ,,&quot;}}"
-                                                       data-role="add-to-links" class="action tocompare"><span>Add to Compare</span></a>
-
-                                                </div>
-                                                <div class="product-share-links">
-                                                    <div class="share-links"><a href="#"
-                                                                                class="share-links-click">share</a>
-                                                    </div>
-                                                    <div class="share-dialog" style="display:none;">
-                                                        <a href="#"
-                                                           onclick=" window.open( 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=436,height=436'); return false;"><span
-                                                                class="icon fab fa-facebook-f"><span class="text">Facebook</span></span></a>
-                                                        <a href="#"
-                                                           onclick=" window.open( 'http://twitter.com/home/?status='+encodeURIComponent(location.href), 'twitter-share-dialog', 'width=436,height=436'); return false;"><span
-                                                                class="icon fab fa-twitter"><span
-                                                                class="text">Twitter</span></span></a>
-                                                        <a href="#"
-                                                           onclick=" window.open( 'http://pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href), 'pinterest-share-dialog', 'width=436,height=436'); return false;"><span
-                                                                class="icon fab fa-pinterest"><span class="text">Pinterest</span></span></a>
-                                                        <a href="#"
-                                                           onclick=" window.open( 'https://plus.google.com/share?url='+encodeURIComponent(location.href), 'twitter-share-dialog', 'width=436,height=436'); return false;"><span
-                                                                class="icon fab fa-google"><span
-                                                                class="text">Google</span></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-category"><label>Categories: </label><a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/top-deals.html">Top
-                                                Deals</a>, <a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/top-selling-products.html">Top
-                                                Selling Products</a>, <a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/laptop-ipad.html">Tablets
-                                                &amp; Mobile Phone</a></div>
-                                            <div class="product-page-brand-common-view">
-                                                <span class="brand-label">Brands:  </span>
-                                                <ul class="product-brands">
-                                                    <li class="brand-item">
-                                                        <a href="https://mageblueskytech.com/dukamarket/en3/brand/carvoodoo.html"
-                                                           title="Carvoodoo">Carvoodoo</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                            <footer class="modal-footer">
-
-                                <button class="close-modal" type="button" data-role="action"><span>Close</span></button>
-
-                            </footer>
-
-                        </div>
-                        <div data-role="focusable-end" tabindex="0"></div>
-                    </aside>
-                    <aside role="dialog"
-                           class="modal-popup quickview quickview-popup-wrapper                modal-slide                 _show"
+                    <aside role="dialog" class="modal-popup quickview quickview-popup-wrapper modal-slide _show"
                            aria-labelledby="modal-title-62" aria-describedby="modal-content-62" data-role="modal"
                            data-type="popup" tabindex="0" style="z-index: 902;">
                         <div data-role="focusable-start" tabindex="0"></div>
                         <div class="modal-inner-wrap" data-role="focusable-scope">
                             <header class="modal-header">
-
                                 <h1 id="modal-title-62" class="modal-title" data-role="title">Quick View</h1>
                                 <button class="action-close" data-role="closeBtn" type="button">
                                     <span>Close</span>
@@ -908,14 +348,11 @@
 
                                             <div class="gallery-placeholder" data-gallery-role="gallery-placeholder"
                                                  style="">
-
-
                                                 <div class="fotorama--hidden"></div>
                                                 <style>.fotorama1622162389789 .fotorama__nav--thumbs .fotorama__nav__frame {
                                                     padding: 2px;
                                                     height: 90px
                                                 }
-
                                                 .fotorama1622162389789 .fotorama__thumb-border {
                                                     height: 90px;
                                                     border-width: 2px;
@@ -927,28 +364,17 @@
                                                          tabindex="-1"></div>
                                                     <div class="fotorama__wrap fotorama__wrap--css3 fotorama__wrap--slide fotorama__wrap--toggle-arrows fotorama__wrap--no-controls"
                                                          style="min-width: 0px; max-width: 100%;">
-                                                        <div class="fotorama__stage"
-                                                             data-fotorama-stage="fotorama__stage"
-                                                             style="left: 92px; width: 460px; height: 368px;">
-                                                            <div class="fotorama__fullscreen-icon"
-                                                                 data-gallery-role="fotorama__fullscreen-icon"
-                                                                 tabindex="0" aria-label="Exit fullscreen" role="button"
+                                                        <div class="fotorama__stage" data-fotorama-stage="fotorama__stage" style="left: 92px; width: 460px; height: 368px;">
+                                                            <div class="fotorama__fullscreen-icon" data-gallery-role="fotorama__fullscreen-icon" tabindex="0" aria-label="Exit fullscreen" role="button"
                                                                  style="right: 92px;"></div>
-                                                            <div class="fotorama__arr fotorama__arr--prev" tabindex="0"
-                                                                 role="button" aria-label="Previous"
-                                                                 data-gallery-role="arrow">
+                                                            <div class="fotorama__arr fotorama__arr--prev" tabindex="0" role="button" aria-label="Previous" data-gallery-role="arrow">
                                                                 <div class="fotorama__arr__arr"></div>
                                                             </div>
-                                                            <div class="fotorama__stage__shaft fotorama__grab"
-                                                                 tabindex="0" data-gallery-role="stage-shaft"
-                                                                 style="max-width: 378px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); margin-left: 0px; width: 460px;">
+                                                            <div class="fotorama__stage__shaft fotorama__grab" tabindex="0" data-gallery-role="stage-shaft" style="max-width: 378px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); margin-left: 0px; width: 460px;">
                                                                 <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"
                                                                      aria-hidden="true" style="left: -462px;"
                                                                      href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/5/35_1.jpg"
-                                                                     data-active="false"><img
-                                                                        src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/5/35_1.jpg"
-                                                                        alt="Unlocked Galaxy Mobile Phone"
-                                                                        class="fotorama__img" aria-hidden="false"></div>
+                                                                     data-active="false"></div>
                                                                 <div class="fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active"
                                                                      aria-hidden="false" style="left: 0px;"
                                                                      href="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/219e571c653b93e296309d7454160a2e/3/5/35-1_1.jpg"
@@ -965,38 +391,23 @@
                                                                          class="fotorama__img" aria-hidden="false">
                                                                 </div>
                                                             </div>
-                                                            <div class="fotorama__arr fotorama__arr--next" tabindex="0"
-                                                                 role="button" aria-label="Next"
-                                                                 data-gallery-role="arrow" style="right: 92px;">
+                                                            <div class="fotorama__arr fotorama__arr--next" tabindex="0" role="button" aria-label="Next" data-gallery-role="arrow" style="right: 92px;">
                                                                 <div class="fotorama__arr__arr"></div>
                                                             </div>
                                                             <div class="fotorama__video-close"></div>
-                                                            <div class="fotorama__zoom-in"
-                                                                 data-gallery-role="fotorama__zoom-in"
-                                                                 aria-label="Zoom in" role="button" tabindex="0"></div>
-                                                            <div class="fotorama__zoom-out"
-                                                                 data-gallery-role="fotorama__zoom-out"
-                                                                 aria-label="Zoom out" role="button" tabindex="0"></div>
+                                                            <div class="fotorama__zoom-in" data-gallery-role="fotorama__zoom-in" aria-label="Zoom in" role="button" tabindex="0"></div>
+                                                            <div class="fotorama__zoom-out" data-gallery-role="fotorama__zoom-out" aria-label="Zoom out" role="button" tabindex="0"></div>
                                                             <div class="fotorama__spinner"></div>
                                                         </div>
-                                                        <div class="fotorama__nav-wrap fotorama__nav-wrap--vertical"
-                                                             data-gallery-role="nav-wrap">
-                                                            <div class="fotorama__nav fotorama__nav--thumbs"
-                                                                 style="width: 90px; height: 460px;">
-
+                                                        <div class="fotorama__nav-wrap fotorama__nav-wrap--vertical" data-gallery-role="nav-wrap">
+                                                            <div class="fotorama__nav fotorama__nav--thumbs" style="width: 90px; height: 460px;">
                                                                 <div class="fotorama__thumb__arr fotorama__thumb__arr--left fotorama__arr--disabled"
-                                                                     role="button" aria-label="Previous"
-                                                                     data-gallery-role="arrow" tabindex="-1"
-                                                                     disabled="disabled">
+                                                                     role="button" aria-label="Previous" data-gallery-role="arrow" tabindex="-1" disabled="disabled">
                                                                     <div class="fotorama__thumb--icon"></div>
                                                                 </div>
-                                                                <div class="fotorama__nav__shaft"
-                                                                     style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                                                                    <div class="fotorama__thumb-border"
-                                                                         style="transition-duration: 0ms; transform: translate3d(0px, 276px, 0px); width: 90px; height: 90px;"></div>
-                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb"
-                                                                         tabindex="0" role="button"
-                                                                         data-gallery-role="nav-frame"
+                                                                <div class="fotorama__nav__shaft" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                                                                    <div class="fotorama__thumb-border" style="transition-duration: 0ms; transform: translate3d(0px, 276px, 0px); width: 90px; height: 90px;"></div>
+                                                                    <div class="fotorama__nav__frame fotorama__nav__frame--thumb" tabindex="0" role="button" data-gallery-role="nav-frame"
                                                                          data-nav-type="thumb"
                                                                          aria-label="Unlocked Galaxy Mobile Phone"
                                                                          style="width: 90px;" data-active="false">
@@ -1057,14 +468,10 @@
                                                         </div>
 
                                                     </div>
-                                                    <div data-gallery-role="fotorama__focusable-end"
-                                                         tabindex="-1"></div>
+                                                    <div data-gallery-role="fotorama__focusable-end" tabindex="-1"></div>
                                                 </div>
-                                                <div class="magnifier-preview" data-gallery-role="magnifier"
-                                                     id="preview" style="display: none;"></div>
+                                                <div class="magnifier-preview" data-gallery-role="magnifier" id="preview" style="display: none;"></div>
                                             </div>
-
-
                                             <div class="action-skip-wrapper">
                                                 <a class="action skip gallery-prev-area" href="#gallery-prev-area">
                                                     <span>Skip to the beginning of the images gallery</span>
@@ -1078,8 +485,7 @@
                                                     <span class="base" data-ui-id="page-title-wrapper" itemprop="name">Unlocked Galaxy Mobile Phone</span>
                                                 </h1>
                                             </div>
-                                            <div class="product-reviews-summary" itemscope=""
-                                                 itemtype="http://schema.org/AggregateRating">
+                                            <div class="product-reviews-summary" itemscope="" itemtype="">
                                                 <div class="rating-summary">
                                                     <span class="label"><span>Rating:</span></span>
                                                     <div class="rating-result" title="90%">
@@ -1089,13 +495,11 @@
                                                 </div>
                                                 <div class="reviews-actions">
                                                     <a class="action view"
-                                                       href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#reviews">
-                                                        <span itemscope=""
-                                                              itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                                       href="">
+                                                        <span itemscope="" itemtype="https://schema.org/reviewCount">2</span>&nbsp;
                                                         <span>Reviews</span>
                                                     </a>
-                                                    <a class="action add"
-                                                       href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#review-form">Add
+                                                    <a class="action add" href="https://mageblueskytech.com/dukamarket/en3/unlocked-smartphone-doogee-n30-2021.html#review-form">Add
                                                         Your Review</a>
                                                 </div>
                                             </div>
@@ -1162,7 +566,6 @@
 
                                                                 <div id="instant-purchase"
                                                                      data-bind="scope:'instant-purchase'">
-                                                                    <!-- ko template: getTemplate() --><!-- /ko -->
                                                                 </div>
 
                                                             </div>
@@ -1178,8 +581,6 @@
                                                     <a href="#" class="action towishlist"
                                                        data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:2,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3F1aWNrdmlldy9wcm9kdWN0L3ZpZXcvaWQvMi9xdWlja3ZpZXcvMQ,,&quot;}}"
                                                        data-action="add-to-wishlist"><span>Add to Wish List</span></a>
-
-
                                                     <a href="#"
                                                        data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;2&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3F1aWNrdmlldy9wcm9kdWN0L3ZpZXcvaWQvMi9xdWlja3ZpZXcvMQ,,&quot;}}"
                                                        data-role="add-to-links" class="action tocompare"><span>Add to Compare</span></a>
@@ -1233,7 +634,7 @@
                                             "customerRegisterUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/create\/",
                                             "customerForgotPasswordUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/forgotpassword\/",
                                             "baseUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/"
-                                        }</script>    <!-- ko template: getTemplate() --><!-- /ko -->
+                                        }</script>
 
                                     </div>
 
@@ -1242,9 +643,7 @@
                             </div>
 
                             <footer class="modal-footer">
-
                                 <button class="close-modal" type="button" data-role="action"><span>Close</span></button>
-
                             </footer>
 
                         </div>

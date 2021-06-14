@@ -36,6 +36,7 @@ class CartManager(models.Manager):
 class Cart(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product, blank=True)
+    quantity = models.IntegerField(default=1)
     subtotal = models.DecimalField(default=0.00, max_digits=30, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=30, decimal_places=2)
     updated = models.DateTimeField(auto_now=True)
@@ -54,6 +55,11 @@ class Cart(models.Model):
         if new_qs.exists():
             return False
         return True
+
+    @property
+    def get_subtotal(self):
+        subtotal = (self.products.price * self.quantity)
+        return subtotal
 
 
 def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
