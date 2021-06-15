@@ -10,3 +10,6 @@ def shopViews(request):
                'onsale': onsale
                }
     return render(request, 'shop.html', context)
+
+
+

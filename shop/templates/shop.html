@@ -172,7 +172,7 @@
                                     <div class="product details product-item-details">
                                         <strong class="product name product-item-name">
                                             <a class="product-item-link"
-                                               href="{% url 'cart:home' products.id %} ">
+                                               href="{% url 'cart:productdetails' id=products.id %} ">
                                                 {{ products.title }} </a>
                                         </strong>
                                         <div class="product-reviews-summary short">
@@ -233,7 +233,7 @@
                                                     </a>
                                                 </div>
                                                 <div id="quickview-4" class="quickview button_quickview">
-                                                    <a class="action link-quickview" role="button"  data-toggle="modal" data-target="#quickCheck"
+                                                    <a class="action link-quickview" href="{% url 'cart:quickcheck' id=products.id %}" role="button"  data-toggle="modal" data-target="#quickCheck"
                                                     ><span>Quick View</span></a></div>
                                             </div>
                                         </div>
@@ -482,7 +482,7 @@
                                         <div class="product-info-main">
                                             <div class="page-title-wrapper product">
                                                 <h1 class="page-title">
-                                                    <span class="base" data-ui-id="page-title-wrapper" itemprop="name">Unlocked Galaxy Mobile Phone</span>
+                                                    <span class="base" data-ui-id="page-title-wrapper" itemprop="name">{{ quickCheck.id}}</span>
                                                 </h1>
                                             </div>
                                             <div class="product-reviews-summary" itemscope="" itemtype="">

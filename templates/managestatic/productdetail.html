@@ -1,0 +1,282 @@
+<script>
+    var BASE_URL = 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002F';
+    var require = {
+        'baseUrl': 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620877543\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US'
+    };</script>
+<script type="text/javascript"
+        src="https://mageblueskytech.com/dukamarket/static/version1620877543/_cache/merged/240735fb73557793afa6cd792b011785.min.js"></script>
+
+<script>
+    window.logoUrl = 'https://mageblueskytech.com/dukamarket/media/rokanthemes/pupuplogo/default/wishlist-popup-logo-1.png';
+    window.backgroundUrl = 'https://mageblueskytech.com/dukamarket/media/rokanthemes/pupupbg/default/bg-login-popup.png';
+    window.title = 'Welcome Back!';
+    window.description = "Log in to view your shopping cart and receive \r\nmany great deals from the store.";
+</script>
+
+<script>document.querySelector("#cookie-status").style.display = "none";</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "cookieStatus": {}
+        }
+    }
+
+</script>
+<script>
+    window.cookiesConfig = window.cookiesConfig || {};
+    window.cookiesConfig.secure = true;
+</script>
+
+<script>
+    require(["jquery"], function ($) {
+        function setCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            } else var expires = "";
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        $(document).ready(function () {
+            if ($("body").hasClass("cms-index-index")) {
+                if (getCookie("shownewsletter") != 1) {
+                    var height_window = $(window).height();
+                    var height_pupup = 600;
+                    var fixed_height = (height_window - height_pupup) / 2;
+                    var pPopup = $('#newsletter_pop_up').bPopup({
+                        position: ['auto', fixed_height],
+                        speed: 500,
+                        transition: 'slideDown',
+                        onClose: function () {
+                        }
+                    });
+                    $('.newletter_popup_close').on('click', function () {
+                        pPopup.close();
+                    });
+                }
+
+                $("#newsletter_pop_up form").submit(function (event) {
+                    setCookie("shownewsletter", '1', 1);
+                });
+
+                $('#newsletter_popup_dont_show_again').on('change', function () {
+                    if (getCookie("shownewsletter") != 1) {
+                        setCookie("shownewsletter", '1', 1)
+                    } else {
+                        setCookie("shownewsletter", '0', 1)
+                    }
+                });
+            }
+        });
+    });
+</script>
+<script>
+    require([
+        'jquery',
+        'rokanthemes/custommenu'
+    ], function ($) {
+        $(".custommenu").CustomMenu();
+        $(document).ready(function () {
+            $(document).on('click', '.custommenu .menu-mobile-title a', function () {
+                var data = $(this).data('menu');
+                $('.custommenu .menu-mobile-title a').removeClass('active');
+                $(this).addClass('active');
+                $('.custommenu ul.menu').hide();
+                $(this).closest('.custommenu').find('ul.menu.' + data + '').show();
+                return false;
+            });
+        });
+    });
+</script>
+<script>
+    require([
+        'jquery',
+        'rokanthemes/choose'
+    ], function ($) {
+        'use strict';
+        $("#choose_category").chosen();
+    });
+</script>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        'use strict';
+        $(document).ready(function () {
+            $('.block-search .dropdown-toggle > .top-search').click(function (event) {
+                $('.block-search #search_mini_form').slideToggle();
+                $('#search-input-autocomplate').focus();
+            });
+        });
+    });
+</script>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        'use strict';
+        var number_click = 1;
+        $(".qty-down-fixed-onclick").click(function () {
+            var val_input = $(this).closest('div.field').find('#qty').val();
+            val_input = parseInt(val_input);
+            if (val_input <= number_click) {
+                val_input = number_click;
+            } else {
+                val_input = val_input - number_click;
+            }
+            $('div.field div.control #qty').val(val_input);
+            return false;
+        });
+        $(".qty-up-fixed-onclick").click(function () {
+            var val_input = $(this).closest('div.field').find('#qty').val();
+            val_input = parseInt(val_input);
+            val_input = val_input + number_click;
+            $('div.field div.control #qty').val(val_input);
+            return false;
+        });
+    });
+</script>
+
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-2363664085");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-2363664085  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-31337593185");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-31337593185  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-41097464904");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-41097464904  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-51302665591");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-51302665591  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-61453696910");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-61453696910  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-71930946743");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-71930946743  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-81061460263");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-81061460263  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+
+<script>
+    require(["jquery"], function ($) {
+        require(["rokanthemes/lazyloadimg"], function (lazy) {
+            $("img[data-src]").lazy({
+                "bind": "event",
+                "attribute": "data-src",
+                visibleOnly: true,
+                threshold: 0,
+                enableThrottle: true,
+                throttle: 500,
+                afterLoad: function (element) {
+                    $(element).addClass("lazy-loaded");
+                    $(element).closest(".absolute-content-image").removeClass("lazyload-content");
+                    setTimeout(function () {
+                        $(element).addClass("transition");
+                    }, 1000);
+                }
+            });
+            $(document).ready(function ($) {
+                var win = $(window);
+                $(".owl-carousel").on("translated.owl.carousel", function (event) {
+                    var bounds = $(this).offset();
+                    var viewport = {
+                        top: win.scrollTop(),
+                        left: win.scrollLeft()
+                    };
+                    viewport.bottom = viewport.top + win.height();
+                    if (viewport.bottom > bounds.top) {
+                        $(this).find("img[data-src]").lazy({
+                            "bind": "event",
+                            delay: 0,
+                            afterLoad: function (element) {
+                                $(element).addClass("lazy-loaded");
+                                $(element).closest(".absolute-content-image").removeClass("lazyload-content");
+                                setTimeout(function () {
+                                    $(element).addClass("transition");
+                                }, 1000);
+                            }
+                        });
+                    }
+                });
+                setTimeout(function () {
+                    $("img[data-src]").each(function () {
+                        if ($(this).is(":hidden")) {
+                            var new_url = $(this).attr("data-src");
+                            $(this).attr("src", new_url);
+                            $(this).removeAttr("data-src");
+                            $(this).addClass("lazy-loaded");
+                            $(this).closest(".absolute-content-image").removeClass("lazyload-content");
+                            setTimeout(function () {
+                                $(this).addClass("transition");
+                            }, 1000);
+                        }
+                    });
+                }, 1000);
+            });
+        });
+    });
+</script>

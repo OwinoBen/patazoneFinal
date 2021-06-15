@@ -11,18 +11,18 @@ from patazoneEcommerce.storageLocation.utils import ProtectedS3Storage
 from patazoneEcommerce.utils import unique_slug_generator, get_filename
 
 # Create your models here.
-CATEGORY = (('phones', 'Phones & Accessories'),
-            ('electronics', 'Electronics'),
-            ('computing', 'Computer & Tablets'),
-            ('home', 'Home and Office'),
-            ('academic', 'Schooling'),
-            ('grocery', 'Grocery'),
-            ('beauty', 'Beauty, Heath & Hair'),
-            ('baby', 'Baby, kids & Maternity'),
-            ('clothes', 'Cloths'),
-            ('sports', 'Sports'),
-            ('houseHold', 'Household Appliances'),
-            ('automotive', 'Automotive'),
+CATEGORY = (('Phones & Accessories', 'Phones & Accessories'),
+            ('Electronics', 'Electronics'),
+            ('Computing', 'Computer & Tablets'),
+            ('Home and Office', 'Home and Office'),
+            ('Schooling', 'Schooling'),
+            ('Grocery', 'Grocery'),
+            ('Beauty, Heath & Hair', 'Beauty, Heath & Hair'),
+            ('Baby, kids & Maternity', 'Baby, kids & Maternity'),
+            ('Clothes', 'Cloths'),
+            ('Sports', 'Sports'),
+            ('Household Appliances', 'Household Appliances'),
+            ('Automotive', 'Automotive'),
             )
 
 
@@ -98,10 +98,12 @@ class ProductManager(models.Manager):
 
 class Product(models.Model):
     title = models.CharField(max_length=120)
-    category = models.CharField(max_length=120, choices=CATEGORY)
+    sku = models.CharField(max_length=120, null=True)
+    category = models.CharField(max_length=120, choices=CATEGORY, default="Phones and Electronics")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)

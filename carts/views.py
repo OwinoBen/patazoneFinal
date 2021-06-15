@@ -39,6 +39,30 @@ def cartView(request):
     return render(request, 'cart.html', context)
 
 
+def QuickCheck(request, id):
+    check = None
+    id = int(id)
+    quickCheck = Product.objects.filter(id=id)
+    if len(check) > 0:
+        check = quickCheck[0]
+    else:
+        check = None
+    context = {'check': check}
+    return render(request, 'shop.html,', context)
+
+
+def productDetails(request, id):
+    prod = None
+    id = int(id)
+    productdetail = Product.objects.filter(id=id)
+    if len(productdetail) > 0:
+        prod = productdetail[0]
+    else:
+        prod = None
+    context = {'prod': prod}
+    return render(request, 'product_details.html', context)
+
+
 def updateCart(request):
     product_id = request.POST.get('product_id')
     if product_id is not None:
@@ -61,7 +85,7 @@ def updateCart(request):
                 "removed": not added,
                 "cartItemCount": cart_obj.products.count()
             }
-            return JsonResponse(jason_data,status=200)
+            return JsonResponse(jason_data, status=200)
     return redirect("cart:home")
 
 
