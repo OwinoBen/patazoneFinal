@@ -13,7 +13,9 @@
     <title>Patazone Shop</title>
 
         {% include 'managestatic/css.html' %}
+<script src='{% static "js/system/patazone.js" %}'></script>
         {% block base_head %}{% endblock %}
+
 </head>
 <body data-container="body" id="html-body" class="bluesky-page-preloader page-with-filter page-products categorypath-shop category-shop catalog-category-view page-layout-2columns-left">
 {% include 'managestatic/nav_bar.html' %}
@@ -206,20 +208,25 @@
                                         <div class="product-item-inner">
                                             <div class="product actions product-item-actions">
                                                 <div class="actions-primary visible-hover">
-                                                    <form data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
+                                                    <form class="form-product-ajax" data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
                                                           {% if request.user.is_authenticated %}
                                                           data-user='abc'
                                                           {% endif %}>
-                                                    {% csrf_token %}
+                                                        {% csrf_token %}
                                                         <input type="hidden" name="product_id" value='{{ products.id }}'
                                                                 {% if products.is_digital %}
                                                                     data-is-digital='true'
                                                                 {% endif %} >
-                                                        <input name="form_key" type="hidden" >
-                                                        <button type="submit" title="Add to Cart"
-                                                                class="action tocart primary">
-                                                            <span>Add to Cart</span>
-                                                        </button>
+                                                        <span class="submit-span">
+                                                            {% if products in objects.products.all %}
+                                                                <h1>Hello</h1>
+
+                                                            {% endif %} 
+                                                            <input name="form_key" type="hidden" >
+                                                            <button type="submit" title="Add to Cart" class="action tocart primary">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                        </span>
                                                     </form>
                                                 </div>
                                                 <div data-role="add-to-links" class="actions-secondary visible-hover">

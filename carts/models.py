@@ -58,7 +58,7 @@ class Cart(models.Model):
 
     @property
     def get_subtotal(self):
-        subtotal = (self.products.price * self.quantity)
+        subtotal = self.products.price * self.quantity
         return subtotal
 
 

@@ -616,7 +616,7 @@
                                 </tr>
                                 </thead>
                                 <tbody class="cart item cart-body">
-                                {% for product in cart_obj.products.all %}
+                                {% for product in object.products.all  %}
                                 <tr class="item-info">
                                     <td data-th="Item" class="col item">
                                         <a href='#'
@@ -652,7 +652,7 @@
                                         <div class="field qty up-down flex-layout no-wrap">
                                             <div class="control qty">
                                                 <label for="cart-1036-qty">
-                                                    <input id="cart-1036-qty" name="cart[1036][qty]"
+                                                    <input id="cart-1036-qty" name="quantity"
                                                            data-cart-item-id="Digital001" value="1" type="number"
                                                            size="4" step="any" title="Qty" class="input-text qty"
                                                            data-validate="{required:true,'validate-greater-than-zero':true}"
@@ -670,7 +670,7 @@
                                     <td class="col subtotal" data-th="Subtotal">
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
-                                        <span class="price">{{product.subtotal}}</span> </span>
+                                        <span class="price">{{cart_obj.subtotal}}</span> </span>
                                         </span>
                                     </td>
                                 </tr>

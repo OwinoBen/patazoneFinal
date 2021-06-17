@@ -1,6 +1,6 @@
 $(document).ready(function(){
     // Contact Form Handler
-
+alert("good")
     var contactForm = $(".contact-form")
     var contactFormMethod = contactForm.attr("method")
     var contactFormEndpoint = contactForm.attr("action")
@@ -151,8 +151,9 @@ $(document).ready(function(){
 
 
   productForm.submit(function(event){
+
       event.preventDefault();
-      // console.log("Form is not sending")
+      console.log("Form is not sending")
       var thisForm = $(this)
       // var actionEndpoint = thisForm.attr("action"); // API Endpoint
       var actionEndpoint = thisForm.attr("data-endpoint")

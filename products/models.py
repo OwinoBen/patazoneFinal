@@ -24,6 +24,19 @@ CATEGORY = (('Phones & Accessories', 'Phones & Accessories'),
             ('Household Appliances', 'Household Appliances'),
             ('Automotive', 'Automotive'),
             )
+COLORS = (('Red', 'Red'),
+          ('Blue', 'Blue'),
+          ('Black', 'Black'),
+          ('Yellow', 'Yellow'),
+          ('Orange', 'Orange'),
+          ('Green', 'Green'),
+          ('Purple', 'Purple'),
+          ('Maroon', 'Maroon'),
+          ('Pink', 'Pink'),
+          ('Violet', 'Violet'),
+          ('White', 'White'),
+          ('Indigo', 'Indigo'),
+          )
 
 
 def get_filename_ext(filepath):
@@ -105,6 +118,9 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    backImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    color = models.CharField(max_length=120, choices=COLORS, default='Black')
     featured = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)
     onSale = models.BooleanField(default=False)
@@ -120,6 +136,16 @@ class Product(models.Model):
         # return reverse("products:detail", kwargs={"slug": self.slug})
         # return reverse("products:detail", args=[str(self.slug)])
         return reverse("products:detail", args=(str(self.slug),))
+
+    def get_add_to_cart_url(self):
+        return reverse("cart:update", kwargs={
+            'slug': self.slug
+        })
+
+    def get_remove_from_cart_url(self):
+        return reverse("cart:remove-from-cart", kwargs={
+            'slug': self.slug
+        })
 
     def __str__(self):
         return self.title

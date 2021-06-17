@@ -14,7 +14,7 @@ from patazoneEcommerce.utils import unique_order_id_generator
 from products.models import Product
 
 Order_status_choices = (
-    ('created', 'Created'),
+    ('ordered', 'Ordered'),
     ('paid', 'Paid'),
     ('shipped', 'Shipped'),
     ('refunded', 'Refunded'),
@@ -87,6 +87,28 @@ class OrderManagerQuerySet(models.query.QuerySet):
 
 
 class OrderManager(models.Manager):
+    def new_or_get(self, request):
+        cart_id = request.session.get("cart_id", None)
+        qs = self.get_queryset().filter(id=cart_id)
+        if qs.count() == 1:
+            new_obj = False
+            cart_obj = qs.first()
+            if request.user.is_authenticated and cart_obj.user is None:
+                cart_obj.user = request.user
+                cart_obj.save()
+        else:
+            cart_obj = OrderItem.objects.new(user=request.user)
+            new_obj = True
+            request.session['cart_id'] = cart_obj.id
+        return cart_obj, new_obj
+
+    def new(self, user=None):
+        user_object = None
+        if user is not None:
+            if user.is_authenticated:
+                user_object = user
+        return self.model.objects.create(user=user_object)
+
     def get_queryset(self):
         return OrderManagerQuerySet(self.model, using=self._db)
 
@@ -112,7 +134,34 @@ class OrderManager(models.Manager):
         return obj, created
 
 
+class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} of {self.product.title}"
+
+    def get_total_item_price(self):
+        return self.quantity * self.product.price
+
+    def get_total_discount_item_price(self):
+        return self.quantity * self.item.discount_price
+
+    def get_amount_saved(self):
+        return self.get_total_item_price() - self.get_total_discount_item_price()
+
+    def get_final_price(self):
+        if self.item.discount_price:
+            return self.get_total_discount_item_price()
+        return self.get_total_item_price()
+
+    objects = OrderManager()
+
+
 class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE, blank=True, null=True)
     order_id = models.CharField(max_length=120, blank=True)
     shipping_address = models.ForeignKey(Address, on_delete=models.CASCADE, related_name="shipping_address", null=True,
@@ -121,8 +170,9 @@ class Order(models.Model):
                                         blank=True)
     shipping_address_final = models.TextField(blank=True, null=True)
     billing_address_final = models.TextField(blank=True, null=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    status = models.CharField(max_length=120, default='created', choices=Order_status_choices)
+    cart = models.ManyToManyField(OrderItem, null=True)
+    status = models.CharField(max_length=120, default='ordered', choices=Order_status_choices)
+    ordered = models.BooleanField(default=False)
     shipping_total = models.DecimalField(default=500.00, max_digits=65, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=65, decimal_places=2)
     active = models.BooleanField(default=True)
@@ -190,43 +240,43 @@ class Order(models.Model):
         return self.status
 
 
-def pre_save_create_order_id(sender, instance, *args, **kwargs):
-    if not instance.order_id:
-        instance.order_id = unique_order_id_generator(instance)
-    qs = Order.objects.filter(cart=instance.cart).exclude(billing_profile=instance.billing_profile)
-    if qs.exists():
-        qs.update(active=False)
-
-    if instance.shipping_address and not instance.shipping_address_final:
-        instance.shipping_address_final = instance.shipping_address.get_address()
-    if instance.billing_address and not instance.billing_address_final:
-        instance.billing_address_final = instance.billing_address.get_address()
-
-
-pre_save.connect(pre_save_create_order_id, sender=Order)
-
-
-def post_save_cart_total(sender, instance, created, *args, **kwargs):
-    if not created:
-        cart_obj = instance
-        cart_total = cart_obj.total
-        cart_id = cart_obj.id
-        qs = Order.objects.filter(cart_id=cart_id)
-        if qs.count() == 1:
-            order_obj = qs.first()
-            order_obj.update_total()
-
-
-post_save.connect(post_save_cart_total, sender=Cart)
-
-
-def post_save_order(sender, instance, created, *args, **kwargs):
-    if created:
-        print("updating... first")
-        instance.update_total()
-
-
-post_save.connect(post_save_order, sender=Order)
+# def pre_save_create_order_id(sender, instance, *args, **kwargs):
+#     if not instance.order_id:
+#         instance.order_id = unique_order_id_generator(instance)
+#     qs = Order.objects.filter(cart=instance.cart).exclude(billing_profile=instance.billing_profile)
+#     if qs.exists():
+#         qs.update(active=False)
+#
+#     if instance.shipping_address and not instance.shipping_address_final:
+#         instance.shipping_address_final = instance.shipping_address.get_address()
+#     if instance.billing_address and not instance.billing_address_final:
+#         instance.billing_address_final = instance.billing_address.get_address()
+#
+#
+# pre_save.connect(pre_save_create_order_id, sender=Order)
+#
+#
+# def post_save_cart_total(sender, instance, created, *args, **kwargs):
+#     if not created:
+#         cart_obj = instance
+#         cart_total = cart_obj.total
+#         cart_id = cart_obj.id
+#         qs = Order.objects.filter(cart_id=cart_id)
+#         if qs.count() == 1:
+#             order_obj = qs.first()
+#             order_obj.update_total()
+#
+#
+# post_save.connect(post_save_cart_total, sender=Cart)
+#
+#
+# def post_save_order(sender, instance, created, *args, **kwargs):
+#     if created:
+#         print("updating... first")
+#         instance.update_total()
+#
+#
+# post_save.connect(post_save_order, sender=Order)
 
 
 class ProductQuerySet(models.query.QuerySet):

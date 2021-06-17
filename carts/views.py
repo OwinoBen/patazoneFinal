@@ -1,6 +1,15 @@
+import uuid
+import base64
+
 from django.conf import settings
+import random
+import string
+
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
 
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
@@ -12,9 +21,18 @@ from billing.models import BillingProfile
 from orders.models import Order
 from products.models import Product
 from .models import Cart
+from orders.models import OrderItem
 
 
 # Create your views here.
+
+def create_ref_code():
+    # return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20))
+    # return base64.urlsafe_b64encode(uuid.uuid1().bytes.encode("base64").rstrip())[:25]
+    # return str(random.randint(1000000000, 9999999999))
+    return str(random.randint(1000, 9999))
+
+
 def cart_detail_api_view(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     products = [{
@@ -35,8 +53,14 @@ def cart_home(request):
 
 
 def cartView(request):
-    context = {}
-    return render(request, 'cart.html', context)
+    shopList = Product.objects.all()
+    objects = Cart.objects.all()
+    onsale = Product.objects.onSaleDeals()
+    context = {'shopList': shopList,
+               'onsale': onsale,
+               'objects': objects,
+               }
+    return render(request, 'shop.html', context)
 
 
 def QuickCheck(request, id):
@@ -63,16 +87,42 @@ def productDetails(request, id):
     return render(request, 'product_details.html', context)
 
 
+# @login_required
 def updateCart(request):
     product_id = request.POST.get('product_id')
+    product = get_object_or_404(Product, id=product_id)
+    order_item, created = OrderItem.objects.get_or_create(product=product,user=request.user,ordered=False)
     if product_id is not None:
         try:
             product_obj = Product.objects.get(id=product_id)
         except Product.DoesNotExist:
             return redirect("cart:home")
         cart_obj, new_obj = Cart.objects.new_or_get(request)
+        order_qs=Order.objects.filter(user=request.user, status="ordered")
+        if order_qs.exists():
+            order = order_qs[0]
+            if order.cart.filter(product__id=product_id).exists():
+                order_item.quantity +=1
+                order_item.save()
+                messages.info(request,"Item Quantity successfully updated")
+                return redirect("cart:home")
+            else:
+                order.cart.add(order_item)
+                messages.info(request,"one item was added in your cart")
+                return redirect("cart:home")
+        else:
+            updated = timezone.now()
+            order=Order.objects.create(user=request.user, updated=updated)
+            order.cart.add(order_item)
+            messages.info(request,"one item was added in your cart")
+
         if product_obj in cart_obj.products.all():
-            cart_obj.products.remove(product_obj)
+            sku = "PRUD"
+            sku_d = (sku + create_ref_code())
+            cart_obj.quantity += 1
+            cart_obj.save()
+            # cart_obj.products.remove(product_obj)
+            print(sku_d)
             added = False
         else:
             cart_obj.products.add(product_obj)
@@ -86,8 +136,105 @@ def updateCart(request):
                 "cartItemCount": cart_obj.products.count()
             }
             return JsonResponse(jason_data, status=200)
-    return redirect("cart:home")
+    return redirect("cart:shop")
 
+
+# @login_required
+def add_to_cart(request):
+    product = get_object_or_404(Product)
+    order_item, created = OrderItem.objects.get_or_create(
+        product=product,
+        user=request.user,
+        ordered=False
+    )
+    order_qs = Order.objects.filter(user=request.user, status='created')
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(product__slug=product.slug).exists():
+            order_item.quantity += 1
+            order_item.save()
+            messages.info(request, "This item quantity was updated.")
+            return redirect("cart:update")
+        else:
+            order.items.add(order_item)
+            messages.info(request, "This item was added to your cart.")
+            return redirect("core:order-summary")
+    else:
+        ordered_date = timezone.now()
+        order = Order.objects.create(
+            user=request.user, ordered_date=ordered_date)
+        order.items.add(order_item)
+        messages.info(request, "This item was added to your cart.")
+        return redirect("core:order-summary")
+
+
+@login_required
+def remove_from_cart(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(product__slug=product.slug).exists():
+            order_item = OrderItem.objects.filter(
+                product=product,
+                user=request.user,
+                ordered=False
+            )[0]
+            order.items.remove(order_item)
+            order_item.delete()
+            messages.info(request, "This item was removed from your cart.")
+            return redirect("core:order-summary")
+        else:
+            messages.info(request, "This item was not in your cart")
+            return redirect("cart:shop", slug=slug)
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("cart:shop", slug=slug)
+
+
+@login_required
+def remove_single_item_from_cart(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(product__slug=product.slug).exists():
+            order_item = OrderItem.objects.filter(
+                product=product,
+                user=request.user,
+                ordered=False
+            )[0]
+            if order_item.quantity > 1:
+                order_item.quantity -= 1
+                order_item.save()
+            else:
+                order.items.remove(order_item)
+            messages.info(request, "This item quantity was updated.")
+            return redirect("cart:home")
+        else:
+            messages.info(request, "This item was not in your cart")
+            return redirect("core:product", slug=slug)
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("core:product", slug=slug)
+
+
+# def get_coupon(request, code):
+#     try:
+#         coupon = Coupon.objects.get(code=code)
+#         return coupon
+#     except ObjectDoesNotExist:
+#         messages.info(request, "This coupon does not exist")
+#         return redirect("core:checkout")
 
 def checkoutHome(request):
     cart_obj, cart_created = Cart.objects.new_or_get(request)
