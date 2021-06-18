@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.views import View
+from django.views.generic import DetailView
 
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
@@ -49,12 +50,9 @@ def cart_detail_api_view(request):
 
 
 def cart_home(request):
-    cart_obj, new_obj = Order.objects.new_or_get(request)
+    cart_obj, new_obj = Cart.objects.new_or_get(request)
     cart = {"cart_obj": cart_obj}
     return render(request, 'cart.html', cart)
-
-
-
 
 
 def cartView(request):
@@ -307,3 +305,178 @@ def checkoutHome(request):
 
 def checkoutDoneView(request):
     return render(request, 'cart.html', {})
+
+
+# class HomeView(ListView):
+#     model = Item
+#     paginate_by = 10
+#     template_name = "home.html"
+
+
+class OrderSummaryView(View):
+    def get(self, *args, **kwargs):
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+            context = {
+                'object': order
+            }
+            print(order)
+            return render(self.request, 'cart.html', context)
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "You do not have an active order")
+            return redirect("/")
+
+
+# class ItemDetailView(DetailView):
+#     model = Product
+#     template_name = "product.html"
+
+
+def add_to_cart(request):
+    product_id = request.POST.get('product_id')
+    product = get_object_or_404(Product, id=product_id)
+    order_item, created = OrderItem.objects.get_or_create(
+        product=product,
+        user=request.user,
+        ordered=False
+    )
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(item__slug=product.slug).exists():
+            order_item.quantity += 1
+            order_item.save()
+            messages.info(request, "This item quantity was updated.")
+            return redirect("cart:home")
+        else:
+            order.items.add(order_item)
+            messages.info(request, "This item was added to your cart.")
+            return redirect("cart:home")
+    else:
+        ordered_date = timezone.now()
+        order = Order.objects.create(
+            user=request.user, ordered_date=ordered_date)
+        order.items.add(order_item)
+        messages.info(request, "This item was added to your cart.")
+        return redirect("cart:home")
+
+
+# @login_required
+def remove_from_cart(request, slug):
+    item = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(item__slug=item.slug).exists():
+            order_item = OrderItem.objects.filter(
+                item=item,
+                user=request.user,
+                ordered=False
+            )[0]
+            order.items.remove(order_item)
+            order_item.delete()
+            messages.info(request, "This item was removed from your cart.")
+            return redirect("core:order-summary")
+        else:
+            messages.info(request, "This item was not in your cart")
+            return redirect("core:product", slug=slug)
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("core:product", slug=slug)
+
+
+# @login_required
+def remove_single_item_from_cart(request, slug):
+    # product_id =
+    item = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(item__slug=item.slug).exists():
+            order_item = OrderItem.objects.filter(
+                item=item,
+                user=request.user,
+                ordered=False
+            )[0]
+            if order_item.quantity > 1:
+                order_item.quantity -= 1
+                order_item.save()
+            else:
+                order.items.remove(order_item)
+            messages.info(request, "This item quantity was updated.")
+            return redirect("core:order-summary")
+        else:
+            messages.info(request, "This item was not in your cart")
+            return redirect("core:product", slug=slug)
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("core:product", slug=slug)
+
+# def get_coupon(request, code):
+#     try:
+#         coupon = Coupon.objects.get(code=code)
+#         return coupon
+#     except ObjectDoesNotExist:
+#         messages.info(request, "This coupon does not exist")
+#         return redirect("core:checkout")
+#
+#
+# class AddCouponView(View):
+#     def post(self, *args, **kwargs):
+#         form = CouponForm(self.request.POST or None)
+#         if form.is_valid():
+#             try:
+#                 code = form.cleaned_data.get('code')
+#                 order = Order.objects.get(
+#                     user=self.request.user, ordered=False)
+#                 order.coupon = get_coupon(self.request, code)
+#                 order.save()
+#                 messages.success(self.request, "Successfully added coupon")
+#                 return redirect("core:checkout")
+#             except ObjectDoesNotExist:
+#                 messages.info(self.request, "You do not have an active order")
+#                 return redirect("core:checkout")
+
+
+# class RequestRefundView(View):
+#     def get(self, *args, **kwargs):
+#         form = RefundForm()
+#         context = {
+#             'form': form
+#         }
+#         return render(self.request, "request_refund.html", context)
+#
+#     def post(self, *args, **kwargs):
+#         form = RefundForm(self.request.POST)
+#         if form.is_valid():
+#             ref_code = form.cleaned_data.get('ref_code')
+#             message = form.cleaned_data.get('message')
+#             email = form.cleaned_data.get('email')
+#             # edit the order
+#             try:
+#                 order = Order.objects.get(ref_code=ref_code)
+#                 order.refund_requested = True
+#                 order.save()
+#
+#                 # store the refund
+#                 refund = Refund()
+#                 refund.order = order
+#                 refund.reason = message
+#                 refund.email = email
+#                 refund.save()
+#
+#                 messages.info(self.request, "Your request was received.")
+#                 return redirect("core:request-refund")
+#
+#             except ObjectDoesNotExist:
+#                 messages.info(self.request, "This order does not exist.")
+#                 return redirect("core:request-refund"

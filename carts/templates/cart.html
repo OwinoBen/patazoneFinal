@@ -616,7 +616,7 @@
                                 </tr>
                                 </thead>
                                 <tbody class="cart item cart-body">
-                                {% for product in object.products.all  %}
+                                {% for product in object.cart.all  %}
                                 <tr class="item-info">
                                     <td data-th="Item" class="col item">
                                         <a href='#'
@@ -670,10 +670,12 @@
                                     <td class="col subtotal" data-th="Subtotal">
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
+
                                         <span class="price">{{cart_obj.subtotal}}</span> </span>
                                         </span>
                                     </td>
                                 </tr>
+
 
                                 <tr class="item-actions">
                                     <td colspan="4">
@@ -694,6 +696,8 @@
                                         </div>
                                     </td>
                                 </tr>
+                                    {% empty %}
+                                    <tr class="info"> <td colspan='5'>Your cart is empty</td></tr>
                                 {% endfor %}
                                 </tbody>
                             </table>

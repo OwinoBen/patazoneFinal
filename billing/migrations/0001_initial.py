@@ -26,34 +26,4 @@ class Migration(migrations.Migration):
                 ('user', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
-        migrations.CreateModel(
-            name='Charge',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('stripe_id', models.CharField(max_length=120)),
-                ('paid', models.BooleanField(default=False)),
-                ('refunded', models.BooleanField(default=False)),
-                ('outcome', models.TextField(blank=True, null=True)),
-                ('outcome_type', models.CharField(blank=True, max_length=120, null=True)),
-                ('seller_message', models.CharField(blank=True, max_length=120, null=True)),
-                ('risk_level', models.CharField(blank=True, max_length=120, null=True)),
-                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.billingprofile')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Card',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('stripe_id', models.CharField(max_length=120)),
-                ('brand', models.CharField(blank=True, max_length=120, null=True)),
-                ('country', models.CharField(blank=True, max_length=20, null=True)),
-                ('exp_month', models.IntegerField(blank=True, null=True)),
-                ('exp_year', models.IntegerField(blank=True, null=True)),
-                ('last4', models.CharField(blank=True, max_length=4, null=True)),
-                ('default', models.BooleanField(default=True)),
-                ('active', models.BooleanField(default=True)),
-                ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.billingprofile')),
-            ],
-        ),
-    ]
+       ]

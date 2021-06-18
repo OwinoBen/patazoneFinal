@@ -7,9 +7,9 @@ from django.db.models.signals import post_save, pre_save
 from django.urls import reverse
 from django.utils import timezone
 
-from address.models import Adress
+from address.models import Adress, Address
 from billing.models import BillingProfile
-from carts.models import Cart
+# from carts.models import Cart
 from patazoneEcommerce.utils import unique_order_id_generator
 from products.models import Product
 
@@ -168,23 +168,21 @@ class OrderItem(models.Model):
         return self.get_total_item_price()
 
 
-
-
 class Order(models.Model):
+    billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True,on_delete=models.CASCADE)
+    order_id = models.CharField(max_length=120, blank=True)  # AB31DE3
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    order_id = models.CharField(max_length=120, blank=True)
     cart = models.ManyToManyField(OrderItem, null=True)
     status = models.CharField(max_length=120, default='ordered', choices=Order_status_choices)
     ordered = models.BooleanField(default=False)
-    shipping_address = models.ForeignKey(
-        Adress, related_name='shipping_address', on_delete=models.SET_NULL, blank=True, null=True)
-    billing_address = models.ForeignKey(
-        Adress, related_name='billing_address', on_delete=models.SET_NULL, blank=True, null=True)
+    shipping_address = models.ForeignKey(Address, related_name="shipping_address", on_delete=models.CASCADE, null=True,
+                                         blank=True)
+    billing_address = models.ForeignKey(Address, related_name="billing_address", on_delete=models.CASCADE, null=True,
+                                        blank=True)
     payment = models.ForeignKey(
         'Payment', on_delete=models.SET_NULL, blank=True, null=True)
     coupon = models.ForeignKey(
         'Coupon', on_delete=models.SET_NULL, blank=True, null=True)
-    being_delivered = models.BooleanField(default=False)
     received = models.BooleanField(default=False)
     refund_requested = models.BooleanField(default=False)
     refund_granted = models.BooleanField(default=False)
