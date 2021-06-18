@@ -7,9 +7,11 @@ import string
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from django.views import View
 
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
@@ -47,9 +49,12 @@ def cart_detail_api_view(request):
 
 
 def cart_home(request):
-    cart_obj, new_obj = Cart.objects.new_or_get(request)
+    cart_obj, new_obj = Order.objects.new_or_get(request)
     cart = {"cart_obj": cart_obj}
     return render(request, 'cart.html', cart)
+
+
+
 
 
 def cartView(request):
@@ -91,30 +96,31 @@ def productDetails(request, id):
 def updateCart(request):
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)
-    order_item, created = OrderItem.objects.get_or_create(product=product,user=request.user,ordered=False)
-    if product_id is not None:
-        try:
-            product_obj = Product.objects.get(id=product_id)
-        except Product.DoesNotExist:
-            return redirect("cart:home")
-        cart_obj, new_obj = Cart.objects.new_or_get(request)
-        order_qs=Order.objects.filter(user=request.user, status="ordered")
-        if order_qs.exists():
-            order = order_qs[0]
-            if order.cart.filter(product__id=product_id).exists():
-                order_item.quantity +=1
-                order_item.save()
-                messages.info(request,"Item Quantity successfully updated")
-                return redirect("cart:home")
-            else:
-                order.cart.add(order_item)
-                messages.info(request,"one item was added in your cart")
-                return redirect("cart:home")
+    order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
+    try:
+        product_obj = Product.objects.get(id=product_id)
+    except Product.DoesNotExist:
+        return redirect("cart:home")
+    cart_obj, new_obj = Cart.objects.new_or_get(request)
+    order_qs = Order.objects.filter(user=request.user, status="ordered")
+    if order_qs.exists():
+        order = order_qs[0]
+        if order.cart.filter(product__id=product.id).exists():
+            order_item.quantity += 1
+            order_item.save()
+            messages.info(request, "Item Quantity successfully updated")
+            return redirect("cart:shop")
         else:
-            updated = timezone.now()
-            order=Order.objects.create(user=request.user, updated=updated)
             order.cart.add(order_item)
-            messages.info(request,"one item was added in your cart")
+            messages.info(request, "one item was added in your cart")
+            return redirect("cart:shop")
+    else:
+        updated = timezone.now()
+        odr = "ORD"
+        order_id = (odr + create_ref_code())
+        order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
+        order.cart.add(order_item)
+        messages.info(request, "one item was added in your cart")
 
         if product_obj in cart_obj.products.all():
             sku = "PRUD"

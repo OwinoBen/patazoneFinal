@@ -7,7 +7,7 @@ from django.db.models.signals import post_save, pre_save
 from django.urls import reverse
 from django.utils import timezone
 
-from address.models import Address
+from address.models import Adress
 from billing.models import BillingProfile
 from carts.models import Cart
 from patazoneEcommerce.utils import unique_order_id_generator
@@ -19,6 +19,16 @@ Order_status_choices = (
     ('shipped', 'Shipped'),
     ('refunded', 'Refunded'),
 )
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    stripe_customer_id = models.CharField(max_length=50, blank=True, null=True)
+    one_click_purchasing = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username
 
 
 class OrderManagerQuerySet(models.query.QuerySet):
@@ -88,8 +98,8 @@ class OrderManagerQuerySet(models.query.QuerySet):
 
 class OrderManager(models.Manager):
     def new_or_get(self, request):
-        cart_id = request.session.get("cart_id", None)
-        qs = self.get_queryset().filter(id=cart_id)
+        order_id = request.session.get("order_id", None)
+        qs = self.get_queryset().filter(id=order_id)
         if qs.count() == 1:
             new_obj = False
             cart_obj = qs.first()
@@ -99,7 +109,7 @@ class OrderManager(models.Manager):
         else:
             cart_obj = OrderItem.objects.new(user=request.user)
             new_obj = True
-            request.session['cart_id'] = cart_obj.id
+            request.session['order_id'] = cart_obj.id
         return cart_obj, new_obj
 
     def new(self, user=None):
@@ -157,35 +167,45 @@ class OrderItem(models.Model):
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
 
-    objects = OrderManager()
+
 
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE, blank=True, null=True)
     order_id = models.CharField(max_length=120, blank=True)
-    shipping_address = models.ForeignKey(Address, on_delete=models.CASCADE, related_name="shipping_address", null=True,
-                                         blank=True)
-    billing_address = models.ForeignKey(Address, on_delete=models.CASCADE, related_name="billing_address", null=True,
-                                        blank=True)
-    shipping_address_final = models.TextField(blank=True, null=True)
-    billing_address_final = models.TextField(blank=True, null=True)
     cart = models.ManyToManyField(OrderItem, null=True)
     status = models.CharField(max_length=120, default='ordered', choices=Order_status_choices)
     ordered = models.BooleanField(default=False)
+    shipping_address = models.ForeignKey(
+        Adress, related_name='shipping_address', on_delete=models.SET_NULL, blank=True, null=True)
+    billing_address = models.ForeignKey(
+        Adress, related_name='billing_address', on_delete=models.SET_NULL, blank=True, null=True)
+    payment = models.ForeignKey(
+        'Payment', on_delete=models.SET_NULL, blank=True, null=True)
+    coupon = models.ForeignKey(
+        'Coupon', on_delete=models.SET_NULL, blank=True, null=True)
+    being_delivered = models.BooleanField(default=False)
+    received = models.BooleanField(default=False)
+    refund_requested = models.BooleanField(default=False)
+    refund_granted = models.BooleanField(default=False)
     shipping_total = models.DecimalField(default=500.00, max_digits=65, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=65, decimal_places=2)
     active = models.BooleanField(default=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    objects = OrderManager()
+
     def __str__(self):
         return self.order_id
 
-    objects = OrderManager()
-
-    class Meta:
-        ordering = ['-timestamp', '-updated']
+    def get_total(self):
+        total = 0
+        for order_item in self.cart.all():
+            total += order_item.get_final_price()
+        if self.coupon:
+            total -= self.coupon.amount
+        return total
 
     def get_absolute_url(self):
         return reverse("orders:detail", kwargs={'order_id': self.order_id})
@@ -327,3 +347,40 @@ class ProductPurchase(models.Model):
 
     def __str__(self):
         return self.product.title
+
+
+class Payment(models.Model):
+    stripe_charge_id = models.CharField(max_length=50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.SET_NULL, blank=True, null=True)
+    amount = models.FloatField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=15)
+    amount = models.FloatField()
+
+    def __str__(self):
+        return self.code
+
+
+class Refund(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    reason = models.TextField()
+    accepted = models.BooleanField(default=False)
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.pk}"
+
+
+def userprofile_receiver(sender, instance, created, *args, **kwargs):
+    if created:
+        userprofile = UserProfile.objects.create(user=instance)
+
+
+post_save.connect(userprofile_receiver, sender=settings.AUTH_USER_MODEL)
