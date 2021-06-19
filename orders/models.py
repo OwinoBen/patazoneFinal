@@ -157,22 +157,22 @@ class OrderItem(models.Model):
         return self.quantity * self.product.price
 
     def get_total_discount_item_price(self):
-        return self.quantity * self.item.discount_price
+        return self.quantity * self.product.discount_price
 
     def get_amount_saved(self):
         return self.get_total_item_price() - self.get_total_discount_item_price()
 
     def get_final_price(self):
-        if self.item.discount_price:
+        if self.product.discount_price:
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
 
 
 class Order(models.Model):
-    billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True,on_delete=models.CASCADE)
-    order_id = models.CharField(max_length=120, blank=True)  # AB31DE3
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    cart = models.ManyToManyField(OrderItem, null=True)
+    billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True, on_delete=models.CASCADE)
+    order_id = models.CharField(max_length=120, blank=True)  # AB31DE3
+    cart = models.ManyToManyField(OrderItem)
     status = models.CharField(max_length=120, default='ordered', choices=Order_status_choices)
     ordered = models.BooleanField(default=False)
     shipping_address = models.ForeignKey(Address, related_name="shipping_address", on_delete=models.CASCADE, null=True,
@@ -196,6 +196,12 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_id
+
+    def subtotal(self):
+        sub_total = 0
+        for order_item in self.cart.all():
+            sub_total += order_item.get_total_item_price()
+        return sub_total
 
     def get_total(self):
         total = 0

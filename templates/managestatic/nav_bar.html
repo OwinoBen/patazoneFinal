@@ -678,7 +678,11 @@
                                 data-bind="html: getCartParam('subtotal')"
                               ></span>
                               <span class="total-mini-cart-price"
-                                ><span class="price">Ksh0.00</span></span>
+                                ><span class="price">
+                                  {% if request.user.is_authenticated %}
+                                    {{ request.user|cart_total}}
+                                {% endif %}
+                                 </span></span>
                             </span>
                           </span>
                         </a>

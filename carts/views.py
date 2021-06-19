@@ -70,12 +70,9 @@ def QuickCheck(request, id):
     check = None
     id = int(id)
     quickCheck = Product.objects.filter(id=id)
-    if len(check) > 0:
-        check = quickCheck[0]
-    else:
-        check = None
+    check = quickCheck[0]
     context = {'check': check}
-    return render(request, 'shop.html,', context)
+    return render(request, 'shop.html', context)
 
 
 def productDetails(request, id):
@@ -317,6 +314,7 @@ class OrderSummaryView(View):
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
+            print(order.ordered)
             context = {
                 'object': order
             }
