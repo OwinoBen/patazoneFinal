@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+    # 'corsheaders',
 
     'django.contrib.sites',
     'allauth',
@@ -163,6 +163,7 @@ PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protecte
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SITE_ID = 1
 # CORS_REPLACE_HTTPS_REFERER = False
 # HOST_SCHEME = "http://"
 # SECURE_PROXY_SSL_HEADER = None

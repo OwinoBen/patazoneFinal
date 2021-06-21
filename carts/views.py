@@ -17,7 +17,7 @@ from django.views.generic import DetailView
 from accounts.forms import LoginForm, GuestForm
 from accounts.models import GuestEmail
 
-from address.forms import AddressCheckoutForm
+# from address.forms import AddressCheckoutForm
 from address.models import Address
 
 from billing.models import BillingProfile
@@ -237,77 +237,71 @@ def remove_single_item_from_cart(request, slug):
 #         messages.info(request, "This coupon does not exist")
 #         return redirect("core:checkout")
 
-def checkoutHome(request):
-    cart_obj, cart_created = Cart.objects.new_or_get(request)
-    order_obj = None
-    if cart_created or cart_obj.products.count() == 0:
-        return redirect("cart:home")
-
-    login_form = LoginForm(request=request)
-    guest_form = GuestForm(request=request)
-    address_form = AddressCheckoutForm()
-    billing_address_id = request.session.get("billing_address_id", None)
-
-    shipping_address_required = not cart_obj.is_digital
-
-    shipping_address_id = request.session.get("shipping_address_id", None)
-
-    billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-    address_qs = None
-    has_card = False
-
-    if billing_profile is not None:
-        if request.user.is_authenticated():
-            address_qs = Address.objects.filter(billing_profile=billing_profile)
-        order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
-
-        if shipping_address_id:
-            order_obj.shipping_address = Address.objects.get(id=shipping_address_id)
-            del request.session["shipping_address_id"]
-
-        if billing_address_id:
-            order_obj.billing_address_id = Address.objects.get(id=billing_address_id)
-            del request.session["billing_address_id"]
-
-        if billing_address_id or shipping_address_id:
-            order_obj.save()
-
-    if request.method == "POST":
-        #         CHECKING IF ORDER IS DONE
-        is_prepared = order_obj.check_done()
-        if is_prepared:
-            did_charge, crg_msg = billing_profile.charge(order_obj)
-            if did_charge:
-                order_obj.mark_paid()
-                request.session['cart_items'] = 0
-                del request.session['cart_id']
-                if not billing_profile.user:
-                    billing_profile.setcards_inactive()
-                return redirect("cart:success")
-            else:
-                return redirect("cart:checkout")
-
-    context = {
-        "objects": order_obj,
-        "billing_profile": billing_profile,
-        "login_form": login_form,
-        "guest_form": guest_form,
-        "address_form": address_form,
-        "address_qs": address_qs,
-        "has_card": has_card,
-        "shipping_address_required": shipping_address_required
-    }
-    return render(request, 'cart.html', context)
-
+# def checkoutHome(request):
+#     cart_obj, cart_created = Cart.objects.new_or_get(request)
+#     order_obj = None
+#     if cart_created or cart_obj.products.count() == 0:
+#         return redirect("cart:home")
+#
+#     login_form = LoginForm(request=request)
+#     guest_form = GuestForm(request=request)
+#     address_form = AddressCheckoutForm()
+#     billing_address_id = request.session.get("billing_address_id", None)
+#
+#     shipping_address_required = not cart_obj.is_digital
+#
+#     shipping_address_id = request.session.get("shipping_address_id", None)
+#
+#     billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
+#     address_qs = None
+#     has_card = False
+#
+#     if billing_profile is not None:
+#         if request.user.is_authenticated():
+#             address_qs = Address.objects.filter(billing_profile=billing_profile)
+#         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
+#
+#         if shipping_address_id:
+#             order_obj.shipping_address = Address.objects.get(id=shipping_address_id)
+#             del request.session["shipping_address_id"]
+#
+#         if billing_address_id:
+#             order_obj.billing_address_id = Address.objects.get(id=billing_address_id)
+#             del request.session["billing_address_id"]
+#
+#         if billing_address_id or shipping_address_id:
+#             order_obj.save()
+#
+#     if request.method == "POST":
+#         #         CHECKING IF ORDER IS DONE
+#         is_prepared = order_obj.check_done()
+#         if is_prepared:
+#             did_charge, crg_msg = billing_profile.charge(order_obj)
+#             if did_charge:
+#                 order_obj.mark_paid()
+#                 request.session['cart_items'] = 0
+#                 del request.session['cart_id']
+#                 if not billing_profile.user:
+#                     billing_profile.setcards_inactive()
+#                 return redirect("cart:success")
+#             else:
+#                 return redirect("cart:checkout")
+#
+#     context = {
+#         "objects": order_obj,
+#         "billing_profile": billing_profile,
+#         "login_form": login_form,
+#         "guest_form": guest_form,
+#         "address_form": address_form,
+#         "address_qs": address_qs,
+#         "has_card": has_card,
+#         "shipping_address_required": shipping_address_required
+#     }
+#     return render(request, 'cart.html', context)
+#
 
 def checkoutDoneView(request):
     return render(request, 'cart.html', {})
-
-
-# class HomeView(ListView):
-#     model = Item
-#     paginate_by = 10
-#     template_name = "home.html"
 
 
 class OrderSummaryView(View):
@@ -323,12 +317,6 @@ class OrderSummaryView(View):
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("/")
-
-
-# class ItemDetailView(DetailView):
-#     model = Product
-#     template_name = "product.html"
-
 
 def add_to_cart(request):
     product_id = request.POST.get('product_id')

@@ -516,75 +516,58 @@
                             <!--/ko-->
                         </ol>
                     </div>
-                    <!-- ko foreach: getRegion('sidebar') -->
-                    <!-- ko template: getTemplate() -->
                     <div id="opc-sidebar">
-                        <!-- ko foreach: getRegion('summary') -->
-                        <!-- ko template: getTemplate() -->
                         <div class="opc-block-summary" data-bind="blockLoader: isLoading">
                             <span data-bind="i18n: 'Order Summary'" class="title">Order Summary</span>
-                            <!-- ko foreach: elems() -->
-                            <!-- ko template: getTemplate() -->
                             <div class="block items-in-cart active"
-                                 data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': isItemsBlockExpanded()}}"
                                  data-collapsible="true" role="tablist">
                                 <div class="title" data-role="title" role="tab" aria-selected="false"
                                      aria-expanded="true" tabindex="0">
                                     <strong role="heading" aria-level="1">
-                                        <!-- ko if: maxCartItemsToDisplay < getCartLineItemsCount() --><!-- /ko -->
-                                        <!-- ko if: maxCartItemsToDisplay < getCartLineItemsCount() --><!-- /ko -->
-                                        <span data-bind="text: getCartSummaryItemsCount()">1</span>
-                                        <!-- ko if: getCartSummaryItemsCount() === 1 --><!-- ko i18n: 'Item in Cart' --><span>Item in Cart</span>
-                                        <!-- /ko --><!-- /ko -->
-                                        <!-- ko if: getCartSummaryItemsCount() > 1 --><!-- /ko --></strong>
+                                        <span>1</span>
+                                        <span>Item in Cart</span>
+                                    </strong>
                                 </div>
+                                {% for cart_items in order.cart.all %}
+
                                 <div class="content minicart-items" data-role="content" role="tabpanel"
                                      aria-hidden="false">
                                     <div class="minicart-items-wrapper">
                                         <ol class="minicart-items">
-                                            <!-- ko foreach: items() -->
                                             <li class="product-item">
                                                 <div class="product">
 
                                                     <span class="product-image-container"
-                                                          data-bind="attr: {'style': 'height: ' + getHeight($parents[1])/2 + 'px; width: ' + getWidth($parents[1])/2 + 'px;' }"
                                                           style="height: 70px; width: 70px;">
-<span class="product-image-wrapper">
-<img data-bind="attr: {'src': getSrc($parents[1]), 'width': getWidth($parents[1]), 'height': getHeight($parents[1]), 'alt': getAlt($parents[1]), 'title': getAlt($parents[1]) }"
-     src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/00056794b517a0cfce1daf8fcdeecf57/1/2/12-1.jpg"
-     alt="A80 Pro 4G Unlocked Cell Phones" title="A80 Pro 4G Unlocked Cell Phones" width="140" height="140">
-</span>
-</span>
+                                                        <span class="product-image-wrapper">
+                                                        <img
+                                                             src="{{ cart_items.product.imageURL}}"
+                                                             alt="{{ cart_items.product.title}}" title="A80 Pro 4G Unlocked Cell Phones" width="140" height="140">
+                                                        </span>
+                                                        </span>
                                                     <div class="product-item-details">
                                                         <div class="product-item-inner">
                                                             <div class="product-item-name-block">
                                                                 <strong class="product-item-name">
-                                                                    <a href="#">A80
-                                                                        Pro 4G Unlocked Cell Phones</a>
+                                                                    <a href="#">{{ cart_items.product.title}}</a>
                                                                 </strong>
                                                                 <div class="details-qty">
-                                                                    <span class="label"><!-- ko i18n: 'Qty' --><span>Qty</span>
-                                                                        <!-- /ko --></span>
-                                                                    <input type="number" class="input-text qty"title="Qty">
+                                                                    <span class="label"><span>Qty</span>
+                                                                        </span>
+                                                                    <input type="number" class="input-text qty"title="Qty" value="{{ cart_items.quantity}}">
                                                                     <span class="qty-button">
-<span class="increase"
-      >&nbsp;</span>
-<span class="decrease"
-      action="decrease" itemid="1250">&nbsp;</span>
-</span>
-                                                                    <span class="error-message"
-                                                                          data-bind="attr: {itemId: $parent.item_id}"
-                                                                          itemid="1250"></span>
+                                                                    <span class="increase">&nbsp;</span>
+                                                                    <span class="decrease" action="decrease" itemid="1250">&nbsp;</span>
+                                                                    </span>
+                                                                    <span class="error-message"></span>
                                                                 </div>
                                                             </div>
                                                             <div class="subtotal">
-                                                                <span class="price-excluding-tax"
-                                                                      data-bind="attr:{'data-label': $t('Excl. Tax')}"
-                                                                      data-label="Excl. Tax">
-<span class="cart-price">
-<span class="price" data-bind="text: getFormattedPrice(getRowDisplayPriceExclTax($parents[2]))">$120.00</span>
-</span>
-</span>
+                                                                <span class="price-excluding-tax">
+                                                                <span class="cart-price">
+                                                                <span class="price">Ksh{{ cart_items.product.price}}</span>
+                                                                </span>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -593,6 +576,7 @@
                                         </ol>
                                     </div>
                                 </div>
+                            {% endfor %}
                             </div>
                             <table class="data table table-totals">
                                 <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>
@@ -601,7 +585,7 @@
                                     <th data-bind="i18n: title" class="mark" scope="row">Cart Subtotal</th>
                                     <td class="amount">
                                         <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
-                                              data-th="Cart Subtotal">$120.00</span>
+                                              data-th="Cart Subtotal">Ksh. {{ order.subtotal}}</span>
                                     </td>
                                 </tr>
 
@@ -609,11 +593,10 @@
                                 <tr class="totals shipping excl">
                                     <th class="mark" scope="row">
                                         <span class="label" data-bind="i18n: title">Shipping</span>
-                                        <span class="value"
-                                              data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
+                                        <span class="value" data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
                                     </th>
                                     <td class="amount">
-                                        <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
+                                        <span class="price"
                                               data-th="Shipping">$5.00</span>
 
                                     </td>
@@ -624,7 +607,7 @@
                                         <strong data-bind="i18n: title">Order Total</strong>
                                     </th>
                                     <td data-bind="attr: {'data-th': title}" class="amount" data-th="Order Total">
-                                        <strong><span class="price" data-bind="text: getValue()">$125.00</span></strong>
+                                        <strong><span class="price" data-bind="text: getValue()">Ksh. {{order.get_total}}</span></strong>
                                     </td>
                                 </tr>
 
@@ -637,7 +620,7 @@
                                 <span data-bind="i18n: 'Order comment'">Order comment</span>
                             </label>
                             <div class="control">
-<textarea class="admin__control-textarea" name="" cols="15" rows="2" aria-describedby="notice-BMCBIHC" ></textarea>
+                            <textarea class="admin__control-textarea" name="" cols="15" rows="2" aria-describedby="notice-BMCBIHC" ></textarea>
                             </div>
                         </div>
                         <div class="choice field">

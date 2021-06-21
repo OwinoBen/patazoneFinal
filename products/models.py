@@ -117,7 +117,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
-    discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00, blank=True,null=True)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     backImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
