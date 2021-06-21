@@ -1,0 +1,713 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="title" content="Express Checkout"/>
+    <meta name="robots" content="INDEX,FOLLOW"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Patazone|Checkout</title>
+    {% include 'managestatic/css.html' %}
+        {% block base_head %}{% endblock %}
+<body data-container="body" id="html-body" class="bluesky-page-preloader rokanthemes-onepagecheckout checkout-index-index onepagecheckout-index-index page-layout-1column">
+{% include 'managestatic/nav_bar.html' %}
+    <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+        <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">Express Checkout</span></h1>
+            <div class="short-description">
+                Please enter your details below to complete your purchase
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column main"><input name="form_key" type="hidden" value="1uKeWrt1uSfUno1k">
+                <div id="authenticationPopup" style="display: none;"></div>
+                <div id="checkout" data-bind="scope:'checkout'" class="checkout-container">
+                    <div class="authentication-wrapper">
+                        <button type="button" class="action action-auth-toggle" >
+                            <span data-bind="i18n: 'Sign In'">Sign In</span>
+                        </button>
+                        <aside role="dialog" class="modal-custom authentication-dropdown custom-slide" aria-describedby="modal-content-10" data-role="modal" data-type="custom" tabindex="0">
+                            <div data-role="focusable-start" tabindex="0"></div>
+                            <div class="modal-inner-wrap" data-role="focusable-scope">
+                                <header class="modal-header">
+                                    <button class="action-close" data-role="closeBtn" type="button">
+                                        <span>Close</span>
+                                    </button>
+                                </header>
+                                <div id="modal-content-10" class="modal-content" data-role="content">
+                                    <div class="block-authentication" >
+                                        <div class="block block-customer-login">
+                                            <div class="block-title">
+                                                <strong id="block-customer-login-heading" role="heading" aria-level="2"
+                                                        data-bind="i18n: 'Sign In'">Sign In</strong>
+                                            </div>
+                                            <div data-role="checkout-messages" class="messages"></div>
+                                            <div class="block-content" aria-labelledby="block-customer-login-heading">
+                                                <form data-role="login" method="post">
+                                                    <div class="fieldset">
+                                                           <div class="field field-email required">
+                                                            <label class="label" for="login-email"><span
+                                                                    data-bind="i18n: 'Email Address'">Email Address</span></label>
+                                                            <div class="control">
+                                                                <input type="email" class="input-text" id="login-email" name="username" autocomplete="off">
+                                                            </div>
+                                                        </div>
+                                                        <div class="field field-password required">
+                                                            <label for="login-password" class="label">
+                                                                <span>Password</span>
+                                                            </label>
+                                                            <div class="control">
+                                                                <input type="password" class="input-text"
+                                                                       id="login-password" name="password"
+                                                                       autocomplete="off">
+                                                            </div>
+                                                        </div>
+                                                        <input name="captcha_form_id" type="hidden"
+                                                               value="user_login" data-scope="">
+                                                    </div>
+                                                    <div class="actions-toolbar">
+                                                        <input name="context" type="hidden" value="checkout">
+                                                        <div class="primary">
+                                                            <button type="submit" class="action action-login secondary">
+                                                                <span data-bind="i18n: 'Sign In'">Sign In</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="secondary">
+                                                            <a class="action action-remind"
+                                                               data-bind="attr: { href: forgotPasswordUrl }"
+                                                               href="https://mageblueskytech.com/dukamarket/en3/customer/account/forgotpassword/">
+                                                                <span data-bind="i18n: 'Forgot Your Password?'">Forgot Your Password?</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div data-role="focusable-end" tabindex="0"></div>
+                        </aside>
+                    </div>
+                    <div class="opc-estimated-wrapper" data-bind="blockLoader: isLoading">
+                        <div class="estimated-block">
+                            <span class="estimated-label">Estimated Total</span>
+                            <span class="estimated-price">$125.00</span>
+                        </div>
+                        <div class="minicart-wrapper">
+                            <button type="button" class="action showcart" data-bind="click: showSidebar">
+                            <span class="counter qty">
+                            <span class="counter-number">1</span>
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div data-role="checkout-messages" class="messages"></div>
+                    <div class="opc-wrapper">
+                        <ol class="opc" id="checkoutSteps">
+                            <li id="shipping" class="checkout-shipping-address" data-bind="fadeVisible: visible()">
+                                <div class="step-title" data-role="title" data-bind="i18n: 'Shipping Address'">Shipping
+                                    Address
+                                </div>
+                                <div id="checkout-step-shipping" class="step-content" data-role="content">
+                                    <form class="form form-login" method="post" style="display: block;">
+                                        {% csrf_token %}
+                                        <fieldset id="customer-email-fieldset" class="fieldset">
+                                            <div class="field required">
+                                                <label class="label" for="customer-email">
+                                                    <span data-bind="i18n: 'Email Address'">Email Address</span>
+                                                </label>
+                                                <div class="control _with-tooltip">
+                                                    <input class="input-text" type="email" name="username"
+                                                           data-validate="{required:true, 'validate-email':true}"
+                                                           id="customer-email">
+                                                    <div class="field-tooltip toggle">
+                                                        <span id="tooltip-label" class="label"></span>
+                                                        <span id="tooltip" class="field-tooltip-action action-help" tabindex="0" data-toggle="dropdown" aria-haspopup="true" role="button"></span>
+                                                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+                                                            We'll send your order confirmation here.
+                                                        </div>
+                                                    </div>
+                                                    <span class="note"><span>You can create an account after checkout.</span></span>
+                                                </div>
+                                            </div>
+
+                                            <fieldset class="fieldset hidden-fields" style="display: none;">
+                                                <div class="field">
+                                                    <label class="label" for="customer-password">
+                                                        <span data-bind="i18n: 'Password'">Password</span>
+                                                    </label>
+                                                    <div class="control">
+                                                        <input class="input-text" name="password" id="customer-password" autocomplete="off"
+                                                               placeholder="Password">
+                                                        <span class="note">You already have an account with us. Sign in or continue as guest.</span>
+                                                    </div>
+                                                </div>
+                                                <input name="captcha_form_id" type="hidden" value="user_login" data-scope="">
+                                                <div class="actions-toolbar">
+                                                    <input name="context" type="hidden" value="checkout">
+                                                    <div class="primary">
+                                                        <button type="submit" class="action login primary"><span>Login</span></button>
+                                                    </div>
+                                                    <div class="secondary">
+                                                        <a class="action remind">
+                                                            <span>Forgot Your Password?</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset class="fieldset hidden-fields create-account">
+                                                <div class="field">
+                                                    <input class="checkbox" type="checkbox" name="createnewcustomer" id="create-new-customer" autocomplete="off">
+                                                    <label class="label">
+                                                        <span>Create New Account</span>
+                                                    </label>
+                                                </div>
+                                                <div class="field _required pass" style="display: none;">
+                                                    <label class="label" for="new-customer-password">
+                                                        <span data-bind="i18n: 'Password'">Password</span>
+                                                    </label>
+                                                    <div class="control">
+                                                        <input class="input-text"  name="newcustomerpassword" id="new-customer-password"
+                                                               autocomplete="off" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="field _required confirm-pass" style="display: none;">
+                                                    <label class="label" for="new-customer-password-confirmation">
+                                                        <span data-bind="i18n: 'Confirm Password'">Confirm Password</span>
+                                                    </label>
+                                                    <div class="control">
+                                                        <input class="input-text"  name="newcustomerpassword_confirmation"
+                                                               id="new-customer-password-confirmation" autocomplete="off" placeholder="Confirm Password">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </fieldset>
+                                    </form>
+                                    <form method="POST" class="form form-shipping-address" id="co-shipping-form" style="display: block;">
+                                        {% csrf_token %}
+                                        <div id="shipping-new-address-form" class="fieldset address">
+                                            <div class="field col-mp mp-12 mp-clear required _required" name="shippingAddress.firstname">
+                                                <label class="label"><span>First Name</span></label>
+                                                <div class="control">
+                                                    <input class="input-text" type="text" name="firstname" aria-required="true" aria-invalid="false" id="ISIUVXY">
+
+                                                </div>
+                                            </div>
+                                            <div class="field col-mp mp-12 mp-clear required _required"
+                                                 name="shippingAddress.lastname">
+                                                <label class="label"><span>Last Name</span><!-- /ko -->
+                                                </label>
+                                                <div class="control">
+                                                    <input class="input-text" type="text"  name="lastname" aria-required="true" aria-invalid="false" id="G1G7FYP">
+                                                </div>
+                                            </div>
+                                            <fieldset class="field street col-mp mp-12 mp-clear not-required admin__control-fields required">
+                                                <legend class="label">
+                                                    <span>Street Address: Line 1</span>
+                                                </legend>
+                                                <div class="control">
+                                                    <div class="field _required">
+                                                        <label class="label">
+                                                            <span>Street Address: Line 1</span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <input class="input-text" type="text" name="shipping_address"  id="shipping_address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field additional" name="shippingAddress.street.1">
+                                                        <label class="label">
+                                                            <span>Street Address: Line 2 (Optional)</span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <input class="input-text" type="text" name="shipping_address2"  id="shipping_address2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="field col-mp mp-12 mp-clear not-required" name="shippingAddress.city">
+                                                <label class="label">
+                                                    <span>City</span></label>
+                                                <div class="control">
+                                                    <input class="input-text" type="text" name="city" id="city">
+                                                </div>
+                                            </div>
+                                            <div class="field col-mp mp-12 mp-clear not-required _required" name="shippingAddress.postcode">
+                                                <label class="label">
+                                                    <span>Zip/Postal Code</span>
+                                                </label>
+                                                <div class="control">
+                                                    <input class="input-text" type="text" name="shipping_zip" id="shipping_zip">
+                                                </div>
+                                            </div>
+                                            <div class="field col-mp mp-12 mp-clear required _required" name="shippingAddress.country_id">
+                                                <label class="label"><span>Country</span>
+                                                </label>
+                                                <div class="control">
+                                                    {{ form.shipping_country }}
+
+                                                </div>
+                                            </div>
+                                            <div class="field col-mp mp-12 mp-clear required _required" name="shippingAddress.region_id">
+                                                <label class="label">
+                                                    <span>State/Province</span>
+                                                </label>
+                                                <div class="control">
+                                                    <select class="select" name="region_id" id="YPKMI5S" aria-required="true" aria-invalid="false">
+                                                        <option value="">Please select a region, state or province.
+                                                        </option>
+                                                        <option data-title="Mombasa" value="1"> Mombasa</option>
+                                                        <option data-title="Kwale" value="2">Kwale</option>
+                                                        <option data-title="Kilifi" value="3">Kilifi
+                                                        </option>
+                                                        <option data-title="Tana River" value="4">Tana River</option>
+                                                        <option data-title="Lamu" value="5">Lamu</option>
+                                                        <option data-title="Taita/Taveta" value="6">Taita/Taveta</option>
+                                                        <option data-title="Garissa" value="7">Garissa</option>
+                                                        <option data-title="Wajir" value="8">Wajir</option>
+                                                        <option data-title="Mandera" value="9">Mandera</option>
+                                                        <option data-title="Marsabit" value="10"></option>
+                                                        <option data-title="Isiolo" value="11">Isiolo</option>
+                                                        <option data-title="Meru" value="12">Meru</option>
+                                                        <option data-title="Tharaka-Nithi" value="13">Tharaka-Nithi</option>
+                                                        <option data-title="Embu" value="14">Embu</option>
+                                                        <option data-title="Kitui" value="15">Kitui</option>
+                                                        <option data-title="Machakos" value="16">Machakos
+                                                        </option>
+                                                        <option data-title="Makueni" value="17">Makueni</option>
+                                                        <option data-title="Nyandarua" value="18">Nyandarua</option>
+                                                        <option data-title="Nyeri" value="19">Nyeri</option>
+                                                        <option data-title="Kirinyaga" value="20">Kirinyaga</option>
+                                                        <option data-title="Murang'a" value="21">Murang'a</option>
+                                                        <option data-title="Kiambu" value="22">Kiambu</option>
+                                                        <option data-title="Turkana" value="23">Turkana</option>
+                                                        <option data-title="West Pokot" value="24">West Pokot</option>
+                                                        <option data-title="Samburu" value="25">Samburu</option>
+                                                        <option data-title="Trans Nzoia" value="26">Trans Nzoia</option>
+                                                        <option data-title="Uasin Gishu" value="27">Uasin Gishu</option>
+                                                        <option data-title="Elgeyo/Marakwet" value="28">Elgeyo/Marakwet</option>
+                                                        <option data-title="Nandi" value="29">Nandi</option>
+                                                        <option data-title="Baringo" value="30">Baringo
+                                                        </option>
+                                                        <option data-title="Laikipia" value="31">Laikipia</option>
+                                                        <option data-title="Nakuru" value="32">Nakuru
+                                                        </option>
+                                                        <option data-title="Narok" value="33">Narok</option>
+                                                        <option data-title="Kajiado" value="34">Kajiado</option>
+                                                        <option data-title="Kericho" value="35">Kericho</option>
+                                                        <option data-title="Bomet" value="36">Bomet</option>
+                                                        <option data-title="Kakamega" value="37">Kakamega</option>
+                                                        <option data-title="Vihiga" value="38">Vihiga</option>
+                                                        <option data-title="Bungoma" value="39">Bungoma</option>
+                                                        <option data-title="Busia" value="40">Busia
+                                                        </option>
+                                                        <option data-title="Siaya" value="41">Siaya</option>
+                                                        <option data-title="Kisumu" value="42">Kisumu</option>
+                                                        <option data-title="Homa Bay" value="43">Homa Bay</option>
+                                                        <option data-title="Migori" value="44">Migori
+                                                        </option>
+                                                        <option data-title="Kisii" value="45">Kisii
+                                                        </option>
+                                                        <option data-title="Nyamira" value="46">Nyamira</option>
+                                                        <option data-title="Nairobi City" value="47">Nairobi City</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="field _required" style="display: none;" name="shippingAddress.region">
+                                                <label class="label">
+                                                    <span>State/Province</span>
+                                                </label>
+                                                <div class="control">
+                                                    <input class="input-text" type="text" name="region" aria-required="true" aria-invalid="false" id="XCA1BOO">
+                                                </div>
+                                            </div>
+
+                                            <div class="field col-mp mp-12 mp-clear required _required" name="shippingAddress.telephone">
+                                                <label class="label">
+                                                    <span>Phone Number</span>
+                                                </label>
+                                            </div>
+                                            <div data-bind="afterRender: manipulateInlineForm"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
+                            <li id="opc-shipping_method" class="checkout-shipping-method"
+                                data-bind="fadeVisible: visible(), blockLoader: isLoading" role="presentation">
+                                <div class="checkout-shipping-method">
+                                    <div class="step-title">Shipping Methods</div>
+                                    <div class="shipping-policy-block field-tooltip" style="display: none;">
+                                        <span class="field-tooltip-action" tabindex="0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                              role="button"><span>See our Shipping Policy</span>
+                                        </span>
+                                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+                                            <span data-bind="html: config.shippingPolicyContent"></span>
+                                        </div>
+                                    </div>
+                                    <div class="field" name="before-shipping-method-form.rokanthemes_opc_shipping_delivery_date">
+                                        <label class="label" data-bind="attr: { for: element.uid }" for="T427CY9">
+                                            <span data-bind="i18n: element.label">Shipping Delivery Date</span>
+                                        </label>
+                                        <div class="control">
+                                            <input class="input-text _has-datepicker" type="text" value="" name="rokanthemes_opc_shipping_delivery_date" aria-invalid="false" id="dp1624227195555"
+                                                   autocomplete="on">
+                                        </div>
+                                    </div>
+                                    <div class="field" name="before-shipping-method-form.rokanthemes_opc_shipping_delivery_comment">
+                                        <label class="label">
+                                            <span data-bind="i18n: element.label">Shipping Delivery Comment</span>
+                                        </label>
+                                        <div class="control">
+                                            <textarea class="admin__control-textarea" name="rokanthemes_opc_shipping_delivery_comment" cols="15" rows="2" aria-describedby="notice-RPUOGYO"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id="checkout-step-shipping_method" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+                                        <form id="co-shipping-method-form" class="form methods-shipping">
+                                            <div id="checkout-shipping-method-load">
+                                                <table class="table-checkout-shipping-method">
+                                                    <thead>
+                                                    <tr class="row">
+                                                        <th class="col col-method">
+                                                            Select Method
+                                                        </th>
+                                                        <th class="col col-price">Price</th>
+                                                        <th class="col col-method">
+                                                            Method Title
+                                                        </th>
+                                                        <th class="col col-carrier">
+                                                            Carrier Title
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="row" data-bind="click: element.selectShippingMethod">
+                                                        <td class="col col-method"><input type="radio" class="radio" checked="true" value="flatrate_flatrate" ame="ko_unique_1">
+                                                        </td>
+                                                        <td class="col col-price">
+                                                            <span class="price"><span class="price">$5.00</span></span>
+                                                        </td>
+                                                        <td class="col col-method" id="label_method_flatrate_flatrate">Fixed
+                                                        </td>
+                                                        <td class="col col-carrier" id="label_carrier_flatrate_flatrate">Flat Rate
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div id="onepage-checkout-shipping-method-additional-load">
+                                            </div>
+                                            <div class="actions-toolbar" id="shipping-method-buttons-container">
+                                                <div class="primary">
+                                                    <button data-role="opc-continue" type="submit"
+                                                            class="button action continue primary">
+                                                        <span>Next</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="payment" role="presentation" class="checkout-payment-method">
+                            <div id="checkout-step-payment" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+                                <form method="POST" id="co-payment-form" class="form payments">
+                                    <input type="hidden" name="form_key" value="">
+                                    <fieldset class="fieldset">
+                                        <div class="step-title">Payment Method</div>
+                                        <div id="checkout-payment-method-load" class="opc-payment">
+                                            <div class="items payment-methods">
+                                                <div class="payment-group" data-repeat-index="0">
+                                                    <div class="checkout-billing-address">
+                                                        <div class="billing-address-same-as-shipping-block field choice">
+                                                            <input type="checkbox" name="same_billing_address"
+                                                                   id="same_billing_address">
+                                                            <label><span>My billing and shipping address are the same</span></label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="payment-method">
+                                                        <div class="payment-method-title field choice">
+                                                            <input type="radio" name="mpesa" class="radio"
+                                                                   id="mpesa" value="Mpesa">
+                                                            <label class="label"><span>Mpesa Payments</span></label>
+                                                        </div>
+                                                        <div class="payment-method-content">
+
+                                                            <div data-role="checkout-messages" class="messages"
+                                                                 data-bind="visible: isVisible(), click: removeAll">
+
+                                                            </div>
+
+                                                            <div class="payment-method-billing-address">
+
+                                                            </div>
+
+                                                            <div class="checkout-agreements-block">
+                                                            </div>
+                                                            <div class="actions-toolbar">
+                                                                <div class="primary">
+                                                                    <button class="action primary checkout"
+                                                                            type="submit" disabled="" title="Place Order">
+                                                                        <span>Place Order</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-method">
+                                                        <div class="payment-method-title field choice">
+                                                            <input type="radio" name="card" class="radio" id="cashondelivery" value="card">
+                                                            <label class="label"
+                                                                   for="cashondelivery"><span>Card</span></label>
+                                                        </div>
+                                                        <div class="payment-method-content">
+                                                            <div data-role="checkout-messages" class="messages">
+
+                                                            </div>
+
+                                                            <div class="payment-method-billing-address">
+                                                            </div>
+                                                            <p data-bind="html: getInstructions()"></p>
+                                                            <div class="checkout-agreements-block">
+
+                                                            </div>
+                                                            <div class="actions-toolbar">
+                                                                <div class="primary">
+                                                                    <button class="action primary checkout"
+                                                                            type="submit" disabled="" title="Place Order">
+                                                                        <span data-bind="i18n: 'Place Order'">Place Order</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /ko --><!-- /ko -->
+                                                </div><!-- /ko -->
+                                            </div><!-- /ko -->
+                                            <!-- ko ifnot: isPaymentMethodsAvailable() --><!-- /ko -->
+                                            <!-- /ko -->
+                                            <!-- /ko -->
+                                        </div>
+                                        <div class="no-quotes-block"
+                                             data-bind="visible: isPaymentMethodsAvailable() == false"
+                                             style="display: none;">
+                                            <!-- ko i18n: 'No Payment method available.'--><span>No Payment method available.</span>
+                                            <!-- /ko -->
+                                        </div>
+                                        <!-- ko foreach: getRegion('afterMethods') -->
+                                        <!-- ko template: getTemplate() -->
+                                        <!-- ko foreach: {data: elems, as: 'element'} --><!-- /ko -->
+                                        <!-- /ko -->
+                                        <!-- /ko -->
+                                    </fieldset>
+                                </form>
+                            </div>
+                            </li>
+                            <!-- /ko --><!-- /ko -->
+                            <!-- /ko -->
+                            <!-- /ko --><!-- /ko -->
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <!--/ko-->
+                        </ol>
+                    </div>
+                    <!-- ko foreach: getRegion('sidebar') -->
+                    <!-- ko template: getTemplate() -->
+                    <div id="opc-sidebar">
+                        <!-- ko foreach: getRegion('summary') -->
+                        <!-- ko template: getTemplate() -->
+                        <div class="opc-block-summary" data-bind="blockLoader: isLoading">
+                            <span data-bind="i18n: 'Order Summary'" class="title">Order Summary</span>
+                            <!-- ko foreach: elems() -->
+                            <!-- ko template: getTemplate() -->
+                            <div class="block items-in-cart active"
+                                 data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': isItemsBlockExpanded()}}"
+                                 data-collapsible="true" role="tablist">
+                                <div class="title" data-role="title" role="tab" aria-selected="false"
+                                     aria-expanded="true" tabindex="0">
+                                    <strong role="heading" aria-level="1">
+                                        <!-- ko if: maxCartItemsToDisplay < getCartLineItemsCount() --><!-- /ko -->
+                                        <!-- ko if: maxCartItemsToDisplay < getCartLineItemsCount() --><!-- /ko -->
+                                        <span data-bind="text: getCartSummaryItemsCount()">1</span>
+                                        <!-- ko if: getCartSummaryItemsCount() === 1 --><!-- ko i18n: 'Item in Cart' --><span>Item in Cart</span>
+                                        <!-- /ko --><!-- /ko -->
+                                        <!-- ko if: getCartSummaryItemsCount() > 1 --><!-- /ko --></strong>
+                                </div>
+                                <div class="content minicart-items" data-role="content" role="tabpanel"
+                                     aria-hidden="false">
+                                    <div class="minicart-items-wrapper">
+                                        <ol class="minicart-items">
+                                            <!-- ko foreach: items() -->
+                                            <li class="product-item">
+                                                <div class="product">
+
+                                                    <span class="product-image-container"
+                                                          data-bind="attr: {'style': 'height: ' + getHeight($parents[1])/2 + 'px; width: ' + getWidth($parents[1])/2 + 'px;' }"
+                                                          style="height: 70px; width: 70px;">
+<span class="product-image-wrapper">
+<img data-bind="attr: {'src': getSrc($parents[1]), 'width': getWidth($parents[1]), 'height': getHeight($parents[1]), 'alt': getAlt($parents[1]), 'title': getAlt($parents[1]) }"
+     src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/00056794b517a0cfce1daf8fcdeecf57/1/2/12-1.jpg"
+     alt="A80 Pro 4G Unlocked Cell Phones" title="A80 Pro 4G Unlocked Cell Phones" width="140" height="140">
+</span>
+</span>
+                                                    <div class="product-item-details">
+                                                        <div class="product-item-inner">
+                                                            <div class="product-item-name-block">
+                                                                <strong class="product-item-name">
+                                                                    <a href="#">A80
+                                                                        Pro 4G Unlocked Cell Phones</a>
+                                                                </strong>
+                                                                <div class="details-qty">
+                                                                    <span class="label"><!-- ko i18n: 'Qty' --><span>Qty</span>
+                                                                        <!-- /ko --></span>
+                                                                    <input type="number" class="input-text qty"title="Qty">
+                                                                    <span class="qty-button">
+<span class="increase"
+      >&nbsp;</span>
+<span class="decrease"
+      action="decrease" itemid="1250">&nbsp;</span>
+</span>
+                                                                    <span class="error-message"
+                                                                          data-bind="attr: {itemId: $parent.item_id}"
+                                                                          itemid="1250"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="subtotal">
+                                                                <span class="price-excluding-tax"
+                                                                      data-bind="attr:{'data-label': $t('Excl. Tax')}"
+                                                                      data-label="Excl. Tax">
+<span class="cart-price">
+<span class="price" data-bind="text: getFormattedPrice(getRowDisplayPriceExclTax($parents[2]))">$120.00</span>
+</span>
+</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="data table table-totals">
+                                <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>
+                                <tbody>
+                                <tr class="totals sub">
+                                    <th data-bind="i18n: title" class="mark" scope="row">Cart Subtotal</th>
+                                    <td class="amount">
+                                        <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
+                                              data-th="Cart Subtotal">$120.00</span>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="totals shipping excl">
+                                    <th class="mark" scope="row">
+                                        <span class="label" data-bind="i18n: title">Shipping</span>
+                                        <span class="value"
+                                              data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
+                                    </th>
+                                    <td class="amount">
+                                        <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"
+                                              data-th="Shipping">$5.00</span>
+
+                                    </td>
+                                </tr>
+
+                                <tr class="grand totals">
+                                    <th class="mark" scope="row">
+                                        <strong data-bind="i18n: title">Order Total</strong>
+                                    </th>
+                                    <td data-bind="attr: {'data-th': title}" class="amount" data-th="Order Total">
+                                        <strong><span class="price" data-bind="text: getValue()">$125.00</span></strong>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="order-comment-block">
+                            <label class="label">
+                                <span data-bind="i18n: 'Order comment'">Order comment</span>
+                            </label>
+                            <div class="control">
+<textarea class="admin__control-textarea" name="" cols="15" rows="2" aria-describedby="notice-BMCBIHC" ></textarea>
+                            </div>
+                        </div>
+                        <div class="choice field">
+                            <input type="checkbox" class="checkbox"  name="" aria-invalid="false">
+                            <label class="label">
+                                <span >Check To Subscribe Order Newsletter</span>
+                            </label>
+                        </div>
+                        <div class="payment-option opc-payment-additional discount-code">
+                            <div class="payment-option-content" data-role="content">
+                                <div data-role="checkout-messages" class="messages"
+                                     data-bind="visible: isVisible(), click: removeAll">
+                                </div>
+                                <form class="form form-discount" id="discount-form">
+                                    <div class="payment-option-inner">
+                                        <div class="field">
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="discount-code"
+                                                       name="discount_code" placeholder="Enter discount code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actions-toolbar">
+                                        <div class="primary">
+                                            <!-- ko ifnot: isApplied() -->
+                                            <button class="action action-apply" type="submit"
+                                                    data-bind="'value': $t('Apply Discount'), click: apply"
+                                                    value="Apply Discount">
+                                                <span><span>Apply Discount</span>
+                                                    </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="checkout-agreements-block">
+                            <form id="onepagecheckout-form-checkout-agreements" class="form" novalidate="novalidate">
+                                <div data-role="checkout-agreements">
+                                    <div class="checkout-agreements" data-bind="visible: isVisible"
+                                         style="display: none;">
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <button class="action primary checkout btn-placeorder disabled" type="submit"
+                                        data-bind="
+                enable: isPlaceOrderActionAllowed(),
+                click: placeOrder,
+                attr: {
+                    title: placeOrderLabel()
+                },
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                fadeVisible: isVisible
+                " disabled="" title="Place Order">
+                                    <span data-bind="text: placeOrderLabel()">Place Order</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="opc-block-shipping-information">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% include 'managestatic/footer.html' %}
+{% include 'managestatic/js.html' %}
+</body>
+</html>

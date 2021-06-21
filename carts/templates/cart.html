@@ -107,9 +107,9 @@
                         </div>
                         <ul class="checkout methods items checkout-methods-items">
                             <li class="item">
-                                <button type="button" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary checkout">
+                                <a type="button" href="{% url 'checkout:checkout' %}" data-role="proceed-to-checkout" title="Proceed to Checkout" class="action primary checkout">
                                     <span>Proceed to Checkout</span>
-                                </button>
+                                </a>
                             </li>
                             <li class="item"><a class="action multicheckout" href="#"><span>Check Out with Multiple Addresses</span></a>
                             </li>

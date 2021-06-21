@@ -1,4 +1,4 @@
-#!/home/localhost/PycharmProjects/patazoneEcommerce/venv/bin/python
+#!/home/localhost/PycharmProjects/patazoneEcommerceFinal/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

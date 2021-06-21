@@ -38,3 +38,8 @@ class VerifyOwnership(View):
                 if product_id in ownership_ids:
                     return JsonResponse({'owner': True})
         raise Http404
+
+
+def checkoutView(request):
+    context = {}
+    return render(request, 'checkout.html', context)
