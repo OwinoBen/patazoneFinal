@@ -102,7 +102,6 @@ class CheckoutView(View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
-
                 use_default_shipping = form.cleaned_data.get(
                     'use_default_shipping')
                 if use_default_shipping:
@@ -134,7 +133,7 @@ class CheckoutView(View):
                         shipping_address = Address(
                             user=self.request.user,
                             street_address=shipping_address1,
-                            apartment_address=shipping_address2,
+                            # apartment_address=shipping_address2,
                             country=shipping_country,
                             zip=shipping_zip,
                             address_type='S'
@@ -197,7 +196,7 @@ class CheckoutView(View):
                         billing_address = Address(
                             user=self.request.user,
                             street_address=billing_address1,
-                            apartment_address=billing_address2,
+                            # apartment_address=billing_address2,
                             country=billing_country,
                             zip=billing_zip,
                             address_type='B'
@@ -220,16 +219,18 @@ class CheckoutView(View):
                 payment_option = form.cleaned_data.get('payment_option')
 
                 if payment_option == 'S':
-                    return redirect('core:payment', payment_option='stripe')
+                    return redirect('core:payment', payment_option='card')
                 elif payment_option == 'P':
                     return redirect('core:payment', payment_option='paypal')
+                elif payment_option == 'M':
+                    return redirect('core:payment', payment_option='mpesa')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")
                     return redirect('checkout:checkout')
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
-            return redirect("checkout:checkout")
+        return redirect("checkout:checkout")
 
 
 class PaymentView(View):
@@ -259,7 +260,7 @@ class PaymentView(View):
         else:
             messages.warning(
                 self.request, "You have not added a billing address")
-            return redirect("core:checkout")
+            return redirect("checkout:checkout")
 
     def post(self, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)

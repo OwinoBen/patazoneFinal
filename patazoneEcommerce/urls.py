@@ -39,8 +39,7 @@ urlpatterns = [
     path('featured', featured, name="featured"),
     path('shop', shopViews, name="shop"),
     path('cart_view', cartView, name="cart"),
-    url(r'^cart/', include(("carts.urls", carts),namespace='cart')),
-    url(r'^cart/', include(("carts.urls", carts),namespace='cart')),
+    path(r'^cart/details', include(("carts.urls", carts),namespace='cart')),
     path('', include('accounts.urls', namespace="register")),
     path('Checkout', include('orders.urls', namespace="checkout")),
 ]

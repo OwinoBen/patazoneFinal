@@ -7,8 +7,8 @@ from django_countries.fields import CountryField
 from billing.models import BillingProfile
 
 Address_type = (
-    ('billing', 'Billing address'),
-    ('shipping', 'Shipping address'),
+    ('B', 'Billing address'),
+    ('S', 'Shipping address'),
 )
 
 
@@ -23,7 +23,7 @@ class Address(models.Model):
     default = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user.username
+        return self.user.email
 
     class Meta:
         verbose_name_plural = 'Addresses'
