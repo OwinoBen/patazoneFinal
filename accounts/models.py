@@ -19,7 +19,7 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, email, name=None, password=None, is_active=True, is_staff=False, is_admin=False,
+    def create_user(self, email, username=None, password=None, is_active=True, is_staff=False, is_admin=False,
                     is_vendor=False):
         if not email:
             raise ValueError("Email required")
@@ -27,7 +27,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Password required")
         user_obj = self.model(
             email=self.normalize_email(email),
-            name=name
+            username=username
         )
         user_obj.set_password(password)
         user_obj.staff = is_staff
@@ -37,19 +37,19 @@ class UserManager(BaseUserManager):
         user_obj.save(using=self._db)
         return user_obj
 
-    def create_staffuser(self, email, name=None, password=None):
+    def create_staffuser(self, email, username=None, password=None):
         user = self.create_user(
             email,
-            name=name,
+            username=username,
             password=password,
             is_staff=True
         )
         return user
 
-    def create_superuser(self, email, name=None, password=None):
+    def create_superuser(self, email, username=None, password=None):
         user = self.create_user(
             email,
-            name=name,
+            username=username,
             password=password,
             is_staff=True,
             is_admin=True
@@ -59,7 +59,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
-    name=models.CharField(max_length=25, blank=True, null=True)
+    username=models.CharField(max_length=25, blank=True, null=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -77,7 +77,7 @@ class User(AbstractBaseUser,PermissionsMixin):
         return self.email
 
     def get_full_name(self):
-        if self.name:
+        if self.username:
             return self.email
 
     def get_short_name(self):

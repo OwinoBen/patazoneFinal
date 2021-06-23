@@ -213,17 +213,18 @@ class CheckoutView(View):
                             billing_address.save()
 
                     else:
+                        print("incomplete entry")
                         messages.info(
                             self.request, "Please fill in the required billing address fields")
 
                 payment_option = form.cleaned_data.get('payment_option')
 
                 if payment_option == 'S':
-                    return redirect('core:payment', payment_option='card')
+                    return redirect('checkout:payment', payment_option='card')
                 elif payment_option == 'P':
-                    return redirect('core:payment', payment_option='paypal')
+                    return redirect('checkout:payment', payment_option='paypal')
                 elif payment_option == 'M':
-                    return redirect('core:payment', payment_option='mpesa')
+                    return redirect('checkout:payment', payment_option='mpesa')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")

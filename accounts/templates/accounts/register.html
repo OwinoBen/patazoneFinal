@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="title" content="Create New Customer Account"/>
+    <meta name="robots" content="INDEX,FOLLOW"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Create New Customer Account</title>
+    {% include 'managestatic/css.html' %}
+    {% block base_head %}{% endblock %}
+    <style>
+        .lazyload-image .not-found-img img[data-src] {
+            padding-top: calc(499px / 556 * 100);
+        }
+    </style>
+</head>
+<body data-container="body" id="html-body" class="bluesky-page-preloader customer-account-create page-layout-1column">
+{% include 'managestatic/nav_bar.html' %}
+<main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+
+    <div class="page-title-wrapper">
+        <h3 class="page-title">
+            <span class="base" data-ui-id="page-title-wrapper">Create New Customer Account</span>
+        </h3>
+    </div>
+    {% if error %}
+        <div id="password-strength-meter" class="password-strength-meter">
+            <p class="password-strength-meter-label" style="color: red;">{{ error }}</p>
+        </div>
+    {% endif %}
+    <div class="page messages">
+        <div data-placeholder="messages"></div>
+        <div data-bind="scope: 'messages'">
+            <div aria-atomic="true" role="alert"
+                 class="messages">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div aria-atomic="true" role="alert" class="messages">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column main"><input name="form_key" type="hidden" value="4Ve7VVG45MdfZ3f7"/>
+            <div id="authenticationPopup">
+            </div>
+            <form class="form create account form-create-account" action="" method="post"  autocomplete="off">
+                {% csrf_token %}
+                <input name="form_key" type="hidden"/>
+                <fieldset class="fieldset create info">
+                    <legend class="legend"><span>Personal Information</span></legend>
+                    <br>
+                    <input type="hidden" name="success_url" value="">
+                    <input type="hidden" name="error_url" value="">
+                    <div class="field field-name-firstname required">
+                        <label class="label" for="username"><span>Username</span></label>
+                        <div class="control">
+                            <input type="text" id="username" name="username" value="" title="username"
+                                   class="input-text required-entry">
+                        </div>
+                    </div>
+                    <div class="field field-name-firstname required">
+                        <label class="label" for="firstname"><span>First Name</span></label>
+                        <div class="control">
+                            <input type="text" id="firstname" name="firstname" value="" title="First&#x20;Name"
+                                   class="input-text required-entry">
+                        </div>
+                    </div>
+                    <div class="field field-name-lastname required">
+                        <label class="label" for="lastname"><span>Last Name</span></label>
+                        <div class="control">
+                            <input type="text" id="lastname" name="lastname" value="" title="Last&#x20;Name"
+                                   class="input-text required-entry">
+                        </div>
+                    </div>
+                    <div class="field choice newsletter">
+                        <input type="checkbox" name="is_subscribed"
+                               title="Sign&#x20;Up&#x20;for&#x20;Newsletter" value="1" id="is_subscribed"
+                               class="checkbox">
+                        <label for="is_subscribed" class="label">
+                            <span>Sign Up for Newsletter</span>
+                        </label>
+                    </div>
+                    {#                <div class="field choice">#}
+                    {#                    <input type="checkbox" name="assistance_allowed_checkbox"#}
+                    {#                           title="Allow&#x20;remote&#x20;shopping&#x20;assistance" value="1"#}
+                    {#                           id="assistance_allowed_checkbox" class="checkbox">#}
+                    {#                    <label for="assistance_allowed_checkbox" class="label">#}
+                    {#                        <span>Allow&#x20;remote&#x20;shopping&#x20;assistance</span>#}
+                    {#                    </label>#}
+                    {#                    <input type="hidden" name="assistance_allowed" value=""/>#}
+                    {#                    <div class="field-tooltip toggle">#}
+                    {#                        <span id="tooltip-label" class="label"><span>Tooltip</span></span>#}
+                    {#                        <span id="tooltip" class="field-tooltip-action action-help" tabindex="0"#}
+                    {#                              data-toggle="dropdown"#}
+                    {#                              aria-labelledby="tooltip-label" aria-haspopup="true" aria-expanded="false"#}
+                    {#                              role="button">#}
+                    {#                        </span>#}
+                    {#                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">#}
+                    {#                            This&#x20;allows&#x20;merchants&#x20;to&#x20;&quot;see&#x20;what&#x20;you&#x20;see&quot;&#x20;and&#x20;take&#x20;actions&#x20;on&#x20;your&#x20;behalf&#x20;in&#x20;order&#x20;to&#x20;provide&#x20;better&#x20;assistance.#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    {#                </div>#}
+                </fieldset>
+                <fieldset class="fieldset create account">
+                    <legend class="legend"><span>Sign-in Information</span></legend>
+                    <br>
+                    <div class="field required">
+                        <label for="email_address" class="label"><span>Email</span></label>
+                        <div class="control">
+                            <input type="email" name="email" autocomplete="email" id="email" value=""
+                                   title="Email" class="input-text">
+                        </div>
+                    </div>
+                    <div class="field password required">
+                        <label for="password" class="label"><span>Password</span></label>
+                        <div class="control">
+                            <input type="password" name="password" id="password" title="Password"
+                                   class="input-text" data-password-min-length="8"
+                                   data-password-min-character-sets="3"
+                                   autocomplete="off">
+                            <div id="password-strength-meter-container" data-role="password-strength-meter"
+                                 aria-live="polite">
+                                <div id="password-strength-meter" class="password-strength-meter">
+                                    Password Strength:
+                                    <span id="password-strength-meter-label"
+                                          data-role="password-strength-meter-label">
+                                    No Password </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field confirmation required">
+                        <label for="password-confirmation" class="label">
+                            <span>Confirm Password</span>
+                        </label>
+                        <div class="control">
+                            <input type="password" name="password_confirmation" title="Confirm&#x20;Password"
+                                   id="password_confirmation" class="input-text" autocomplete="off">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="fieldset additional_info">
+                </fieldset>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="submit" class="action submit primary" title="Create&#x20;an&#x20;Account">
+                            <span>Create an Account</span>
+                        </button>
+                    </div>
+                    <div class="secondary">
+                        <a class="action back"
+                           href="login.html">
+                            <span>Back</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+</div>
+{% include 'managestatic/footer.html' %}
+{% include 'managestatic/js.html' %}
+</body>
+</html>
+
+

@@ -6,7 +6,7 @@ app_name = 'accounts'
 urlpatterns = [
     
     path('register/', createAccount, name='account'),
-    path('mywishlist/', createAccount, name='account'),
+    # path('mywishlist/', createAccount, name='account'),
 
 
 ]

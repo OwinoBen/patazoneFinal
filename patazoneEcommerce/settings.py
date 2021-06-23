@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8czm6=@ub(&*2igdh71!a^7n=-yoa7d-0(y3=g#ft5mqr5x5by'
+STRIPE_PUBLIC_KEY ='pk_test_51I60VJBTjFwTIuIO4pckLczHCK2klJyn9C1Zgw9oZRtEpk30uKP3Cw55v7PwjJHLNavBJvwoJbYhnAsx8J2PEFJS00toncWNRK'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     # 'corsheaders',
 
     'django.contrib.sites',

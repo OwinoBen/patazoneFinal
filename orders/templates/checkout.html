@@ -1,5 +1,6 @@
 {% load crispy_forms_tags %}
 {% load cart_template_tags %}
+{% load humanize %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -96,20 +97,21 @@
                     <div data-role="checkout-messages" class="messages"></div>
                     <div class="opc-wrapper">
                         <ol class="opc" id="checkoutSteps">
-                            <li id="shipping" class="checkout-shipping-address">
+                            <li id="shipping" class="checkout-shipping-address hideable_shipping_form">
                                 <div class="step-title" data-role="title">Shipping
                                     Address
                                 </div>
                                 <div id="checkout-step-shipping" class="step-content" data-role="content">
                                     <div class="form form-login" style="display: block;">
                                         <fieldset id="customer-email-fieldset" class="fieldset">
+                                            {% if request.user.is_authenticated %}
                                             <div class="field required">
                                                 <label class="label" for="customer-email">
                                                     <span>Email Address</span>
                                                 </label>
                                                 <div class="control _with-tooltip">
                                                     <input class="input-text" type="email" name="username"
-                                                           id="customer-email">
+                                                           id="customer-email" disabled value="{{ order.user.email }}">
                                                     <div class="field-tooltip toggle">
                                                         <span id="tooltip-label" class="label"></span>
                                                         <span id="tooltip" class="field-tooltip-action action-help" tabindex="0" data-toggle="dropdown" aria-haspopup="true" role="button"></span>
@@ -120,6 +122,7 @@
                                                     <span class="note"><span>You can create an account after checkout.</span></span>
                                                 </div>
                                             </div>
+                                            {% endif %}
 
                                             <fieldset class="fieldset hidden-fields" style="display: none;">
                                                 <div class="field">
@@ -147,12 +150,12 @@
                                             </fieldset>
 
                                             <fieldset class="fieldset hidden-fields create-account">
-                                                <div class="field">
-                                                    <input class="checkbox" type="checkbox" name="createnewcustomer" id="create-new-customer" autocomplete="off">
-                                                    <label class="label">
-                                                        <span>Create New Account</span>
-                                                    </label>
-                                                </div>
+{#                                                <div class="field">#}
+{#                                                    <input class="checkbox" type="checkbox" name="createnewcustomer" id="create-new-customer" autocomplete="off">#}
+{#                                                    <label class="label">#}
+{#                                                        <span>Create New Account</span>#}
+{#                                                    </label>#}
+{#                                                </div>#}
                                                 <div class="field _required pass" style="display: none;">
                                                     <label class="label" for="new-customer-password">
                                                         <span data-bind="i18n: 'Password'">Password</span>
@@ -319,10 +322,24 @@
                                                     <input class="input-text" type="text" name="phone" aria-required="true" aria-invalid="false" id="XCA1BOO">
                                                 </div>
                                             </div>
-                                            <div data-bind="afterRender: manipulateInlineForm"></div>
+                                            <div class="checkout-billing-address">
+                                                <div class="billing-address-same-as-shipping-block field choice">
+                                                    <input type="checkbox" name="set_default_shipping"
+                                                           id="set_default_shipping">
+                                                    <label><span>Save as default shipping address</span></label>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
+                                {% if default_shipping_address %}
+                                    <div class="billing-address-same-as-shipping-block field choice">
+                                        <input type="checkbox" name="set_default_shipping"
+                                               id="set_default_shipping">
+                                        <label><span>Use default shipping address: {{ default_shipping_address.street_address|truncatechars:10 }}</span></label>
+                                    </div>
+                                {% endif %}
                             </li>
 
                             <li id="opc-shipping_method" class="checkout-shipping-address" role="presentation">
@@ -373,7 +390,7 @@
                                                 <label class="label"><span>Country</span>
                                                 </label>
                                                 <div class="control">
-                                                    {{ form.shipping_country }}
+                                                    {{ form.billing_country }}
 
                                                 </div>
                                             </div>
@@ -458,7 +475,7 @@
                                 </div>
                             </li>
                             <li id="payment" role="presentation" class="checkout-payment-method">
-                            <div id="checkout-step-payment" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+                            <div id="checkout-step-payment" class="step-content " data-role="content" role="tabpanel" aria-hidden="false">
                                 <form id="co-payment-form" class="form payments">
                                     <input type="hidden" name="form_key" value="">
                                     <fieldset class="fieldset">
@@ -468,16 +485,16 @@
                                                 <div class="payment-group" data-repeat-index="0">
                                                     <div class="checkout-billing-address">
                                                         <div class="billing-address-same-as-shipping-block field choice">
-                                                            <input type="checkbox" name="set_default_billing"
-                                                                   id="set_default_billing">
+                                                            <input type="checkbox" name="same_billing_address"
+                                                                   id="same_billing_address">
                                                             <label><span>My billing and shipping address are the same</span></label>
                                                         </div>
                                                     </div>
                                                     {% if default_billing_address %}
                                                     <div class="checkout-billing-address">
                                                         <div class="billing-address-same-as-shipping-block field choice">
-                                                            <input type="checkbox" name="set_default_billing"
-                                                                   id="set_default_billing">
+                                                            <input type="checkbox" name="use_default_shipping"
+                                                                   id="use_default_shipping">
                                                             <label><span>Use default billing address: {{ default_billing_address.street_address|truncatechars:10 }}</span></label>
                                                         </div>
                                                     </div>
@@ -557,7 +574,7 @@
                                                             <div class="subtotal">
                                                                 <span class="price-excluding-tax">
                                                                 <span class="cart-price">
-                                                                <span class="price">Ksh{{ cart_items.product.price}}</span>
+                                                                <span class="price">Ksh{{ cart_items.product.price|intcomma}}</span>
                                                                 </span>
                                                                 </span>
                                                             </div>
@@ -576,7 +593,7 @@
                                 <tr class="totals sub">
                                     <th class="mark" scope="row">Cart Subtotal</th>
                                     <td class="amount">
-                                        <span class="price" data-th="Cart Subtotal">Ksh. {{ order.subtotal}}</span>
+                                        <span class="price" data-th="Cart Subtotal">Ksh. {{ order.subtotal|intcomma}}</span>
                                     </td>
                                 </tr>
 
@@ -595,7 +612,7 @@
                                         <strong>Order Total</strong>
                                     </th>
                                     <td class="amount" data-th="Order Total">
-                                        <strong><span class="price">Ksh. {{order.get_total}}</span></strong>
+                                        <strong><span class="price">Ksh. {{order.get_total|intcomma}}</span></strong>
                                     </td>
                                 </tr>
 
@@ -667,7 +684,32 @@
             </div>
         </form>
     </main>
+<script>
+var hideable_shipping_form = $('.hideable_shipping_form');
+var hideable_billing_form = $('.hideable_billing_form');
+
+var use_default_shipping = document.querySelector("input[name=use_default_shipping]");
+var use_default_billing = document.querySelector("input[name=use_default_billing]");
+
+use_default_shipping.addEventListener('change', function() {
+  if (this.checked) {
+    hideable_shipping_form.hide();
+  } else {
+    hideable_shipping_form.show();
+  }
+})
+
+use_default_billing.addEventListener('change', function() {
+  if (this.checked) {
+    hideable_billing_form.hide();
+  } else {
+    hideable_billing_form.show();
+  }
+})
+
+</script>
 {% include 'managestatic/footer.html' %}
 {% include 'managestatic/js.html' %}
+
 </body>
 </html>
