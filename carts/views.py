@@ -87,7 +87,7 @@ def productDetails(request, id):
     return render(request, 'product_details.html', context)
 
 
-# @login_required
+@login_required
 def updateCart(request):
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)

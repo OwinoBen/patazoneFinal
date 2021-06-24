@@ -8,7 +8,6 @@ urlpatterns = [
     path(r'^shop/$', cartView, name='shop'),
     # path(r'^checkout/$', checkoutHome, name='checkout'),
     path(r'^update/$', updateCart, name='update'),
-    path(r'^update/$', updateCart, name='update'),
     path(r'^quickcheck/(?P<id>)/$', QuickCheck, name='quickcheck'),
     path(r'^productdetails/(?P<id>)/$', productDetails, name='productdetails'),
 ]

@@ -630,16 +630,26 @@
                     <li class="account-link-header hidden-xs">
                         <i class="far fa-user fa-2x" style="margin-right: 5px"></i>
                       <ul class="header links">
-                        <li class="link authorization-link" data-label="or">
-                          <a href="{% url 'login' %}"
-                            ><span class="text">Sign In</span></a
-                          >
-                        </li>
-                        <li>
-                          <a href="{% url 'account' %}" id="idkNjDRaNV"
-                            >Create an Account</a
-                          >
-                        </li>
+                          {% if request.user.is_authenticated %}
+                                <li class="link authorization-link" data-label="or">
+                                  <a href="{% url 'logout' %}">
+                                      <span class="text">Sign Out</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">My Account</a>
+                                </li>
+                          {% else %}
+                                <li class="link authorization-link" data-label="or">
+                                      <a href="{% url 'register:login' %}">
+                                          <span class="text">Sign In</span>
+                                      </a>
+                                </li>
+                                <li>
+                                  <a href="{% url 'account' %}">Create an Account</a>
+                                </li>
+                          {% endif %}
+
                       </ul>
                     </li>
 

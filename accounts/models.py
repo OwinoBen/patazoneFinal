@@ -19,7 +19,8 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, email, username=None, password=None, is_active=True, is_staff=False, is_admin=False,
+    def create_user(self,  email=None,username=None, first_name=None, last_name=None, password=None, is_active=True, is_staff=False,
+                    is_admin=False,
                     is_vendor=False):
         if not email:
             raise ValueError("Email required")
@@ -27,7 +28,9 @@ class UserManager(BaseUserManager):
             raise ValueError("Password required")
         user_obj = self.model(
             email=self.normalize_email(email),
-            username=username
+            username=username,
+            first_name=first_name,
+            last_name=last_name
         )
         user_obj.set_password(password)
         user_obj.staff = is_staff
@@ -57,9 +60,9 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser,PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
-    username=models.CharField(max_length=25, blank=True, null=True)
+    username = models.CharField(max_length=25, blank=True, null=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -91,9 +94,9 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     @property
     def is_staff(self):
-        if self.is_admin:
+        if self.is_superuser:
             return True
-        return self.is_staff
+        return self.staff
 
     @property
     def is_admin(self):
@@ -207,13 +210,13 @@ def pre_save_email_activation(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_email_activation, sender=EmailActivation)
 
 
-def post_save_user_create_reciever(sender, instance, created, *args, **kwargs):
-    if created:
-        obj = EmailActivation.objects.create(user=instance, email=instance.email)
-        obj.send_activation()
-
-
-post_save.connect(post_save_user_create_reciever, sender=User)
+# def post_save_user_create_reciever(sender, instance, created, *args, **kwargs):
+#     if created:
+#         obj = EmailActivation.objects.create(user=instance, email=instance.email)
+#         obj.send_activation()
+#
+#
+# post_save.connect(post_save_user_create_reciever, sender=User)
 
 
 class GuestEmail(models.Model):

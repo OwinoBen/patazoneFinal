@@ -23,7 +23,7 @@ from django.urls import path, include
 
 import carts
 from .views import homepage, aboutpage, contactus, frequentquiz, featured
-from accounts.views import createAccount, login
+from accounts.views import createAccount
 from products.views import product
 from shop.views import shopViews
 from carts.views import cartView, updateCart
@@ -31,12 +31,11 @@ from carts.views import cartView, updateCart
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', product, name="home"),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('about/', aboutpage, name="about"),
     path('contactus/', contactus, name="contact"),
     path('fqa_page/', frequentquiz, name="fqa"),
     path('accounts', createAccount, name="account"),
-    path('customer/login', login, name="login"),
     path('featured', featured, name="featured"),
     path('shop', shopViews, name="shop"),
     path('cart_view', cartView, name="cart"),
