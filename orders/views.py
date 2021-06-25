@@ -257,7 +257,7 @@ class PaymentView(View):
                     context.update({
                         'card': card_list[0]
                     })
-            return render(self.request, "payment.html", context)
+            return render(self.request, "checkout.html", context)
         else:
             messages.warning(
                 self.request, "You have not added a billing address")
