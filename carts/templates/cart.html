@@ -14,8 +14,34 @@
 
         {% include 'managestatic/css.html' %}
         {% block base_head %}{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+    $(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+</script>
+
+    <style>
+        .hideable_shipping_form {
+            display: none;
+        }
+        .no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(/static/images/loader-1.gif) center no-repeat #fff;
+}
+    </style>
 </head>
 <body data-container="body" id="html-body" class="bluesky-page-preloader page-with-filter page-products categorypath-shop category-shop catalog-category-view page-layout-2columns-left">
+<div class="se-pre-con"></div>
 {% include 'managestatic/nav_bar.html' %}
     <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
         <div class="page-title-wrapper">
