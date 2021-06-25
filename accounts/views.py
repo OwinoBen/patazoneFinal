@@ -17,9 +17,10 @@ def createAccount(request):
                               {'error': 'username and/or email has already been taken'})
             except User.DoesNotExist:
                 user = User.objects.create_user(email=request.POST['email'], username=request.POST['username'],
-                                                password=request.POST['password'],
                                                 first_name=request.POST['firstname'],
-                                                last_name=request.POST['lastname'])
+                                                last_name=request.POST['lastname'],
+                                                password=request.POST['password'])
+
                 login(request, user)
                 userProfile = UserProfile()
                 print("creating new user profile")
