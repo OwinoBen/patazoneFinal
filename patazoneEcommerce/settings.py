@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'orders',
     'products',
     'search',
-    'shop'
+    'shop',
+    'mpesa'
 ]
 
 MIDDLEWARE = [
