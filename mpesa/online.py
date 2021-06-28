@@ -36,7 +36,7 @@ def lipa_na_mpesa_online(Amount,PhoneNumber):
         "PartyA": PhoneNumber,  # replace with your phone number to get stk push
         "PartyB": Business_short_code,
         "PhoneNumber": PhoneNumber,  # replace with your phone number to get stk push
-        "CallBackURL": "http://127.0.0.1:8000/lipa_na_mpesa",
+        "CallBackURL": "http://192.168.100.31:8000/lipa_na_mpesa",
         "AccountReference": "Patazone Marketplace",
         "TransactionDesc": "Testing stk push"
     }
