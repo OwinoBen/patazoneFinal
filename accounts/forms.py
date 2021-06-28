@@ -148,3 +148,42 @@ class RegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class AccountUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name')
+
+        # def clean_email(self):
+        #     email = self.cleaned_data['email'].lower()
+        #     try:
+        #         account = User.objects.exclude(pk=self.instance.pk).get(email=email)
+        #     except User.DoesNotExist:
+        #         return email
+        #     raise forms.ValidationError('Email "%s" is already in use.' % account)
+
+        def clean_first_name(self):
+            first_name = self.cleaned_data['first_name']
+            try:
+                account = User.objects.exclude(pk=self.instance.pk).get(first_name=first_name)
+            except User.DoesNotExist:
+                return first_name
+            raise forms.ValidationError('User "%s" is already in use.' % first_name)
+
+        def clean_last_name(self):
+            last_name = self.cleaned_data['last_name']
+            try:
+                account = User.objects.exclude(pk=self.instance.pk).get(last_name=last_name)
+            except User.DoesNotExist:
+                return last_name
+            raise forms.ValidationError('User "%s" is already in use.' % last_name)
+
+        def save(self, commit=True):
+            account = super(AccountUpdateForm, self).save(commit=False)
+            account.first_name = self.cleaned_data['first_name']
+            account.last_name = self.cleaned_data['last_name']
+
+            if commit:
+                account.save()
+                return account

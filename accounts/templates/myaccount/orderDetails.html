@@ -1,0 +1,202 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% block content %}
+
+{% if object.cart.exists %}
+    {% for orderitemdetail in object.cart.all %}
+    <div class="page-title-wrapper">
+        <h1 class="page-title">
+            <span class="base" data-ui-id="page-title-wrapper">Order # {{ object.order_id }}</span>
+        </h1>
+        <span class="order-status">{{ object.status }}</span>
+        <div class="order-date">
+            <span class="label">Order Date:</span> <span>{{ object.updated }}</span></div>
+        <div class="actions-toolbar order-actions-toolbar">
+            <div class="actions">
+                <a href="#" class="action order">
+                    <span>Reorder</span>
+                </a>
+                <a href="#" class="action print"
+                   target="_blank" rel="noopener">
+                    <span>Print Order</span>
+                </a>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+    <a id="contentarea" tabindex="-1"></a>
+    <div class="page messages">
+        <div data-placeholder="messages"></div>
+        <div>
+            <div aria-atomic="true" role="alert" class="messages">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div aria-atomic="true" role="alert">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column main">
+            <ul class="items order-links">
+                <li class="nav item current"><strong>Items Ordered</strong></li>
+            </ul>
+            <div class="order-details-items ordered">
+                <div class="order-title">
+                    <strong>Items Ordered</strong>
+                </div>
+                <div class="table-wrapper order-items">
+                    <table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
+                        <caption class="table-caption">Items Ordered</caption>
+                        <thead>
+                        <tr>
+                            <th class="col name">Product Name</th>
+                            <th class="col sku">SKU</th>
+                            <th class="col price">Price</th>
+                            <th class="col qty">Qty</th>
+                            <th class="col subtotal">Subtotal</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for orderitemdetail in object.cart.all %}
+                        <tr id="order-item-row-139">
+                            <td class="col name" data-th="Product Name">
+                                <strong class="product name product-item-name">{{ orderitemdetail.product.title }}</strong>
+                            </td>
+                            <td class="col sku" data-th="SKU">
+                                {{ orderitemdetail.product.sku }}
+
+                            </td>
+                            <td class="col price" data-th="Price">
+                                <span class="price-excluding-tax">
+                                <span class="cart-price">
+                                <span class="price">Ksh. {{ orderitemdetail.product.price }}</span> </span>
+                                </span>
+                            </td>
+                            <td class="col qty" data-th="Qty">
+                                <ul class="items-qty">
+                                    <li class="item">
+                                        <span class="title">Ordered</span>
+                                        <span class="content">{{ orderitemdetail.quantity }}</span>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="col subtotal" data-th="Subtotal">
+                                <span class="price-excluding-tax">
+                                <span class="cart-price">
+                                <span class="price">Ksh. {{ orderitemdetail.get_final_price }}</span> </span>
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr class="subtotal">
+                            <th colspan="4" class="mark" scope="row">
+                                Subtotal
+                            </th>
+                            <td class="amount" data-th="Subtotal">
+                                <span class="price">Ksh. {{ object.subtotal }}</span></td>
+                        </tr>
+                        <tr class="shipping">
+                            <th colspan="4" class="mark" scope="row">
+                                Shipping &amp; Handling
+                            </th>
+                            <td class="amount" data-th="Shipping&#x20;&amp;&#x20;Handling">
+                                <span class="price">Ksh. 0.00</span></td>
+                        </tr>
+                        <tr class="grand_total">
+                            <th colspan="4" class="mark" scope="row">
+                                <strong>Grand Total</strong>
+                            </th>
+                            <td class="amount" data-th="Grand&#x20;Total">
+                                <strong><span class="price">Ksh. {{ object.get_total}}</span></strong>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="actions-toolbar">
+                    <div class="secondary">
+                        <a class="action back" href="{% url 'register:orders' %}">
+                            <span>Back to My Orders</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="block block-order-details-view">
+                <div class="block-title">
+                    <strong>Order Information</strong>
+                </div>
+
+                    <h1></h1>
+
+                <div class="block-content">
+                {% if object.shipping_address %}
+                    <div class="box box-order-shipping-address">
+                        <strong class="box-title"><span>Shipping Address</span></strong>
+                        <div class="box-content">
+                            <address>
+                                {{ request.user.first_name}} {{ request.user.last_name}}<br/>
+                                {{ object.shipping_address.street_address}}<br/>
+                                {{ object.shipping_address.zip}}<br/>
+                                {{ object.shipping_address.country.name}}<br/>
+                                T: <a href="tel:0790232329">0790232329</a>
+                            </address>
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="empty">Order has no shipping address</p>
+                {% endif %}
+                    <div class="box box-order-shipping-method">
+                        <strong class="box-title">
+                            <span>Shipping Method</span>
+                        </strong>
+                        <div class="box-content">
+                            Flat Rate - Fixed
+                        </div>
+                    </div>
+                {% if object.billing_address %}
+                    <div class="box box-order-billing-address">
+                        <strong class="box-title">
+                            <span>Billing Address</span>
+                        </strong>
+                        <div class="box-content">
+                            <address>
+                                {{ request.user.first_name}} {{ request.user.last_name}}<br/>
+                                {{ object.billing_address.street_address}}<br/>
+                                {{ object.billing_address.zip}}<br/>
+                                {{ object.billing_address.country.name}}<br/>
+                                T: <a href="tel:0790232329">0790232329</a>
+                            </address>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p class="empty">Order has no billing address</p>
+                    {% endif %}
+                    <div class="box box-order-billing-method">
+                        <strong class="box-title">
+                            <span>Payment Method</span>
+                        </strong>
+                        <div class="box-content">
+                            <dl class="payment-method checkmemo">
+                                <dt class="title">Check / Money order</dt>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    {% else %}
+    <h1 class="page-title">
+            <span class="base" data-ui-id="page-title-wrapper">You have no orders, return to <a href="{% url 'home' %}">home</a></span>
+    </h1>
+
+{% endif %}
+
+{% endblock %}

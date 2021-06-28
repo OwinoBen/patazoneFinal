@@ -1,0 +1,42 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">Newsletter Subscription</span></h1>
+        </div>
+        <a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+            <div data-placeholder="messages"></div>
+            <div data-bind="scope: 'messages'">
+                <div aria-atomic="true" role="alert" class="messages">
+                    <div>
+                        <div ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column main">
+        <input name="form_key" type="hidden" value="slju1uCpLcQu4dGX"/>
+        <div id="authenticationPopup"></div>
+        <form class="form form-newsletter-manage" action="#" method="post" id="form-validate">
+            <fieldset class="fieldset">
+                <input name="form_key" type="hidden" value="slju1uCpLcQu4dGX"/>
+                <legend class="legend"><span>Subscription option</span></legend>
+                <br>
+                <div class="field choice">
+                    <input type="checkbox" name="is_subscribed" id="subscription" value="1"
+                           title="General&#x20;Subscription" checked="checked" class="checkbox">
+                    <label for="subscription" class="label"><span>General Subscription</span></label>
+                </div>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" title="Save" class="action save primary"><span>Save</span></button>
+                </div>
+                <div class="secondary"><a class="action back" href="#"><span>Back</span></a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

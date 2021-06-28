@@ -1,0 +1,88 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">Address Book</span></h1>
+        </div>
+        <a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+            <div data-placeholder="messages"></div>
+            <div data-bind="scope: 'messages'">
+                <div aria-atomic="true" role="alert" class="messages">
+                    <div>
+                        <div ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column main">
+        <input name="form_key" type="hidden" value="slju1uCpLcQu4dGX"/>
+        <div id="authenticationPopup">
+        </div>
+        <div class="block block-addresses-default">
+            <div class="block-title"><strong>Default Addresses</strong></div>
+            <div class="block-content">
+                <div class="box box-address-billing">
+                    <strong class="box-title">
+                        <span>Default Billing Address</span>
+                    </strong>
+                    <div class="box-content">
+                        <address>
+                            benson opondo<br/>
+                            dvc<br/>
+                            532<br/>
+                            nfg, cxzv, 653<br/>
+                            Kenya<br/>
+                            T: <a href="tel:0790232329">0790232329</a>
+                        </address>
+                    </div>
+                    <div class="box-actions">
+                        <a class="action edit"
+                           href="#">
+                            <span>Change Billing Address</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="box box-address-shipping">
+                    <strong class="box-title">
+                        <span>Default Shipping Address</span>
+                    </strong>
+                    <div class="box-content">
+                        <address>
+                            benson opondo<br/>
+                            dvc<br/>
+                            532<br/>
+                            nfg, cxzv, 653<br/>
+                            Kenya<br/>
+                            T: <a href="tel:0790232329">0790232329</a>
+                        </address>
+                    </div>
+                    <div class="box-actions">
+                        <a class="action edit"
+                           href="#">
+                            <span>Change Shipping Address</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block block-addresses-list">
+            <div class="block-title"><strong>Additional Address Entries</strong></div>
+            <div class="block-content">
+                <p class="empty">You have no other address entries in your address book.</p>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="button" role="add-address" title="Add&#x20;New&#x20;Address" class="action primary add">
+                    <span>Add New Address</span>
+                </button>
+            </div>
+            <div class="secondary">
+                <a class="action back"
+                   href="#"><span>Back</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

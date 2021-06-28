@@ -308,7 +308,6 @@ class OrderSummaryView(View):
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
-            print(order.ordered)
             context = {
                 'object': order
             }

@@ -1,0 +1,133 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">Edit Account Information</span></h1>
+        </div>
+        <a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+            <div data-placeholder="messages"></div>
+            <div data-bind="scope: 'messages'">
+                <div aria-atomic="true" role="alert" class="messages">
+                    {% for field in form %}
+					<p>
+					{% for error in field.errors %}
+					<p style="color: red">{{ error }}</p>
+					{% endfor %}
+					</p>
+					{% endfor %}
+					{% if form.non_field_errors %}
+					<div style="color: red">
+					<p>{{form.non_field_errors}}</p>
+					</div>
+
+					{% endif %}
+                    <div>
+                        <div ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column main">
+
+        <form class="form form-edit-account" action="{% url 'register:editprofile' user_id=request.user.id  %}" method="post" id="form-validate" autocomplete="off">
+            {% csrf_token %}
+            <fieldset class="fieldset info">
+                <input name="form_key" type="hidden"/>
+                <legend class="legend"><span>Account Information</span></legend>
+                <br>
+                <div class="field field-name-firstname required">
+                    <label class="label" for="firstname"><span>First Name</span></label>
+                    <div class="control">
+                        <input type="text" id="first_name" name="first_name" value="{{ request.user.first_name }}" title="First&#x20;Name" class="input-text required-entry">
+                    </div>
+                </div>
+                <div class="field field-name-lastname required">
+                    <label class="label" for="lastname"><span>Last Name</span></label>
+                    <div class="control">
+                        <input type="text" id="last_name" name="last_name" value="{{ request.user.last_name }}" title="Last&#x20;Name" class="input-text required-entry">
+                    </div>
+                </div>
+                <div class="field choice">
+                    <input type="checkbox" name="change_email" id="change-email" title="Change&#x20;Email" class="checkbox"/>
+                    <label class="label" for="change-email">
+                        <span>Change Email</span>
+                    </label>
+                </div>
+                <div class="field choice">
+                    <input type="checkbox" name="change_password" id="change-password" data-role="change-password"
+                           value="1" title="Change&#x20;Password" class="checkbox"/>
+                    <label class="label" for="change-password">
+                        <span>Change Password</span>
+                    </label>
+                </div>
+                <div class="field choice">
+                    <input type="checkbox" name="assistance_allowed_checkbox"
+                           title="Allow&#x20;remote&#x20;shopping&#x20;assistance" value="1"
+                           id="assistance_allowed_checkbox" checked="checked" class="checkbox">
+                    <label for="assistance_allowed_checkbox" class="label">
+                        <span>Allow&#x20;remote&#x20;shopping&#x20;assistance</span>
+                    </label>
+                    <input type="hidden" name="assistance_allowed" value=""/>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset password" data-container="change-email-password">
+                <legend class="legend">
+                    <span data-title="change-email-password">Change Email and Password</span>
+                </legend>
+                <br>
+                <div class="field email required" data-container="change-email">
+                    <label class="label" for="email"><span>Email</span></label>
+                    <div class="control">
+                        <input type="email" name="email" id="email" autocomplete="email" value="owinoben2020&#x40;gmail.com" title="Email" class="input-text"/>
+                    </div>
+                </div>
+                <div class="field password current required">
+                    <label class="label" for="current-password">
+                        <span>Current Password</span>
+                    </label>
+                    <div class="control">
+                        <input type="password" class="input-text" name="current_password" id="current-password" autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="field new password required" data-container="new-password">
+                    <label class="label" for="password"><span>New Password</span></label>
+                    <div class="control">
+                        <input type="password" class="input-text" name="password" id="password" autocomplete="off"/>
+                        <div id="password-strength-meter-container" data-role="password-strength-meter"
+                             aria-live="polite">
+                            <div id="password-strength-meter" class="password-strength-meter">
+                                Password Strength:
+                                <span id="password-strength-meter-label" data-role="password-strength-meter-label">
+                                No Password </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field confirmation password required" data-container="confirm-password">
+                    <label class="label" for="password-confirmation">
+                        <span>Confirm New Password</span>
+                    </label>
+                    <div class="control">
+                        <input type="password" class="input-text" name="password_confirmation" id="password-confirmation" data-input="confirm-password" autocomplete="off"/>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="fieldset additional_info">
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action save primary" title="Save">
+                        <span>Save</span>
+                    </button>
+                </div>
+                <div class="secondary">
+                    <a class="action back" href="#">
+                        <span>Go back</span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

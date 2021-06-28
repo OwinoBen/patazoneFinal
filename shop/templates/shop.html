@@ -48,7 +48,7 @@
     <div class="breadcrumbs">
         <ul class="items">
             <li class="item home">
-                <a href="https://mageblueskytech.com/dukamarket/en3/" title="Go to Home Page">
+                <a href="{% url 'home' %}" title="Go to Home Page">
                     Home </a>
             </li>
             <li class="item category50">
@@ -220,14 +220,14 @@
                                         <span class="special-price">
                                         <span class="price-container price-final_price&#x20;tax&#x20;weee">
                                         <span class="price-label">Special Price</span>
-                                        <span id="product-price-1" data-price-amount="59.99" data-price-type="finalPrice" class="price-wrapper "><span class="price">$59.99</span></span>
+                                        <span id="product-price-1" data-price-type="finalPrice" class="price-wrapper "><span class="price">Ksh. {{ products.price }}</span></span>
                                         </span>
                                         </span>
                                             <span class="old-price">
                                         <span class="price-container price-final_price&#x20;tax&#x20;weee">
                                         <span class="price-label">Regular Price</span>
                                         <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
-                                              class="price-wrapper "><span class="price">$79.99</span></span>
+                                              class="price-wrapper "><span class="price">Ksh. {{ products.old_price }}</span></span>
                                         </span>
                                         </span>
                                         </div>
@@ -565,7 +565,7 @@
 
                                             <div class="product-add-form">
                                                 <form data-product-sku="Digital002"
-                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGFsb2cvcHJvZHVjdC92aWV3L2lkLzIvcXVpY2t2aWV3LzEv/product/2/"
+                                                      action="#"
                                                       method="post" id="product_addtocart_form">
                                                     <input type="hidden" name="product" value="2">
                                                     <input type="hidden" name="selected_configurable_option" value="">
@@ -612,10 +612,8 @@
                                             <div class="product-social-links">
                                                 <div class="product-addto-links" data-role="add-to-links">
                                                     <a href="#" class="action towishlist"
-                                                       data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:2,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3F1aWNrdmlldy9wcm9kdWN0L3ZpZXcvaWQvMi9xdWlja3ZpZXcvMQ,,&quot;}}"
                                                        data-action="add-to-wishlist"><span>Add to Wish List</span></a>
                                                     <a href="#"
-                                                       data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;2&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3F1aWNrdmlldy9wcm9kdWN0L3ZpZXcvaWQvMi9xdWlja3ZpZXcvMQ,,&quot;}}"
                                                        data-role="add-to-links" class="action tocompare"><span>Add to Compare</span></a>
 
                                                 </div>
@@ -642,33 +640,22 @@
                                                 </div>
                                             </div>
                                             <div class="product-category"><label>Categories: </label><a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/top-selling-products.html">Top
+                                                    href="#">Top
                                                 Selling Products</a>, <a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/smart-phones-tablets.html">Cameras
+                                                    href="#">Cameras
                                                 &amp; Accessories</a>, <a
-                                                    href="https://mageblueskytech.com/dukamarket/en3/top-deals/smart-phones-tablets/smartphone.html">Smartphone</a>
+                                                    href="#">Smartphone</a>
                                             </div>
                                             <div class="product-page-brand-common-view">
                                                 <span class="brand-label">Brands:  </span>
                                                 <ul class="product-brands">
                                                     <li class="brand-item">
-                                                        <a href="https://mageblueskytech.com/dukamarket/en3/brand/impact.html"
+                                                        <a href="#"
                                                            title="Impact">Impact</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                    <input name="form_key" type="hidden" value="MrbF4eXYnvMecTIA">
-                                    <div id="authenticationPopup"
-                                         data-bind="scope:'authenticationPopup', style: {display: 'none'}">
-                                        <script>window.authenticationPopup = {
-                                            "autocomplete": "off",
-                                            "customerRegisterUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/create\/",
-                                            "customerForgotPasswordUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/forgotpassword\/",
-                                            "baseUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/"
-                                        }</script>
-
                                     </div>
 
 
@@ -709,13 +696,13 @@
                                 </strong>
                             </li>
                             <li class="item">
-                                <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?p=2" class="page">
+                                <a href="#" class="page">
                                     <span class="label">Page</span>
                                     <span>2</span>
                                 </a>
                             </li>
                             <li class="item pages-item-next">
-                                <a class="action  next" href="https://mageblueskytech.com/dukamarket/en3/shop.html?p=2"
+                                <a class="action  next" href="#"
                                    title="Next">
                                     <span class="label">Page</span>
                                     <span>Next</span>
@@ -775,63 +762,41 @@
                 </div>
             </div>
             <div class="sidebar sidebar-main">
-                <div class="block filter" id="layered-filter-block" data-mage-init='
-                        {
-                            "collapsible":
-                            {
-                                "openedState": "active",
-                                "collapsible": true,
-                                "active": false,
-                                "collateral":
-                                {
-                                    "openedState": "filter-active",
-                                    "element": "body"
-                                }
-                            }
-                        }'>
+                <div class="block filter" id="layered-filter-block" >
                     <div class="block-title filter-title" data-count="0">
                         <strong data-role="title">Shop By</strong>
                     </div>
                     <div class="block-content filter-content">
                         <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle">Shopping
                             Options</strong>
-                        <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='
-                        {
-                            "accordion":
-                            {
-                                "openedState": "active",
-                                "collapsible": true,
-                                "active": false,
-                                "multipleCollapsible": false
-                            }
-                        }'>
+                        <div class="filter-options" id="narrow-by-list" data-role="content">
                             <div data-role="collapsible" class="filter-options-item">
                                 <div data-role="title" class="filter-options-title">Category</div>
                                 <div data-role="content" class="filter-options-content">
                                     <ol class="items">
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?cat=69"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Computer Accessories <span class="count">15 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?cat=70"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Peripherals <span class="count">10 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?cat=71"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Video Accessories <span class="count">10 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?cat=72"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Blank Media <span class="count">10 <span
                                                     class="filter-count-label">item</span></span>
@@ -846,7 +811,7 @@
                                     <div class="swatch-attribute swatch-layered color" data-attribute-code="color"
                                          data-attribute-id="93">
                                         <div class="swatch-attribute-options clearfix">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=4"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Purple" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="4" data-option-label="Purple"
@@ -854,7 +819,7 @@
                                                      data-option-tooltip-value="&#x23;b310b3">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=5"
+                                            <a href="h#"
                                                rel="nofollow" aria-label="Black" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="5" data-option-label="Black"
@@ -862,7 +827,7 @@
                                                      data-option-tooltip-value="&#x23;000000">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=6"
+                                            <a href="#"
                                                rel="nofollow" aria-label="White" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="6" data-option-label="White"
@@ -870,7 +835,7 @@
                                                      data-option-tooltip-value="&#x23;ffffff">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=7"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Pink" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="7" data-option-label="Pink"
@@ -878,7 +843,7 @@
                                                      data-option-tooltip-value="&#x23;ff03bc">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=8"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Gold" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="8" data-option-label="Gold"
@@ -886,7 +851,7 @@
                                                      data-option-tooltip-value="&#x23;de9504">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=10"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Blue" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="10" data-option-label="Blue"
@@ -894,7 +859,7 @@
                                                      data-option-tooltip-value="&#x23;002ee6">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=19"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Red" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="19" data-option-label="Red"
@@ -902,7 +867,7 @@
                                                      data-option-tooltip-value="&#x23;ff0000">
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?color=20"
+                                            <a href="#"
                                                rel="nofollow" aria-label="Yellow" class="swatch-option-link-layered">
                                                 <div class="swatch-option color " tabindex="-1" data-option-type="1"
                                                      data-option-id="20" data-option-label="Yellow"
@@ -919,9 +884,9 @@
                                 <div data-role="content" class="filter-options-content">
                                     <ol class="items">
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?price=0-100"
+                                            <a href="#"
                                                rel="nofollow">
-                                                <span class="price">$0.00</span> - <span class="price">$99.99</span>
+                                                <span class="price">Ksh. 0.00</span> - <span class="price">Ksh. 99</span>
                                                 <span class="count">15 <span
                                                         class="filter-count-label">item</span></span>
                                             </a>
@@ -929,7 +894,7 @@
                                         <li class="item">
                                             <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?price=100-200"
                                                rel="nofollow">
-                                                <span class="price">$100.00</span> - <span class="price">$199.99</span>
+                                                <span class="price">Ksh. 99</span> - <span class="price">Ksh 19,999</span>
                                                 <span class="count">5 <span
                                                         class="filter-count-label">item</span></span>
                                             </a>
@@ -937,7 +902,7 @@
                                         <li class="item">
                                             <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?price=200-300"
                                                rel="nofollow">
-                                                <span class="price">$200.00</span> - <span class="price">$299.99</span>
+                                                <span class="price">Ksh 20,000.00</span> - <span class="price">$29,999</span>
                                                 <span class="count">1 <span
                                                         class="filter-count-label">item</span></span>
                                             </a>
@@ -945,7 +910,7 @@
                                         <li class="item">
                                             <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?price=300-400"
                                                rel="nofollow">
-                                                <span class="price">$300.00</span> and above <span class="count">1 <span
+                                                <span class="price">Ksh. 30,000</span> and above <span class="count">1 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
@@ -958,14 +923,14 @@
                                     <div class="swatch-attribute swatch-layered size" data-attribute-code="size"
                                          data-attribute-id="181">
                                         <div class="swatch-attribute-options clearfix">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=12"
+                                            <a href="#"
                                                rel="nofollow" aria-label="5&#x20;Gb" class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
                                                      data-option-id="12" data-option-label="5&#x20;Gb"
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">5G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=13"
+                                            <a href="#"
                                                rel="nofollow" aria-label="12&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -973,7 +938,7 @@
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">12G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=14"
+                                            <a href="#"
                                                rel="nofollow" aria-label="16&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -981,7 +946,7 @@
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">16G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=15"
+                                            <a href="#"
                                                rel="nofollow" aria-label="32&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -989,7 +954,7 @@
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">32G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=16"
+                                            <a href="#"
                                                rel="nofollow" aria-label="64&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -997,7 +962,7 @@
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">64G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=17"
+                                            <a href="#"
                                                rel="nofollow" aria-label="128&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -1005,7 +970,7 @@
                                                      data-option-tooltip-thumb="" data-option-tooltip-value="">128G
                                                 </div>
                                             </a>
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?size=18"
+                                            <a href="#"
                                                rel="nofollow" aria-label="256&#x20;Gb"
                                                class="swatch-option-link-layered">
                                                 <div class="swatch-option text " tabindex="-1" data-option-type="0"
@@ -1022,41 +987,41 @@
                                 <div data-role="content" class="filter-options-content">
                                     <ol class="items">
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=2"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Iqvia <span class="count">6 <span class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=3"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Impact <span class="count">5 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=4"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Creative <span class="count">4 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=5"
+                                            <a href="#"
                                                rel="nofollow">
                                                 CarRentals <span class="count">1 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=6"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Carvoodoo <span class="count">2 <span
                                                     class="filter-count-label">item</span></span>
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="https://mageblueskytech.com/dukamarket/en3/shop.html?product_brand=7"
+                                            <a href="#"
                                                rel="nofollow">
                                                 Carmentor <span class="count">2 <span
                                                     class="filter-count-label">item</span></span>
@@ -1074,88 +1039,64 @@
                      data-role="compare-products-sidebar">
                     <div class="block-title">
                         <strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong>
-                        <span class="counter qty no-display"
-                              data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span>
+                        <span class="counter qty no-display"></span>
                     </div>
-                    <!-- ko if: compareProducts().count -->
-                    <div class="block-content no-display" aria-labelledby="block-compare-heading"
-                         data-bind="css: {'no-display': !compareProducts().count}">
+                    <div class="block-content no-display" aria-labelledby="block-compare-heading">
                         <ol id="compare-items" class="product-items product-items-names"
                             data-bind="foreach: compareProducts().items">
                             <li class="product-item">
                                 <input type="hidden" class="compare-item-id" data-bind="value: id"/>
                                 <strong class="product-item-name">
-                                    <a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a>
+                                    <a class="product-item-link"></a>
                                 </strong>
-                                <a href="#" data-bind="attr: {'data-post': remove_url}"
-                                   title="Remove&#x20;This&#x20;Item" class="action delete">
+                                <a href="#" title="Remove&#x20;This&#x20;Item" class="action delete">
                                     <span>Remove This Item</span>
                                 </a>
                             </li>
                         </ol>
                         <div class="actions-toolbar">
                             <div class="primary">
-                                <a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Compare</span></a>
+                                <a class="action compare primary"><span>Compare</span></a>
                             </div>
                             <div class="secondary">
-                                <a id="compare-clear-all" href="#" class="action clear"
-                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}">
+                                <a id="compare-clear-all" href="#" class="action clear">
                                     <span>Clear All</span>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <!-- /ko -->
-                    <!-- ko ifnot: compareProducts().count -->
                     <div class="empty">You have no items to compare.</div>
-                    <!-- /ko -->
                 </div>
                 <div class="block block-wishlist" data-bind="scope: 'wishlist'">
                     <div class="block-title">
                         <strong role="heading" aria-level="2">My Wish List</strong>
-                        <!-- ko if: wishlist().counter -->
-                        <span data-bind="text: wishlist().counter" class="counter"></span>
-                        <!-- /ko -->
+                        <span  class="counter"></span>
                     </div>
                     <div class="block-content">
                         <strong class="subtitle">Last Added Items</strong>
-                        <!-- ko if: wishlist().counter -->
-                        <ol class="product-items no-display" id="wishlist-sidebar"
-                            data-bind="foreach: wishlist().items, css: {'no-display': null}">
+                        <ol class="product-items no-display" id="wishlist-sidebar">
                             <li class="product-item">
                                 <div class="product-item-info">
-                                    <a class="product-item-photo"
-                                       data-bind="attr: { href: product_url, title: product_name }">
-                                        <!-- ko template: {name: $data.image.template, data: $data.image} -->
-                                        <!-- /ko -->
+                                    <a class="product-item-photo">
                                     </a>
                                     <div class="product-item-details">
                                         <strong class="product-item-name">
-                                            <a data-bind="attr: { href: product_url }" class="product-item-link">
+                                            <a  class="product-item-link">
                                                 <span data-bind="text: product_name"></span>
                                             </a>
                                         </strong>
                                         <div data-bind="html: product_price"></div>
                                         <div class="product-item-actions">
-                                            <!-- ko if: product_is_saleable_and_visible -->
                                             <div class="actions-primary">
-                                                <!-- ko if: product_has_required_options -->
-                                                <a href="#" data-bind="attr: {'data-post': add_to_cart_params}"
-                                                   class="action tocart primary">
+                                                <a href="#" class="action tocart primary">
                                                     <span>Add to Cart</span>
                                                 </a>
-                                                <!-- /ko -->
-                                                <!-- ko ifnot: product_has_required_options -->
-                                                <button type="button" class="action tocart primary"
-                                                        data-bind="attr: {'data-post': add_to_cart_params}">
+                                                <button type="button" class="action tocart primary">
                                                     <span>Add to Cart</span>
                                                 </button>
-                                                <!-- /ko -->
                                             </div>
-                                            <!-- /ko -->
                                             <div class="actions-secondary">
-                                                <a href="#" data-bind="attr: {'data-post': delete_item_params}"
-                                                   title="Remove&#x20;This&#x20;Item" class="btn-remove action delete">
+                                                <a href="#" title="Remove&#x20;This&#x20;Item" class="btn-remove action delete">
                                                     <span>Remove This Item</span>
                                                 </a>
                                             </div>
@@ -1164,18 +1105,15 @@
                                 </div>
                             </li>
                         </ol>
-                        <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
+                        <div class="actions-toolbar no-display">
                             <div class="primary">
-                                <a class="action details" href="https://mageblueskytech.com/dukamarket/en3/wishlist/"
+                                <a class="action details" href="#"
                                    title="Go&#x20;to&#x20;Wish&#x20;List">
                                     <span>Go to Wish List</span>
                                 </a>
                             </div>
                         </div>
-                        <!-- /ko -->
-                        <!-- ko ifnot: wishlist().counter -->
                         <div class="empty">You have no items in your wish list.</div>
-                        <!-- /ko -->
                     </div>
                 </div>
             </div>

@@ -22,12 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8czm6=@ub(&*2igdh71!a^7n=-yoa7d-0(y3=g#ft5mqr5x5by'
-STRIPE_PUBLIC_KEY ='pk_test_51I60VJBTjFwTIuIO4pckLczHCK2klJyn9C1Zgw9oZRtEpk30uKP3Cw55v7PwjJHLNavBJvwoJbYhnAsx8J2PEFJS00toncWNRK'
+STRIPE_PUBLIC_KEY ='pk_test_51I60VJBTjFwTIuIO4pckLczHCK2klJyn9C1Zgw9oZRtEpk30uKP3Cw55v7PwjJHLNavBJvwoJbYhnAsx8J2PEFJS00toncWNRK '
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.14']
 
 # Application definition
 
@@ -77,6 +80,7 @@ ROOT_URLCONF = 'patazoneEcommerce.urls'
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'register:login'
 
 TEMPLATES = [
     {
@@ -165,10 +169,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protected_media")
+BASE_URL = "http://127.0.0.1:8000"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760 # 10mb = 10 * 1024 *1024
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'owinoben2020@gmail.com'
+EMAIL_HOST_PASSWORD = 'kwrnhbmunneldnix'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Patazone MarketPlace Team <noreply@codingwithmitch.com>'
 # CORS_REPLACE_HTTPS_REFERER = False
 # HOST_SCHEME = "http://"
 # SECURE_PROXY_SSL_HEADER = None
@@ -178,3 +193,4 @@ SITE_ID = 1
 # SECURE_HSTS_SECONDS = None
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 # SECURE_FRAME_DENY = False
+# email pass ="kwrnhbmunneldnix"

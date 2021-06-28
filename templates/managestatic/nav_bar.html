@@ -179,7 +179,7 @@
                     <div class="topbar-menu hozital-menu">
                       <ul class="hozital-menu">
                         <li>
-                          <a title="Order Tracking" href="auth/login.html"
+                          <a title="Order Tracking" href="{% url 'register:myaccount' %}"
                             >My account</a
                           >
                         </li>
@@ -527,7 +527,7 @@
                         "
                       >
                         <a
-                          href="https://mageblueskytech.com/dukamarket/en3/customer/account/"
+                          href="{% url 'register:myaccount' %}"
                           title="My Account"
                           class="level-top"
                           >My Account</a
@@ -637,7 +637,7 @@
                                   </a>
                                 </li>
                                 <li>
-                                  <a href="#">My Account</a>
+                                  <a href="{% url 'register:myaccount' %}">My Account</a>
                                 </li>
                           {% else %}
                                 <li class="link authorization-link" data-label="or">
@@ -658,7 +658,7 @@
                       data-bind="scope: 'wishlist'"
                     >
 
-                      <a href="whish/whitelist.html">
+                      <a href="{% url 'register:mywhishlist' %}">
                           <i class="far fa-heart fa-2x" style="margin-right: 5px;"></i>
                         <span>
                           <span class="text">Favorite</span>

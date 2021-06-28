@@ -1,0 +1,186 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">My Account</span></h1>
+        </div>
+        <a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+            <div data-placeholder="messages"></div>
+            <div data-bind="scope: 'messages'">
+                <div aria-atomic="true" role="alert" class="messages">
+                    <div>
+                        <div ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column main">
+                <input name="form_key" type="hidden" />
+                <div id="authenticationPopup">
+                </div>
+                <div class="block block-dashboard-info">
+                    <div class="block-title"><strong>Account Information</strong></div>
+                    <div class="block-content">
+                        <div class="box box-information">
+                            <strong class="box-title">
+                                <span>Contact Information</span>
+                            </strong>
+                            <div class="box-content">
+                                <p>
+                                    benson opondo<br>
+                                    <a   class="__cf_email__">{{ request.user.email}}</a><br>
+                                </p>
+                            </div>
+                            <div class="box-actions">
+                                <a class="action edit"
+                                   href="{% url 'register:accountinfo' %}">
+                                    <span>Edit</span>
+                                </a>
+                                <a href="{% url 'password_reset' %}"
+                                   class="action change-password">
+                                    Change Password </a>
+                            </div>
+                        </div>
+                        <div class="box box-newsletter">
+                            <strong class="box-title">
+                                <span>Newsletters</span>
+                            </strong>
+                            <div class="box-content">
+                                <p>
+                                    You are subscribed to &quot;General Subscription&quot;. </p>
+                            </div>
+                            <div class="box-actions">
+                                <a class="action edit"
+                                   href="{% url 'register:newsletter' %}">
+                                    <span>Edit</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-dashboard-addresses">
+                    <div class="block-title">
+                        <strong>Address Book</strong>
+                        <a class="action edit" href="{% url 'register:addressbook' %}">
+                            <span>Manage Addresses</span>
+                        </a>
+                    </div>
+                    <div class="block-content">
+                        <div class="box box-billing-address">
+                            <strong class="box-title">
+                                <span>Default Billing Address</span>
+                            </strong>
+                            {% if  billing_address %}
+                            <div class="box-content">
+                            {% for billing_address in billing_address %}
+                            <address>
+                                    {{ billing_address.user.first_name}} {{ billing_address.user.last_name}}<br/>
+                                    {{ billing_address.street_address}}<br/>
+                                    {{ billing_address.zip}}<br/>
+                                    {{ billing_address.country.name}}<br/>
+                                    Tel: <a href="tel:0790232329">0790232329</a>
+                                </address>
+                            {% endfor %}
+
+                            <div class="box-actions">
+                                <a class="action edit" href="#" data-ui-id="default-billing-edit-link">
+                                    <span>Edit Address</span>
+                                </a>
+                            </div>
+                            </div>
+                                {% else %}
+                                <div class="block-content">
+                                    <p class="empty">YYou have no default billing address entries in your address book.</p>
+                                </div>
+                                <div class="box-actions">
+                                    <a class="action primary add" href="#" data-ui-id="default-billing-edit-link" style="color: #fff">
+                                        <span>Add billing address</span>
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                        <div class="box box-shipping-address">
+                            <strong class="box-title">
+                                <span>Default Shipping Address</span>
+                            </strong>
+                            {% if  shipping_address %}
+                            <div class="box-content">
+                                {% for shipping_address in shipping_address %}
+                            <address>
+                                    {{ shipping_address.user.first_name}} {{ shipping_address.user.last_name}}<br/>
+                                    {{ shipping_address.street_address}}<br/>
+                                    {{ shipping_address.zip}}<br/>
+                                    {{ shipping_address.country.name}}<br/>
+                                    Tel: <a href="tel:0790232329">0790232329</a>
+                                </address>
+                            {% endfor %}
+                            </div>
+                            <div class="box-actions">
+                                <a class="action edit"
+                                   href="#"
+                                   data-ui-id="default-shipping-edit-link"><span>Edit Address</span></a>
+                            </div>
+                                {% else %}
+                                <div class="block-content">
+                                    <p class="empty">You have no default shipping address entries in your address book.</p>
+                                </div>
+                                <div class="box-actions">
+                                    <a class="action primary add" href="#" data-ui-id="default-billing-edit-link" style="color: #fff">
+                                        <span>Add Shipping address</span>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-dashboard-orders">
+                    <div class="block-title order">
+                        <strong>Recent Orders</strong>
+                        <a class="action view" href="#">
+                            <span>View All</span>
+                        </a>
+                    </div>
+                    <div class="block-content">
+                        <div class="table-wrapper orders-recent">
+                            <table class="data table table-order-items recent" id="my-orders-table">
+                                <caption class="table-caption">Recent Orders</caption>
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="col id">Order #</th>
+                                    <th scope="col" class="col date">Date</th>
+                                    <th scope="col" class="col shipping">Ship To</th>
+                                    <th scope="col" class="col total">Order Total</th>
+                                    <th scope="col" class="col status">Status</th>
+                                    <th scope="col" class="col actions">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for order in order_view %}
+                                <tr>
+                                    <td data-th="Order #" class="col id">{{ order.order_id }}</td>
+                                    <td data-th="Date" class="col date">{{ order.updated }}</td>
+                                    <td data-th="Ship To" class="col shipping">{{ order.user.first_name }} {{ order.user.last_name }}</td>
+                                    <td data-th="Order Total" class="col total"><span class="price">Ksh. {{ order.get_total|intcomma}}</span></td>
+                                    <td data-th="Status" class="col status">{{ order.get_status}}</td>
+                                    <td data-th="Actions" class="col actions">
+                                        <a href="{% url 'register:orderdetails' id=order.order_id %}" class="action view">
+                                            <span>View Order</span>
+                                        </a>
+                                        <a href="#" class="action order">
+                                            <span>Reorder</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

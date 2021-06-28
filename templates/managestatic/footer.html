@@ -59,7 +59,7 @@
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-contents">
                       <li><a href="#">Store Location</a></li>
-                      <li><a href="#">My Account</a></li>
+                      <li><a href="{% url 'register:myaccount' %}">My Account</a></li>
                       <li><a href="#">Orders Tracking</a></li>
                       <li><a href="#">FAQs</a></li>
                     </ul>
@@ -196,13 +196,13 @@
               "
             >
               <li>
-                <a href="https://mageblueskytech.com/dukamarket/en3/"
+                <a href="{% url 'home' %}"
                   ><span class="icon icon-home1"></span>Home</a
                 >
               </li>
               <li>
                 <a
-                  href="https://mageblueskytech.com/dukamarket/en3/customer/account/"
+                  href="{% url 'register:myaccount' %}"
                   ><span class="icon icon-user"></span>Account</a
                 >
               </li>
@@ -218,7 +218,7 @@
               </li>
               <li>
                 <a
-                  href="https://mageblueskytech.com/dukamarket/en3/checkout/cart/"
+                  href="{% url 'cart:home' %}"
                   ><span class="icon icon-cart"></span>Cart</a
                 >
               </li>

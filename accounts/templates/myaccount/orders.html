@@ -1,0 +1,90 @@
+{% extends 'myaccount/acountdetails.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base" data-ui-id="page-title-wrapper">My Orders</span></h1>
+        </div>
+        <a id="contentarea" tabindex="-1"></a>
+        <div class="page messages">
+            <div data-placeholder="messages"></div>
+            <div data-bind="scope: 'messages'">
+                <div aria-atomic="true" role="alert" class="messages">
+                    <div>
+                        <div ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column main">
+        <input name="form_key" type="hidden" value="slju1uCpLcQu4dGX"/>
+        <div id="authenticationPopup">
+        </div>
+        <div class="table-wrapper orders-history">
+            <table class="data table table-order-items history" id="my-orders-table">
+                <caption class="table-caption">Orders</caption>
+                <thead>
+                {% if orders %}
+                <tr>
+                    <th scope="col" class="col id">Order #</th>
+                    <th scope="col" class="col date">Date</th>
+                    <th scope="col" class="col total">Order Total</th>
+                    <th scope="col" class="col status">Status</th>
+                    <th scope="col" class="col actions">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for orders in orders %}
+                <tr>
+                    <td data-th="Order #" class="col id">{{ orders.order_id }}</td>
+                    <td data-th="Date" class="col date">{{ orders.updated }}</td>
+                    <td data-th="Order Total" class="col total"><span class="price">Ksh {{ orders.get_total }}</span></td>
+                    <td data-th="Status" class="col status">{{ orders.status }}</td>
+                    <td data-th="Actions" class="col actions">
+                        <a href="{% url 'register:orderdetails' id=orders.order_id %}"
+                           class="action view">
+                            <span>View Order</span>
+                        </a>
+                        <a href="{% url 'cart:home' %}"
+                           class="action order">
+                            <span>Reorder</span>
+                        </a>
+                    </td>
+                </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td><p class="empty">You have no Orders yet please <a href="{% url 'home' %}">return to home and make shop with us</a></p></td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <div class="order-products-toolbar toolbar bottom">
+            <div class="pager">
+                <p class="toolbar-amount">
+                    <span class="toolbar-number">1 Item </span>
+                </p>
+                <div class="limiter">
+                    <strong class="limiter-label">Show</strong>
+                    <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="limiter-options">
+                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=10"
+                                selected="selected">
+                            10
+                        </option>
+                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=20">
+                            20
+                        </option>
+                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=50">
+                            50
+                        </option>
+                    </select>
+                    <span class="limiter-text">per page</span>
+                </div>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="secondary"><a class="action back" href="https://mageblueskytech.com/dukamarket/en3/"><span>Back</span></a></div>
+        </div>
+    </div>
+{% endblock %}
