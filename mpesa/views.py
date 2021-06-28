@@ -18,6 +18,7 @@ from requests.api import request
 from .forms import MpesaForm, QueryForm
 from .online import lipa_na_mpesa_online
 from django.db.models import Q
+from orders.models import Order
 from django.utils.functional import cached_property
 
 
@@ -131,12 +132,12 @@ def MpesaPayments(request):
         form = MpesaForm(request.POST)
         if form.is_valid():
             PhoneNumber = form.cleaned_data['PhoneNumber']
+            # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
-
             lipa_na_mpesa_online(Amount, PhoneNumber)
 
     form = MpesaForm()
-    return render(request, 'mpesaApp/mpesa_payments_form.html', {'form': form})
+    return render(request, 'mpesa.html', {'form': form})
 
 
 class Online_QueryListView(ListView):

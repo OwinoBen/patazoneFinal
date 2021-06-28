@@ -6,26 +6,15 @@
     <div class="page messages">
         <div data-placeholder="messages"></div>
         <div data-bind="scope: 'messages'">
-            <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
-            <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
-                 class="messages">
-                <div data-bind="attr: {
-            class: 'message-' + message.type + ' ' + message.type + ' message',
-            'data-ui-id': 'message-' + message.type
-        }">
-                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+            <div aria-atomic="true" role="alert" class="messages">
+                <div>
+                    <div></div>
                 </div>
             </div>
-            <!-- /ko -->
-            <!-- ko if: messages().messages && messages().messages.length > 0 -->
-            <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
-        data: messages().messages, as: 'message'
-    }">
-                <div data-bind="attr: {
-            class: 'message-' + message.type + ' ' + message.type + ' message',
-            'data-ui-id': 'message-' + message.type
-        }">
-                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+
+            <div aria-atomic="true" role="alert" class="messages">
+                <div>
+                    <div></div>
                 </div>
             </div>
             <!-- /ko -->
@@ -371,16 +360,10 @@
                                             <div class="product-item-info">
                                                 <a href="#"
                                                    class="product photo product-item-photo" tabindex="-1">
-                      <span class="
-                                  image0
-                                  image-switch
-                                  product-image-container
-                                ">
-                        <img class="product-image"
-                             src='{{ product.imageURL }}'
-
-                             width="550" height="550" alt="Samsung Galaxy International Vs"/>
-                      </span>
+                                                  <span class="image0 image-switch product-image-container">
+                                                    <img class="product-image"
+                                                         src='{{ product.imageURL }}' width="550" height="550" alt="{{ product.title }}"/>
+                                                  </span>
                                                 </a>
                                                 <div class="product details product-item-details">
                                                     <strong class="product name product-item-name">
@@ -410,13 +393,13 @@
                                                     <div class="price-box price-final_price" data-role="priceBox"
                                                          data-product-id="4"
                                                          data-price-box="product-id-4">
-                        <span class="
-                                    price-container
-                                    price-final_price&#x20;tax&#x20;weee
-                                  ">
-                          <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
-                                  class="price">KES {{ product.price }}</span></span>
-                        </span>
+                                                    <span class="
+                                                                price-container
+                                                                price-final_price&#x20;tax&#x20;weee
+                                                              ">
+                                                      <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
+                                                              class="price">KES {{ product.price }}</span></span>
+                                                    </span>
                                                     </div>
                                                     <div class="product-sold">
                                                         <div class="ruler-sold">
@@ -431,11 +414,15 @@
                                                     <div class="product-item-inner">
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
-                                                                <form data-role="tocart-form"
-                                                                      data-product-sku="Digital007"
-                                                                      action="#"
-                                                                      method="post">
-                                                                    <input type="hidden" name="product" value="4"/>
+                                                                <form data-role="tocart-form" method="POST" action='{% url 'cart:update' %}'data-endpoint='{% url 'cart:update' %}'
+                                                                {% if request.user.is_authenticated %}
+                                                          data-user='abc'
+                                                          {% endif %}>
+                                                                {% csrf_token %}
+                                                                   <input type="hidden" name="product_id" value='{{ product.id }}'
+                                                                {% if products.is_digital %}
+                                                                    data-is-digital='true'
+                                                                {% endif %} >
                                                                     <input type="hidden" name="uenc"
                                                                            value=""/>
                                                                     <input name="form_key" type="hidden"

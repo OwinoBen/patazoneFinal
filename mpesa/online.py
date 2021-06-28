@@ -4,6 +4,8 @@ from datetime import datetime
 import base64
 from requests.api import request
 from requests.auth import HTTPBasicAuth
+from django.conf import settings
+url = settings.BASE_URL
 
 def getAccessToken():
         consumer_key = '7NGrk2RPIW1SGZirGOn6A3xfRUA9egN8'
@@ -34,8 +36,8 @@ def lipa_na_mpesa_online(Amount,PhoneNumber):
         "PartyA": PhoneNumber,  # replace with your phone number to get stk push
         "PartyB": Business_short_code,
         "PhoneNumber": PhoneNumber,  # replace with your phone number to get stk push
-        "CallBackURL": "https://navariapp.herokuapp.com/lipa_na_mpesa",
-        "AccountReference": "Navari Limited",
+        "CallBackURL": "http://127.0.0.1:8000/lipa_na_mpesa",
+        "AccountReference": "Patazone Marketplace",
         "TransactionDesc": "Testing stk push"
     }
 

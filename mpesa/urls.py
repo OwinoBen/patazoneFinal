@@ -1,19 +1,7 @@
-from django.urls import path
-from .views import (
-    PostListView,
-    PostDetailView,
-    PostCreateView,
-    PostUpdateview,
-    PostDeleteView,
-    UserPostListView,
-    Mpesa_PaymentsListView,
-    Online_QueryListView
-)
-from . import views
 from django.urls import path, include
 from .views import *
 
-
+app_name = "mpesa"
 
 urlpatterns = [
     path('', PostListView.as_view(), name='mpesaApp-home'),

@@ -609,20 +609,24 @@
 
                                                             <div class="pay-input-box clearfix"
                                                                  style="margin-top:20px;">
+                                                                <form method="POST">
+                                                                    {% csrf_token %}
                                                                 <dl class="detail-input">
                                                                     <dt><i class="fas fa-mobile fa-2x"></i></dt>
                                                                     <dd>
                                                                         <span>+254</span>
+                                                                        {{ forms|crispy }}
                                                                         <input class="reset-input"
                                                                                style="width:220px;margin-left:2px;"
-                                                                               name="phone"
-                                                                               onchange="validateInput(this)"
-                                                                               onkeyup="mpesaChange()"
+                                                                               name="PhoneNumber"
+                                                                               id="PhoneNumber"
                                                                                reg="^[1-9]{1}[0-9]{8}$" type="text"
                                                                                placeholder="e.g. 7xxxxxxxx" value="">
                                                                         <em class="em-ico input-reset-ico"></em>
                                                                     </dd>
                                                                 </dl>
+                                                                    <a href="{% url 'mpesa:mpesaApp-about' %}" type="submit">Submit</a>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>

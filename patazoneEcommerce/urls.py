@@ -42,6 +42,7 @@ urlpatterns = [
     path('cart_view', cartView, name="cart"),
     path(r'^cart/details', include(("carts.urls", carts), namespace='cart')),
     path('', include('accounts.urls', namespace="register")),
+    path('', include('mpesa.urls', namespace="mpesa")),
     path('Checkout', include('orders.urls', namespace="checkout")),
     path(r'^password/$', accounts.views.change_password, name='change_password'),
 
