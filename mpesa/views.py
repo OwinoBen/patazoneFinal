@@ -113,10 +113,12 @@ def lipa_na_mpesa(request):
         payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
         payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
+        print(payment)
         payment.save()
+        print("saved successfully")
 
     except:
-        pass
+        print("something went wrong")
     return JsonResponse({})
 
 

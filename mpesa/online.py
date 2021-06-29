@@ -5,14 +5,15 @@ import base64
 from requests.api import request
 from requests.auth import HTTPBasicAuth
 from django.conf import settings
-url = settings.BASE_URL
+
+
 
 def getAccessToken():
-        consumer_key = '7NGrk2RPIW1SGZirGOn6A3xfRUA9egN8'
-        consumer_secret = 'luKizjW5A47Te73h'
-        api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-        r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-        return r.json()['access_token']
+    consumer_key = '7NGrk2RPIW1SGZirGOn6A3xfRUA9egN8'
+    consumer_secret = 'luKizjW5A47Te73h'
+    api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    return r.json()['access_token']
 
 
 lipa_time = datetime.now().strftime('%Y%m%d%H%M%S')
@@ -23,20 +24,20 @@ online_password = base64.b64encode(data_to_encode.encode())
 decode_password = online_password.decode('utf-8')
 
 
-def lipa_na_mpesa_online(Amount,PhoneNumber):
+def lipa_na_mpesa_online(Amount, PhoneNumber):
     access_token = getAccessToken()
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-    headers = { "Authorization": "Bearer "+str(access_token) ,"Content-Type": "application/json" }
+    headers = {"Authorization": "Bearer " + str(access_token), "Content-Type": "application/json"}
     request = {
         "BusinessShortCode": Business_short_code,
         "Password": decode_password,
-        "Timestamp":lipa_time,
+        "Timestamp": lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": Amount,
         "PartyA": PhoneNumber,  # replace with your phone number to get stk push
         "PartyB": Business_short_code,
         "PhoneNumber": PhoneNumber,  # replace with your phone number to get stk push
-        "CallBackURL": "https://patazone.herokuapp.com//lipa_na_mpesa",
+        "CallBackURL": "https://patazone.herokuapp.com/lipa_na_mpesa",
         "AccountReference": "Patazone Marketplace",
         "TransactionDesc": "Testing stk push"
     }
@@ -46,10 +47,10 @@ def lipa_na_mpesa_online(Amount,PhoneNumber):
 
     # check response code for errors and return response
     if response.status_code > 299:
-        return{
-            "success": False,
-            "message":"Sorry, something went wrong please try again later."
-        },400
+        return {
+                   "success": False,
+                   "message": "Sorry, something went wrong please try again later."
+               }, 400
 
     # CheckoutRequestID = response.text['CheckoutRequestID']
 
@@ -59,8 +60,5 @@ def lipa_na_mpesa_online(Amount,PhoneNumber):
 
     # return a response to your user
     return {
-        "data": json.loads(response.text)
-    },200
-
-
-
+               "data": json.loads(response.text)
+           }, 200
