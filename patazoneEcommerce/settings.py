@@ -33,8 +33,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEFAULT_FROM_EMAIL=Patazone MarketPlace Team <noreply@codingwithmitch.com
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+SECRET_KEY = config['SECRET_KEY']
+STRIPE_PUBLIC_KEY = config['STRIPE_PUBLIC_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -134,6 +134,7 @@ WSGI_APPLICATION = 'patazoneEcommerce.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -147,6 +148,9 @@ DATABASES = {
 }
 
 import dj_database_url
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
@@ -216,9 +220,9 @@ SITE_ID = 1
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10mb = 10 * 1024 *1024
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = config.get('EMAIL_HOST')
+EMAIL_HOST_USER = config.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Patazone MarketPlace Team <noreply@codingwithmitch.com>'

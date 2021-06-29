@@ -54,7 +54,7 @@
                     {% endfor %}
                     {% else %}
                     <tr>
-                        <td><p class="empty">You have no Orders yet please <a href="{% url 'home' %}">return to home and make shop with us</a></p></td>
+                        <td><p class="empty">You have no Orders in your account .Click  <a href="{% url 'home' %}">here </a> to continue shopping.return to home and make shop with us</p></td>
                     </tr>
                 {% endif %}
                 </tbody>
@@ -67,15 +67,15 @@
                 </p>
                 <div class="limiter">
                     <strong class="limiter-label">Show</strong>
-                    <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="limiter-options">
-                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=10"
+                    <select id="limiter"  class="limiter-options">
+                        <option value="#"
                                 selected="selected">
                             10
                         </option>
-                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=20">
+                        <option value="#">
                             20
                         </option>
-                        <option value="https://mageblueskytech.com/dukamarket/en3/sales/order/history/?limit=50">
+                        <option value="#">
                             50
                         </option>
                     </select>
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="actions-toolbar">
-            <div class="secondary"><a class="action back" href="https://mageblueskytech.com/dukamarket/en3/"><span>Back</span></a></div>
+            <div class="secondary"><a class="action back" href="{% url 'register:myaccount' %}"><span>Back</span></a></div>
         </div>
     </div>
 {% endblock %}
