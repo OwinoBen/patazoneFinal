@@ -362,7 +362,8 @@
                                                    class="product photo product-item-photo" tabindex="-1">
                                                   <span class="image0 image-switch product-image-container">
                                                     <img class="product-image"
-                                                         src='{{ product.imageURL }}' width="550" height="550" alt="{{ product.title }}"/>
+                                                         src='{{ product.imageURL }}' width="550" height="550"
+                                                         alt="{{ product.title }}"/>
                                                   </span>
                                                 </a>
                                                 <div class="product details product-item-details">
@@ -397,7 +398,8 @@
                                                                 price-container
                                                                 price-final_price&#x20;tax&#x20;weee
                                                               ">
-                                                      <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
+                                                      <span data-price-amount="70" data-price-type="finalPrice"
+                                                            class="price-wrapper"><span
                                                               class="price">KES {{ product.price }}</span></span>
                                                     </span>
                                                     </div>
@@ -414,15 +416,18 @@
                                                     <div class="product-item-inner">
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
-                                                                <form data-role="tocart-form" method="POST" action='{% url 'cart:update' %}'data-endpoint='{% url 'cart:update' %}'
-                                                                {% if request.user.is_authenticated %}
-                                                          data-user='abc'
-                                                          {% endif %}>
-                                                                {% csrf_token %}
-                                                                   <input type="hidden" name="product_id" value='{{ product.id }}'
-                                                                {% if products.is_digital %}
-                                                                    data-is-digital='true'
-                                                                {% endif %} >
+                                                                <form data-role="tocart-form" method="POST"
+                                                                      action='{% url 'cart:update' %}'
+                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                        {% if request.user.is_authenticated %}
+                                                                      data-user='abc'
+                                                                        {% endif %}>
+                                                                    {% csrf_token %}
+                                                                    <input type="hidden" name="product_id"
+                                                                           value='{{ product.id }}'
+                                                                            {% if products.is_digital %}
+                                                                           data-is-digital='true'
+                                                                            {% endif %} >
                                                                     <input type="hidden" name="uenc"
                                                                            value=""/>
                                                                     <input name="form_key" type="hidden"
@@ -509,15 +514,8 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-10-padding">
-                                            <div class="
-                                col-banner
-                                bottom
-                                center
-                                radius
-                                as-desktop
-                                absolute-content-image
-                                lazyload-content
-                              " style="background: #afafaf; height: 100%">
+                                            <div class="col-banner bottom center radius as-desktop absolute-content-image lazyload-content"
+                                                 style="background: #afafaf; height: 100%">
                                                 <div class="banner-img">
                                                     <img
                                                             src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
@@ -564,15 +562,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="
-                                col-banner
-                                bottom
-                                center
-                                radius
-                                as-desktop
-                                absolute-content-image
-                                lazyload-content
-                              ">
+                                            <div class="col-banner bottom center radius as-desktop absolute-content-image lazyload-content">
                                                 <div class="banner-img">
                                                     <img
                                                             src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
@@ -588,15 +578,8 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6 d-none d-lg-block col-10-padding">
-                                            <div class="
-                                col-banner
-                                bottom
-                                center
-                                radius
-                                as-desktop
-                                absolute-content-image
-                                lazyload-content
-                              " style="background: #201f25; height: 100%">
+                                            <div class="col-banner bottom center radius as-desktop absolute-content-image lazyload-content"
+                                                 style="background: #201f25; height: 100%">
                                                 <div class="banner-img">
                                                     <img
                                                             src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
@@ -653,16 +636,16 @@
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="#"
-                                                                   class="product photo product-item-photo"
+                                                                <a href="#" class="product photo product-item-photo"
                                                                    tabindex="-1">
-                              <span class=" product-image-container product-image-container-1793172482 ">
-                                <span class="product-image-wrapper">
-                                  <img class="product-image-photo" src='{{ feature.imageURL }}'
+                                                                  <span class=" product-image-container product-image-container-1793172482 ">
+                                                                    <span class="product-image-wrapper">
+                                                                      <img class="product-image-photo"
+                                                                           src='{{ feature.imageURL }}'
 
-                                       loading="lazy" width="125" height="125"
-                                       alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked"/></span>
-                              </span>
+                                                                           loading="lazy" width="125" height="125"
+                                                                           alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked"/></span>
+                                                                  </span>
                                                                     <style>
                                                                         .product-image-container-1793172482 {
                                                                             width: 125px;
@@ -674,23 +657,18 @@
                                                                     </style>
                                                                 </a>
                                                                 <div class="product-label">
-                              <span class="onsale">
-                                <span class="value">-25%</span>
-                              </span>
+                                                                  <span class="onsale">
+                                                                    <span class="value">-25%</span>
+                                                                  </span>
                                                                 </div>
-                                                                <div class="
-                                        product
-                                        details
-                                        product-item-details
-                                      ">
+                                                                <div class="product details product-item-details">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                                                           href="#">
                                                                             {{ feature.title }}
                                                                         </a>
                                                                     </strong>
-                                                                    <div class="product-reviews-summary" itemscope
-                                                                         itemtype="http://schema.org/AggregateRating">
+                                                                    <div class="product-reviews-summary" itemscope>
                                                                         <div class="rating-summary">
                                                                             <span class="label"><span>Rating:</span></span>
                                                                             <div class="rating-result" title="100%">
@@ -699,46 +677,43 @@
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#reviews">
-                                                                                <span itemscope
-                                                                                      itemtype="https://schema.org/reviewCount">1</span>&nbsp;
+                                                                               href="#">
+                                                                                <span itemscope>1</span>&nbsp;
                                                                                 <span>Review</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
                                                                     <div class="price-box price-final_price"
                                                                          data-role="priceBox" data-product-id="1"
                                                                          data-price-box="product-id-1">
-                                <span class="special-price">
-                                  <span class="
-                                              price-container
-                                              price-final_price&#x20;tax&#x20;weee
-                                            ">
-                                    <span class="price-label">Special Price</span>
-                                    <span id="product-price-1" data-price-amount="59.99" data-price-type="finalPrice"
-                                          class="price-wrapper"><span
-                                            class="price">KES {{ feature.price }}</span></span>
-                                  </span>
-                                </span>
+                                                                            <span class="special-price">
+                                                                              <span class="price-container price-final_price&#x20;tax&#x20;weee">
+                                                                                <span class="price-label">Special Price</span>
+                                                                                <span id="product-price-1"
+                                                                                      data-price-amount="59.99"
+                                                                                      data-price-type="finalPrice"
+                                                                                      class="price-wrapper">
+                                                                                    <span class="price">KES {{ feature.price }}</span></span>
+                                                                              </span>
+                                                                            </span>
                                                                         <span class="old-price">
-                                  <span class="
-                                              price-container
-                                              price-final_price&#x20;tax&#x20;weee
-                                            ">
-                                    <span class="price-label">Regular Price</span>
-                                    <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
-                                          class="price-wrapper"><span class="price">$79.99</span></span>
-                                  </span>
-                                </span>
+                                                                          <span class="
+                                                                                      price-container
+                                                                                      price-final_price&#x20;tax&#x20;weee
+                                                                                    ">
+                                                                            <span class="price-label">Regular Price</span>
+                                                                            <span id="old-price-1"
+                                                                                  data-price-amount="79.99"
+                                                                                  data-price-type="oldPrice"
+                                                                                  class="price-wrapper"><span
+                                                                                    class="price">$79.99</span></span>
+                                                                          </span>
+                                                                        </span>
                                                                     </div>
-                                                                    <div class="
-                                          product
-                                          description
-                                          product-item-description
-                                        ">
+                                                                    <div class="product description product-item-description">
                                                                         <p>
                                                                             Typi non habent claritatem insitam est
                                                                             usus legentis in qui facit orum
@@ -749,20 +724,16 @@
                                                                         </p>
                                                                     </div>
                                                                     <div class="product-item-inner">
-                                                                        <div class="
-                                            product
-                                            actions
-                                            product-item-actions
-                                          ">
+                                                                        <div class="product actions product-item-actions">
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       data-product-sku="Digital001"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v/product/1/"
+                                                                                      action="#"
                                                                                       method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="1"/>
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTOHhMMnhwYldsMEx6TXZhVzFuVkM5emJXRnNiRjlwYldGblpTOXBiV2RYTHpFeU5TOXBiV2RJTHpFeU5TOXdjbTlrZFdOMFgyeHBjM1JmYlc5a1pTOXNhWE4wTDI1MWJXSmxjbDl5YjNjdk1pOXdjbTlrZFdOMFgyeHBjM1JmYjNKa1pYSXZjRzl6YVhScGIyNHYvcHJvZHVjdC8xLw,,"/>
+                                                                                           value=""/>
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="o39Rir2hZnJ8lvxG"/>
                                                                                     <button type="submit"
@@ -776,16 +747,12 @@
                                                                                  class="actions-secondary">
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add&#x20;to&#x20;Wish&#x20;List"
-                                                                                   aria-label="Add&#x20;to&#x20;Wish&#x20;List"
-                                                                                   data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
-                                                                                   data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
                                                                                 </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS8xL2xpbWl0LzMvaW1nVC9zbWFsbF9pbWFnZS9pbWdXLzEyNS9pbWdILzEyNS9wcm9kdWN0X2xpc3RfbW9kZS9saXN0L251bWJlcl9yb3cvMi9wcm9kdWN0X2xpc3Rfb3JkZXIvcG9zaXRpb24v"}}'
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -807,265 +774,379 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-10-padding ">
-                        <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions  short_description" id="category_product_tab_1810591481">
-<div class="widget-tabs fixed_only_one_category ui-tabs ui-widget  ui-corner-all">
-<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
-<li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="ui-tabs-1" aria-labelledby="ui-id-1" aria-selected="true">
-<a class="ui-tabs-anchor" href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/3/limit/3/imgT/small_image/imgW/300/imgH/300/product_list_mode/list/number_row/1/product_list_order/position/" data-href="https://mageblueskytech.com/dukamarket/en3/top-deals.html" role="presentation" tabindex="-1" id="ui-id-1">
-<span>Top Deals</span>
-</a>
-</li>
-</ul><div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-1" role="tabpanel" aria-expanded="true" aria-hidden="false"> <div class="products wrapper list products-list">
-<ol class="products list items product-items owl-carousel owl-loaded owl-drag">
-    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.25s ease 0s; width: 2625px;"><div class="owl-item active first-active-item" style="width: 855px; margin-right: 20px;"><div class="item-row">
-<li class="item product product-item" style="width:100%;">
-<div class="product-item-info" data-container="product-list">
-<a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html" class="product photo product-item-photo" tabindex="-1">
-<span class="product-image-container product-image-container-3527625119" style="width: 300px;">
-<span class="product-image-wrapper" style="padding-bottom: 100%;">
-<img class="product-image-photo" src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/2/9/29_1_1.jpg" loading="lazy" alt="Blue G9 Pro 2020 Battery Unlocked" width="300" height="300"></span>
-</span>
-<style>.product-image-container-3527625119 {
-    width: 500px;
-}
-.product-image-container-3527625119 span.product-image-wrapper {
-    padding-bottom: 100%;
-}</style><script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-3527625119");
-for (var i = 0; i < prodImageContainers.length; i++) {
-    prodImageContainers[i].style.width = "300px";
-}
-prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-3527625119  span.product-image-wrapper"
-);
-for (var i = 0; i < prodImageContainersWrappers.length; i++) {
-    prodImageContainersWrappers[i].style.paddingBottom = "100%";
-}</script> </a>
-<div class="product-label">
-<span class="onsale">
-<span class="value">-18%</span>
-</span>
-</div>
-<div class="product details product-item-details" style="min-height: 253px;">
-<strong class="product name product-item-name">
-<a class="product-item-link" href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html">
-Blue G9 Pro 2020 Battery Unlocked </a>
-</strong>
-<div class="product-reviews-summary" itemscope="" itemtype="http://schema.org/AggregateRating">
-<div class="rating-summary">
-<span class="label"><span>Rating:</span></span>
-<div class="rating-result" title="87%">
-<span style="width:87%">
-</span>
-</div>
-</div>
-<div class="reviews-actions">
-<a class="action view" href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#reviews">
-<span itemscope="" itemtype="https://schema.org/reviewCount">3</span>&nbsp;
-<span>Reviews</span>
-</a>
-<a class="action add" href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#review-form">Add Your Review</a>
-</div>
-</div>
-<div class="price-box price-final_price" data-role="priceBox" data-product-id="3" data-price-box="product-id-3">
-<span class="special-price">
-<span class="price-container price-final_price tax weee">
-<span class="price-label">Special Price</span>
-<span id="product-price-3" data-price-amount="90" data-price-type="finalPrice" class="price-wrapper "><span class="price">$90.00</span></span>
-</span>
-</span>
-<span class="old-price">
-<span class="price-container price-final_price tax weee">
-<span class="price-label">Regular Price</span>
-<span id="old-price-3" data-price-amount="110" data-price-type="oldPrice" class="price-wrapper "><span class="price">$110.00</span></span>
-</span>
-</span>
-</div> <div class="product description product-item-description">
-<p>Typi non habent claritatem insitam est usus legentis in qui facit orum claritatem lectores legere me lius quod legunt saepius. Sit amet conse ctetur adipisicing elit sed do eiusmod tempor.</p> </div>
-<div class="product-item-inner">
-<div class="product actions product-item-actions">
-<div class="actions-primary">
-<form data-role="tocart-form" data-product-sku="Digital003" action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/3/" method="post">
-<input type="hidden" name="product" value="3">
-<input type="hidden" name="uenc" value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMMk5oZEdWbmIzSjVkR0ZpTDJOaGRHVm5iM0o1TDNacFpYY3ZhV1F2TXk5c2FXMXBkQzh6TDJsdFoxUXZjMjFoYkd4ZmFXMWhaMlV2YVcxblZ5OHpNREF2YVcxblNDOHpNREF2Y0hKdlpIVmpkRjlzYVhOMFgyMXZaR1V2YkdsemRDOXVkVzFpWlhKZmNtOTNMekV2Y0hKdlpIVmpkRjlzYVhOMFgyOXlaR1Z5TDNCdmMybDBhVzl1THclMkMlMkMvcHJvZHVjdC8zLw,,">
-<input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ"> <button type="submit" title="Add to Cart" class="action tocart primary">
-<span>Add to Cart</span>
-</button>
-</form>
-</div>
-<div data-role="add-to-links" class="actions-secondary">
-<a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:3,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" data-action="add-to-wishlist" role="button">
-<span>Wish List</span>
-</a>
-<a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;3&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" role="button">
-<span>Add to Compare</span>
-</a>
-</div>
-<div id="quickview-3" class="quickview button_quickview"><a class="action link-quickview" data-product-id="3" data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/3/quickview/1" href="javascript:void(0);"><span>Quick View</span></a></div></div>
-</div>
-</div>
-</div>
-</li>
-</div></div><div class="owl-item" style="width: 855px; margin-right: 20px;"><div class="item-row">
-<li class="item product product-item" style="width:100%;">
-<div class="product-item-info" data-container="product-list">
-<a href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html" class="product photo product-item-photo" tabindex="-1">
-<span class="product-image-container product-image-container-41715983778" style="width: 300px;">
-<span class="product-image-wrapper" style="padding-bottom: 100%;">
-<img class="product-image-photo" src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/1/4/14.jpg" loading="lazy" alt="Samsung Galaxy International Vs" width="300" height="300"></span>
-</span>
-<style>.product-image-container-41715983778 {
-    width: 300px;
-}
-.product-image-container-41715983778 span.product-image-wrapper {
-    padding-bottom: 100%;
-}</style><script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-41715983778");
-for (var i = 0; i < prodImageContainers.length; i++) {
-    prodImageContainers[i].style.width = "300px";
-}
-prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-41715983778  span.product-image-wrapper"
-);
-for (var i = 0; i < prodImageContainersWrappers.length; i++) {
-    prodImageContainersWrappers[i].style.paddingBottom = "100%";
-}</script> </a>
-<div class="product-label">
-</div>
-<div class="product details product-item-details" style="min-height: 253px;">
-<strong class="product name product-item-name">
-<a class="product-item-link" href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html">
-Samsung Galaxy International Vs </a>
-</strong>
-<div class="product-reviews-summary" itemscope="" itemtype="http://schema.org/AggregateRating">
-<div class="rating-summary">
-<span class="label"><span>Rating:</span></span>
-<div class="rating-result" title="60%">
-<span style="width:60%">
-</span>
-</div>
-</div>
-<div class="reviews-actions">
-<a class="action view" href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#reviews">
-<span itemscope="" itemtype="https://schema.org/reviewCount">1</span>&nbsp;
-<span>Review</span>
-</a>
-<a class="action add" href="https://mageblueskytech.com/dukamarket/en3/samsung-galaxy-international-version.html#review-form">Add Your Review</a>
-</div>
-</div>
-<div class="price-box price-final_price" data-role="priceBox" data-product-id="4" data-price-box="product-id-4">
-<span class="price-container price-final_price tax weee">
-<span id="product-price-4" data-price-amount="70" data-price-type="finalPrice" class="price-wrapper "><span class="price">$70.00</span></span>
-</span>
-</div> <div class="product description product-item-description">
-<p>Typi non habent claritatem insitam est usus legentis in qui facit orum claritatem lectores legere me lius quod legunt saepius. Sit amet conse ctetur adipisicing elit sed do eiusmod tempor.</p> </div>
-<div class="product-item-inner">
-<div class="product actions product-item-actions">
-<div class="actions-primary">
-<form data-role="tocart-form" data-product-sku="Digital007" action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/4/" method="post">
-<input type="hidden" name="product" value="4">
-<input type="hidden" name="uenc" value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMMk5oZEdWbmIzSjVkR0ZpTDJOaGRHVm5iM0o1TDNacFpYY3ZhV1F2TXk5c2FXMXBkQzh6TDJsdFoxUXZjMjFoYkd4ZmFXMWhaMlV2YVcxblZ5OHpNREF2YVcxblNDOHpNREF2Y0hKdlpIVmpkRjlzYVhOMFgyMXZaR1V2YkdsemRDOXVkVzFpWlhKZmNtOTNMekV2Y0hKdlpIVmpkRjlzYVhOMFgyOXlaR1Z5TDNCdmMybDBhVzl1THclMkMlMkMvcHJvZHVjdC80Lw,,">
-<input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ"> <button type="submit" title="Add to Cart" class="action tocart primary">
-<span>Add to Cart</span>
-</button>
-</form>
-</div>
-<div data-role="add-to-links" class="actions-secondary">
-<a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:4,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" data-action="add-to-wishlist" role="button">
-<span>Wish List</span>
-</a>
-<a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;4&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" role="button">
-<span>Add to Compare</span>
-</a>
-</div>
-<div id="quickview-4" class="quickview button_quickview"><a class="action link-quickview" data-product-id="4" data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/4/quickview/1" href="javascript:void(0);"><span>Quick View</span></a></div></div>
-</div>
-</div>
-</div>
-</li>
-</div></div><div class="owl-item" style="width: 855px; margin-right: 20px;"><div class="item-row">
-<li class="item product product-item" style="width:100%;">
-<div class="product-item-info" data-container="product-list">
-<a href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html" class="product photo product-item-photo" tabindex="-1">
-<span class="product-image-container product-image-container-542132808" style="width: 300px;">
-<span class="product-image-wrapper" style="padding-bottom: 100%;">
-<img class="product-image-photo" src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/1/_/1.jpg" loading="lazy" alt="Zmmyr 200Pcs Dust Flat Mouth" width="300" height="300"></span>
-</span>
-<style>.product-image-container-542132808 {
-    width: 300px;
-}
-.product-image-container-542132808 span.product-image-wrapper {
-    padding-bottom: 100%;
-}</style><script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-542132808");
-for (var i = 0; i < prodImageContainers.length; i++) {
-    prodImageContainers[i].style.width = "300px";
-}
-prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-542132808  span.product-image-wrapper"
-);
-for (var i = 0; i < prodImageContainersWrappers.length; i++) {
-    prodImageContainersWrappers[i].style.paddingBottom = "100%";
-}</script> </a>
-<div class="product-label">
-</div>
-<div class="product details product-item-details" style="min-height: 253px;">
-<strong class="product name product-item-name">
-<a class="product-item-link" href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html">
-Zmmyr 200Pcs Dust Flat Mouth </a>
-</strong>
-<div class="product-reviews-summary" itemscope="" itemtype="http://schema.org/AggregateRating">
-<div class="rating-summary">
-<span class="label"><span>Rating:</span></span>
-<div class="rating-result" title="100%">
-<span style="width:100%">
-</span>
-</div>
-</div>
-<div class="reviews-actions">
-<a class="action view" href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#reviews">
-<span itemscope="" itemtype="https://schema.org/reviewCount">1</span>&nbsp;
-<span>Review</span>
-</a>
-<a class="action add" href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html#review-form">Add Your Review</a>
-</div>
-</div>
-<div class="price-box price-final_price" data-role="priceBox" data-product-id="5" data-price-box="product-id-5">
-<span class="price-container price-final_price tax weee">
-<span id="product-price-5" data-price-amount="90" data-price-type="finalPrice" class="price-wrapper "><span class="price">$90.00</span></span>
-</span>
-</div> <div class="product description product-item-description">
-<p>Typi non habent claritatem insitam est usus legentis in qui facit orum claritatem lectores legere me lius quod legunt saepius. Sit amet conse ctetur adipisicing elit sed do eiusmod tempor.</p> </div>
-<div class="product-item-inner">
-<div class="product actions product-item-actions">
-<div class="actions-primary">
-<form data-role="tocart-form" data-product-sku="Digital0034" action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/5/" method="post">
-<input type="hidden" name="product" value="5">
-<input type="hidden" name="uenc" value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMMk5oZEdWbmIzSjVkR0ZpTDJOaGRHVm5iM0o1TDNacFpYY3ZhV1F2TXk5c2FXMXBkQzh6TDJsdFoxUXZjMjFoYkd4ZmFXMWhaMlV2YVcxblZ5OHpNREF2YVcxblNDOHpNREF2Y0hKdlpIVmpkRjlzYVhOMFgyMXZaR1V2YkdsemRDOXVkVzFpWlhKZmNtOTNMekV2Y0hKdlpIVmpkRjlzYVhOMFgyOXlaR1Z5TDNCdmMybDBhVzl1THclMkMlMkMvcHJvZHVjdC81Lw,,">
-<input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ"> <button type="submit" title="Add to Cart" class="action tocart primary">
-<span>Add to Cart</span>
-</button>
-</form>
-</div>
-<div data-role="add-to-links" class="actions-secondary">
-<a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:5,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" data-action="add-to-wishlist" role="button">
-<span>Wish List</span>
-</a>
-<a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare" data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;5&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NhdGVnb3J5dGFiL2NhdGVnb3J5L3ZpZXcvaWQvMy9saW1pdC8zL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8zMDAvaW1nSC8zMDAvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}" role="button">
-<span>Add to Compare</span>
-</a>
- </div>
-<div id="quickview-5" class="quickview button_quickview"><a class="action link-quickview" data-product-id="5" data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/5/quickview/1" href="javascript:void(0);"><span>Quick View</span></a></div></div>
-</div>
-</div>
-</div>
-</li>
-</div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev">Next</button><button type="button" role="presentation" class="owl-next">Prev</button></div><div class="owl-dots disabled"></div></ol>
-</div>
+                        <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions  short_description"
+                             id="category_product_tab_1810591481">
+                            <div class="widget-tabs fixed_only_one_category ui-tabs ui-widget  ui-corner-all">
+                                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"
+                                    role="tablist">
+                                    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab"
+                                        tabindex="0" aria-controls="ui-tabs-1" aria-labelledby="ui-id-1"
+                                        aria-selected="true">
+                                        <a class="ui-tabs-anchor" href="#" role="presentation" tabindex="-1"
+                                           id="ui-id-1">
+                                            <span>Top Deals</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+                                     aria-live="polite" aria-labelledby="ui-id-1" role="tabpanel" aria-expanded="true"
+                                     aria-hidden="false">
+                                    <div class="products wrapper list products-list">
+                                        <ol class="products list items product-items owl-carousel owl-loaded owl-drag">
+                                            <div class="owl-stage-outer">
+                                                <div class="owl-stage"
+                                                     style="transform: translate3d(0px, 0px, 0px); transition: all 0.25s ease 0s; width: 2625px;">
+                                                    <div class="owl-item active first-active-item"
+                                                         style="width: 855px; margin-right: 20px;">
+                                                        <div class="item-row">
+                                                            <li class="item product product-item" style="width:100%;">
+                                                                <div class="product-item-info"
+                                                                     data-container="product-list">
+                                                                    <a href="#" class="product photo product-item-photo"
+                                                                       tabindex="-1">
+                                                                            <span class="product-image-container product-image-container-3527625119" style="width: 300px;">
+                                                                            <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                                                                            <img class="product-image-photo"
+                                                                                 src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/2/9/29_1_1.jpg"
+                                                                                 loading="lazy" alt="Blue G9 Pro 2020 Battery Unlocked" width="300" height="300"></span>
+                                                                            </span>
+                                                                        <style>.product-image-container-3527625119 {
+                                                                            width: 500px;
+                                                                        }
 
-</div>
-<div class="widget-category-tab-banner">
-</div>
-</div>
-</div>
-</div>
+                                                                        .product-image-container-3527625119 span.product-image-wrapper {
+                                                                            padding-bottom: 100%;
+                                                                        }</style>
+                                                                        <script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-3527625119");
+                                                                        for (var i = 0; i < prodImageContainers.length; i++) {
+                                                                            prodImageContainers[i].style.width = "300px";
+                                                                        }
+                                                                        prodImageContainersWrappers = document.querySelectorAll(
+                                                                            ".product-image-container-3527625119  span.product-image-wrapper"
+                                                                        );
+                                                                        for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+                                                                            prodImageContainersWrappers[i].style.paddingBottom = "100%";
+                                                                        }</script>
+                                                                    </a>
+                                                                    <div class="product-label">
+                                                                        <span class="onsale">
+                                                                        <span class="value">-18%</span>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="product details product-item-details"
+                                                                         style="min-height: 253px;">
+                                                                        <strong class="product name product-item-name">
+                                                                            <a class="product-item-link"
+                                                                               href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html">
+                                                                                Blue G9 Pro 2020 Battery Unlocked </a>
+                                                                        </strong>
+                                                                        <div class="product-reviews-summary"
+                                                                             itemscope=""
+                                                                             itemtype="http://schema.org/AggregateRating">
+                                                                            <div class="rating-summary">
+                                                                                <span class="label"><span>Rating:</span></span>
+                                                                                <div class="rating-result" title="87%">
+                                                                                    <span style="width:87%">
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="reviews-actions">
+                                                                                <a class="action view"
+                                                                                   href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#reviews">
+                                                                                    <span itemscope=""
+                                                                                          itemtype="https://schema.org/reviewCount">3</span>&nbsp;
+                                                                                    <span>Reviews</span>
+                                                                                </a>
+                                                                                <a class="action add"
+                                                                                   href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html#review-form">Add
+                                                                                    Your Review</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="3" data-price-box="product-id-3">
+                                                                                <span class="special-price">
+                                                                                <span class="price-container price-final_price tax weee">
+                                                                                <span class="price-label">Special Price</span>
+                                                                                <span id="product-price-3" data-price-amount="90" data-price-type="finalPrice" class="price-wrapper "><span
+                                                                                        class="price">$90.00</span></span>
+                                                                                </span>
+                                                                                </span>
+                                                                                                                                                            <span class="old-price">
+                                                                                <span class="price-container price-final_price tax weee">
+                                                                                <span class="price-label">Regular Price</span>
+                                                                                <span id="old-price-3" data-price-amount="110" data-price-type="oldPrice" class="price-wrapper "><span class="price">$110.00</span></span>
+                                                                                </span>
+                                                                                </span>
+                                                                        </div>
+                                                                        <div class="product description product-item-description">
+                                                                            <p>Typi non habent claritatem insitam est
+                                                                                usus legentis in qui facit orum
+                                                                                claritatem lectores legere me lius quod
+                                                                                legunt saepius. Sit amet conse ctetur
+                                                                                adipisicing elit sed do eiusmod
+                                                                                tempor.</p></div>
+                                                                        <div class="product-item-inner">
+                                                                            <div class="product actions product-item-actions">
+                                                                                <div class="actions-primary">
+                                                                                    <form data-role="tocart-form" data-product-sku="Digital003" method="post">
+                                                                                        <input type="hidden"
+                                                                                               name="product" value="3">
+                                                                                        <input type="hidden" name="uenc">
+                                                                                        <input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ">
+                                                                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                                                                            <span>Add to Cart</span>
+                                                                                        </button>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div data-role="add-to-links" class="actions-secondary">
+                                                                                    <a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" data-action="add-to-wishlist" role="button">
+                                                                                        <span>Wish List</span>
+                                                                                    </a>
+                                                                                    <a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare" role="button">
+                                                                                        <span>Add to Compare</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div id="quickview-3"
+                                                                                     class="quickview button_quickview">
+                                                                                    <a class="action link-quickview" data-product-id="3"
+                                                                                       href="javascript:void(0);"><span>Quick View</span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </div>
+                                                    <div class="owl-item" style="width: 855px; margin-right: 20px;">
+                                                        <div class="item-row">
+                                                            <li class="item product product-item" style="width:100%;">
+                                                                <div class="product-item-info"
+                                                                     data-container="product-list">
+                                                                    <a href="#" class="product photo product-item-photo" tabindex="-1">
+                                                                        <span class="product-image-container product-image-container-41715983778" style="width: 300px;">
+                                                                        <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                                                                        <img class="product-image-photo"
+                                                                             src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/1/4/14.jpg"
+                                                                             loading="lazy" alt="Samsung Galaxy International Vs" width="300" height="300"></span>
+                                                                        </span>
+                                                                        <style>.product-image-container-41715983778 {
+                                                                            width: 300px;
+                                                                        }
+
+                                                                        .product-image-container-41715983778 span.product-image-wrapper {
+                                                                            padding-bottom: 100%;
+                                                                        }</style>
+                                                                        <script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-41715983778");
+                                                                        for (var i = 0; i < prodImageContainers.length; i++) {
+                                                                            prodImageContainers[i].style.width = "300px";
+                                                                        }
+                                                                        prodImageContainersWrappers = document.querySelectorAll(
+                                                                            ".product-image-container-41715983778  span.product-image-wrapper"
+                                                                        );
+                                                                        for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+                                                                            prodImageContainersWrappers[i].style.paddingBottom = "100%";
+                                                                        }</script>
+                                                                    </a>
+                                                                    <div class="product-label">
+                                                                    </div>
+                                                                    <div class="product details product-item-details"
+                                                                         style="min-height: 253px;">
+                                                                        <strong class="product name product-item-name">
+                                                                            <a class="product-item-link"
+                                                                               href="#">
+                                                                                Samsung Galaxy International Vs </a>
+                                                                        </strong>
+                                                                        <div class="product-reviews-summary"
+                                                                             itemscope=""
+                                                                             itemtype="http://schema.org/AggregateRating">
+                                                                            <div class="rating-summary">
+                                                                                <span class="label"><span>Rating:</span></span>
+                                                                                <div class="rating-result" title="60%">
+                                                                                    <span style="width:60%">
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="reviews-actions">
+                                                                                <a class="action view"
+                                                                                   href="#">
+                                                                                    <span itemscope="">1</span>&nbsp;
+                                                                                    <span>Review</span>
+                                                                                </a>
+                                                                                <a class="action add"
+                                                                                   href="#">Add
+                                                                                    Your Review</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="price-box price-final_price">
+                                                                            <span class="price-container price-final_price tax weee">
+                                                                            <span id="product-price-4" data-price-amount="70" data-price-type="finalPrice" class="price-wrapper "><span
+                                                                                    class="price">$70.00</span></span>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="product description product-item-description">
+                                                                            <p>Typi non habent claritatem insitam est
+                                                                                usus legentis in qui facit orum
+                                                                                claritatem lectores legere me lius quod
+                                                                                legunt saepius. Sit amet conse ctetur
+                                                                                adipisicing elit sed do eiusmod
+                                                                                tempor.</p></div>
+                                                                        <div class="product-item-inner">
+                                                                            <div class="product actions product-item-actions">
+                                                                                <div class="actions-primary">
+                                                                                    <form data-role="tocart-form" action="#" method="post">
+                                                                                        <input type="hidden" name="product" value="4">
+                                                                                        <input type="hidden" name="uenc">
+                                                                                        <input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ">
+                                                                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                                                                            <span>Add to Cart</span>
+                                                                                        </button>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div data-role="add-to-links"
+                                                                                     class="actions-secondary">
+                                                                                    <a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" role="button">
+                                                                                        <span>Wish List</span>
+                                                                                    </a>
+                                                                                    <a href="#" class="action tocompare"
+                                                                                       title="Add to Compare"
+                                                                                       aria-label="Add to Compare" role="button">
+                                                                                        <span>Add to Compare</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div id="quickview-4"
+                                                                                     class="quickview button_quickview">
+                                                                                    <a class="action link-quickview" href="javascript:void(0);"><span>Quick View</span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </div>
+                                                    <div class="owl-item" style="width: 855px; margin-right: 20px;">
+                                                        <div class="item-row">
+                                                            <li class="item product product-item" style="width:100%;">
+                                                                <div class="product-item-info"
+                                                                     data-container="product-list">
+                                                                    <a href="#" class="product photo product-item-photo" tabindex="-1">
+                                                                        <span class="product-image-container product-image-container-542132808" style="width: 300px;">
+                                                                        <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                                                                        <img class="product-image-photo"
+                                                                             src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/ad13dd771be549c95185fceae0d4f4b5/1/_/1.jpg"
+                                                                             loading="lazy" alt="Zmmyr 200Pcs Dust Flat Mouth" width="300" height="300"></span>
+                                                                        </span>
+                                                                        <style>.product-image-container-542132808 {
+                                                                            width: 300px;
+                                                                        }
+
+                                                                        .product-image-container-542132808 span.product-image-wrapper {
+                                                                            padding-bottom: 100%;
+                                                                        }</style>
+                                                                        <script type="text/javascript">prodImageContainers = document.querySelectorAll(".product-image-container-542132808");
+                                                                        for (var i = 0; i < prodImageContainers.length; i++) {
+                                                                            prodImageContainers[i].style.width = "300px";
+                                                                        }
+                                                                        prodImageContainersWrappers = document.querySelectorAll(
+                                                                            ".product-image-container-542132808  span.product-image-wrapper"
+                                                                        );
+                                                                        for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+                                                                            prodImageContainersWrappers[i].style.paddingBottom = "100%";
+                                                                        }</script>
+                                                                    </a>
+                                                                    <div class="product-label">
+                                                                    </div>
+                                                                    <div class="product details product-item-details"
+                                                                         style="min-height: 253px;">
+                                                                        <strong class="product name product-item-name">
+                                                                            <a class="product-item-link"
+                                                                               href="#">
+                                                                                Zmmyr 200Pcs Dust Flat Mouth </a>
+                                                                        </strong>
+                                                                        <div class="product-reviews-summary"
+                                                                             itemscope="">
+                                                                            <div class="rating-summary">
+                                                                                <span class="label"><span>Rating:</span></span>
+                                                                                <div class="rating-result" title="100%">
+                                                                                    <span style="width:100%">
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="reviews-actions">
+                                                                                <a class="action view"
+                                                                                   href="#">
+                                                                                    <span itemscope="">1</span>&nbsp;
+                                                                                    <span>Review</span>
+                                                                                </a>
+                                                                                <a class="action add"
+                                                                                   href="#">Add
+                                                                                    Your Review</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="price-box price-final_price">
+                                                                            <span class="price-container price-final_price tax weee">
+                                                                            <span id="product-price-5"  class="price-wrapper ">
+                                                                                <span class="price">$90.00</span></span>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="product description product-item-description">
+                                                                            <p>Typi non habent claritatem insitam est
+                                                                                usus legentis in qui facit orum
+                                                                                claritatem lectores legere me lius quod
+                                                                                legunt saepius. Sit amet conse ctetur
+                                                                                adipisicing elit sed do eiusmod
+                                                                                tempor.</p></div>
+                                                                        <div class="product-item-inner">
+                                                                            <div class="product actions product-item-actions">
+                                                                                <div class="actions-primary">
+                                                                                    <form data-role="tocart-form"
+                                                                                          data-product-sku="Digital0034"
+                                                                                          action="#"
+                                                                                          method="post">
+                                                                                        <input type="hidden" name="product" value="5">
+                                                                                        <input type="hidden" name="uenc" value="">
+                                                                                        <input name="form_key" type="hidden" value="Uz49D7Ff9kmHYIwJ">
+                                                                                        <button type="submit" title="Add to Cart" class="action tocart primary">
+                                                                                            <span>Add to Cart</span>
+                                                                                        </button>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div data-role="add-to-links"
+                                                                                     class="actions-secondary">
+                                                                                    <a href="#" class="action towishlist" title="Add to Wish List" aria-label="Add to Wish List" data-action="add-to-wishlist" role="button">
+                                                                                        <span>Wish List</span>
+                                                                                    </a>
+                                                                                    <a href="#" class="action tocompare" title="Add to Compare" aria-label="Add to Compare" role="button">
+                                                                                        <span>Add to Compare</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div id="quickview-5" class="quickview button_quickview">
+                                                                                    <a class="action link-quickview" href="javascript:void(0);">
+                                                                                        <span>Quick View</span></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="owl-nav disabled">
+                                                <button type="button" role="presentation" class="owl-prev">Next</button>
+                                                <button type="button" role="presentation" class="owl-next">Prev</button>
+                                            </div>
+                                            <div class="owl-dots disabled"></div>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                                <div class="widget-category-tab-banner">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xl-3 col-10-padding">
                         <div class="
                       section section-product
@@ -1079,8 +1160,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                         <input name="form_key" type="hidden" value="o39Rir2hZnJ8lvxG"/>
                                         <div id="authenticationPopup"
                                              data-bind="scope:'authenticationPopup', style: {display: 'none'}">
-                                            <!-- ko template: getTemplate() -->
-                                            <!-- /ko -->
                                         </div>
                                         <div class="products wrapper list products-list">
                                             {% for topdeals in products %}
@@ -1089,16 +1168,14 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
-                              <span class="product-image-container product-image-container-1793172482">
-                                <span class="product-image-wrapper">
-                                  <img class="product-image-photo" src="{{ topdeals.imageURL }}"
-                                       data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/3/5/35.jpg"
-                                       loading="lazy" width="125" height="125"
-                                       alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked"/></span>
-                              </span>
+                                                                      <span class="product-image-container product-image-container-1793172482">
+                                                                        <span class="product-image-wrapper">
+                                                                          <img class="product-image-photo" src="{{ topdeals.imageURL }}" width="125" height="125"
+                                                                               alt="OnePlus&#x20;Nord&#x20;N10&#x20;5G&#x20;Unlocked"/></span>
+                                                                      </span>
                                                                     <style>
                                                                         .product-image-container-1793172482 {
                                                                             width: 125px;
@@ -1110,14 +1187,14 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                     </style>
                                                                 </a>
                                                                 <div class="product-label">
-                              <span class="onsale">
-                                <span class="value">-25%</span>
-                              </span>
+                                                              <span class="onsale">
+                                                                <span class="value">-25%</span>
+                                                              </span>
                                                                 </div>
                                                                 <div class="product details product-item-details">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                                                           href="#">
                                                                             {{ topdeals.title }}
                                                                         </a>
                                                                     </strong>
@@ -1136,12 +1213,9 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                     <div class="col-12 col-10-padding d-none d-xl-block">
                         <div class="section section-product wrapper_product_tabs container_horizontal_tab_postions count_product_tab_1  "
                              id="product_tab_780909864">
-                            <div class="content_block loaded"
-                                 data-url="https://mageblueskytech.com/dukamarket/en3/producttab/tab/view/type/5/limit/10/imgT/small_image/imgW/125/imgH/125/product_list_mode/list/number_row/1/product_list_order/position/">
+                            <div class="content_block loaded">
                                 <div class="products wrapper list products-list">
                                     <ol class="products list items product-items owl-carousel owl-loaded owl-drag">
-
-
                                         <div class="owl-stage-outer">
                                             <div class="owl-stage"
                                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 4375px;">
@@ -1154,12 +1228,12 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                 <a href="https://mageblueskytech.com/dukamarket/en3/apobob-black-shark-3-gaming-phone.html"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
-            <span class="product-image-container product-image-container-92016715245" style="width: 125px;">
-            <span class="product-image-wrapper" style="padding-bottom: 100%;">
-            <img class="product-image-photo"
-                 src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/1/5/15_1.jpg"
-                 loading="lazy" alt=" Apobob Black Shark 3 Gaming Phone" width="125" height="125"></span>
-            </span>
+                                                                        <span class="product-image-container product-image-container-92016715245" style="width: 125px;">
+                                                                        <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                                                                        <img class="product-image-photo"
+                                                                             src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/99bd91872cf584677c3ed2242aebf6e5/1/5/15_1.jpg"
+                                                                             loading="lazy" alt=" Apobob Black Shark 3 Gaming Phone" width="125" height="125"></span>
+                                                                        </span>
                                                                     <style>.product-image-container-92016715245 {
                                                                         width: 125px;
                                                                     }
@@ -1179,56 +1253,51 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                     }</script>
                                                                 </a>
                                                                 <div class="product-label">
-            <span class="onsale">
-            <span class="value">-25%</span>
-            </span>
+                                                                    <span class="onsale">
+                                                                    <span class="value">-25%</span>
+                                                                    </span>
                                                                 </div>
                                                                 <div class="product details product-item-details"
                                                                      style="min-height: 109px;">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/apobob-black-shark-3-gaming-phone.html">
+                                                                           href="#">
                                                                             Apobob Black Shark 3 Gaming Phone </a>
                                                                     </strong>
-                                                                    <div class="product-reviews-summary" itemscope=""
-                                                                         itemtype="http://schema.org/AggregateRating">
+                                                                    <div class="product-reviews-summary">
                                                                         <div class="rating-summary">
                                                                             <span class="label"><span>Rating:</span></span>
                                                                             <div class="rating-result" title="100%">
-            <span style="width:100%">
-            </span>
+                                                                                <span style="width:100%">
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/apobob-black-shark-3-gaming-phone.html#reviews">
-                                                                    <span itemscope=""
-                                                                          itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                                                               href="#">
+                                                                            <span itemscope="">2</span>&nbsp;
                                                                                 <span>Reviews</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/apobob-black-shark-3-gaming-phone.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-box price-final_price"
-                                                                         data-role="priceBox"
-                                                                         data-product-id="9"
-                                                                         data-price-box="product-id-9">
-            <span class="special-price">
-            <span class="price-container price-final_price tax weee">
-            <span class="price-label">Special Price</span>
-            <span id="product-price-9" data-price-amount="90" data-price-type="finalPrice" class="price-wrapper "><span
-                    class="price">$90.00</span></span>
-            </span>
-            </span>
-                                                                        <span class="old-price">
-            <span class="price-container price-final_price tax weee">
-            <span class="price-label">Regular Price</span>
-            <span id="old-price-9" data-price-amount="120" data-price-type="oldPrice" class="price-wrapper "><span
-                    class="price">$120.00</span></span>
-            </span>
-            </span>
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="9" data-price-box="product-id-9">
+                                                                        <span class="special-price">
+                                                                        <span class="price-container price-final_price tax weee">
+                                                                        <span class="price-label">Special Price</span>
+                                                                        <span id="product-price-9" data-price-amount="90" data-price-type="finalPrice" class="price-wrapper "><span
+                                                                                class="price">$90.00</span></span>
+                                                                        </span>
+                                                                        </span>
+                                                                                                                                    <span class="old-price">
+                                                                        <span class="price-container price-final_price tax weee">
+                                                                        <span class="price-label">Regular Price</span>
+                                                                        <span id="old-price-9" data-price-amount="120" data-price-type="oldPrice" class="price-wrapper "><span
+                                                                                class="price">$120.00</span></span>
+                                                                        </span>
+                                                                        </span>
                                                                     </div>
                                                                     <div class="product description product-item-description">
                                                                         <p>Typi non habent claritatem insitam est usus
@@ -1242,13 +1311,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                         <div class="product actions product-item-actions">
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
-                                                                                      data-product-sku="Digital010"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/9/"
-                                                                                      method="post">
+                                                                                      data-product-sku="Digital010" method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="9">
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTODFMMnhwYldsMEx6RXdMMmx0WjFRdmMyMWhiR3hmYVcxaFoyVXZhVzFuVnk4eE1qVXZhVzFuU0M4eE1qVXZjSEp2WkhWamRGOXNhWE4wWDIxdlpHVXZiR2x6ZEM5dWRXMWlaWEpmY205M0x6RXZjSEp2WkhWamRGOXNhWE4wWDI5eVpHVnlMM0J2YzJsMGFXOXVMdyUyQyUyQy9wcm9kdWN0Lzkv">
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="Uz49D7Ff9kmHYIwJ">
                                                                                     <button type="submit"
@@ -1263,7 +1329,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add to Wish List"
                                                                                    aria-label="Add to Wish List"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:9,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
@@ -1271,7 +1336,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;9&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -1280,7 +1344,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                  class="quickview button_quickview"><a
                                                                                     class="action link-quickview"
                                                                                     data-product-id="9"
-                                                                                    data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/9/quickview/1"
                                                                                     href="javascript:void(0);"><span>Quick View</span></a>
                                                                             </div>
                                                                         </div>
@@ -1296,7 +1359,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/somic-g951-pink-gaming-headset-for-pc.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                         <span class="product-image-container product-image-container-211033579494"
@@ -1335,11 +1398,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                      style="min-height: 109px;">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/somic-g951-pink-gaming-headset-for-pc.html">
+                                                                           href="#">
                                                                             Somic G951 pink Gaming Headset </a>
                                                                     </strong>
-                                                                    <div class="product-reviews-summary" itemscope=""
-                                                                         itemtype="http://schema.org/AggregateRating">
+                                                                    <div class="product-reviews-summary" itemscope="">
                                                                         <div class="rating-summary">
                                                                             <span class="label"><span>Rating:</span></span>
                                                                             <div class="rating-result" title="100%">
@@ -1349,26 +1411,20 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/somic-g951-pink-gaming-headset-for-pc.html#reviews">
-                                                                    <span itemscope=""
-                                                                          itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                                                               href="#">
+                                                                                <span itemscope="">2</span>&nbsp;
                                                                                 <span>Reviews</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/somic-g951-pink-gaming-headset-for-pc.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-box price-final_price"
-                                                                         data-role="priceBox"
-                                                                         data-product-id="21"
-                                                                         data-price-box="product-id-21">
-                                                            <span class="price-container price-final_price tax weee">
-                                                            <span id="product-price-21" data-price-amount="80"
-                                                                  data-price-type="finalPrice"
-                                                                  class="price-wrapper "><span
-                                                                    class="price">$80.00</span></span>
-                                                            </span>
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="21" data-price-box="product-id-21">
+                                                                        <span class="price-container price-final_price tax weee">
+                                                                        <span id="product-price-21" data-price-amount="80" data-price-type="finalPrice" class="price-wrapper ">
+                                                                            <span class="price">$80.00</span></span>
+                                                                        </span>
                                                                     </div>
                                                                     <div class="product description product-item-description">
                                                                         <p>Typi non habent claritatem insitam est usus
@@ -1383,12 +1439,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       data-product-sku="Digital030"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/somic-g951-pink-gaming-headset-for-pc.html?options=cart"
                                                                                       method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="21">
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3NvbWljLWc5NTEtcGluay1nYW1pbmctaGVhZHNldC1mb3ItcGMuaHRtbD9vcHRpb25zPWNhcnQ,">
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="Uz49D7Ff9kmHYIwJ">
                                                                                     <button type="submit"
@@ -1403,7 +1457,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add to Wish List"
                                                                                    aria-label="Add to Wish List"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:21,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
@@ -1411,7 +1464,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;21&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -1420,7 +1472,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                  class="quickview button_quickview"><a
                                                                                     class="action link-quickview"
                                                                                     data-product-id="21"
-                                                                                    data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/21/quickview/1"
                                                                                     href="javascript:void(0);"><span>Quick View</span></a>
                                                                             </div>
                                                                         </div>
@@ -1436,7 +1487,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/bluetooth-headphones-over-ear-comfortable.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                             <span class="product-image-container product-image-container-22774712146"
@@ -1475,11 +1526,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                      style="min-height: 109px;">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/bluetooth-headphones-over-ear-comfortable.html">
+                                                                           href="#">
                                                                             Bluetooth Headphones Over Ear </a>
                                                                     </strong>
-                                                                    <div class="product-reviews-summary" itemscope=""
-                                                                         itemtype="http://schema.org/AggregateRating">
+                                                                    <div class="product-reviews-summary" itemscope="">
                                                                         <div class="rating-summary">
                                                                             <span class="label"><span>Rating:</span></span>
                                                                             <div class="rating-result" title="100%">
@@ -1489,13 +1539,12 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/bluetooth-headphones-over-ear-comfortable.html#reviews">
-                                                                    <span itemscope=""
-                                                                          itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                                                               href="#">
+                                                                    <span itemscope="">2</span>&nbsp;
                                                                                 <span>Reviews</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/bluetooth-headphones-over-ear-comfortable.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
@@ -1523,12 +1572,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       data-product-sku="Digital031"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/bluetooth-headphones-over-ear-comfortable.html?options=cart"
                                                                                       method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="22">
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2JsdWV0b290aC1oZWFkcGhvbmVzLW92ZXItZWFyLWNvbWZvcnRhYmxlLmh0bWw_b3B0aW9ucz1jYXJ0">
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="Uz49D7Ff9kmHYIwJ">
                                                                                     <button type="submit"
@@ -1543,7 +1590,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add to Wish List"
                                                                                    aria-label="Add to Wish List"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:22,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
@@ -1551,7 +1597,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;22&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -1560,7 +1605,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                  class="quickview button_quickview"><a
                                                                                     class="action link-quickview"
                                                                                     data-product-id="22"
-                                                                                    data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/22/quickview/1"
                                                                                     href="javascript:void(0);"><span>Quick View</span></a>
                                                                             </div>
                                                                         </div>
@@ -1576,7 +1620,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/ps4-controller-wireless-bluetooth-gamepad.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                             <span class="product-image-container product-image-container-271971069778"
@@ -1632,8 +1676,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                      aria-label="White" role="option"
                                                                                      data-thumb-width="110"
                                                                                      data-thumb-height="90"
-                                                                                     data-option-tooltip-thumb="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/a6f8ee4c39c8a96367f6dbf8d462bbc8/1/9/19_1.jpg"
-                                                                                     data-option-tooltip-value="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/417cca0d1d4c5bc19668c7aa218b80b1/1/9/19_1.jpg"
                                                                                      style="background: url(https://mageblueskytech.com/dukamarket/media/catalog/product/cache/417cca0d1d4c5bc19668c7aa218b80b1/1/9/19_1.jpg) no-repeat center; background-size: initial;width:50px; height:50px"></div>
                                                                                 <div class="swatch-option image"
                                                                                      id="option-label-color-93-item-7"
@@ -1646,8 +1688,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                      aria-label="Pink" role="option"
                                                                                      data-thumb-width="110"
                                                                                      data-thumb-height="90"
-                                                                                     data-option-tooltip-thumb="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/a6f8ee4c39c8a96367f6dbf8d462bbc8/2/0/20_1.jpg"
-                                                                                     data-option-tooltip-value="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/417cca0d1d4c5bc19668c7aa218b80b1/2/0/20_1.jpg"
                                                                                      style="background: url(https://mageblueskytech.com/dukamarket/media/catalog/product/cache/417cca0d1d4c5bc19668c7aa218b80b1/2/0/20_1.jpg) no-repeat center; background-size: initial;width:50px; height:50px"></div>
                                                                             </div>
                                                                         </div>
@@ -1656,7 +1696,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
 
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/ps4-controller-wireless-bluetooth-gamepad.html">
+                                                                           href="#">
                                                                             Ps4 Controller Wireless Gamepad </a>
                                                                     </strong>
                                                                     <div class="product-reviews-summary" itemscope=""
@@ -1670,27 +1710,20 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/ps4-controller-wireless-bluetooth-gamepad.html#reviews">
-                                                                    <span itemscope=""
-                                                                          itemtype="https://schema.org/reviewCount">2</span>&nbsp;
+                                                                               href="#">
+                                                                    <span itemscope="">2</span>&nbsp;
                                                                                 <span>Reviews</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/ps4-controller-wireless-bluetooth-gamepad.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-box price-final_price"
-                                                                         data-role="priceBox"
-                                                                         data-product-id="27"
-                                                                         data-price-box="product-id-27"><span
-                                                                            class="normal-price">
+                                                                    <div class="price-box price-final_price"><span class="normal-price">
                                                                     <span class="price-container price-final_price tax weee">
                                                                     <span class="price-label">As low as</span>
-                                                                    <span id="product-price-27" data-price-amount="30"
-                                                                          data-price-type="finalPrice"
-                                                                          class="price-wrapper "><span
-                                                                            class="price">$30.00</span></span>
+                                                                    <span id="product-price-27" data-price-amount="30">
+                                                                        <span class="price">$30.00</span></span>
                                                                     </span>
                                                                     </span>
                                                                     </div>
@@ -1707,12 +1740,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       data-product-sku="Digital040"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/27/"
                                                                                       method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="27">
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTODFMMnhwYldsMEx6RXdMMmx0WjFRdmMyMWhiR3hmYVcxaFoyVXZhVzFuVnk4eE1qVXZhVzFuU0M4eE1qVXZjSEp2WkhWamRGOXNhWE4wWDIxdlpHVXZiR2x6ZEM5dWRXMWlaWEpmY205M0x6RXZjSEp2WkhWamRGOXNhWE4wWDI5eVpHVnlMM0J2YzJsMGFXOXVMdyUyQyUyQy9wcm9kdWN0LzI3Lw,,">
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="Uz49D7Ff9kmHYIwJ">
                                                                                     <button type="submit"
@@ -1723,26 +1754,19 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                     <input class="swatch-input super-attribute-select"
                                                                                            name="super_attribute[93]"
                                                                                            type="text"
-                                                                                           value=""
-                                                                                           data-selector="super_attribute[93]"
-                                                                                           data-validate="{required: true}"
-                                                                                           aria-required="true"
-                                                                                           aria-invalid="false"></form>
+                                                                                           value=""></form>
                                                                             </div>
                                                                             <div data-role="add-to-links"
                                                                                  class="actions-secondary">
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add to Wish List"
                                                                                    aria-label="Add to Wish List"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:27,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
-                                                                                   data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
                                                                                 </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;27&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -1751,7 +1775,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                  class="quickview button_quickview"><a
                                                                                     class="action link-quickview"
                                                                                     data-product-id="27"
-                                                                                    data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/27/quickview/1"
                                                                                     href="javascript:void(0);"><span>Quick View</span></a>
                                                                             </div>
                                                                         </div>
@@ -1766,7 +1789,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                             <span class="product-image-container product-image-container-1578890629"
@@ -1805,11 +1828,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                      style="min-height: 109px;">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html">
+                                                                           href="#">
                                                                             OnePlus Nord N10 5G Unlocked </a>
                                                                     </strong>
-                                                                    <div class="product-reviews-summary" itemscope=""
-                                                                         itemtype="http://schema.org/AggregateRating">
+                                                                    <div class="product-reviews-summary" itemscope="">
                                                                         <div class="rating-summary">
                                                                             <span class="label"><span>Rating:</span></span>
                                                                             <div class="rating-result" title="100%">
@@ -1819,38 +1841,35 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                         </div>
                                                                         <div class="reviews-actions">
                                                                             <a class="action view"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#reviews">
+                                                                               href="#">
                                                                     <span itemscope=""
                                                                           itemtype="https://schema.org/reviewCount">1</span>&nbsp;
                                                                                 <span>Review</span>
                                                                             </a>
                                                                             <a class="action add"
-                                                                               href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form">Add
+                                                                               href="#">Add
                                                                                 Your Review</a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-box price-final_price"
-                                                                         data-role="priceBox"
-                                                                         data-product-id="1"
-                                                                         data-price-box="product-id-1">
-                                                            <span class="special-price">
-                                                            <span class="price-container price-final_price tax weee">
-                                                            <span class="price-label">Special Price</span>
-                                                            <span id="product-price-1" data-price-amount="59.99"
-                                                                  data-price-type="finalPrice"
-                                                                  class="price-wrapper "><span
-                                                                    class="price">$59.99</span></span>
-                                                            </span>
-                                                            </span>
-                                                                        <span class="old-price">
-                                                            <span class="price-container price-final_price tax weee">
-                                                            <span class="price-label">Regular Price</span>
-                                                            <span id="old-price-1" data-price-amount="79.99"
-                                                                  data-price-type="oldPrice"
-                                                                  class="price-wrapper "><span
-                                                                    class="price">$79.99</span></span>
-                                                            </span>
-                                                            </span>
+                                                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="1" data-price-box="product-id-1">
+                                                                            <span class="special-price">
+                                                                            <span class="price-container price-final_price tax weee">
+                                                                            <span class="price-label">Special Price</span>
+                                                                            <span id="product-price-1" data-price-amount="59.99"
+                                                                                  data-price-type="finalPrice"
+                                                                                  class="price-wrapper "><span
+                                                                                    class="price">$59.99</span></span>
+                                                                            </span>
+                                                                            </span>
+                                                                                        <span class="old-price">
+                                                                            <span class="price-container price-final_price tax weee">
+                                                                            <span class="price-label">Regular Price</span>
+                                                                            <span id="old-price-1" data-price-amount="79.99"
+                                                                                  data-price-type="oldPrice"
+                                                                                  class="price-wrapper "><span
+                                                                                    class="price">$79.99</span></span>
+                                                                            </span>
+                                                                            </span>
                                                                     </div>
                                                                     <div class="product description product-item-description">
                                                                         <p>Typi non habent claritatem insitam est usus
@@ -1865,12 +1884,10 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       data-product-sku="Digital001"
-                                                                                      action="https://mageblueskytech.com/dukamarket/en3/checkout/cart/add/uenc/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw%2C%2C/product/1/"
                                                                                       method="post">
                                                                                     <input type="hidden" name="product"
                                                                                            value="1">
                                                                                     <input type="hidden" name="uenc"
-                                                                                           value="aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL2NoZWNrb3V0L2NhcnQvYWRkL3VlbmMvYUhSMGNITTZMeTl0WVdkbFlteDFaWE5yZVhSbFkyZ3VZMjl0TDJSMWEyRnRZWEpyWlhRdlpXNHpMM0J5YjJSMVkzUjBZV0l2ZEdGaUwzWnBaWGN2ZEhsd1pTODFMMnhwYldsMEx6RXdMMmx0WjFRdmMyMWhiR3hmYVcxaFoyVXZhVzFuVnk4eE1qVXZhVzFuU0M4eE1qVXZjSEp2WkhWamRGOXNhWE4wWDIxdlpHVXZiR2x6ZEM5dWRXMWlaWEpmY205M0x6RXZjSEp2WkhWamRGOXNhWE4wWDI5eVpHVnlMM0J2YzJsMGFXOXVMdyUyQyUyQy9wcm9kdWN0LzEv">
                                                                                     <input name="form_key" type="hidden"
                                                                                            value="Uz49D7Ff9kmHYIwJ">
                                                                                     <button type="submit"
@@ -1885,7 +1902,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action towishlist"
                                                                                    title="Add to Wish List"
                                                                                    aria-label="Add to Wish List"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:1,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    data-action="add-to-wishlist"
                                                                                    role="button">
                                                                                     <span>Wish List</span>
@@ -1893,7 +1909,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                 <a href="#" class="action tocompare"
                                                                                    title="Add to Compare"
                                                                                    aria-label="Add to Compare"
-                                                                                   data-post="{&quot;action&quot;:&quot;https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/&quot;,&quot;data&quot;:{&quot;product&quot;:&quot;1&quot;,&quot;uenc&quot;:&quot;aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Byb2R1Y3R0YWIvdGFiL3ZpZXcvdHlwZS81L2xpbWl0LzEwL2ltZ1Qvc21hbGxfaW1hZ2UvaW1nVy8xMjUvaW1nSC8xMjUvcHJvZHVjdF9saXN0X21vZGUvbGlzdC9udW1iZXJfcm93LzEvcHJvZHVjdF9saXN0X29yZGVyL3Bvc2l0aW9uLw,,&quot;}}"
                                                                                    role="button">
                                                                                     <span>Add to Compare</span>
                                                                                 </a>
@@ -1902,7 +1917,6 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                                  class="quickview button_quickview"><a
                                                                                     class="action link-quickview"
                                                                                     data-product-id="1"
-                                                                                    data-quickview-url="https://mageblueskytech.com/dukamarket/en3/quickview/product/view/id/1/quickview/1"
                                                                                     href="javascript:void(0);"><span>Quick View</span></a>
                                                                             </div>
                                                                         </div>
@@ -1917,7 +1931,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                         <li class="item product product-item">
                                                             <div class="product-item-info"
                                                                  data-container="product-list">
-                                                                <a href="https://mageblueskytech.com/dukamarket/en3/zmmyr-200pcs-transparent-mobile-phone.html"
+                                                                <a href="#"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                         <span class="product-image-container product-image-container-51527974873"
@@ -2779,31 +2793,32 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                         </a>
                                     </li>
                                 </ul>
-                                            <div class="widget-category-tab-banner">
-                                                <div class="products wrapper grid products-grid">
-                                                    <div class="
+                                <div class="widget-category-tab-banner">
+                                    <div class="products wrapper grid products-grid">
+                                        <div class="
                                                           products
                                                           list
                                                           items
                                                           product-items
                                                           owl-carousel owl-theme
-                                                        " data-rtl="false" data-items="6" data-bigdesktop="8" data-smalldesktop="4"
-                                                                         data-bigtablet="4" data-tablet="3" data-smalltablet="3" data-mobile="2.2"
-                                                                         data-margin="0"
-                                                                         data-loop="true" data-center="false" data-mousedrag="true"
-                                                                         data-touchdrag="true"
-                                                                         data-stagepadding="1" data-nav="true" data-navnext="" data-navprev=""
-                                                                         data-rewind="true"
-                                                                         data-dots="false" data-autoplay="false" data-speed="500">
-                                                                        <div class="
+                                                        " data-rtl="false" data-items="6" data-bigdesktop="8"
+                                             data-smalldesktop="4"
+                                             data-bigtablet="4" data-tablet="3" data-smalltablet="3" data-mobile="2.2"
+                                             data-margin="0"
+                                             data-loop="true" data-center="false" data-mousedrag="true"
+                                             data-touchdrag="true"
+                                             data-stagepadding="1" data-nav="true" data-navnext="" data-navprev=""
+                                             data-rewind="true"
+                                             data-dots="false" data-autoplay="false" data-speed="500">
+                                            <div class="
                                                             item-load
                                                             group-rows-fixed-supper-deal
                                                             item-row
                                                           ">
-                                                                <div class="item product product-item">
-                                                                    <div class="product-item-info">
-                                                                        <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
-                                                                           class="product photo product-item-photo" tabindex="-1">
+                                                <div class="item product product-item">
+                                                    <div class="product-item-info">
+                                                        <a href="https://mageblueskytech.com/dukamarket/en3/blue-g9-pro-2020-battery-unlocked.html"
+                                                           class="product photo product-item-photo" tabindex="-1">
                                             <span class="
                                                         image0
                                                         image-switch
@@ -2814,8 +2829,8 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/2/9/29_1_1.jpg"
                                                    width="550" height="550" alt="Blue G9 Pro 2020 Battery Unlocked"/>
                                             </span>
-                                                                        </a>
-                                                                        <div class="product-label">
+                                                        </a>
+                                                        <div class="product-label">
                                             <span class="onsale">
                                               <span class="value">18%</span>
                                             </span>
@@ -2840,7 +2855,8 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                               <img class="product-image"
                                                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
                                                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/4/14.jpg"
-                                                                   width="550" height="550" alt="Samsung Galaxy International Vs"/>
+                                                                   width="550" height="550"
+                                                                   alt="Samsung Galaxy International Vs"/>
                                                             </span>
                                                         </a>
                                                         <div class="product details product-item-details">
@@ -2877,7 +2893,9 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                           price-container
                                                                           price-final_price&#x20;tax&#x20;weee
                                                                         ">
-                                                                <span data-price-amount="70" data-price-type="finalPrice" class="price-wrapper"><span
+                                                                <span data-price-amount="70"
+                                                                      data-price-type="finalPrice"
+                                                                      class="price-wrapper"><span
                                                                         class="price">$70.00</span></span>
                                                               </span>
                                                             </div>
@@ -2953,7 +2971,8 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                               <img class="product-image"
                                                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
                                                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/_/1.jpg"
-                                                                   width="550" height="550" alt="Zmmyr 200Pcs Dust Flat Mouth"/>
+                                                                   width="550" height="550"
+                                                                   alt="Zmmyr 200Pcs Dust Flat Mouth"/>
                                                             </span>
                                                         </a>
                                                         <div class="product details product-item-details">
@@ -2963,7 +2982,7 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                     Zmmyr 200Pcs Dust Flat Mouth
                                                                 </a>
                                                             </strong>
-                                                            <div class="product-reviews-summary" >
+                                                            <div class="product-reviews-summary">
                                                                 <div class="rating-summary">
                                                                     <span class="label"><span>Rating:</span></span>
                                                                     <div class="rating-result" title="100%">
@@ -2989,7 +3008,9 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                               price-container
                                                                               price-final_price&#x20;tax&#x20;weee
                                                                             ">
-                                                                <span data-price-amount="90" data-price-type="finalPrice" class="price-wrapper"><span
+                                                                <span data-price-amount="90"
+                                                                      data-price-type="finalPrice"
+                                                                      class="price-wrapper"><span
                                                                         class="price">$90.00</span></span>
                                                               </span>
                                                             </div>
@@ -3057,7 +3078,8 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                               <img class="product-image"
                                                                    src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
                                                                    data-src="https://mageblueskytech.com/dukamarket/media/catalog/product/cache/3a762b5998ca4bc48cb28c4930088312/1/2/12.jpg"
-                                                                   width="550" height="550" alt="A80 Pro 4G Unlocked Cell Phones"/>
+                                                                   width="550" height="550"
+                                                                   alt="A80 Pro 4G Unlocked Cell Phones"/>
                                                             </span>
                                                         </a>
                                                         <div class="product details product-item-details">
@@ -3091,7 +3113,9 @@ Zmmyr 200Pcs Dust Flat Mouth </a>
                                                                               price-container
                                                                               price-final_price&#x20;tax&#x20;weee
                                                                             ">
-                                                                    <span data-price-amount="120" data-price-type="finalPrice" class="price-wrapper"><span
+                                                                    <span data-price-amount="120"
+                                                                          data-price-type="finalPrice"
+                                                                          class="price-wrapper"><span
                                                                             class="price">$120.00</span></span>
                                                                   </span>
                                                             </div>
