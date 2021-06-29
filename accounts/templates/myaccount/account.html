@@ -30,7 +30,7 @@
                             </strong>
                             <div class="box-content">
                                 <p>
-                                    benson opondo<br>
+                                    {{ request.user.first_name}} {{ request.user.last_name}}<br>
                                     <a   class="__cf_email__">{{ request.user.email}}</a><br>
                                 </p>
                             </div>
