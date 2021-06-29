@@ -111,16 +111,30 @@ WSGI_APPLICATION = 'patazoneEcommerce.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ptz_db',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ptz_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'Database': 'd5r7nhvcpb92ka',
+        'User': 'pgptgrlanjfoii',
+        'Password': '59fb2bee3fc44367ca08fd5d3292f5053437d4e8e9ef691f56fabfa4f4681747',
+        'Host': 'ec2-35-170-85-206.compute-1.amazonaws.com',
+        'Port': '5432',
     }
 }
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
