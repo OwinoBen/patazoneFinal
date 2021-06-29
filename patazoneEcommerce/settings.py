@@ -13,7 +13,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os
-from decouple import config
+import json
+
+# from decouple import config
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +42,8 @@ DEBUG = True
 # if DEBUG:
 #     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.100.99', '192.168.100.31', '192.168.0.14', '192.168.0.29','patazone.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.100.99', '192.168.100.31', '192.168.0.14', '192.168.0.29',
+                 'patazone.herokuapp.com']
 
 # Application definition
 
