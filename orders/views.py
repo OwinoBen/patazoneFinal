@@ -224,6 +224,7 @@ class CheckoutView(View):
                 elif payment_option == 'P':
                     return redirect('checkout:payment', payment_option='paypal')
                 elif payment_option == 'M':
+
                     return redirect('checkout:payment', payment_option='mpesa')
                 else:
                     messages.warning(
