@@ -117,17 +117,18 @@ def lipa_na_mpesa(request):
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
         print(payment)
         payment.save()
-        order_items = order.cart.all()
-        order_items.update(ordered=True)
-        for items in order_items:
-            items.save()
-
-        order.ordered = True
-        order.payment = payment
-        order.save()
 
     except:
         print("something went wrong")
+
+    order_items = order.cart.all()
+    order_items.update(ordered=True)
+    for items in order_items:
+        items.save()
+
+    order.ordered = True
+    order.payment = payment
+    order.save()
     return JsonResponse({})
 
 
