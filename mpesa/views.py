@@ -107,7 +107,6 @@ def lipa_na_mpesa(request):
     try:
         req = json.loads(request.body.decode("utf-8"))
         payment = Mpesa_Payments()
-        payment.user = request.user
         payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
         payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
         payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
