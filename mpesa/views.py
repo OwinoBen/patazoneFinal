@@ -144,7 +144,7 @@ def MpesaPayments(request):
                 for item in orderitems:
                     item.save()
                 order.ordered = True
-                order.payment = confirmpayment
+                order.payment = Mpesa_Payments()
                 order.save()
 
     form = MpesaForm()
