@@ -115,6 +115,15 @@ def lipa_na_mpesa(request):
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
         payment.save()
 
+        order = Order.objects.get(ordered=False)
+        orderitems = order.cart.all()
+        orderitems.update(ordered=True)
+        for item in orderitems:
+            item.save()
+        order.ordered = True
+        order.payment = payment
+        order.save()
+
 
     except:
         pass
@@ -136,16 +145,6 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
-            confirmpayment = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
-            if confirmpayment:
-                order = Order.objects.get(user=request.user, ordered=False)
-                orderitems = order.cart.all()
-                orderitems.update(ordered=True)
-                for item in orderitems:
-                    item.save()
-                order.ordered = True
-                order.payment = Mpesa_Payments()
-                order.save()
 
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
