@@ -104,7 +104,6 @@ class Mpesa_PaymentsListView(ListView):
 @csrf_exempt
 @require_http_methods(["POST"])
 def lipa_na_mpesa(request):
-
     try:
         req = json.loads(request.body.decode("utf-8"))
         payment = Mpesa_Payments()
@@ -119,16 +118,6 @@ def lipa_na_mpesa(request):
 
     except:
         pass
-
-    order = Order.objects.get(user=request.user, ordered=False)
-    orderitems = order.cart.all()
-    orderitems.update(ordered=True)
-    for item in orderitems:
-        item.save()
-
-    order.ordered = True
-    order.payment = payment
-    order.save()
     return JsonResponse({})
 
 
@@ -147,6 +136,16 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
+            confirmpayment = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
+            if confirmpayment:
+                order = Order.objects.get(user=request.user, ordered=False)
+                orderitems = order.cart.all()
+                orderitems.update(ordered=True)
+                for item in orderitems:
+                    item.save()
+                order.ordered = True
+                order.payment = confirmpayment
+                order.save()
 
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
