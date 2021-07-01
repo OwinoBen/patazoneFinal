@@ -4,8 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from django.conf import settings
 
-User = settings.AUTH_USER_MODEL
-
+User =settings.AUTH_USER_MODEL
 
 # Posts Models
 class Post(models.Model):
@@ -23,7 +22,6 @@ class Post(models.Model):
 
 # M-pesa Payment models
 class Mpesa_Payments(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
     MerchantRequestID = models.CharField(max_length=100, null=True, blank=True)
     CheckoutRequestID = models.CharField(max_length=100, null=True, blank=True)
