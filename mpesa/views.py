@@ -127,7 +127,7 @@ def lipa_na_mpesa(request):
 
     except:
         pass
-    return JsonResponse({})
+    return "order completed"
 
 
 def fetch_payments(request):
