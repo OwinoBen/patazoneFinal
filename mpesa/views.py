@@ -102,7 +102,7 @@ class Mpesa_PaymentsListView(ListView):
 
 
 @csrf_exempt
-@require_http_methods(["POST", "GET"])
+# @require_http_methods(["POST", "GET"])
 def lipa_na_mpesa(request):
     try:
         req = json.loads(request.body.decode("utf-8"))
