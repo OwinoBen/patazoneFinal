@@ -118,7 +118,7 @@ def lipa_na_mpesa(request):
     except:
         pass
 
-    return payment
+    return JsonResponse({})
 
 
 def completeOrder(request):
@@ -175,7 +175,7 @@ def PaymentDone(request):
             for item in orderitems:
                 item.save()
             order.ordered = True
-            order.payment = lipa_na_mpesa()
+            # order.payment = phoneNumber
             order.save()
 
 
