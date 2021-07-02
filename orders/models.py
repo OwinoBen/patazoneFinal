@@ -10,6 +10,7 @@ from django.utils import timezone
 from address.models import Address
 from billing.models import BillingProfile
 # from carts.models import Cart
+from mpesa.models import Mpesa_Payments
 from patazoneEcommerce.utils import unique_order_id_generator
 from products.models import Product
 
@@ -180,7 +181,7 @@ class Order(models.Model):
     billing_address = models.ForeignKey(Address, related_name="billing_address", on_delete=models.CASCADE, null=True,
                                         blank=True)
     payment = models.ForeignKey(
-        'Payment', on_delete=models.SET_NULL, blank=True, null=True)
+        Mpesa_Payments, on_delete=models.CASCADE, blank=True, null=True)
     coupon = models.ForeignKey(
         'Coupon', on_delete=models.SET_NULL, blank=True, null=True)
     received = models.BooleanField(default=False)

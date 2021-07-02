@@ -18,7 +18,7 @@ from requests.api import request
 from .forms import MpesaForm, QueryForm, CompleteOrder
 from .online import lipa_na_mpesa_online
 from django.db.models import Q
-from orders.models import Order
+from orders.models import Order, Payment
 from django.utils.functional import cached_property
 
 
@@ -104,26 +104,29 @@ class Mpesa_PaymentsListView(ListView):
 @csrf_exempt
 @require_http_methods(["POST", "GET"])
 def lipa_na_mpesa(request):
-    req = json.loads(request.body.decode("utf-8"))
-    payment = Mpesa_Payments()
-    payment.user=request.user
-    payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
-    payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
-    payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
-    payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
-    payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
-    payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
-    payment.save()
+    try:
+        payment = Mpesa_Payments()
+        req = json.loads(request.body.decode("utf-8"))
+        payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
+        payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
+        payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
+        payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
+        payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
+        payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
+        payment.user=request.user
+        payment.save()
 
-    order = Order.objects.get(user=request.user, ordered=False)
-    orderitems = order.cart.all()
-    orderitems.update(ordered=True)
-    for item in orderitems:
-        item.save()
-    order.ordered = True
-    order.payment = payment
-    order.save()
+        order = Order.objects.get(user=request.user, ordered=False)
+        orderitems = order.cart.all()
+        orderitems.update(ordered=True)
+        for item in orderitems:
+            item.save()
+        order.ordered = True
+        order.payment = payment
+        order.save()
 
+    except:
+        pass
 
     return JsonResponse({})
 
@@ -171,8 +174,13 @@ def PaymentDone(request):
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
+
+        payment=Payment()
+        payment.stripe_charge_id=phoneNumber.MpesaReceiptNumber
+        payment.save()
+        payment.user=request.user
         if phoneNumber:
-            phoneNumber.update(Status=1)
+            phoneNumber.value=1
             phoneNumber.update(user=request.user)
             phoneNumber.save()
             order = Order.objects.get(user=request.user, ordered=False)
