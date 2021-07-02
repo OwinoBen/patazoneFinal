@@ -115,18 +115,6 @@ def lipa_na_mpesa(request):
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
         payment.save()
 
-        if payment:
-            order = Order.objects.get(ordered=False)
-            orderitems = order.cart.all()
-            orderitems.update(ordered=True)
-            for item in orderitems:
-                item.save()
-            order.ordered = True
-            order.payment = payment
-            order.save()
-        else:
-            print("order not saved try again later")
-
     except:
         pass
 
@@ -134,9 +122,9 @@ def lipa_na_mpesa(request):
 
 
 def completeOrder(request):
-    payment=Mpesa_Payments()
+    payment = Mpesa_Payments()
     payment.user=request.user
-    payment.status=1
+    payment.status = 1
     payment.save()
     if payment:
         order = Order.objects.get(ordered=False)
