@@ -165,6 +165,7 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
+            request.session["phone_number"]=PhoneNumber
             return redirect('mpesa:completeorder')
 
     form = MpesaForm()
@@ -172,15 +173,21 @@ def MpesaPayments(request):
 
 def PaymentDone(request):
     if request.method == 'POST':
-        form = CompleteOrder(request.POST)
-        if form.is_valid():
-            PhoneNumber = form.cleaned_data['PhoneNumber']
-            # Amount = Order.get_total
-            # Amount = form.cleaned_data['Amount']
-            # lipa_na_mpesa_online(Amount, PhoneNumber)
+        PhoneNumber = request.POST['phone']
+        phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
+        if phoneNumber:
+            payments=Mpesa_Payments()
+            order = Order.objects.get(user=request.user, ordered=False)
+            orderitems = order.cart.all()
+            orderitems.update(ordered=True)
+            for item in orderitems:
+                item.save()
+            order.ordered = True
+            order.payment = payments
+            order.save()
 
-    form = CompleteOrder()
-    return render(request, 'payment_done.html', {'form': form, 'phone':PhoneNumber})
+
+    return render(request, 'payment_done.html', {'form': form})
 
 
 class Online_QueryListView(ListView):
