@@ -177,6 +177,9 @@ def PaymentDone(request):
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
         if phoneNumber:
             payments=Mpesa_Payments()
+            payments.Status=1
+            payments.user=request.user
+            payments.save()
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
