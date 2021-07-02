@@ -116,14 +116,17 @@ def lipa_na_mpesa(request):
         payment.user = request.user
         payment.save()
 
-        order = Order.objects.get( ordered=False)
-        orderitems = order.cart.all()
-        orderitems.update(ordered=True)
-        for item in orderitems:
-            item.save()
-        order.ordered = True
-        order.payment =payment
-        order.save()
+        if payment:
+            order = Order.objects.get(ordered=False)
+            orderitems = order.cart.all()
+            orderitems.update(ordered=True)
+            for item in orderitems:
+                item.save()
+            order.ordered = True
+            order.payment = payment
+            order.save()
+        else:
+            print("order not saved try again later")
 
 
     except:
@@ -146,7 +149,6 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
-
 
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
