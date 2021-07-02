@@ -113,7 +113,6 @@ def lipa_na_mpesa(request):
         payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
         payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
-        payment.user = request.user
         payment.save()
 
 
@@ -125,6 +124,9 @@ def lipa_na_mpesa(request):
 
 def completeOrder(request):
     payment=Mpesa_Payments()
+    payment.user=request.user
+    payment.status=1
+    payment.save()
     if payment:
         order = Order.objects.get(ordered=False)
         orderitems = order.cart.all()
