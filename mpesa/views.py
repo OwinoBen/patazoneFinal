@@ -15,7 +15,7 @@ from django.views.decorators.http import require_http_methods
 from .models import Mpesa_Payments
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from requests.api import request
-from .forms import MpesaForm, QueryForm
+from .forms import MpesaForm, QueryForm, CompleteOrder
 from .online import lipa_na_mpesa_online
 from django.db.models import Q
 from orders.models import Order
