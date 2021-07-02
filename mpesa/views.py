@@ -115,14 +115,16 @@ def lipa_na_mpesa(request):
             payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
             payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
             payment.save()
-        order = Order.objects.get(user=request.user, ordered=False)
-        orderitems = order.cart.all()
-        orderitems.update(ordered=True)
-        for item in orderitems:
-            item.save()
-        order.ordered = True
-        order.payment = payment
-        order.save()
+
+            if payment.PhoneNumber == req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']:
+                order = Order.objects.get(user=request.user, ordered=False)
+                orderitems = order.cart.all()
+                orderitems.update(ordered=True)
+                for item in orderitems:
+                    item.save()
+                order.ordered = True
+                order.payment = payment
+                order.save()
 
     except:
         pass
