@@ -24,19 +24,11 @@
                 <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
             </div>
         </div>
-        <!-- /ko -->
-        <!-- ko if: messages().messages && messages().messages.length > 0 -->
-        <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
-        data: messages().messages, as: 'message'
-    }">
-            <div data-bind="attr: {
-            class: 'message-' + message.type + ' ' + message.type + ' message',
-            'data-ui-id': 'message-' + message.type
-        }">
+        <div aria-atomic="true" role="alert" class="messages">
+            <div>
                 <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
             </div>
         </div>
-        <!-- /ko -->
     </div>
 
 </div>
