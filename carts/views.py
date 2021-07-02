@@ -103,11 +103,11 @@ def updateCart(request):
         if order.cart.filter(product__id=product.id).exists():
             order_item.quantity += 1
             order_item.save()
-            messages.info(request, "Item Quantity successfully updated")
+            messages.info(request, f"{product.title} Quantity successfully updated")
             return redirect("cart:shop")
         else:
             order.cart.add(order_item)
-            messages.info(request, "one item was added in your cart")
+            messages.info(request, f"{product.title} item was added in your cart")
             return redirect("cart:shop")
     else:
         updated = timezone.now()
@@ -115,7 +115,7 @@ def updateCart(request):
         order_id = (odr + create_ref_code())
         order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
         order.cart.add(order_item)
-        messages.info(request, "one item was added in your cart")
+        messages.info(request, f"{product.title} item was added in your cart")
 
         if product_obj in cart_obj.products.all():
             sku = "PRUD"
@@ -332,7 +332,7 @@ def add_to_cart(request):
         if order.items.filter(item__slug=product.slug).exists():
             order_item.quantity += 1
             order_item.save()
-            messages.info(request, "This item quantity was updated.")
+            messages.info(request, f"{product.name} quantity was updated.")
             return redirect("cart:home")
         else:
             order.items.add(order_item)

@@ -547,12 +547,7 @@
                           <span class="text">Search</span>
                         </div>
                       </div>
-                      <form
-                        class="form minisearch search-content cat-search"
-                        id="search_mini_form"
-                        action=""
-                        method="get"
-                      >
+                      <form class="form minisearch search-content cat-search" id="search_mini_form" action="" method="get">
                         <div class="search-form">
                           <div class="field-by-cat-search hidden-xs">
                             <select name="cat" id="choose_category">
@@ -581,7 +576,7 @@
                             <div class="control">
                               <input id="search-input-autocomplate"
                                 type="text"
-                                name="q"
+                                name="search"
                                 value=""
                                 placeholder="Search entire store here..."
                                 class="input-text search-form"
@@ -592,25 +587,38 @@
                                 aria-expanded="false"
                                 autocomplete="off"
                               />
-                              <div
-                                id="search_autocomplete"
-                                class="search-autocomplete"
-                              ></div>
-                              <div
-                                data-bind="scope: 'searchsuiteautocomplete_form'"
-                              >
+                              <div id="search_autocomplete" class="search-autocomplete"></div>
+                              <div data-bind="scope: 'searchsuiteautocomplete_form'">
                               </div>
                             </div>
                             <div class="actions">
-                              <button
-                                type="submit"
-                                title="Search"
-                                class=" action search"
-                              ><i class="icon-search icon-large"></i>
+                              <button type="submit" title="Search" class=" action search">
+                                  <i class="icon-search icon-large"></i>
                                 <span>Search</span>
                               </button>
                             </div>
                           </div>
+                            <style>
+                                .blury {
+                                      position: absolute;
+                                      height: 100%;
+                                      width: 100%;
+                                      background-color: black;
+                                      top: 0;
+                                      left: 0;
+                                      opacity: 0.7;
+                                      z-index: -1;
+                                    }
+                            </style>
+                            <script>
+                                function onFocus() {
+                                      document.getElementById('blur').setAttribute('class', 'blury');
+                                    }
+
+                                    function onFocusOut() {
+                                      document.getElementById('blur').setAttribute('class', '');
+                                    }
+                            </script>
                         </div>
                       </form>
                     </div>

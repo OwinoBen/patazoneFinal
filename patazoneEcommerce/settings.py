@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     # 'corsheaders',
-
+    'django_filters' ,
     'django.contrib.sites',
     'allauth',
     'allauth.account',
