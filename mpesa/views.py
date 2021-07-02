@@ -165,6 +165,7 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
+            return redirect('mpesa:completeorder')
 
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
