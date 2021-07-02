@@ -102,7 +102,7 @@ class Mpesa_PaymentsListView(ListView):
 
 
 @csrf_exempt
-@require_http_methods(["POST"])
+@require_http_methods(["POST", "GET"])
 def lipa_na_mpesa(request):
     try:
         req = json.loads(request.body.decode("utf-8"))
@@ -114,6 +114,15 @@ def lipa_na_mpesa(request):
         payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
         payment.save()
+
+        order = Order.objects.get(user=request.user, ordered=False)
+        orderitems = order.cart.all()
+        orderitems.update(ordered=True)
+        for item in orderitems:
+            item.save()
+        order.ordered = True
+        order.payment = payment
+        order.save()
 
     except:
         pass
