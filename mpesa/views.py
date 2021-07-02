@@ -186,7 +186,7 @@ def PaymentDone(request):
             for item in orderitems:
                 item.save()
             order.ordered = True
-            order.payment = payments
+            order.payment = phoneNumber
             order.save()
 
 
