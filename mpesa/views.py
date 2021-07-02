@@ -169,6 +169,18 @@ def MpesaPayments(request):
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
 
+def PaymentDone(request):
+    if request.method == 'POST':
+        form = MpesaForm(request.POST)
+        if form.is_valid():
+            PhoneNumber = form.cleaned_data['PhoneNumber']
+            # Amount = Order.get_total
+            # Amount = form.cleaned_data['Amount']
+            # lipa_na_mpesa_online(Amount, PhoneNumber)
+
+    form = CompleteOrder()
+    return render(request, 'payment_done.html', {'form': form, 'phone':PhoneNumber})
+
 
 class Online_QueryListView(ListView):
     model = Mpesa_Payments

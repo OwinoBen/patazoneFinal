@@ -17,5 +17,5 @@ urlpatterns = [
 
     path('api/fetch_payments/', fetch_payments, name='fetch_payments'),
     path('lipa_na_mpesa', lipa_na_mpesa, name='lipa_na_mpesa'),
-    path('ordercompleted', completeOrder, name='completeorder'),
+    path('ordercompleted', PaymentDone, name='completeorder'),
 ]
