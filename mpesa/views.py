@@ -106,14 +106,23 @@ class Mpesa_PaymentsListView(ListView):
 def lipa_na_mpesa(request):
     try:
         req = json.loads(request.body.decode("utf-8"))
-        payment = Mpesa_Payments()
-        payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
-        payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
-        payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
-        payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
-        payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
-        payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
-        payment.save()
+        if req:
+            payment = Mpesa_Payments()
+            payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
+            payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
+            payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
+            payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
+            payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
+            payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
+            payment.save()
+        order = Order.objects.get(user=request.user, ordered=False)
+        orderitems = order.cart.all()
+        orderitems.update(ordered=True)
+        for item in orderitems:
+            item.save()
+        order.ordered = True
+        order.payment = payment
+        order.save()
 
     except:
         pass
@@ -127,7 +136,7 @@ def completeOrder(request):
     payment.status = 1
     payment.save()
     if payment:
-        order = Order.objects.get(ordered=False)
+        order = Order.objects.get(user=request.user,ordered=False)
         orderitems = order.cart.all()
         orderitems.update(ordered=True)
         for item in orderitems:
