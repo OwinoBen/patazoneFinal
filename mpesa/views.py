@@ -106,30 +106,19 @@ class Mpesa_PaymentsListView(ListView):
 def lipa_na_mpesa(request):
     try:
         req = json.loads(request.body.decode("utf-8"))
-        if req:
-            payment = Mpesa_Payments()
-            payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
-            payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
-            payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
-            payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
-            payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
-            payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
-            payment.save()
-
-            if payment.PhoneNumber == req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']:
-                order = Order.objects.get(user=request.user, ordered=False)
-                orderitems = order.cart.all()
-                orderitems.update(ordered=True)
-                for item in orderitems:
-                    item.save()
-                order.ordered = True
-                order.payment = payment
-                order.save()
+        payment = Mpesa_Payments()
+        payment.MerchantRequestID = req['Body']['stkCallback']['MerchantRequestID']
+        payment.CheckoutRequestID = req['Body']['stkCallback']['CheckoutRequestID']
+        payment.Amount = req['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value']
+        payment.MpesaReceiptNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value']
+        payment.TransactionDate = req['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value']
+        payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
+        payment.save()
 
     except:
         pass
 
-    return JsonResponse({})
+    return payment
 
 
 def completeOrder(request):
@@ -186,7 +175,7 @@ def PaymentDone(request):
             for item in orderitems:
                 item.save()
             order.ordered = True
-            order.payment = phoneNumber
+            order.payment = lipa_na_mpesa()
             order.save()
 
 
