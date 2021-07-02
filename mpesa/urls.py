@@ -15,6 +15,7 @@ urlpatterns = [
     path('update_payment/', update_status, name='mpesaApp-update'),
     path('online_query/', Online_QueryListView.as_view(), name='mpesaApp-query'),
 
-    path('api/fetch_payments/',fetch_payments,name='fetch_payments'),
-    path('lipa_na_mpesa',lipa_na_mpesa,name='lipa_na_mpesa'),
+    path('api/fetch_payments/', fetch_payments, name='fetch_payments'),
+    path('lipa_na_mpesa', lipa_na_mpesa, name='lipa_na_mpesa'),
+    path('ordercompleted', completeOrder, name='completeorder'),
 ]

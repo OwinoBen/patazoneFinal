@@ -120,6 +120,11 @@ def lipa_na_mpesa(request):
     except:
         pass
 
+    return JsonResponse({})
+
+
+def completeOrder(request):
+    payment=Mpesa_Payments()
     if payment:
         order = Order.objects.get(ordered=False)
         orderitems = order.cart.all()
@@ -131,7 +136,6 @@ def lipa_na_mpesa(request):
         order.save()
     else:
         print("order not saved try again later")
-    return JsonResponse({})
 
 
 def fetch_payments(request):
