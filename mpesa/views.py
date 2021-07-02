@@ -187,7 +187,7 @@ def PaymentDone(request):
             order.save()
 
 
-    return render(request, 'payment_done.html', {'form': form})
+    return render(request, 'payment_done.html', {})
 
 
 class Online_QueryListView(ListView):
