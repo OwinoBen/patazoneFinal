@@ -172,7 +172,7 @@ def MpesaPayments(request):
 
 def PaymentDone(request):
     if request.method == 'POST':
-        form = MpesaForm(request.POST)
+        form = CompleteOrder(request.POST)
         if form.is_valid():
             PhoneNumber = form.cleaned_data['PhoneNumber']
             # Amount = Order.get_total
