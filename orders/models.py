@@ -16,7 +16,7 @@ from products.models import Product
 
 Order_status_choices = (
     ('ordered', 'Ordered'),
-    ('paid', 'Paid'),
+    ('paid', 'Shipping soon'),
     ('shipped', 'Shipped'),
     ('refunded', 'Refunded'),
 )

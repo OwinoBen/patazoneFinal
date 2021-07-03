@@ -97,7 +97,7 @@ def updateCart(request):
     except Product.DoesNotExist:
         return redirect("cart:home")
     cart_obj, new_obj = Cart.objects.new_or_get(request)
-    order_qs = Order.objects.filter(user=request.user, status="ordered")
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
     if order_qs.exists():
         order = order_qs[0]
         if order.cart.filter(product__id=product.id).exists():
