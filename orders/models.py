@@ -180,6 +180,7 @@ class Order(models.Model):
                                          blank=True)
     billing_address = models.ForeignKey(Address, related_name="billing_address", on_delete=models.CASCADE, null=True,
                                         blank=True)
+    payment_receipt = models.CharField(blank=True, null=True, max_length=120)
     payment = models.ForeignKey(
         Mpesa_Payments, on_delete=models.CASCADE, blank=True, null=True)
     coupon = models.ForeignKey(

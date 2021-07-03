@@ -175,7 +175,7 @@ def PaymentDone(request):
             for item in orderitems:
                 item.save()
             order.ordered = True
-            order.payment = phoneNumber.MpesaReceiptNumber
+            order.payment_receipt = phoneNumber.MpesaReceiptNumber
             order.save()
 
     return render(request, 'payment_done.html', {})
