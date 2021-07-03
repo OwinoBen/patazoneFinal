@@ -162,13 +162,12 @@ def MpesaPayments(request):
     return render(request, 'mpesa.html', {'form': form})
 
 
-def PaymentDone(request):
+def PaymentDone(request,*args, **kwargs):
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
         if phoneNumber:
-            phoneNumber.value = 1
-            phoneNumber.save()
+            update_status(*args, **kwargs)
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
