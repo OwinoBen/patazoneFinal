@@ -19,8 +19,8 @@ class OrderAdmin(admin.ModelAdmin):
                     'refund_granted',
                     'shipping_address',
                     'billing_address',
-                    'payment',
-                    'coupon'
+                    'paid_amount',
+                    'payment_receipt'
                     ]
     list_display_links = [
         'user',

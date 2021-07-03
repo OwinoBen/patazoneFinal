@@ -174,8 +174,9 @@ def PaymentDone(request, *args, **kwargs):
                 item.save()
             order.ordered = True
             order.payment_receipt = phoneNumber.MpesaReceiptNumber
+            order.paid_amount=phoneNumber.Amount
             order.save()
-            status = Mpesa_Payments.objects.filter(Status=0).update(Status=1)
+            status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
 
     return render(request, 'payment_done.html', {})
 
