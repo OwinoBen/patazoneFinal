@@ -204,7 +204,7 @@ class Online_QueryListView(ListView):
 
 
 @require_http_methods(['POST'])
-def update_status(self,request, *args, **kwargs):
+def update_status(request, self, *args, **kwargs):
     update = Mpesa_Payments.objects.get(Status=0)
     if update:
         update.value = 1
