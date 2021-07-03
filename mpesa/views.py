@@ -115,29 +115,20 @@ def lipa_na_mpesa(request):
         payment.PhoneNumber = req['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value']
         payment.save()
 
-        order = Order.objects.get(user=request.user, ordered=False)
-        orderitems = order.cart.all()
-        orderitems.update(ordered=True)
-        for item in orderitems:
-            item.save()
-        order.ordered = True
-        payment.user = request.user
-        order.payment = payment
-        order.save()
 
     except:
-        print("error saving")
+        pass
 
     return JsonResponse({})
 
 
 def completeOrder(request):
     payment = Mpesa_Payments()
-    payment.user=request.user
+    payment.user = request.user
     payment.status = 1
     payment.save()
     if payment:
-        order = Order.objects.get(user=request.user,ordered=False)
+        order = Order.objects.get(user=request.user, ordered=False)
         orderitems = order.cart.all()
         orderitems.update(ordered=True)
         for item in orderitems:
@@ -164,24 +155,19 @@ def MpesaPayments(request):
             # Amount = Order.get_total
             Amount = form.cleaned_data['Amount']
             lipa_na_mpesa_online(Amount, PhoneNumber)
-            request.session["phone_number"]=PhoneNumber
+            request.session["phone_number"] = PhoneNumber
             return redirect('mpesa:completeorder')
 
     form = MpesaForm()
     return render(request, 'mpesa.html', {'form': form})
 
+
 def PaymentDone(request):
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
-
-        payment=Payment()
-        payment.stripe_charge_id=phoneNumber.MpesaReceiptNumber
-        payment.save()
-        payment.user=request.user
         if phoneNumber:
-            phoneNumber.value=1
-            phoneNumber.update(user=request.user)
+            phoneNumber.value = 1
             phoneNumber.save()
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
@@ -189,9 +175,8 @@ def PaymentDone(request):
             for item in orderitems:
                 item.save()
             order.ordered = True
-            # order.payment = phoneNumber
+            order.payment = phoneNumber.MpesaReceiptNumber
             order.save()
-
 
     return render(request, 'payment_done.html', {})
 
