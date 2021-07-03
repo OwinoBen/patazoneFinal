@@ -162,12 +162,16 @@ def MpesaPayments(request):
     return render(request, 'mpesa.html', {'form': form})
 
 
-def PaymentDone(request,*args, **kwargs):
+def PaymentDone(self, request, *args, **kwargs):
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
         if phoneNumber:
-            update_status(request,*args, **kwargs)
+            update = Mpesa_Payments.objects.get(Status=0)
+            if update:
+                update.value = 1
+                update.save()
+            super(Mpesa_Payments, self).update_status(*args, **kwargs)
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
@@ -204,7 +208,7 @@ class Online_QueryListView(ListView):
 
 
 @require_http_methods(['POST'])
-def update_status(request, self, *args, **kwargs):
+def update_status(self, *args, **kwargs):
     update = Mpesa_Payments.objects.get(Status=0)
     if update:
         update.value = 1
