@@ -165,7 +165,7 @@ def MpesaPayments(request):
 def PaymentDone(request, *args, **kwargs):
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
-        phoneNumber = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0)
+        phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
         if phoneNumber:
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
