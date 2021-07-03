@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+    <div class="login-container">
     <div class="block block-customer-login">
                 <div class="block-title">
                     <strong id="block-customer-login-heading" role="heading" aria-level="2">Complete your order</strong>
@@ -11,16 +12,16 @@
                         <fieldset class="fieldset login" data-hasrequired="* Required Fields">
                             <div class="field note">Enter your Mpesa pin, then COMPLETE your order</div>
                             <div class="field email required">
-                                <label class="label" for="email"><span>Payment nuber</span></label>
+                                <label class="label" for="email"><span>Payment number</span></label>
                                 <div class="control">
-                                    <input name="phone"  autocomplete="off" id="phone" type="text" class="input-text" title="Phone number" >
+                                    <input name="phone" value="{{ request.session.phone_number }}" autocomplete="off" id="phone" type="text" class="input-text" title="Phone number" readonly>
                                 </div>
                             </div>
 
                             <div class="actions-toolbar">
                                 <div class="primary">
                                     <button style="background-color: #b92227;" type="submit" class="action login primary" name="send"
-                                        id="send2"><span>Sign In</span>
+                                        id="send2"><span>Place Order</span>
                                     </button>
                                 </div>
                                 <div class="secondary"><a class="action remind" href="{% url 'mpesa:mpesaApp-about' %}"><span>Resend payment</span></a></div>
@@ -29,4 +30,24 @@
                     </form>
                 </div>
             </div>
+    <div class="block block-new-customer">
+                <div class="block-title">
+                    <strong id="block-new-customer-heading" role="heading" aria-level="2">Manual Payment instruction</strong>
+                </div>
+                <div class="block-content" aria-labelledby="block-new-customer-heading">
+                    <b>Pay with Safaricom M-PESA on your phone.</b><br>
+                    1. On the M-PESA Menu Go to "<b>Lipa Na M-PESA</b> and Select Buy Goods<br>
+
+                    2. Enter the <b>Till Number:191739</b> Patazone Marketplace<br>
+
+                    3. Enter the total amount<br>
+
+                    4. Enter your M-PESA PIN Confirm that all details are correct and press OK<br>
+
+                    5. You will receive an M-PESA payment confirmation message on your mobile phone.<br>
+                    6. Click place order button to confirm your order.</p>
+
+                </div>
+            </div>
+    </div>
 {% endblock content %}

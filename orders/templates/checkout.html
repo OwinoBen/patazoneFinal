@@ -17,6 +17,8 @@
     {% block base_head %}{% endblock %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script>
     $(window).load(function() {
 		// Animate loader off screen
@@ -78,6 +80,24 @@
 a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
+.radio-group{
+    position: relative;
+}
+
+.radio{
+    display:inline-block;
+    width:15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color:lightblue;
+    border: 2px solid lightblue;
+    cursor:pointer;
+    margin: 2px 0;
+}
+
+.radio.selected{
+    border-color: blue;
+}
     </style>
     {#<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>#}
     <script type="text/javascript" src="static/js/jsbootstrap/js/js/jquery.min.js"></script>
@@ -94,6 +114,29 @@ p{margin-bottom:.3em;}
             Please enter your details below to complete your purchase
         </div>
     </div>
+<form>
+    <p>Previously:</p>
+    <div>
+        <input id="a1" type="radio" name="a" value="visa" />
+        <label for="a1">Visa</label><br/>
+        <input id="a2" type="radio" name="a" value="mastercard" />
+        <label for="a2">Mastercard</label>
+    </div>
+    <p>Now, with CSS3: </p>
+    <div class="cc-selector">
+        <div style="float: right; border: 1px solid grey; width: 200px;text-align: center;margin-right: 100px">
+            <input id="visa" type="radio" name="credit-card" value="visa" />
+        <label class="drinkcard-cc visa" for="visa"></label>
+        </div>
+        <div style="float: right; border: 1px solid grey; width: 200px;text-align: center; margin-right: 100px">
+            <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+            <label class="drinkcard-cc mastercard"for="mastercard"></label>
+        </div>
+
+    </div>
+</form>
+
+</form>
     <form method="POST" class="columns">
         {% csrf_token %}
         <div class="column main"><input name="form_key" type="hidden" value="1uKeWrt1uSfUno1k">
@@ -878,24 +921,7 @@ p{margin-bottom:.3em;}
         </div>
     </form>
 
-<form>
-    <p>Previously:</p>
-    <div>
-        <input id="a1" type="radio" name="a" value="visa" />
-        <label for="a1">Visa</label><br/>
-        <input id="a2" type="radio" name="a" value="mastercard" />
-        <label for="a2">Mastercard</label>
-    </div>
-    <p>Now, with CSS3: </p>
-    <div class="cc-selector">
-        <input id="visa" type="radio" name="credit-card" value="visa" />
-        <label class="drinkcard-cc visa" for="visa"></label>
-        <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
-        <label class="drinkcard-cc mastercard"for="mastercard"></label>
-    </div>
-</form>
-<small><a href="https://github.com/rcotrina94/icons">
-    &copy; Icons by @rcotrina94 on Github</a></small>
+
 
 </main>
 <script>
@@ -1037,6 +1063,15 @@ p{margin-bottom:.3em;}
         // Submit the form
         form.submit();
     }
+</script>
+<script>
+    $('.radio-group .radio').click(function(){
+    $(this).parent().find('.radio').removeClass('selected');
+    $(this).addClass('selected');
+    var val = $(this).attr('data-value');
+    //alert(val);
+    $(this).parent().find('input').val(val);
+});
 </script>
 </body>
 </html>
