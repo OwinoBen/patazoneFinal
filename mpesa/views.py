@@ -167,7 +167,7 @@ def PaymentDone(request,*args, **kwargs):
         PhoneNumber = request.POST['phone']
         phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
         if phoneNumber:
-            update_status(*args, **kwargs)
+            update_status(request,*args, **kwargs)
             order = Order.objects.get(user=request.user, ordered=False)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
