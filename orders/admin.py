@@ -26,8 +26,8 @@ class OrderAdmin(admin.ModelAdmin):
         'user',
         'shipping_address',
         'billing_address',
-        'payment',
-        'coupon'
+        'paid_amount',
+        'payment_receipt'
     ]
     list_filter = ['ordered',
                    'received',
