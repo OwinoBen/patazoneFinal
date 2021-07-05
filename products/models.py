@@ -178,7 +178,8 @@ def product_pre_save_receiver(sender, instance, *args, **kwargs):
 
 pre_save.connect(product_pre_save_receiver, sender=Product)
 
-
+class SlideShow(models.Model):
+    pass
 def upload_product_file_loc(instance, filename):
     slug = instance.product.slug
     # id_ = 0
