@@ -223,111 +223,106 @@
                     </div>
                     <ul class="custommenu-list menu">
                       <li class="ui-menu-item level0 classic">
-                        <a class="level-top" href="index.html">Home</a>
+                        <a class="level-top" href="{% url 'home' %}">Home</a>
                       </li>
-                      <li
-                        class="ui-menu-item level0 fullwidth menu-item-has-children parent">
+                      <li class="ui-menu-item level0 fullwidth menu-item-has-children parent">
                         <div class="open-children-toggle"></div>
-                        <a href="https://mageblueskytech.com/dukamarket/en3/shop.html" class="level-top">Shop</a>
+                        <a href="{% url 'shop' %}" class="level-top">CATEGORIES</a>
                         <div class="level0 submenu">
                           <div class="row">
                             <ul class="subchildmenu col-sm-9 mega-columns columns4">
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories.html"
+                                  href="{% url 'shopsearch:computer' %}"
                                   ><span>Computer Accessories</span></a
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
-                                    <a href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/blue-light-blocking.html"
-                                      ><span>Blue Light Blocking </span></a
+                                    <a href="{% url 'shopsearch:computer' %}"
+                                      ><span>Desktops </span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cable-security-devices.html"
-                                      ><span>Cable Security Devices</span></a
+                                      href="{% url 'shopsearch:computer' %}"
+                                      ><span>Laptops</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cables-interconnects.html"
-                                      ><span>Cables & Interconnects</span></a
+                                      href="{% url 'shopsearch:computer' %}"
+                                      ><span>Tabulates</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/cleaning-repair.html"
-                                      ><span>Cleaning & Repair</span></a
-                                    >
+                                      href="{% url 'shopsearch:computer' %}"
+                                      ><span>Cleaning & Repair</span></a>
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/computer-cable-adapters.html"
+                                      href="{% url 'shopsearch:computer' %}"
                                       ><span>Computer Cable Adapters</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/game-hardware.html"
+                                      href="{% url 'shopsearch:computer' %}"
                                       ><span>Game Hardware</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/computer-accessories/hard-drive-accessories.html"
-                                      ><span>Hard Drive Accessories</span></a
-                                    >
+                                    <a href="{% url 'shopsearch:computer' %}">
+                                        <span>Hard Drive Accessories</span></a>
                                   </li>
                                 </ul>
                               </li>
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals.html"
-                                  ><span>Peripherals</span></a
+                                <a href="{% url 'shop:electronics' %}"
+                                  ><span>Electronics</span></a
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/input-devices.html"
-                                      ><span>Input Devices</span></a
+                                      href="{% url 'shop:electronics' %}"
+                                      ><span>Watches</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/keyboards.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Keyboards</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/mice-accessories.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Mice & Accessories</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/memory-card-accessories.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Memory Card Accessories</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/memory-cards.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Memory Cards</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/monitor-accessories.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Monitor Accessories</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/peripherals/printer-accessories.html"
+                                      href="{% url 'shop:electronics' %}"
                                       ><span>Printer Accessories</span></a
                                     >
                                   </li>
@@ -336,50 +331,44 @@
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories.html"
-                                  ><span>Video Accessories</span></a
+                                  href="{% url 'shopsearch:beauty' %}"
+                                  ><span>Beauty, Health & Hair</span></a
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/printer-ink-toner.html"
-                                      ><span>Printer Ink & Toner</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Make Up</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/racks-cabinets.html"
-                                      ><span>Racks & Cabinets</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Oral Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/scanner-accessories.html"
-                                      ><span>Scanner Accessories</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Hair Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/usb-gadgets.html"
-                                      ><span>USB Gadgets</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Health Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/usb-hubs.html"
-                                      ><span>USB Hubs</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Luxury Beauty</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/uninterruptible.html"
-                                      ><span>Uninterruptible</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/video-accessories/power-supply-ups.html"
-                                      ><span>Power Supply (UPS)</span></a
+                                      href="{% url 'shopsearch:beauty' %}"
+                                      ><span>Personal care</span></a
                                     >
                                   </li>
                                 </ul>
@@ -387,65 +376,43 @@
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media.html"
-                                  ><span>Blank Media</span></a
+                                  href="{% url 'shopsearch:phones' %}"
+                                  ><span>Phones & Accessories</span></a
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/computer-headsets.html"
-                                      ><span>Computer Headsets</span></a
+                                      href="{% url 'shopsearch:phones' %}"
+                                      ><span>Mobile phones</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/computer-speakers.html"
-                                      ><span>Computer Speakers</span></a
+                                     href="{% url 'shopsearch:phones' %}"
+                                      ><span>Accessories</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/webcam-stands-mounts.html"
-                                      ><span>Webcam Stands & Mounts</span></a
+                                      href="{% url 'shopsearch:phones' %}"
+                                      ><span>Top smartphones brands</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/laptop-accessories.html"
-                                      ><span>Laptop Accessories</span></a
+                                      href="{% url 'shopsearch:phones' %}"
+                                      ><span>Best selling smartphones</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/networking-products.html"
-                                      ><span>Networking Products</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/power-strips-surge.html"
-                                      ><span>Power Strips & Surge</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="https://mageblueskytech.com/dukamarket/en3/shop/blank-media/tablet-accessories.html"
-                                      ><span>Tablet Accessories</span></a
+                                    <a href="{% url 'shopsearch:phones' %}"
+                                      ><span>New smartphones launch</span></a
                                     >
                                   </li>
                                 </ul>
                               </li>
                             </ul>
-                            <div class="menu-right-block col-sm-3">
-                              <p>
-                                <img
-                                  style="float: right"
-                                  src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                  data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-menu.png"
-                                  alt="Banner Menu"
-                                />
-                              </p>
-                            </div>
+
                           </div>
                           <div class="menu-bottom-block">
                             <p style="text-align: center">
@@ -477,13 +444,13 @@
                               </li>
                               <li class="ui-menu-item level2">
                                 <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/rokanthemes-brand.html"
+                                  href="#"
                                   >Shop by brand</a
                                 >
                               </li>
                               <li class="ui-menu-item level2">
                                 <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/rokanfaq"
+                                  href="{% url 'fqa' %}"
                                   >Faq</a
                                 >
                               </li>
@@ -500,21 +467,21 @@
                       <li class="ui-menu-item level0">
                         <a
                           class="level-top"
-                          href="https://mageblueskytech.com/dukamarket/en3/blog/"
+                          href="#"
                           >Blog</a
                         >
                       </li>
                       <li class="ui-menu-item level0 classic">
                         <a
                           class="level-top"
-                          href="https://mageblueskytech.com/dukamarket/en3/contact/"
+                          href="{% url 'contact' %}"
                           >Contact us</a
                         >
                       </li>
                       <li class="ui-menu-item level0 classic">
                         <a
                           class="level-top"
-                          href="https://mageblueskytech.com/dukamarket/en3/about-us/"
+                          href="{% url 'about' %}"
                           >About us</a
                         >
                       </li>

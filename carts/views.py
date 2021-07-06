@@ -307,17 +307,19 @@ def checkoutDoneView(request):
 
 
 class OrderSummaryView(View):
-    def get(self, *args, **kwargs):
-        try:
-            order = Order.objects.get(user=self.request.user, ordered=False)
-            context = {
-                'object': order
-            }
-            print(order)
-            return render(self.request, 'cart.html', context)
-        except ObjectDoesNotExist:
-            messages.warning(self.request, "You do not have an active order")
-            return redirect("/")
+    def get(self,request, *args, **kwargs):
+        if request.user.is_authenticated:
+            try:
+                order = Order.objects.get(user=self.request.user, ordered=False)
+                context = {
+                    'object': order
+                }
+                return render(self.request, 'cart.html', context)
+            except ObjectDoesNotExist:
+                messages.warning(self.request, "You do not have an active order")
+                return redirect("/")
+        else:
+            return redirect("register:login")
 
 def add_to_cart(request):
     product_id = request.POST.get('product_id')

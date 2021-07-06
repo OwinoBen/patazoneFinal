@@ -3,9 +3,15 @@
 {% block content %}
     <div class="login-container">
     <div class="block block-customer-login">
+        {% if error %}
+        <div id="password-strength-meter" class="password-strength-meter" style="text-align: center; margin-bottom: 10px;">
+            <span style="color: red;margin: auto;">{{ error }}</span>
+        </div>
+    {% endif %}
                 <div class="block-title">
                     <strong id="block-customer-login-heading" role="heading" aria-level="2">Complete your order</strong>
                 </div>
+
                 <div class="block-content" aria-labelledby="block-customer-login-heading">
                     <form class="form form-login" action="{% url 'mpesa:completeorder' %}" method="post" id="login-form">
                          {% csrf_token %}

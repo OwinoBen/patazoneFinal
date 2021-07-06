@@ -23,25 +23,28 @@ from accounts.models import User
 @csrf_protect
 def createAccount(request):
     if request.method == 'POST':
-        if request.POST['password'] == request.POST['password_confirmation']:
-            try:
-                user = User.objects.get(username=request.POST['username'])
-                email = User.objects.get(email=request.POST['email'])
-                return render(request, 'accounts/register.html',
-                              {'error': 'username and/or email has already been taken'})
-            except User.DoesNotExist:
-                user = User.objects.create_user(email=request.POST['email'], username=request.POST['username'],
-                                                first_name=request.POST['firstname'],
-                                                last_name=request.POST['lastname'],
-                                                password=request.POST['password'])
+        if request.POST['email'] != '' and request.POST['password'] !='' and request.POST['username'] != '':
+            if request.POST['password'] == request.POST['password_confirmation']:
+                try:
+                    user = User.objects.get(username=request.POST['username'])
+                    email = User.objects.get(email=request.POST['email'])
+                    return render(request, 'accounts/register.html',
+                                  {'error': 'username and/or email has already been taken'})
+                except User.DoesNotExist:
+                    user = User.objects.create_user(email=request.POST['email'], username=request.POST['username'],
+                                                    first_name=request.POST['firstname'],
+                                                    last_name=request.POST['lastname'],
+                                                    password=request.POST['password'])
 
-                login(request, user)
-                userProfile = UserProfile()
-                print("creating new user profile")
-                userProfile.user = request.user
-                userProfile.save()
+                    login(request, user)
+                    userProfile = UserProfile()
+                    print("creating new user profile")
+                    userProfile.user = request.user
+                    userProfile.save()
+            else:
+                return render(request, 'accounts/register.html', {'error': 'passwords should match'})
         else:
-            return render(request, 'accounts/register.html', {'error': 'passwords should match'})
+            return render(request, 'accounts/register.html', {'error': 'Please fill required Fields'})
     else:
         return render(request, 'accounts/register.html')
     return redirect('home')
@@ -49,16 +52,19 @@ def createAccount(request):
 
 def Login(request):
     if request.method == "POST":
-        user = authenticate(email=request.POST['email'], password=request.POST['password'])
-        if user is not None:
-            login(request, user)
-            if user.is_staff:
-                # return redirect('admindashboard')
-                return "this is staff user"
+        if request.POST['email'] !='' and request.POST['password'] != '':
+            user = authenticate(email=request.POST['email'], password=request.POST['password'])
+            if user is not None:
+                login(request, user)
+                if user.is_staff:
+                    # return redirect('admindashboard')
+                    return "this is staff user"
+                else:
+                    return redirect('home')
             else:
-                return redirect('home')
+                return render(request, 'accounts/login.html', {'error': 'Username or password is incorrect!'})
         else:
-            return render(request, 'accounts/login.html', {'error': 'Username or password is incorrect!'})
+            return render(request, 'accounts/login.html', {'error': 'Please fill all the required fields'})
     else:
         return render(request, 'accounts/login.html')
     return render(request, 'accounts/login.html')

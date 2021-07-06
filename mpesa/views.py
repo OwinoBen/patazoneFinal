@@ -1,3 +1,6 @@
+import re
+from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -149,41 +152,66 @@ def fetch_payments(request):
     return JsonResponse(payment_list, safe=False)
 
 
+def is_phone_number_valid(phone):
+    pattern = "^0(7(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$"
+    # pattern = re.compile("^(?:254|\\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(?:9[0-2]))[0-9]{6})$")
+    matched = re.match(pattern, phone)
+    print(matched)
+    return matched
+
+
 def MpesaPayments(request):
     shipping_address = Address.objects.filter(user=request.user, address_type='S', default=True)
     orderTotal = Order.objects.get(user=request.user, ordered=False)
-    totalamount=orderTotal.get_total()
+    totalamount = orderTotal.get_total()
     if request.method == 'POST':
         form = MpesaForm(request.POST)
         PhoneNumber = request.POST['PhoneNumber']
+        if is_phone_number_valid('0746180701'):
+            print("phone valid")
+        else:
+            print("phone not valid")
         Amount = request.POST['Amount']
         request.session["amount"] = totalamount
         if PhoneNumber != "" and Amount != "":
+
             lipa_na_mpesa_online(Amount, PhoneNumber)
             request.session["phone_number"] = PhoneNumber
             return redirect('mpesa:completeorder')
 
-    return render(request, 'checkout.html', {'order': orderTotal,'shipping_address':shipping_address})
+    return render(request, 'checkout.html', {'order': orderTotal, 'shipping_address': shipping_address})
 
 
 def PaymentDone(request, *args, **kwargs):
+    error = None
     if request.method == 'POST':
         PhoneNumber = request.POST['phone']
-        phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
-        if phoneNumber:
-            order = Order.objects.get(user=request.user, ordered=False)
-            orderitems = order.cart.all()
-            orderitems.update(ordered=True)
-            for item in orderitems:
-                item.save()
-            order.ordered = True
-            order.payment_receipt = phoneNumber.MpesaReceiptNumber
-            order.paid_amount = phoneNumber.Amount
-            order.status = ''
-            order.save()
-            status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
+        try:
+            phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
+            if phoneNumber.exists():
+                order = Order.objects.get(user=request.user, ordered=False)
+                orderitems = order.cart.all()
+                orderitems.update(ordered=True)
+                for item in orderitems:
+                    item.save()
+                order.ordered = True
+                order.payment_receipt = phoneNumber.MpesaReceiptNumber
+                order.paid_amount = phoneNumber.Amount
+                order.status = ''
+                order.save()
+                status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
+                return redirect('register:orders')
+            else:
+                # return redirect('register:orders')
+                print("No query matching your search")
+        except ObjectDoesNotExist:
+            messages.info(request, "Payment not received, continue with mpesa app snd wait for a minute")
+            error = 'Payment not received, Check your phone to complete payment'
+    context = {
+        'error': error
+    }
 
-    return render(request, 'payment_done.html', {})
+    return render(request, 'payment_done.html', context)
 
 
 class Online_QueryListView(ListView):

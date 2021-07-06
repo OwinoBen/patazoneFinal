@@ -28,6 +28,11 @@
     </div>
 
 </div>
+    {% if error %}
+        <div id="password-strength-meter" class="password-strength-meter" style="text-align: center; margin-bottom: 10px;">
+            <span style="color: red;margin: auto;">{{ error }}</span>
+        </div>
+    {% endif %}
 <div class="columns">
     <div class="column main"><input name="form_key" type="hidden" value="85q7pageqhdRSnjT" />
         <div class="login-container">

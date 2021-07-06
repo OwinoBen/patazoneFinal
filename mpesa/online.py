@@ -25,6 +25,9 @@ decode_password = online_password.decode('utf-8')
 
 
 def lipa_na_mpesa_online(Amount, PhoneNumber):
+    initial_phone = str(254)
+    final_phone = (initial_phone + PhoneNumber)
+    print(final_phone)
     access_token = getAccessToken()
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer " + str(access_token), "Content-Type": "application/json"}
@@ -34,9 +37,9 @@ def lipa_na_mpesa_online(Amount, PhoneNumber):
         "Timestamp": lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": Amount,
-        "PartyA": PhoneNumber,  # replace with your phone number to get stk push
+        "PartyA": final_phone,  # replace with your phone number to get stk push
         "PartyB": Business_short_code,
-        "PhoneNumber": PhoneNumber,  # replace with your phone number to get stk push
+        "PhoneNumber": final_phone,  # replace with your phone number to get stk push
         "CallBackURL": "https://patazone.herokuapp.com/lipa_na_mpesa",
         "AccountReference": "Patazone Marketplace",
         "TransactionDesc": "Testing stk push"
