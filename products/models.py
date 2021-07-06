@@ -115,9 +115,9 @@ class Product(models.Model):
     category = models.CharField(max_length=120, choices=CATEGORY, default="Phones and Electronics")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    price = models.FloatField(default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
-    discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00, blank=True,null=True)
+    discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00, blank=True, null=True)
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     backImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
@@ -178,8 +178,7 @@ def product_pre_save_receiver(sender, instance, *args, **kwargs):
 
 pre_save.connect(product_pre_save_receiver, sender=Product)
 
-class SlideShow(models.Model):
-    pass
+
 def upload_product_file_loc(instance, filename):
     slug = instance.product.slug
     # id_ = 0
@@ -195,6 +194,25 @@ def upload_product_file_loc(instance, filename):
         slug = unique_slug_generator(instance.product)
     location = "product/{slug}/{id}/".format(slug=slug, id=id_)
     return location + filename
+
+
+class SlideShow(models.Model):
+    name = models.CharField(max_length=120, null=True, blank=True)
+    file = models.FileField( )
+
+
+    def __str__(self):
+        return str(self.file.name)
+
+    @property
+    def display_name(self):
+        og_name = get_filename(self.file.name)
+        if self.name:
+            return self.name
+        return og_name
+
+    def get_default_url(self):
+        return self.product.get_absolute_url()
 
 
 class ProductFile(models.Model):

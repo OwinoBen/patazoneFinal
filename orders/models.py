@@ -190,7 +190,7 @@ class Order(models.Model):
     refund_requested = models.BooleanField(default=False)
     refund_granted = models.BooleanField(default=False)
     shipping_total = models.DecimalField(default=500.00, max_digits=65, decimal_places=2)
-    total = models.DecimalField(default=0.00, max_digits=65, decimal_places=2)
+    total = models.FloatField(default=0.00)
     active = models.BooleanField(default=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)

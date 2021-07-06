@@ -9,24 +9,20 @@
 </div>
 <div class="page-title-wrapper">
     <h1 class="page-title">
-        <span class="base" data-ui-id="page-title-wrapper">Contact Us</span>
+        <span class="base">Contact Us</span>
     </h1>
 </div>
 <div class="page messages">
     <div data-placeholder="messages"></div>
     <div>
-        <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }"
-            class="messages">
-            <div data-bind="attr: {
-            class: 'message-' + message.type + ' ' + message.type + ' message',
-            'data-ui-id': 'message-' + message.type
-        }">
-                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+        <div aria-atomic="true" role="alert" class="messages">
+            <div>
+                <div></div>
             </div>
         </div>
         <div aria-atomic="true" role="alert" class="messages">
             <div>
-                <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                <div></div>
             </div>
         </div>
     </div>
@@ -34,8 +30,6 @@
 </div>
 <div class="columns">
     <div class="column main"><input name="form_key" type="hidden" value="85q7pageqhdRSnjT" />
-        <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
-        </div>
         <div class="login-container">
             <div class="block block-customer-login">
                 <div class="block-title">

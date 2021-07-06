@@ -86,26 +86,6 @@
                             <span>Sign Up for Newsletter</span>
                         </label>
                     </div>
-                    {#                <div class="field choice">#}
-                    {#                    <input type="checkbox" name="assistance_allowed_checkbox"#}
-                    {#                           title="Allow&#x20;remote&#x20;shopping&#x20;assistance" value="1"#}
-                    {#                           id="assistance_allowed_checkbox" class="checkbox">#}
-                    {#                    <label for="assistance_allowed_checkbox" class="label">#}
-                    {#                        <span>Allow&#x20;remote&#x20;shopping&#x20;assistance</span>#}
-                    {#                    </label>#}
-                    {#                    <input type="hidden" name="assistance_allowed" value=""/>#}
-                    {#                    <div class="field-tooltip toggle">#}
-                    {#                        <span id="tooltip-label" class="label"><span>Tooltip</span></span>#}
-                    {#                        <span id="tooltip" class="field-tooltip-action action-help" tabindex="0"#}
-                    {#                              data-toggle="dropdown"#}
-                    {#                              aria-labelledby="tooltip-label" aria-haspopup="true" aria-expanded="false"#}
-                    {#                              role="button">#}
-                    {#                        </span>#}
-                    {#                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">#}
-                    {#                            This&#x20;allows&#x20;merchants&#x20;to&#x20;&quot;see&#x20;what&#x20;you&#x20;see&quot;&#x20;and&#x20;take&#x20;actions&#x20;on&#x20;your&#x20;behalf&#x20;in&#x20;order&#x20;to&#x20;provide&#x20;better&#x20;assistance.#}
-                    {#                        </div>#}
-                    {#                    </div>#}
-                    {#                </div>#}
                 </fieldset>
                 <fieldset class="fieldset create account">
                     <legend class="legend"><span>Sign-in Information</span></legend>
@@ -155,7 +135,7 @@
                     </div>
                     <div class="secondary">
                         <a class="action back"
-                           href="login.html">
+                           href="{% url 'register:login' %}">
                             <span>Back</span>
                         </a>
                     </div>

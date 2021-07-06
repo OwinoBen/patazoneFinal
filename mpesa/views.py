@@ -7,6 +7,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
+
+from address.models import Address
 from .models import Post
 from django.http import JsonResponse
 import json
@@ -148,18 +150,20 @@ def fetch_payments(request):
 
 
 def MpesaPayments(request):
+    shipping_address = Address.objects.filter(user=request.user, address_type='S', default=True)
+    orderTotal = Order.objects.get(user=request.user, ordered=False)
+    totalamount=orderTotal.get_total()
     if request.method == 'POST':
         form = MpesaForm(request.POST)
-        if form.is_valid():
-            PhoneNumber = form.cleaned_data['PhoneNumber']
-            # Amount = Order.get_total
-            Amount = form.cleaned_data['Amount']
+        PhoneNumber = request.POST['PhoneNumber']
+        Amount = request.POST['Amount']
+        request.session["amount"] = totalamount
+        if PhoneNumber != "" and Amount != "":
             lipa_na_mpesa_online(Amount, PhoneNumber)
             request.session["phone_number"] = PhoneNumber
             return redirect('mpesa:completeorder')
 
-    form = MpesaForm()
-    return render(request, 'mpesa.html', {'form': form})
+    return render(request, 'checkout.html', {'order': orderTotal,'shipping_address':shipping_address})
 
 
 def PaymentDone(request, *args, **kwargs):
@@ -174,8 +178,8 @@ def PaymentDone(request, *args, **kwargs):
                 item.save()
             order.ordered = True
             order.payment_receipt = phoneNumber.MpesaReceiptNumber
-            order.paid_amount=phoneNumber.Amount
-            order.status=''
+            order.paid_amount = phoneNumber.Amount
+            order.status = ''
             order.save()
             status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
 

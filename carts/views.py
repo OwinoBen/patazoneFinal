@@ -171,8 +171,10 @@ def add_to_cart(request):
 
 
 @login_required
-def remove_from_cart(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+def remove_from_cart(request):
+    product_id = request.POST.get('product_id')
+    print(product_id)
+    product = get_object_or_404(Product, id=product_id)
     order_qs = Order.objects.filter(
         user=request.user,
         ordered=False
@@ -180,22 +182,22 @@ def remove_from_cart(request, slug):
     if order_qs.exists():
         order = order_qs[0]
         # check if the order item is in the order
-        if order.items.filter(product__slug=product.slug).exists():
+        if order.cart.filter(product__id=product.id).exists():
             order_item = OrderItem.objects.filter(
                 product=product,
                 user=request.user,
                 ordered=False
             )[0]
-            order.items.remove(order_item)
+            order.cart.remove(order_item)
             order_item.delete()
-            messages.info(request, "This item was removed from your cart.")
-            return redirect("core:order-summary")
+            messages.info(request, f"{product.title} was removed from your cart.")
+            return redirect("cart:home")
         else:
-            messages.info(request, "This item was not in your cart")
-            return redirect("cart:shop", slug=slug)
+            messages.info(request, f"{product.title}This item was not in your cart")
+            return redirect("cart:shop")
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("cart:shop", slug=slug)
+        return redirect("cart:shop")
 
 
 @login_required
@@ -348,7 +350,7 @@ def add_to_cart(request):
 
 
 # @login_required
-def remove_from_cart(request, slug):
+def remove_from_cart2(request, slug):
     item = get_object_or_404(Product, slug=slug)
     order_qs = Order.objects.filter(
         user=request.user,

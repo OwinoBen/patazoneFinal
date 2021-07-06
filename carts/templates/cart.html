@@ -157,10 +157,13 @@
                                 </thead>
                                 <tbody class="cart item cart-body">
                                 {% for order_item in object.cart.all  %}
+                                    <form>
+                                    <input type="hidden" name="product_id" value='{{ order_item.product.id }}'>
+                                    </form>
                                 <tr class="item-info">
                                     <td data-th="Item" class="col item">
                                         <a href='#'
-                                           title="OnePlus Nord N10 5G Unlocked" tabindex="-1"
+                                           title="{{ order_item.product.title}}" tabindex="-1"
                                            class="product-item-photo">
                                             <span class="product-image-container product-image-container-11119834517" style="width: 100px;">
                                             <span class="product-image-wrapper" style="padding-bottom: 100%;">
@@ -202,7 +205,7 @@
                                             <div class="click-up-down flex-layout no-wrap column">
                                                 <a class="qty-up-fixed-onclick qty-up" href="#"><span
                                                         class="icon-chevron-up"></span></a>
-                                                <a class="qty-down-fixed-onclick qty-down" href="#"><span
+                                                <a class="qty-down-fixed-onclick qty-down" href="{% url 'cart:removecart' %}"><span
                                                         class="icon-chevron-down"></span></a>
                                             </div>
                                         </div>
@@ -221,7 +224,6 @@
                                     <td colspan="4">
                                         <div class="actions-toolbar">
                                             <div id="gift-options-cart-item-1036"
-                                                 data-bind="scope:'giftOptionsCartItem-1036'"
                                                  class="gift-options-cart-item">
                                             </div>
                                             <a class="action action-edit"
@@ -229,7 +231,7 @@
                                                title="Edit item parameters">
                                                 <span>Edit</span>
                                             </a>
-                                            <a href="#" title="Remove item" class="action action-delete">
+                                            <a href="{% url 'cart:removecart' %}" title="Remove item" class="action action-delete">
                                                 <i class="fa fa-times" aria-hidden="true"></i>
                                                 <span>Remove item </span>
                                             </a>

@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Product, ProductFile
+from .models import Product, ProductFile, SlideShow
 
-
-# Register your models here.
 
 class ProductFileInline(admin.TabularInline):
     model = ProductFile
@@ -17,4 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
         model = Product
 
 
+class SlideShowAdmin(admin.ModelAdmin):
+    list_display = ['name', 'file']
+
+
 admin.site.register(Product, ProductAdmin)
+admin.site.register(SlideShow,SlideShowAdmin)
