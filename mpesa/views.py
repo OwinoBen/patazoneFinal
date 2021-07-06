@@ -10,7 +10,6 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-
 from address.models import Address
 from .models import Post
 from django.http import JsonResponse
@@ -19,12 +18,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from .models import Mpesa_Payments
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from requests.api import request
+from django.conf import settings
 from .forms import MpesaForm, QueryForm, CompleteOrder
 from .online import lipa_na_mpesa_online
 from django.db.models import Q
 from orders.models import Order, Payment
-from django.utils.functional import cached_property
+from django.core.mail import send_mail
+
+HOST_USER_EMAIL = settings.EMAIL_HOST_USER
 
 
 def home(request):
@@ -174,7 +175,6 @@ def MpesaPayments(request):
         Amount = request.POST['Amount']
         request.session["amount"] = totalamount
         if PhoneNumber != "" and Amount != "":
-
             lipa_na_mpesa_online(Amount, PhoneNumber)
             request.session["phone_number"] = PhoneNumber
             return redirect('mpesa:completeorder')
@@ -200,6 +200,13 @@ def PaymentDone(request, *args, **kwargs):
                 order.status = ''
                 order.save()
                 status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
+                subject = 'Patazone marketplace, order placement'
+                message = 'You have successfully placed an order with patazone marketplace.\n your order will be ' \
+                          'shipped within two days '
+                receipient = str(request.user.email)
+
+                send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
+
                 return redirect('register:orders')
             else:
                 # return redirect('register:orders')
