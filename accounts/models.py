@@ -19,7 +19,8 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self,  email=None,username=None, first_name=None, last_name=None, password=None, is_active=True, is_staff=False,
+    def create_user(self, email=None, username=None, first_name=None, last_name=None, password=None, is_active=True,
+                    is_staff=False,
                     is_admin=False,
                     is_vendor=False):
         if not email:
