@@ -8,6 +8,7 @@ import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
@@ -21,6 +22,7 @@ from accounts.models import GuestEmail
 from address.models import Address
 
 from billing.models import BillingProfile
+from mpesa.views import HOST_USER_EMAIL
 from orders.models import Order
 from products.models import Product
 from .models import Cart
@@ -107,7 +109,7 @@ def updateCart(request):
             return redirect("cart:shop")
         else:
             order.cart.add(order_item)
-            messages.info(request, f"{product.title} item was added in your cart")
+            messages.info(request, f"{product.title} was added in your cart")
             return redirect("cart:shop")
     else:
         updated = timezone.now()
@@ -116,6 +118,14 @@ def updateCart(request):
         order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
         order.cart.add(order_item)
         messages.info(request, f"{product.title} item was added in your cart")
+        subject = 'Order submitted successfully (Patazone marketplace)'
+        message = 'Your order 46246184414028 has been submitted successfully. Kindly pay within the timelime for ' \
+                  'quick dispatch.\n Delivery period varies from Patazome marketplace/Local Seller/Global taking 1-5, ' \
+                  '8-15, ' \
+                  '10-25 working days respectively. '
+        receipient = str(request.user.email)
+
+        send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
 
         if product_obj in cart_obj.products.all():
             sku = "PRUD"
@@ -307,7 +317,7 @@ def checkoutDoneView(request):
 
 
 class OrderSummaryView(View):
-    def get(self,request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             try:
                 order = Order.objects.get(user=self.request.user, ordered=False)
@@ -320,6 +330,7 @@ class OrderSummaryView(View):
                 return redirect("/")
         else:
             return redirect("register:login")
+
 
 def add_to_cart(request):
     product_id = request.POST.get('product_id')

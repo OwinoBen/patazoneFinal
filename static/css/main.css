@@ -1483,13 +1483,13 @@
   .abs-product-link > a:hover,
   .product-item-name > a:hover,
   .product.name a > a:hover {
-    color: #0068c9;
+    color: #b92227;
     text-decoration: none;
   }
   .abs-product-link > a:active,
   .product-item-name > a:active,
   .product.name a > a:active {
-    color: #0068c9;
+    color: #b92227;
     text-decoration: none;
   }
   .form.giftregistry.items .actions-toolbar,

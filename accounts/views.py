@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm, UserChangeForm
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib.auth import *
 from django.http import JsonResponse, HttpResponse
@@ -12,6 +13,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_protect
 
 from accounts.forms import AccountUpdateForm
+from mpesa.views import HOST_USER_EMAIL
 from orders.models import UserProfile, Order
 from address.models import Address
 from accounts.models import User
@@ -23,7 +25,7 @@ from accounts.models import User
 @csrf_protect
 def createAccount(request):
     if request.method == 'POST':
-        if request.POST['email'] != '' and request.POST['password'] !='' and request.POST['username'] != '':
+        if request.POST['email'] != '' and request.POST['password'] != '' and request.POST['username'] != '':
             if request.POST['password'] == request.POST['password_confirmation']:
                 try:
                     user = User.objects.get(username=request.POST['username'])
@@ -38,9 +40,13 @@ def createAccount(request):
 
                     login(request, user)
                     userProfile = UserProfile()
-                    print("creating new user profile")
                     userProfile.user = request.user
                     userProfile.save()
+                    # sending email for successfull account creation
+                    subject = 'Patazone marketplace, Account creation'
+                    message = 'Thank you creating account with us'
+                    receipient = str(request.user.email)
+                    send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
             else:
                 return render(request, 'accounts/register.html', {'error': 'passwords should match'})
         else:
@@ -52,7 +58,7 @@ def createAccount(request):
 
 def Login(request):
     if request.method == "POST":
-        if request.POST['email'] !='' and request.POST['password'] != '':
+        if request.POST['email'] != '' and request.POST['password'] != '':
             user = authenticate(email=request.POST['email'], password=request.POST['password'])
             if user is not None:
                 login(request, user)

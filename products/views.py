@@ -9,6 +9,7 @@ def product(request):
     products = Product.objects.all().flashDeals()
     featured = Product.objects.all().featured()
     pro_featured_count = Product.objects.count()
+    topselling =Product.objects.all().topselling()
     slideshow = SlideShow.objects.all()
     search = request.GET.get('search')
 
@@ -21,5 +22,6 @@ def product(request):
         'pro_featured_count': pro_featured_count,
         'slideshow': slideshow,
         'shopList': shopList,
+        'topselling': topselling,
     }
     return render(request, 'homepage.html', context)

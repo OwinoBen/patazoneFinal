@@ -65,6 +65,9 @@ class ProductQuerySet(models.query.QuerySet):
     def flashDeals(self):
         return self.filter(flash=True, active=True)
 
+    def topselling(self):
+        return self.filter(topsell=True, active=True)
+
     def newDeals(self):
         return self.filter(new=True, active=True)
 
@@ -89,6 +92,9 @@ class ProductManager(models.Manager):
 
     def featured(self):
         return self.get_queryset().featured()
+
+    def topselling(self):
+        return self.get_queryset().topselling()
 
     def flashDeals(self):
         return self.get_queryset().flashDeals()
@@ -123,6 +129,7 @@ class Product(models.Model):
     sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     color = models.CharField(max_length=120, choices=COLORS, default='Black')
     featured = models.BooleanField(default=False)
+    topsell = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)
     onSale = models.BooleanField(default=False)
     onsaleValue = models.IntegerField(default=0)
