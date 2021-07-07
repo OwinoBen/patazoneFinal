@@ -327,7 +327,7 @@ class OrderSummaryView(View):
                 return render(self.request, 'cart.html', context)
             except ObjectDoesNotExist:
                 messages.warning(self.request, "You do not have an active order")
-                return redirect("/")
+                return render(self.request, 'cart.html')
         else:
             return redirect("register:login")
 
