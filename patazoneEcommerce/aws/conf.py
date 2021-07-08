@@ -6,8 +6,10 @@ import json
 with open('config.json') as config_file:
     config = json.load(config_file)
 
-AWS_ACCESS_KEY_ID = config.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config.get('AWS_SECRET_ACCESS_KEY')
+# AWS_ACCESS_KEY_ID = config.get('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = "AKIA364ENTIR6TTWV3BA"
+# AWS_SECRET_ACCESS_KEY = config.get('AWS_SECRET_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = "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"
 
 AWS_GROUP_NAME = "patazone_eCommerce_Group"
 AWS_USERNAME = "patazone"
