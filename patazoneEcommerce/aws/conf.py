@@ -1,8 +1,13 @@
 import datetime
 import os
+import json
 
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "AKIA364ENTIR6TTWV3BA")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "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")
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+AWS_ACCESS_KEY_ID = config.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config.get('AWS_SECRET_ACCESS_KEY')
 
 AWS_GROUP_NAME = "patazone_eCommerce_Group"
 AWS_USERNAME = "patazone"
@@ -14,7 +19,7 @@ AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'patazoneEcommerce.aws.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'patazoneEcommerce.aws.utils.StaticRootS3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'patazone'
-S3DIRECT_REGION = 'us-west-2'
+S3DIRECT_REGION = 'us-east-1'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
