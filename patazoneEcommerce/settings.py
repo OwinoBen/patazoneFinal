@@ -64,6 +64,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'django_countries',
+    'storages',
 
     'accounts',
     'address',
@@ -147,6 +148,7 @@ DATABASES = {
 # }
 
 import dj_database_url
+
 # DATABASES = {
 #     'default': dj_database_url.config()
 # }
@@ -206,9 +208,8 @@ MEDIA_URL = '/images/'
 
 # saving images to the images folder during image upload
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+from patazoneEcommerce.aws.conf import *
 
 # BASE_URL = "http://127.0.0.1:8000"
 
