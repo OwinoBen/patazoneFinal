@@ -190,26 +190,30 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+USE_S3 = os.getenv('USE_S3') == 'TRUE'
+if USE_S3:
+    from patazoneEcommerce.aws.conf import *
+else:
+    STATIC_URL = '/static/'
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protected_media")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protected_media")
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static')
-]
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-# congiguring url paths to find images so as to allow images be rendred or displayed
-MEDIA_URL = '/images/'
+    STATICFILES_DIRS = [
+        os.path.join(PROJECT_ROOT, 'static')
+    ]
+    # STATICFILES_DIRS = [
+    #     os.path.join(BASE_DIR, 'static')
+    # ]
+    # congiguring url paths to find images so as to allow images be rendred or displayed
+    MEDIA_URL = '/images/'
 
-# saving images to the images folder during image upload
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+    # saving images to the images folder during image upload
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-from patazoneEcommerce.aws.conf import *
+
 
 # BASE_URL = "http://127.0.0.1:8000"
 

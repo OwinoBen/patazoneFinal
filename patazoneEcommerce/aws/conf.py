@@ -19,12 +19,12 @@ AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 # s3 static settings
 STATIC_LOCATION = 'static'
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-STATICFILES_STORAGE = 'patazoneEcommerce.storage_backends.StaticStorage'
+STATICFILES_STORAGE = 'patazoneEcommerce.storageLocation.utils.StaticStorage'
 # s3 public media settings
 PUBLIC_MEDIA_LOCATION = 'media'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-DEFAULT_FILE_STORAGE = 'patazoneEcommerce.storage_backends.PublicMediaStorage'
+DEFAULT_FILE_STORAGE = 'patazoneEcommerce.storageLocation.utils.PublicMediaStorage'
 # s3 private media settings
 PRIVATE_MEDIA_LOCATION = 'private'
-PRIVATE_FILE_STORAGE = 'patazoneEcommerce.storage_backends.PrivateMediaStorage'
+PRIVATE_FILE_STORAGE = 'patazoneEcommerce.storageLocation.utils.PrivateMediaStorage'
 
