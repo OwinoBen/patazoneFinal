@@ -8,6 +8,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 from patazoneEcommerce.aws.utils import ProtectedS3Storage
+from patazoneEcommerce.storageLocation.utils import PublicMediaStorage
 from patazoneEcommerce.utils import unique_slug_generator, get_filename
 
 # Create your models here.
@@ -124,7 +125,7 @@ class Product(models.Model):
     price = models.FloatField(default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
     discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00, blank=True, null=True)
-    image = models.ImageField(upload_to=upload_image_path, storage=ProtectedS3Storage(), null=True, blank=True)
+    image = models.ImageField(upload_to=upload_image_path, storage=PublicMediaStorage(), null=True, blank=True)
     backImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     color = models.CharField(max_length=120, choices=COLORS, default='Black')
@@ -205,7 +206,7 @@ def upload_product_file_loc(instance, filename):
 
 class SlideShow(models.Model):
     name = models.CharField(max_length=120, null=True, blank=True)
-    file = models.FileField()
+    file = models.FileField(storage=PublicMediaStorage())
 
     def __str__(self):
         return str(self.file.name)
@@ -226,7 +227,7 @@ class ProductFile(models.Model):
     name = models.CharField(max_length=120, null=True, blank=True)
     file = models.FileField(
         upload_to=upload_product_file_loc,
-        storage=ProtectedS3Storage(),  # FileSystemStorage(location=settings.PROTECTED_ROOT)
+        storage=PublicMediaStorage(),  # FileSystemStorage(location=settings.PROTECTED_ROOT)
     )
     free = models.BooleanField(default=False)  # purchase required
     user_required = models.BooleanField(default=False)  # user doesn't matter
