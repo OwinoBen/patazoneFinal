@@ -14,9 +14,9 @@ AWS_SECRET_ACCESS_KEY = "boHoV6v78ZnG1PPGNrckmiZtDV+AKxrWU9HhaUSP"
 AWS_GROUP_NAME = "patazone_eCommerce_Group"
 AWS_USERNAME = "patazone"
 
-AWS_STORAGE_BUCKET_NAME = 'patazone'
+AWS_BUCKET_NAME = 'patazone'
 AWS_DEFAULT_ACL = None
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_BUCKET_NAME}.s3.amazonaws.com'
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 # s3 static settings
 STATIC_LOCATION = 'static'
