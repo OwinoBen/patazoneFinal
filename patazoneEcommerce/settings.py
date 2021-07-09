@@ -189,35 +189,53 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# STATIC_URL = '/static/'
 
-USE_S3 = os.getenv('USE_S3') == 'FALSE'
-if USE_S3:
-    from patazoneEcommerce.aws.conf import *
-else:
-    STATIC_URL = '/static/'
+USE_S3 = os.getenv('USE_S3') == 'TRUE'
+# if USE_S3:
+#     from patazoneEcommerce.aws.conf import *
+# else:
+STATIC_URL = '/static/'
 
-    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-    PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protected_media")
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protected_media")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-    STATICFILES_DIRS = [
-        os.path.join(PROJECT_ROOT, 'static')
-    ]
-    # STATICFILES_DIRS = [
-    #     os.path.join(BASE_DIR, 'static')
-    # ]
-    # congiguring url paths to find images so as to allow images be rendred or displayed
-    MEDIA_URL = '/images/'
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'static')
+]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+# congiguring url paths to find images so as to allow images be rendred or displayed
+# MEDIA_URL = '/images/'
 
-    # saving images to the images folder during image upload
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+# saving images to the images folder during image upload
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 
 # BASE_URL = "http://127.0.0.1:8000"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+
+AWS_ACCESS_KEY_ID = "AKIA364ENTIR6TTWV3BA"
+# AWS_SECRET_ACCESS_KEY = config.get('AWS_SECRET_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = 'patazone'
+AWS_QUERYSTRING_AUTH=False
+
+# AWS_STORAGE_BUCKET_NAME = 'patazone'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# s3 public media settings
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+DEFAULT_FILE_STORAGE = 'patazoneEcommerce.storageLocation.utils.PublicMediaStorage'
 
 SITE_ID = 1
 
