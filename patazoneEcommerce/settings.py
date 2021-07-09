@@ -190,7 +190,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
+USE_S3 = os.getenv('USE_S3') == 'FALSE'
 if USE_S3:
     from patazoneEcommerce.aws.conf import *
 else:
