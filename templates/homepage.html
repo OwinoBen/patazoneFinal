@@ -43,7 +43,6 @@
                                                 alt="Digital 03 - Side show" title="#htmlcaption10"
                                                 src="{{ slides.file.url }}"/></a>
                                 {% endfor %}
-                                {#
                             </div>
                             <div class="container-the-blue-sky-banner-text nivo-html-caption nivo-caption"
                                  id="htmlcaption10">
@@ -273,7 +272,7 @@
                                     <div class="item-load group-rows-fixed-supper-deal item-row">
                                         <div class="item product product-item">
                                             <div class="product-item-info">
-                                                <a href="#"
+                                                <a href="{% url 'cart:productdetails' id=product.id %}"
                                                    class="product photo product-item-photo" tabindex="-1">
                                                   <span class="image0 image-switch product-image-container">
                                                     <img class="product-image"
@@ -284,7 +283,7 @@
                                                 <div class="product details product-item-details">
                                                     <strong class="product name product-item-name">
                                                         <a class="product-item-link"
-                                                           href="#">
+                                                          href="{% url 'cart:productdetails' id=product.id %}">
                                                             {{ product.title }}
                                                         </a>
                                                     </strong>

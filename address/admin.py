@@ -6,14 +6,14 @@ from .models import Address
 class AddressAdmin(admin.ModelAdmin):
     list_display = [
         'user',
-        'street_address',
+        'delivery_address',
         'country',
         'zip',
         'address_type',
         'default'
     ]
     list_filter = ['default', 'address_type', 'country']
-    search_fields = ['user', 'street_address', 'zip']
+    search_fields = ['user', 'delivery_address', 'zip']
 
 
 admin.site.register(Address,AddressAdmin)

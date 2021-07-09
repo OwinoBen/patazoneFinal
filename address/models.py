@@ -3,7 +3,6 @@ from django.db import models
 from django.urls import reverse
 from django_countries.fields import CountryField
 
-
 from billing.models import BillingProfile
 
 Address_type = (
@@ -15,10 +14,15 @@ Address_type = (
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, null=True, blank=True)
-    street_address = models.CharField(max_length=100, null=True, blank=True)
-    # apartment_address = models.CharField(max_length=100)
+    firstname = models.CharField(max_length=120, blank=True, null=True)
+    lastname = models.CharField(max_length=120, blank=True, null=True)
+    mobile_phone = models.CharField(max_length=120, blank=True, null=True)
+    mobile= models.CharField(max_length=120, blank=True, null=True)
+    delivery_address = models.TextField(max_length=100, null=True, blank=True)
+    region = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100,null=True,blank=True)
     country = CountryField(multiple=False)
-    zip = models.CharField(max_length=100,null=True, blank=True)
+    zip = models.CharField(max_length=100, null=True, blank=True)
     address_type = models.CharField(max_length=120, choices=Address_type)
     default = models.BooleanField(default=False)
 
@@ -27,7 +31,6 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = 'Addresses'
-
 
 # class Address(models.Model):
 #     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE)

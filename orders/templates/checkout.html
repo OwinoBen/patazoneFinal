@@ -1107,89 +1107,7 @@ p{margin-bottom:.3em;}
                         <li id="shipping" class="checkout-shipping-address " >
                             <div class="step-title" data-role="title">Shipping Address</div>
                             <div id="checkout-step-shipping" class="step-content" data-role="content">
-                                <div class="form form-login" style="display: block;">
-                                    <fieldset id="customer-email-fieldset" class="fieldset">
-                                        {% if request.user.is_authenticated %}
-                                            <div class="field required">
-                                                <label class="label" for="customer-email">
-                                                    <span>Email Address</span>
-                                                </label>
-                                                <div class="control _with-tooltip">
-                                                    <input class="input-text" type="email" name="username"
-                                                           id="customer-email" disabled value="{{ order.user.email }}">
-                                                    <div class="field-tooltip toggle">
-                                                        <span id="tooltip-label" class="label"></span>
-                                                        <span id="tooltip" class="field-tooltip-action action-help"
-                                                              tabindex="0" data-toggle="dropdown" aria-haspopup="true"
-                                                              role="button"></span>
-                                                        <div class="field-tooltip-content" data-target="dropdown"
-                                                             aria-hidden="true">
-                                                            We'll send your order confirmation here.
-                                                        </div>
-                                                    </div>
-                                                    <span class="note"><span>You can create an account after checkout.</span></span>
-                                                </div>
-                                            </div>
-                                        {% endif %}
 
-                                        <fieldset class="fieldset hidden-fields" style="display: none;">
-                                            <div class="field">
-                                                <label class="label" for="customer-password">
-                                                    <span>Password</span>
-                                                </label>
-                                                <div class="control">
-                                                    <input class="input-text" name="password" id="customer-password"
-                                                           autocomplete="off"
-                                                           placeholder="Password">
-                                                    <span class="note">You already have an account with us. Sign in or continue as guest.</span>
-                                                </div>
-                                            </div>
-                                            <input name="captcha_form_id" type="hidden" value="user_login"
-                                                   data-scope="">
-                                            <div class="actions-toolbar">
-                                                <input name="context" type="hidden" value="checkout">
-                                                <div class="primary">
-                                                    <button type="submit" class="action login primary">
-                                                        <span>Login</span></button>
-                                                </div>
-                                                <div class="secondary">
-                                                    <a class="action remind">
-                                                        <span>Forgot Your Password?</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-                                        <fieldset class="fieldset hidden-fields create-account">
-                                            {#                                                <div class="field">#}
-                                            {#                                                    <input class="checkbox" type="checkbox" name="createnewcustomer" id="create-new-customer" autocomplete="off">#}
-                                            {#                                                    <label class="label">#}
-                                            {#                                                        <span>Create New Account</span>#}
-                                            {#                                                    </label>#}
-                                            {#                                                </div>#}
-                                            <div class="field _required pass" style="display: none;">
-                                                <label class="label" for="new-customer-password">
-                                                    <span data-bind="i18n: 'Password'">Password</span>
-                                                </label>
-                                                <div class="control">
-                                                    <input class="input-text" name="newcustomerpassword"
-                                                           id="new-customer-password"
-                                                           autocomplete="off" placeholder="Password">
-                                                </div>
-                                            </div>
-                                            <div class="field _required confirm-pass" style="display: none;">
-                                                <label class="label" for="new-customer-password-confirmation">
-                                                    <span data-bind="i18n: 'Confirm Password'">Confirm Password</span>
-                                                </label>
-                                                <div class="control">
-                                                    <input class="input-text" name="newcustomerpassword_confirmation"
-                                                           id="new-customer-password-confirmation" autocomplete="off"
-                                                           placeholder="Confirm Password">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </fieldset>
-                                </div>
                                 <div class="form form-shipping-address" id="co-shipping-form" style="display: block;">
                                     <div id="shipping-new-address-form" class="fieldset address">
                                         <div class="field col-mp mp-12 mp-clear required _required"
@@ -1197,80 +1115,58 @@ p{margin-bottom:.3em;}
                                             <label class="label"><span>First Name</span></label>
                                             <div class="control">
                                                 <input class="input-text" type="text" name="firstname"
-                                                       aria-required="true" aria-invalid="false" id="ISIUVXY">
-
+                                                       aria-required="true" aria-invalid="false" id="firstname">
                                             </div>
                                         </div>
                                         <div class="field col-mp mp-12 mp-clear required _required"
                                              name="shippingAddress.lastname">
-                                            <label class="label"><span>Last Name</span><!-- /ko -->
+                                            <label class="label"><span>Last Name</span>
                                             </label>
                                             <div class="control">
                                                 <input class="input-text" type="text" name="lastname"
-                                                       aria-required="true" aria-invalid="false" id="G1G7FYP">
+                                                       aria-required="true" aria-invalid="false" id="lastname">
                                             </div>
                                         </div>
                                         <fieldset
                                                 class="field street col-mp mp-12 mp-clear not-required admin__control-fields required">
                                             <legend class="label">
-                                                <span>Street Address: Line 1</span>
+                                                <span>Mobile phone number</span>
                                             </legend>
                                             <div class="control">
                                                 <div class="field _required">
                                                     <label class="label">
-                                                        <span>Street Address: Line 1</span>
+                                                        <span>Mobile phone number</span>
                                                     </label>
                                                     <div class="control">
-                                                        <input class="input-text" type="text" name="shipping_address"
-                                                               id="shipping_address">
+                                                        <input class="input-text" type="text" name="mobilephone1"
+                                                               id="mobilephone1">
                                                     </div>
                                                 </div>
                                                 <div class="field additional" name="shippingAddress.street.1">
                                                     <label class="label">
-                                                        <span>Street Address: Line 2 (Optional)</span>
+                                                        <span>Additional phone number (Optional)</span>
                                                     </label>
                                                     <div class="control">
-                                                        <input class="input-text" type="text" name="shipping_address2"
-                                                               id="shipping_address2">
+                                                        <input class="input-text" type="text" name="mobilephone2"
+                                                               id="mobilephone2">
                                                     </div>
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <div class="field col-mp mp-12 mp-clear not-required"
-                                             name="shippingAddress.city">
-                                            <label class="label">
-                                                <span>City</span></label>
+                                        <div class="field col-mp mp-12 mp-clear not-required" name="shippingAddress.city">
+                                            <label class="label"><span>Delivery Address</span></label>
                                             <div class="control">
-                                                <input class="input-text" type="text" name="city" id="city">
+                                                <input class="input-text" type="text" name="deliveryAddress" id="deliveryAddress">
                                             </div>
                                         </div>
-                                        <div class="field col-mp mp-12 mp-clear not-required _required"
-                                             name="shippingAddress.postcode">
-                                            <label class="label">
-                                                <span>Zip/Postal Code</span>
-                                            </label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="shipping_zip"
-                                                       id="shipping_zip">
-                                            </div>
-                                        </div>
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.country_id">
-                                            <label class="label"><span>Country</span>
-                                            </label>
-                                            <div class="control">
-                                                {{ form.shipping_country }}
 
-                                            </div>
-                                        </div>
                                         <div class="field col-mp mp-12 mp-clear required _required"
                                              name="shippingAddress.region_id">
                                             <label class="label">
-                                                <span>State/Province</span>
+                                                <span>State/Region</span>
                                             </label>
                                             <div class="control">
-                                                <select class="select" name="region_id" id="YPKMI5S"
-                                                        aria-required="true" aria-invalid="false">
+                                                <select class="select" name="state" id="state" aria-required="true" aria-invalid="false">
                                                     <option value="">Please select a region, state or province.
                                                     </option>
                                                     <option data-title="Mombasa" value="1"> Mombasa</option>
@@ -1331,27 +1227,24 @@ p{margin-bottom:.3em;}
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="field _required" style="display: none;"
-                                             name="shippingAddress.region">
+                                        <div class="field col-mp mp-12 mp-clear not-required _required" name="shippingAddress.postcode">
                                             <label class="label">
-                                                <span>County</span>
+                                                <span>City</span>
                                             </label>
                                             <div class="control">
-                                                <input class="input-text" type="text" name="county" aria-required="true"
-                                                       aria-invalid="false" id="county">
+                                                <input class="input-text" type="text" name="city" id="city">
+                                            </div>
+                                        </div>
+                                        <div class="field col-mp mp-12 mp-clear required _required"
+                                             name="shippingAddress.country_id">
+                                            <label class="label"><span>Country</span>
+                                            </label>
+                                            <div class="control">
+                                                {{ form.shipping_country }}
+
                                             </div>
                                         </div>
 
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.telephone">
-                                            <label class="label">
-                                                <span>Phone Number</span>
-                                            </label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="phone" aria-required="true"
-                                                       aria-invalid="false" id="XCA1BOO">
-                                            </div>
-                                        </div>
                                         <div class="checkout-billing-address">
                                             <div class="billing-address-same-as-shipping-block field choice">
                                                 <input type="checkbox" name="set_default_shipping"
@@ -1363,13 +1256,13 @@ p{margin-bottom:.3em;}
                                     </div>
                                 </div>
                             </div>
-                            {% if default_shipping_address %}
-                                <div class="billing-address-same-as-shipping-block field choice">
-                                    <input type="checkbox" name="use_default_shipping"
-                                           id="use_default_shipping">
-                                    <label><span>Use default shipping address: {{ default_shipping_address.street_address|truncatechars:10 }}</span></label>
-                                </div>
-                            {% endif %}
+{#                            {% if default_shipping_address %}#}
+{#                                <div class="billing-address-same-as-shipping-block field choice">#}
+{#                                    <input type="checkbox" name="use_default_shipping"#}
+{#                                           id="use_default_shipping">#}
+{#                                    <label><span>Use default shipping address: {{ default_shipping_address.street_address|truncatechars:10 }}</span></label>#}
+{#                                </div>#}
+{#                            {% endif %}#}
                         </li>
                         {% endif %}
                     </div>
