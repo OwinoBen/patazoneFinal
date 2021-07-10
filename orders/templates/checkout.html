@@ -996,15 +996,15 @@ p{margin-bottom:.3em;}
                                                                                 <span>Phone Number</span></label>
                                                                             <div class="control">
                                                                                 <input type="text" class="input-text" id="PhoneNumber"
-                                                                                       name="PhoneNumber" autocomplete="off" placeholder="254700000000" required>
+                                                                                       name="PhoneNumber" autocomplete="off" placeholder="7xxxxxx" required>
                                                                             </div>
                                                                         </div>
                                                                         <div class="field field-password required">
-                                                                            <label for="login-password" class="label">
-                                                                                <span>Total Order Amount (Ksh.)</span>
-                                                                            </label>
+{#                                                                            <label for="login-password" class="label">#}
+{#                                                                                <span>Total Order Amount (Ksh.)</span>#}
+{#                                                                            </label>#}
                                                                             <div class="control">
-                                                                                <input type="text" class="input-text" style="text-align: center; font-weight: bold"
+                                                                                <input type="hidden" class="input-text" style="text-align: center; font-weight: bold"
                                                                                        id="Amount" name="Amount" value="{{ order.get_total|floatformat:"0"}}"
                                                                                        autocomplete="off" readonly>
                                                                             </div>
@@ -1254,6 +1254,11 @@ p{margin-bottom:.3em;}
                                         </div>
 
                                     </div>
+                                    <div class="primary">
+                                                                        <button type="submit" class="action action-login secondary">
+                                                                            <span>Proceed</span>
+                                                                        </button>
+                                                                    </div>
                                 </div>
                             </div>
 {#                            {% if default_shipping_address %}#}
