@@ -205,7 +205,11 @@ def upload_product_file_loc(instance, filename):
 
 
 class SlideShow(models.Model):
+    slide_id=models.CharField(max_length=20,null=True,blank=True)
     name = models.CharField(max_length=120, null=True, blank=True)
+    tag1 = models.CharField(max_length=12, blank=True, null=True)
+    tag2 = models.CharField(max_length=12, blank=True, null=True)
+    tag3 = models.CharField(max_length=12, blank=True, null=True)
     file = models.FileField(storage=PublicMediaStorage())
 
     def __str__(self):

@@ -37,13 +37,16 @@
                             </div>
                             <div class="container-the-blue-sky-slider nivoSlider">
                                 {% for slides in slideshow %}
-                                    <a href="{% url 'shop' %}" title="Digital 03 - Side show">
+                                    <a href="shop.html" title="Digital 03 - Side show">
                                         <img
                                                 class="banner-nivo-slider-mobile-and-web no-lazy"
-                                                alt="Digital 03 - Side show" title="#htmlcaption10"
+                                                alt="Digital 03 - Side show"
+                                                title="{{ slides.slide_id }}"
                                                 src="{{ slides.file.url }}"/></a>
+
                                 {% endfor %}
                             </div>
+
                             <div class="container-the-blue-sky-banner-text nivo-html-caption nivo-caption"
                                  id="htmlcaption10">
                                 <div class="banner-postion-fixed the-blue-sky-banner-text left_center">
@@ -283,7 +286,7 @@
                                                 <div class="product details product-item-details">
                                                     <strong class="product name product-item-name">
                                                         <a class="product-item-link"
-                                                          href="{% url 'cart:productdetails' id=product.id %}">
+                                                           href="{% url 'cart:productdetails' id=product.id %}">
                                                             {{ product.title }}
                                                         </a>
                                                     </strong>
