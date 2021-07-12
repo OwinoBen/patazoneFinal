@@ -63,15 +63,62 @@ def is_valid_form(values):
     return valid
 
 
+def saveAddress(request):
+    error = ''
+    firstname = request.POST['firstname']
+    lastname = request.POST['lastname']
+    mobilePhone = request.POST['mobilephone1']
+    mobilePhone2 = request.POST['mobilephone2']
+    deliveryAddress = request.POST['deliveryAddress']
+    state_region = request.POST['state']
+    city = request.POST['city']
+    set_default_shipping = request.POST.get('set_default_shipping_address')
+    if firstname != "" and lastname != '' and mobilePhone != '' and deliveryAddress != '' and state_region != '' and city != '':
+        try:
+            phone = Address.objects.get(mobile_phone=mobilePhone)
+            return render(request, 'checkout.html',
+                          {'error': 'Address  with the phone number already exists'})
+        except Address.DoesNotExist:
+            order = Order.objects.get(user=request.user, ordered=False)
+            shipping_address = Address(
+                user=request.user,
+                firstname=firstname,
+                lastname=lastname,
+                delivery_address=deliveryAddress,
+                region=state_region,
+                mobile_phone=mobilePhone,
+                mobile=mobilePhone2,
+                city=city,
+                address_type='S'
+            )
+            shipping_address.save()
+            order.shipping_address = shipping_address
+            order.save()
+            address_qs = Address.objects.filter(user=request.user, default=True)
+            if set_default_shipping:
+                if address_qs.exists():
+                    return render(request, 'checkout.html', {'error': "A default shipping address is already set"})
+                else:
+                    shipping_address.default = True
+                    shipping_address.save()
+        return redirect('checkout:checkout')
+    else:
+        error = "Please fill in the required shipping address fields"
+    context = {'error': error}
+    return render(request, 'checkout.html', context)
+
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:
+            shipping_addres = Address.objects.filter(user=self.request.user, address_type='S', default=True)
             order = Order.objects.get(user=self.request.user, ordered=False)
             form = CheckoutForm()
             context = {
                 'form': form,
                 'couponform': CouponForm(),
                 'order': order,
+                'shipping_addres':shipping_addres,
                 'DISPLAY_COUPON_FORM': True
             }
 
@@ -133,7 +180,6 @@ class CheckoutView(View):
                         shipping_address = Address(
                             user=self.request.user,
                             street_address=shipping_address1,
-                            # apartment_address=shipping_address2,
                             country=shipping_country,
                             zip=shipping_zip,
                             address_type='S'

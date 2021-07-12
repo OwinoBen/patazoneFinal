@@ -175,8 +175,9 @@ def MpesaPayments(request):
         Amount = request.POST['Amount']
         request.session["amount"] = totalamount
         if PhoneNumber != "" and Amount != "":
+            phone_code = '254'
             lipa_na_mpesa_online(Amount, PhoneNumber)
-            request.session["phone_number"] = PhoneNumber
+            request.session["phone_number"] = (phone_code + PhoneNumber)
             return redirect('mpesa:completeorder')
 
     return render(request, 'checkout.html', {'order': orderTotal, 'shipping_address': shipping_address})
