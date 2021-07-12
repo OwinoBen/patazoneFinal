@@ -621,14 +621,14 @@
                         <div data-block="minicart" class="minicart-wrapper">
                             <a class="action showcart" href="{% url 'cart:home' %}" data-bind="scope: 'minicart_content'">
                             <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
+                            {% if request.user.is_authenticated %}
                           <span class="counter qty empty" style="background-color: #b92227;margin-top: -6px;" >
-                            <span class="total-mini-cart-item" >
-                                {% if request.user.is_authenticated %}
-                                    {{ request.user|cart_item_count }}
-                                {% endif %}
 
+                            <span class="total-mini-cart-item" >
+                                {{ request.user|cart_item_count }}
                             </span>
                           </span>
+                            {% endif %}
                           <span class="mini-cart-text">
                             <span class="text">My Cart</span>
                             <span class="content-cart hidden-xs">
