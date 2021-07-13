@@ -205,7 +205,7 @@
                                             <div class="click-up-down flex-layout no-wrap column">
                                                 <a class="qty-up-fixed-onclick qty-up" href="#"><span
                                                         class="icon-chevron-up"></span></a>
-                                                <a class="qty-down-fixed-onclick qty-down" href="{% url 'cart:removecart' %}"><span
+                                                <a class="qty-down-fixed-onclick qty-down" href="{% url 'cart:removefromcart' order_item.id %}"><span
                                                         class="icon-chevron-down"></span></a>
                                             </div>
                                         </div>
@@ -231,8 +231,9 @@
                                                title="Edit item parameters">
                                                 <span>Edit</span>
                                             </a>
-                                            <a href="{% url 'cart:removecart' %}" title="Remove item" class="action action-delete">
-                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            <a href="{% url 'cart:removefromcart' order_item.product.id %}" title="Remove item" class=" fal fa-trash-alt">
+                                                <i class="fa fa-" aria-hidden="true"></i>
+                                                <i class="fas fa-trash-alt"></i>
                                                 <span>Remove item </span>
                                             </a>
                                         </div>
