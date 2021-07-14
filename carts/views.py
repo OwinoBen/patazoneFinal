@@ -181,8 +181,8 @@ def add_to_cart(request):
 
 
 @login_required
-def remove_from_cart(request):
-    product_id = request.POST.get('product_id')
+def remove_from_cart(request, product_id):
+    product_id = product_id
     print(product_id)
     product = get_object_or_404(Product, id=product_id)
     order_qs = Order.objects.filter(
@@ -211,8 +211,8 @@ def remove_from_cart(request):
 
 
 @login_required
-def remove_single_item_from_cart(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+def remove_single_item_from_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
     order_qs = Order.objects.filter(
         user=request.user,
         ordered=False
@@ -220,7 +220,7 @@ def remove_single_item_from_cart(request, slug):
     if order_qs.exists():
         order = order_qs[0]
         # check if the order item is in the order
-        if order.items.filter(product__slug=product.slug).exists():
+        if order.cart.filter(product__id=product.id).exists():
             order_item = OrderItem.objects.filter(
                 product=product,
                 user=request.user,
@@ -230,15 +230,15 @@ def remove_single_item_from_cart(request, slug):
                 order_item.quantity -= 1
                 order_item.save()
             else:
-                order.items.remove(order_item)
+                order.cart.remove(order_item)
             messages.info(request, "This item quantity was updated.")
             return redirect("cart:home")
         else:
             messages.info(request, "This item was not in your cart")
-            return redirect("core:product", slug=slug)
+            return redirect("cart:shop", id=product_id)
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("core:product", slug=slug)
+        return redirect("cart:shop", id=product_id)
 
 
 # def get_coupon(request, code):
@@ -391,7 +391,7 @@ def remove_from_cart2(request, slug):
 
 
 # @login_required
-def remove_single_item_from_cart(request, slug):
+def remove_single_item_from_cart2(request, slug):
     # product_id =
     item = get_object_or_404(Product, slug=slug)
     order_qs = Order.objects.filter(

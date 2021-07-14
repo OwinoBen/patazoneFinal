@@ -25,7 +25,7 @@
       <a
         href="javascript: void(0);"
         class="btn-close newletter_popup_close"
-        ><i class="fa fa-times" style="color: #fff; font-size: 24px"></i
+        ><i class="fa fa-times" style=" color: #fff; font-size: 24px"></i
       ></a>
       <div class="col-newsletter-popup col-content">
         <div class="col-img-bg-pupup"></div>
@@ -211,7 +211,9 @@
                   </a>
                 </div>
                 <div class="primary-menu-container mobile-style">
-                  <span data-action="toggle-nav" class="action nav-toggle d-xl-none sticky-toggle"><span>Toggle Nav</span></span>
+{#                    <i class="far fa-align-justify" ></i>#}
+                  <i data-action="toggle-nav" class="far fa-align-justify nav-toggle  "><span>Toggle Nav</span></i>
+
                   <div class="navigation custommenu main-nav nav-sections mobile-style" role="navigation">
                     <div class="close-menu-mobile">
                       <a href="#" id="close-menu">Close</a>
@@ -621,14 +623,14 @@
                         <div data-block="minicart" class="minicart-wrapper">
                             <a class="action showcart" href="{% url 'cart:home' %}" data-bind="scope: 'minicart_content'">
                             <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
+                            {% if request.user.is_authenticated %}
                           <span class="counter qty empty" style="background-color: #b92227;margin-top: -6px;" >
-                            <span class="total-mini-cart-item" >
-                                {% if request.user.is_authenticated %}
-                                    {{ request.user|cart_item_count }}
-                                {% endif %}
 
+                            <span class="total-mini-cart-item" >
+                                {{ request.user|cart_item_count }}
                             </span>
                           </span>
+                            {% endif %}
                           <span class="mini-cart-text">
                             <span class="text">My Cart</span>
                             <span class="content-cart hidden-xs">

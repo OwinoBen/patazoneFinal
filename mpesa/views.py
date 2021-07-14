@@ -175,8 +175,9 @@ def MpesaPayments(request):
         Amount = request.POST['Amount']
         request.session["amount"] = totalamount
         if PhoneNumber != "" and Amount != "":
+            phone_code = '254'
             lipa_na_mpesa_online(Amount, PhoneNumber)
-            request.session["phone_number"] = PhoneNumber
+            request.session["phone_number"] = (phone_code + PhoneNumber)
             return redirect('mpesa:completeorder')
 
     return render(request, 'checkout.html', {'order': orderTotal, 'shipping_address': shipping_address})
@@ -188,7 +189,7 @@ def PaymentDone(request, *args, **kwargs):
         PhoneNumber = request.POST['phone']
         try:
             phoneNumber = Mpesa_Payments.objects.get(PhoneNumber=PhoneNumber, Status=0)
-            if phoneNumber.exists():
+            if phoneNumber:
                 order = Order.objects.get(user=request.user, ordered=False)
                 orderitems = order.cart.all()
                 orderitems.update(ordered=True)

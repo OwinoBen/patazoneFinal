@@ -1070,25 +1070,24 @@ p{margin-bottom:.3em;}
                                              style="display: none;">
                                             <span>No Payment method available.</span>
                                         </div>
-
                                     </fieldset>
                                 </form>
                             </div>
                         </li>
-                    {% if shipping_address %}
+                        {% if shipping_addres %}
                     <li id="shipping" class="checkout-shipping-address">
                             <div class="step-title" data-role="title">Shipping Address</div>
                             <div id="checkout-step-shipping" class="step-content" data-role="content">
-                                {% for shipping in shipping_address %}
+                                {% for shipping in shipping_addres %}
                                 <div class="field addresses">
                                     <div class="control">
                                         <div class="shipping-address-items">
                                             <div class="shipping-address-item selected-item">
                                                 {{ shipping.user.first_name}} {{ shipping.user.last_name}}<br/>
-                                                {{ shipping.street_address}}<br/>
-                                                {{ shipping.zip}}<br/>
+                                                {{ shipping.delivery_address}}<br/>
+                                                {{ shipping.region}}<br/>
                                                 {{ shippingcountry.name}}<br/>
-                                                Tel: <a href="tel:0790232329">0790232329</a>
+                                                Tel: <a href="tel:0790232329">{{ shipping.mobile_phone}}</a>
                                                 <br>
                                             </div>
                                         </div>
@@ -1100,15 +1099,20 @@ p{margin-bottom:.3em;}
                                     </button>
                                 </div>
                                 {% endfor %}
-
                             </div>
                         </li>
                         {% else %}
                         <li id="shipping" class="checkout-shipping-address " >
                             <div class="step-title" data-role="title">Shipping Address</div>
+                            {% if error %}
+                                <div id="password-strength-meter" class="password-strength-meter" style="text-align: center; margin-bottom: 10px;">
+                                    <span style="color: red;margin: auto;">{{ error }}</span>
+                                </div>
+                            {% endif %}
                             <div id="checkout-step-shipping" class="step-content" data-role="content">
 
-                                <div class="form form-shipping-address" id="co-shipping-form" style="display: block;">
+                                <form class="form form-shipping-address" method="post" action="{% url 'checkout:address' %}" id="co-shipping-form" style="display: block;">
+                                    {% csrf_token %}
                                     <div id="shipping-new-address-form" class="fieldset address">
                                         <div class="field col-mp mp-12 mp-clear required _required"
                                              name="shippingAddress.firstname">
@@ -1247,19 +1251,19 @@ p{margin-bottom:.3em;}
 
                                         <div class="checkout-billing-address">
                                             <div class="billing-address-same-as-shipping-block field choice">
-                                                <input type="checkbox" name="set_default_shipping"
-                                                       id="set_default_shipping">
+                                                <input type="checkbox" name="set_default_shipping_address"
+                                                       id="set_default_shipping_address">
                                                 <label><span>Save as default shipping address</span></label>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="primary">
-                                                                        <button type="submit" class="action action-login secondary">
-                                                                            <span>Proceed</span>
-                                                                        </button>
-                                                                    </div>
-                                </div>
+                                        <button type="submit" class="action action-login secondary">
+                                            <span>Proceed</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
 {#                            {% if default_shipping_address %}#}
 {#                                <div class="billing-address-same-as-shipping-block field choice">#}
