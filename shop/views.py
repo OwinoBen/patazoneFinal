@@ -1,15 +1,25 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.models import *
 from carts.models import Cart
 
 
 # Create your views here.
 def shopViews(request):
-    shopList = Product.objects.all()
+    products = Product.objects.all()
     objects = Cart.objects.all()
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(products, 12)
+    try:
+        shopList = paginator.page(page)
+    except PageNotAnInteger:
+        shopList = paginator.page(1)
+    except EmptyPage:
+        shopList = paginator.page(paginator.num_pages)
 
     if search != '' and search is not None:
         shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
@@ -43,6 +53,21 @@ def electronicsSearch(request):
     shopList = Product.objects.filter(category='E')
     context = {'shopList': shopList}
     return render(request, 'menu/electronics.html', context)
+
+
+def SortedProductList(request, keyword):
+    if keyword == 'shop':
+        shopList = Product.objects.all()
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
+    else:
+        shopList = Product.objects.filter(category__iexact=str(keyword))
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
 
 
 def grocerySearch(request):

@@ -13,4 +13,3 @@ urlpatterns = [
     path(r'^productdetails/(?P<id>)/$', productDetails, name='productdetails'),
     path('removed/<int:product_id>', remove_single_item_from_cart, name="removefromcart"),
 ]
-# r'^emp_detail/(?P<id>\w+)/(?P<mobile_number>\d{10,18})/$'

@@ -12,18 +12,18 @@ from patazoneEcommerce.storageLocation.utils import PublicMediaStorage
 from patazoneEcommerce.utils import unique_slug_generator, get_filename
 
 # Create your models here.
-CATEGORY = (('P', 'Phones & Accessories'),
-            ('E', 'Electronics'),
-            ('C', 'Computer & Tablets'),
-            ('H', 'Home and Office'),
-            ('S', 'Schooling'),
-            ('G', 'Grocery'),
-            ('B', 'Beauty, Health & Hair'),
-            ('K', 'Baby, kids & Maternity'),
-            ('CL', 'Cloths'),
-            ('SP', 'Sports'),
-            ('HA', 'Household Appliances'),
-            ('A', 'Automotive'),
+CATEGORY = (('Phones & Accessories', 'Phones & Accessories'),
+            ('Electronics', 'Electronics'),
+            ('Computer & Tablets', 'Computer & Tablets'),
+            ('Home and Office', 'Home and Office'),
+            ('Schooling', 'Schooling'),
+            ('Grocery', 'Grocery'),
+            ('Beauty, Health & Hair', 'Beauty, Health & Hair'),
+            ('Baby, kids & Maternity', 'Baby, kids & Maternity'),
+            ('Cloths', 'Cloths'),
+            ('Sports', 'Sports'),
+            ('Household Appliances', 'Household Appliances'),
+            ('Automotive', 'Automotive'),
             )
 COLORS = (('Red', 'Red'),
           ('Blue', 'Blue'),
@@ -125,10 +125,9 @@ class Product(models.Model):
     cost_price =models.DecimalField(default=0.00, decimal_places=2, max_digits=20)
     price = models.FloatField(default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    quantity = models.IntegerField(default=1)
     discount_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00, blank=True, null=True)
     image = models.FileField(upload_to=upload_image_path, storage=PublicMediaStorage(), null=True, blank=True)
-    backImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
-    sideImage = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     color = models.CharField(max_length=120, choices=COLORS, default='Black')
     featured = models.BooleanField(default=False)
     topsell = models.BooleanField(default=False)
