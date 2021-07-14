@@ -43,7 +43,7 @@
                                         <strong class="product name product-item-name">
                                             <a class="product-item-link"
                                                href="{% url 'cart:productdetails' id=products.id %} ">
-                                                {{ products.title }} </a>
+                                                {{ products.title|truncatechars:45 }} </a>
                                         </strong>
                                         <div class="product-reviews-summary short">
                                             <div class="rating-summary">
