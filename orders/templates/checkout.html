@@ -1288,11 +1288,12 @@ p{margin-bottom:.3em;}
                                     <span>Item in Cart</span>
                                 </strong>
                             </div>
-                            {% for cart_items in order.cart.all %}
 
                                 <div class="content minicart-items" data-role="content" role="tabpanel"
                                      aria-hidden="false">
+
                                     <div class="minicart-items-wrapper">
+                                        {% for cart_items in order.cart.all %}
                                         <ol class="minicart-items">
                                             <li class="product-item">
                                                 <div class="product">
@@ -1339,9 +1340,11 @@ p{margin-bottom:.3em;}
                                                 </div>
                                             </li>
                                         </ol>
+                                        {% endfor %}
                                     </div>
+
                                 </div>
-                            {% endfor %}
+
                         </div>
                         <table class="data table table-totals">
                             <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>

@@ -65,9 +65,12 @@
             </div>
         </div>
         <div class="columns">
-            <div class="column main"><input name="form_key" type="hidden" value="E2tF5ES14ABsPBt9"/>
-                <div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+            {% if object.cart.exists %}
+            <div class="column main">
+                <input name="form_key" type="hidden" value="E2tF5ES14ABsPBt9"/>
+                <div id="authenticationPopup">
                 </div>
+
                 <div class="cart-container">
                     <div class="cart-summary" style="top: 0px;"><strong class="summary title">Summary</strong>
 
@@ -144,7 +147,7 @@
                     <form action="#" method="post" id="form-validate" class="form form-cart">
                         <input name="form_key" type="hidden" value="Fzk6y9ovq1rLFrac">
                         <div class="cart table-wrapper">
-                            {% if object.cart.exists %}
+
                             <table id="shopping-cart-table" class="cart-table cart items data table">
                                 <caption class="table-caption">Shopping Cart Items</caption>
                                 <thead>
@@ -218,8 +221,6 @@
                                         </span>
                                     </td>
                                 </tr>
-
-
                                 <tr class="item-actions">
                                     <td colspan="4">
                                         <div class="actions-toolbar">
@@ -238,14 +239,10 @@
                                         </div>
                                     </td>
                                 </tr>
-                                    {% empty %}
-                                    <tr class="info"> <td colspan='5'>Your cart is empty</td></tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
-                                {% else %}
-                                <tr class="info"> <td colspan='5'>Your cart is empty</td></tr>
-                            {% endif %}
+
                         </div>
                         <div class="cart main actions">
                             <a class="action continue" href="{% url 'shop' %}"
@@ -266,7 +263,15 @@
                     <div id="gift-options-cart" data-bind="scope:'giftOptionsCart'">
                     </div>
                 </div>
+
             </div>
+        {% else %}
+    {#                                <tr class="info"> <td colspan='5'>Your cart is empty</td></tr>#}
+                    <div class="cart-empty">
+                    <p>You have no items in your shopping cart.</p>
+                    <p>Click <a href="{% url 'home' %}">here</a> to continue shopping. </p>
+                    </div>
+                {% endif %}
         </div>
     </main>
 
