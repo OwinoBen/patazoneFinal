@@ -10,21 +10,21 @@ def shopViews(request):
     objects = Cart.objects.all()
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
-    pager=request.GET.get('pager')
-    pages = int(pager)
+    pager=request.GET.get('value')
+    # pages = int(pager)
     page = request.GET.get('page', 1)
 
     if search != '' and search is not None:
         products = Product.objects.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
     else:
         products = Product.objects.all()
-
-    if pages == 24:
-        paginator = Paginator(products, 24)
-    elif pages == 36:
-        paginator = Paginator(products, 36)
-    else:
-        paginator = Paginator(products, 12)
+    paginator = Paginator(products, 12)
+    # if pages == 24:
+    #     paginator = Paginator(products, 24)
+    # elif pages == 36:
+    #     paginator = Paginator(products, 36)
+    # else:
+    #     paginator = Paginator(products, 12)
     try:
         shopList = paginator.page(page)
     except PageNotAnInteger:
