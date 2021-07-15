@@ -19,7 +19,10 @@ def shopViews(request):
     else:
         products = Product.objects.all()
 
-    paginator = Paginator(products, pages)
+    if pages:
+        paginator = Paginator(products, pages)
+    else:
+        paginator = Paginator(products, 12)
     try:
         shopList = paginator.page(page)
     except PageNotAnInteger:
