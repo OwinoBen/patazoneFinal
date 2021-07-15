@@ -7,11 +7,15 @@ from carts.models import Cart
 
 # Create your views here.
 def shopViews(request):
-    products = Product.objects.all()
     objects = Cart.objects.all()
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
     page = request.GET.get('page', 1)
+
+    if search != '' and search is not None:
+        products = Product.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+    else:
+        products = Product.objects.all()
 
     paginator = Paginator(products, 12)
     try:
@@ -21,8 +25,7 @@ def shopViews(request):
     except EmptyPage:
         shopList = paginator.page(paginator.num_pages)
 
-    if search != '' and search is not None:
-        shopList = shopList.get(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+
 
     context = {'shopList': shopList,
                'onsale': onsale,
