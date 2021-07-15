@@ -609,13 +609,13 @@
                     <p class="toolbar-amount" id="toolbar-amount">
                         Items <span class="toolbar-number">1</span>-<span class="toolbar-number">12</span> of <span
                             class="toolbar-number">22</span></p>
-                    {% if paging.has_other_pages %}
+                    {% if shopList.has_other_pages %}
                     <div class="pages">
                         <strong class="label pages-label" id="paging-label">Page</strong>
                         <ul class="items pages-items" aria-labelledby="paging-label">
-                        {% if paging.has_previous %}
+                        {% if shopList.has_previous %}
                             <li class="item pages-item-next">
-                                <a class="action" href="?page={{ paging.previous_page_number }}"
+                                <a class="action" href="?page={{ shopList.previous_page_number }}"
                                    title="Next">
                                     <span class="label">&laquo;</span>
                                     <i class="fal fa-angle-double-left fa-2x"></i>
@@ -624,8 +624,8 @@
                             {% else %}
                                 <li class="disabled"><span>&laquo;</span></li>
                             {% endif %}
-                        {% for i in paging.paginator.page_range %}
-                            {% if paging.number == i %}
+                        {% for i in shopList.paginator.page_range %}
+                            {% if shopList.number == i %}
                             <li class="item current">
                                 <strong class="page">
                                     <span>{{ i }}</span>
@@ -637,9 +637,9 @@
                                 <li><a href="?page={{ i }}">{{ i }}</a></li>
                             {% endif %}
                         {% endfor %}
-                            {% if paging.has_next %}
+                            {% if shopList.has_next %}
                             <li class="item pages-item-next">
-                                <a class="action" href="?page={{ paging.next_page_number }}"
+                                <a class="action" href="?page={{ shopList.next_page_number }}"
                                    title="Next">
                                     <span class="label">&raquo;</span>
                                     <i class="fal fa-angle-double-right fa-2x"></i>
