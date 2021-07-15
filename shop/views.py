@@ -19,8 +19,10 @@ def shopViews(request):
     else:
         products = Product.objects.all()
 
-    if pages:
-        paginator = Paginator(products, pages)
+    if pages == 24:
+        paginator = Paginator(products, 24)
+    elif pages == 36:
+        paginator = Paginator(products, 36)
     else:
         paginator = Paginator(products, 12)
     try:
