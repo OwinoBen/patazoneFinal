@@ -1,4 +1,5 @@
 {% load  static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,16 +83,16 @@
                                     <tr class="totals sub">
                                         <th data-bind="i18n: title" class="mark" scope="row">Subtotal</th>
                                         <td class="amount">
-                                            <span class="price" data-th="Subtotal">{{object.subtotal}}</span>
+                                            <span class="price" data-th="Subtotal">Ksh. {{object.subtotal|floatformat:"0"|intcomma }}</span>
                                         </td>
                                     </tr>
                                     <tr class="totals shipping excl">
                                         <th class="mark" scope="row">
                                             <span class="label" data-bind="i18n: title">Shipping</span>
-                                            <span class="value" data-bind="text: getShippingMethodTitle()">(Flat Rate - Fixed)</span>
+                                            <span class="value">(Flat Rate - Fixed)</span>
                                         </th>
                                         <td class="amount">
-                                            <span class="price" data-th="Shipping">$5.00</span>
+                                            <span class="price" data-th="Shipping">Ksh. 0.00 </span>
                                         </td>
                                     </tr>
 
@@ -100,7 +101,7 @@
                                             <strong data-bind="i18n: title">Order Total</strong>
                                         </th>
                                         <td class="amount" data-th="Order Total">
-                                            <strong><span class="price" data-bind="text: getValue()">{{object.get_total}}</span></strong>
+                                            <strong><span class="price" >Ksh. {{object.get_total|floatformat:"0"|intcomma }}</span></strong>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -172,7 +173,7 @@
                                             <span class="product-image-wrapper" style="padding-bottom: 100%;">
                                             <img class="product-image-photo lazy-loaded transition"
                                                  src="{{ order_item.product.imageURL }}"
-                                                 loading="lazy" width="100" height="100" alt="{{ order_item.product.title }}" style="display: block;"></span>
+                                                 loading="lazy" width="100" height="100" alt="{{ order_item.product.title|truncatechars:20 }}" style="display: block;"></span>
                                             </span>
                                             <style>.product-image-container-11119834517 {
                                                 width: 100px;
@@ -191,7 +192,7 @@
                                     <td class="col price" data-th="Price">
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
-                                        <span class="price">{{order_item.product.price}}</span> </span>
+                                        <span class="price">Ksh. {{order_item.product.price|floatformat:"0"|intcomma }}</span> </span>
                                         </span>
                                     </td>
                                     <td class="col qty box-tocart" data-th="Qty">
@@ -217,7 +218,7 @@
                                         <span class="price-excluding-tax" data-label="Excl. Tax">
                                         <span class="cart-price">
 
-                                        <span class="price">{{order_item.get_total_item_price}}</span> </span>
+                                        <span class="price">Ksh.{{order_item.get_total_item_price|floatformat:"0"|intcomma }}</span> </span>
                                         </span>
                                     </td>
                                 </tr>
