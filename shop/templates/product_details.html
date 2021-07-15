@@ -1,3 +1,5 @@
+{% load static %}
+{% load  humanize %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -73,7 +75,7 @@
                                     <span>Review</span>
                                 </a>
                                 <a class="action add"
-                                   href="https://mageblueskytech.com/dukamarket/en3/oneplus-nord-n10-5g-unlocked.html#review-form">Add
+                                   href="#">Add
                                     Your Review</a>
                             </div>
                         </div>
@@ -85,10 +87,11 @@
                                       itemscope
                                       itemtype="http://schema.org/Offer">
                                 <span class="price-label">Special Price</span>
-                                <span id="product-price-1" data-price-amount="59.99" data-price-type="finalPrice"
+                                <span id="product-price-1" data-price-amount="{{ prod.price|floatformat:"0"|intcomma }}"
+                                      data-price-type="finalPrice"
                                       class="price-wrapper "><span
-                                        class="price">Ksh. {{ prod.price }}</span></span>
-                                <meta itemprop="price" content="{{ prod.price }}"/>
+                                        class="price">Ksh. {{ prod.price|floatformat:"0"|intcomma }}</span></span>
+                                <meta itemprop="price" content="{{ prod.price|floatformat:"0"|intcomma }}"/>
                                 <meta itemprop="priceCurrency" content="KES"/>
                                 </span>
                                 </span>
@@ -96,7 +99,8 @@
                                 <span class="price-container price-final_price&#x20;tax&#x20;weee">
                                 <span class="price-label">Regular Price</span>
                                 <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
-                                      class="price-wrapper "><span class="price">Ksh. {{ prod.old_price }}</span></span>
+                                      class="price-wrapper "><span
+                                        class="price">Ksh. {{ prod.old_price|floatformat:"0"|intcomma }}</span></span>
                                 </span>
                                 </span>
                             </div>
@@ -116,16 +120,16 @@
                         <div class="product-add-form">
 
                             <form method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
-                                  {% if request.user.is_authenticated %}
-                                      data-user='abc'
-                                        {% endif %} id="product_addtocart_form">
-                            {% csrf_token %}
+                                    {% if request.user.is_authenticated %}
+                                  data-user='abc'
+                                    {% endif %} id="product_addtocart_form">
+                                {% csrf_token %}
                                 <input type="hidden"
-                                           name="product_id"
-                                           value='{{ prod.id }}'
-                                            {% if prod.is_digital %}
-                                           data-is-digital='true'
-                                            {% endif %} >
+                                       name="product_id"
+                                       value='{{ prod.id }}'
+                                        {% if prod.is_digital %}
+                                       data-is-digital='true'
+                                        {% endif %} >
                                 <input type="hidden" name="related_product" id="related-products-field" value=""/>
                                 <div class="box-tocart">
                                     <div class="fieldset">
@@ -152,33 +156,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form data-role="tocart-form"
-
-
-
-                                    <input type="hidden"
-                                           name="product_id"
-                                           value='{{ feature.id }}'
-                                            {% if feature.is_digital %}
-                                           data-is-digital='true'
-                                            {% endif %} >
-                                    <button type="submit"
-                                            title="Add&#x20;to&#x20;Cart"
-                                            class="action tocart primary"
-                                            style="background-color: #b92227">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </form>
                             </form>
                         </div>
                         <div class="product-social-links">
                             <div class="product-addto-links" data-role="add-to-links">
-                                <a href="#" class="action towishlist"
-                                   data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL29uZXBsdXMtbm9yZC1uMTAtNWctdW5sb2NrZWQuaHRtbA,,"}}'
-                                   data-action="add-to-wishlist"><span>Add to Wish List</span></a>
-                                <a href="#"
-                                   data-post='{"action":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL29uZXBsdXMtbm9yZC1uMTAtNWctdW5sb2NrZWQuaHRtbA,,"}}'
-                                   data-role="add-to-links" class="action tocompare"><span>Add to Compare</span></a>
+                                <a href="#" class="action towishlist"><span>Add to Wish List</span></a>
+                                <a href="#" data-role="add-to-links"
+                                   class="action tocompare"><span>Add to Compare</span></a>
                             </div>
                             <div class="product-share-links">
                                 <div class="share-links"><a href="#" class="share-links-click">share</a></div>
@@ -199,17 +183,17 @@
                             </div>
                         </div>
                         <div class="product-category"><label>Categories: </label><a
-                                href="https://mageblueskytech.com/dukamarket/en3/top-selling-products.html">{{ prod.category }}
+                                href="#">{{ prod.category }}
                             Products</a>, <a
-                                href="https://mageblueskytech.com/dukamarket/en3/smart-phones-tablets.html">Cameras &
+                                href="#">Cameras &
                             Accessories</a>, <a
-                                href="https://mageblueskytech.com/dukamarket/en3/top-deals/smart-phones-tablets/smartphone.html">Smartphone</a>
+                                href="#">Smartphone</a>
                         </div>
                         <div class="product-page-brand-common-view">
                             <span class="brand-label">Brands: </span>
                             <ul class="product-brands">
                                 <li class="brand-item">
-                                    <a href="https://mageblueskytech.com/dukamarket/en3/brand/iqvia.html" title="Iqvia">Iqvia</a>
+                                    <a href="#" title="Iqvia">Iqvia</a>
                                 </li>
                             </ul>
                         </div>
@@ -232,463 +216,507 @@
                                 More Information </a>
                         </div>
 
-<div class="data tab product info detailed">
-  <button class=""  class="tablinks" onclick="openCity(event, 'London')">Details</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">More Information </button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Reviews <span class="counter">1</span></button>
-</div>
-
-<div id="London" class="tabcontent" style="display: block">
-                         <div class="data item content"  id="description"
-                             data-role="content" role="tabpanel" aria-hidden="false">
-                            <div class="product attribute description">
-                                <div class="value"><p>Designed by Hans J. Wegner in 1949 as one of the first models
-                                    created especially for Carl Hansen &amp; Son, and produced since 1950. The last of a
-                                    series of chairs wegner designed based on inspiration from antique Chinese
-                                    armchairs. The gently rounded top together with the back and seat offers a variety
-                                    of comfortable seating positions,ideal for both long visits to the dining table and
-                                    relaxed lounging.</p>
-                                    <p><strong>The standard passage, used since the 1500s.</strong><br>A light chair,
-                                        easy to move around the dining table and about the room. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Sit amet conse ctetur adipisicing
-                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                        commodo consequat.</p>
-                                    <p><img style="display: block; margin-left: auto; margin-right: auto;"
-                                            src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_1.jpg"
-                                            alt="" class="lazy-loaded transition"></p>
-                                    <h2 style="text-align: center; font-size: 36px;">Get 30% Daily Cash<br>Back with
-                                        Membership Card.</h2>
-                                    <p style="text-align: center;">A new collection of lounge furniture, occasional
-                                        tables and a stool by Edward Barber &amp; Jay Osgerby offers a relaxed,
-                                        contemporary attitude toward<br>interior design. The lounge furniture includes
-                                        four individualized sized sofas, and three complementary ottomans. Available in
-                                        a range of upholstery fabrics and leathers,<br>the lounge furniture is
-                                        distinguished by stitched seams that reinforce its architectural profile,
-                                        softened by the curvature of cushions on each face.</p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>
-                                                <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_new_2.png"
-                                                     alt="" style="display: inline-block;"
-                                                     class="lazy-loaded transition"></p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>
-                                                <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_new_2.png"
-                                                     alt="" style="display: inline-block;"
-                                                     class="lazy-loaded transition"></p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>
-                                                <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_4.png"
-                                                     alt="" style="display: inline-block;"
-                                                     class="lazy-loaded transition"></p>
-                                            <p style="text-align: center;"><img
-                                                    src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_img_5.png"
-                                                    alt="" style="display: inline-block;"
-                                                    class="lazy-loaded transition"></p>
-                                        </div>
-                                    </div>
-                                    <p>Designed by Puik in 1949 as one of the first models created especially for Carl
-                                        Hansen &amp; Son, and produced since 1950. The last of a series of chairs wegner
-                                        designed based on inspiration from antique chinese armchairs. The gently rounded
-                                        top together with the back and seat offers a variety of comfortable seating
-                                        positions,ideal for both long visits to the dining table and relaxed lounging. A
-                                        light chair easy to move around the dining table and about the room. Duis aute
-                                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                        nulla.</p>
-                                    <p><strong>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in
-                                        45 BC.</strong><br>Sound of Marshall, unplugs the chords, and takes the show on
-                                        the road. Weighing in under 7 pounds, the Kilburn is a lightweight piece of
-                                        vintage styled engineering. Setting the bar as one of the loudest speakers in
-                                        its class, the Kilburn is a compact, stout-hearted hero with a well-balanced
-                                        audio which boasts a clear midrange and extended highs for a sound that is both
-                                        articulate and pronounced. The analogue knobs allow you to fine tune the
-                                        controls to your personal preferences while the guitar-influenced leather strap
-                                        enables easy and stylish travel.</p></div>
-                            </div>
+                        <div class="data tab product info detailed">
+                            <button class="" class="tablinks" onclick="openCity(event, 'London')">Details</button>
+                            <button class="tablinks" onclick="openCity(event, 'Paris')">More Information</button>
+                            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Reviews <span
+                                    class="counter">1</span></button>
                         </div>
 
-</div>
-
-<div id="Paris" class="tabcontent">
-  <div class="data item content" aria-labelledby="tab-label-additional" id="additional"
-                             data-role="content" role="tabpanel" aria-hidden="true" >
-                            <div class="additional-attributes-wrapper table-wrapper">
-                                <table class="data table additional-attributes" id="product-attribute-specs-table">
-                                    <caption class="table-caption">More Information</caption>
-                                    <tbody>
-                                    <tr>
-                                        <th class="col label" scope="row">Dimensions</th>
-                                        <td class="col data" data-th="Dimensions">7.25 x 1.65 x 10.25 inches</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Weight</th>
-                                        <td class="col data" data-th="Weight">1.390000</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">OS</th>
-                                        <td class="col data" data-th="OS">Android</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Batteries</th>
-                                        <td class="col data" data-th="Batteries">1 Lithium Polymer batteries required.
-                                            (included)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Connectivity Technologies</th>
-                                        <td class="col data" data-th="Connectivity Technologies">Bluetooth</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">GPS</th>
-                                        <td class="col data" data-th="GPS">Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Other Display Features</th>
-                                        <td class="col data" data-th="Other Display Features">Wireless</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Form Factor</th>
-                                        <td class="col data" data-th="Form Factor">Smartphone</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="col label" scope="row">Date First Available</th>
-                                        <td class="col data" data-th="Date First Available">November 1, 2021</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <div class="data item content" aria-labelledby="tab-label-reviews" id="reviews"
-                             data-role="content" role="tabpanel" aria-hidden="true" >
-                            <div id="product-review-container" data-role="product-review">
-                                <div class="block review-list" id="customer-reviews">
-                                    <div class="block-title">
-                                        <strong>Customer Reviews</strong>
-                                    </div>
-                                    <div class="block-content">
-                                        <div class="toolbar review-toolbar">
-                                            <div class="pager">
-                                                <div class="limiter">
-                                                    <strong class="limiter-label">Show</strong>
-                                                    <select id="limiter" class="limiter-options">
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=10"
-                                                                selected="selected">
-                                                            10
-                                                        </option>
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=20">
-                                                            20
-                                                        </option>
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=50">
-                                                            50
-                                                        </option>
-                                                    </select>
-                                                    <span class="limiter-text">per page</span>
-                                                </div>
+                        <div id="London" class="tabcontent" style="display: block">
+                            <div class="data item content" id="description"
+                                 data-role="content" role="tabpanel" aria-hidden="false">
+                                <div class="product attribute description">
+                                    <div class="value"><p>Designed by Hans J. Wegner in 1949 as one of the first models
+                                        created especially for Carl Hansen &amp; Son, and produced since 1950. The last
+                                        of a
+                                        series of chairs wegner designed based on inspiration from antique Chinese
+                                        armchairs. The gently rounded top together with the back and seat offers a
+                                        variety
+                                        of comfortable seating positions,ideal for both long visits to the dining table
+                                        and
+                                        relaxed lounging.</p>
+                                        <p><strong>The standard passage, used since the 1500s.</strong><br>A light
+                                            chair,
+                                            easy to move around the dining table and about the room. Duis aute irure
+                                            dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                            pariatur.
+                                            Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua. Sit amet conse ctetur
+                                            adipisicing
+                                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                            enim
+                                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                            ex ea
+                                            commodo consequat.</p>
+                                        <p><img style="display: block; margin-left: auto; margin-right: auto;"
+                                                src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_1.jpg"
+                                                alt="" class="lazy-loaded transition"></p>
+                                        <h2 style="text-align: center; font-size: 36px;">Get 30% Daily Cash<br>Back with
+                                            Membership Card.</h2>
+                                        <p style="text-align: center;">A new collection of lounge furniture, occasional
+                                            tables and a stool by Edward Barber &amp; Jay Osgerby offers a relaxed,
+                                            contemporary attitude toward<br>interior design. The lounge furniture
+                                            includes
+                                            four individualized sized sofas, and three complementary ottomans. Available
+                                            in
+                                            a range of upholstery fabrics and leathers,<br>the lounge furniture is
+                                            distinguished by stitched seams that reinforce its architectural profile,
+                                            softened by the curvature of cushions on each face.</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p>
+                                                    <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_new_2.png"
+                                                         alt="" style="display: inline-block;"
+                                                         class="lazy-loaded transition"></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_new_2.png"
+                                                         alt="" style="display: inline-block;"
+                                                         class="lazy-loaded transition"></p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p>
+                                                    <img src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_4.png"
+                                                         alt="" style="display: inline-block;"
+                                                         class="lazy-loaded transition"></p>
+                                                <p style="text-align: center;"><img
+                                                        src="https://mageblueskytech.com/dukamarket/media/wysiwyg/detail_img_5.png"
+                                                        alt="" style="display: inline-block;"
+                                                        class="lazy-loaded transition"></p>
                                             </div>
                                         </div>
-                                        <ol class="items review-items">
-                                            <li class="item review-item" itemscope="" itemprop="review"
-                                                itemtype="http://schema.org/Review">
-                                                <div class="review-title" itemprop="name"
-                                                     itemtype="https://schema.org/name">Neque porro quisquam est, qui
-                                                    dolorem ipsum quia dolor sit
+                                        <p>Designed by Puik in 1949 as one of the first models created especially for
+                                            Carl
+                                            Hansen &amp; Son, and produced since 1950. The last of a series of chairs
+                                            wegner
+                                            designed based on inspiration from antique chinese armchairs. The gently
+                                            rounded
+                                            top together with the back and seat offers a variety of comfortable seating
+                                            positions,ideal for both long visits to the dining table and relaxed
+                                            lounging. A
+                                            light chair easy to move around the dining table and about the room. Duis
+                                            aute
+                                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                            nulla.</p>
+                                        <p><strong>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero
+                                            in
+                                            45 BC.</strong><br>Sound of Marshall, unplugs the chords, and takes the show
+                                            on
+                                            the road. Weighing in under 7 pounds, the Kilburn is a lightweight piece of
+                                            vintage styled engineering. Setting the bar as one of the loudest speakers
+                                            in
+                                            its class, the Kilburn is a compact, stout-hearted hero with a well-balanced
+                                            audio which boasts a clear midrange and extended highs for a sound that is
+                                            both
+                                            articulate and pronounced. The analogue knobs allow you to fine tune the
+                                            controls to your personal preferences while the guitar-influenced leather
+                                            strap
+                                            enables easy and stylish travel.</p></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="Paris" class="tabcontent">
+                            <div class="data item content" aria-labelledby="tab-label-additional" id="additional"
+                                 data-role="content" role="tabpanel" aria-hidden="true">
+                                <div class="additional-attributes-wrapper table-wrapper">
+                                    <table class="data table additional-attributes" id="product-attribute-specs-table">
+                                        <caption class="table-caption">More Information</caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="col label" scope="row">Dimensions</th>
+                                            <td class="col data" data-th="Dimensions">7.25 x 1.65 x 10.25 inches</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Weight</th>
+                                            <td class="col data" data-th="Weight">1.390000</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">OS</th>
+                                            <td class="col data" data-th="OS">Android</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Batteries</th>
+                                            <td class="col data" data-th="Batteries">1 Lithium Polymer batteries
+                                                required.
+                                                (included)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Connectivity Technologies</th>
+                                            <td class="col data" data-th="Connectivity Technologies">Bluetooth</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">GPS</th>
+                                            <td class="col data" data-th="GPS">Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Other Display Features</th>
+                                            <td class="col data" data-th="Other Display Features">Wireless</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Form Factor</th>
+                                            <td class="col data" data-th="Form Factor">Smartphone</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="col label" scope="row">Date First Available</th>
+                                            <td class="col data" data-th="Date First Available">November 1, 2021</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="Tokyo" class="tabcontent">
+                            <div class="data item content" aria-labelledby="tab-label-reviews" id="reviews"
+                                 data-role="content" role="tabpanel" aria-hidden="true">
+                                <div id="product-review-container" data-role="product-review">
+                                    <div class="block review-list" id="customer-reviews">
+                                        <div class="block-title">
+                                            <strong>Customer Reviews</strong>
+                                        </div>
+                                        <div class="block-content">
+                                            <div class="toolbar review-toolbar">
+                                                <div class="pager">
+                                                    <div class="limiter">
+                                                        <strong class="limiter-label">Show</strong>
+                                                        <select id="limiter" class="limiter-options">
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=10"
+                                                                    selected="selected">
+                                                                10
+                                                            </option>
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=20">
+                                                                20
+                                                            </option>
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=50">
+                                                                50
+                                                            </option>
+                                                        </select>
+                                                        <span class="limiter-text">per page</span>
+                                                    </div>
                                                 </div>
-                                                <div class="review-ratings">
-                                                    <div class="rating-summary item" itemprop="reviewRating"
-                                                         itemscope="" itemtype="http://schema.org/Rating">
-                                                        <span class="label rating-label"><span>Quality</span></span>
-                                                        <div class="rating-result" title="100%">
-                                                            <meta itemprop="worstRating" content="1"
-                                                                  itemtype="https://schema.org/worstRating">
-                                                            <span style="width:100%">
+                                            </div>
+                                            <ol class="items review-items">
+                                                <li class="item review-item" itemscope="" itemprop="review"
+                                                    itemtype="http://schema.org/Review">
+                                                    <div class="review-title" itemprop="name"
+                                                         itemtype="https://schema.org/name">Neque porro quisquam est,
+                                                        qui
+                                                        dolorem ipsum quia dolor sit
+                                                    </div>
+                                                    <div class="review-ratings">
+                                                        <div class="rating-summary item" itemprop="reviewRating"
+                                                             itemscope="" itemtype="http://schema.org/Rating">
+                                                            <span class="label rating-label"><span>Quality</span></span>
+                                                            <div class="rating-result" title="100%">
+                                                                <meta itemprop="worstRating" content="1"
+                                                                      itemtype="https://schema.org/worstRating">
+                                                                <span style="width:100%">
 </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating-summary item" itemprop="reviewRating"
+                                                             itemscope="" itemtype="http://schema.org/Rating">
+                                                            <span class="label rating-label"><span>Price</span></span>
+                                                            <div class="rating-result" title="100%">
+                                                                <meta itemprop="worstRating" content="1"
+                                                                      itemtype="https://schema.org/worstRating">
+                                                                <span style="width:100%">
+</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating-summary item" itemprop="reviewRating"
+                                                             itemscope="" itemtype="http://schema.org/Rating">
+                                                            <span class="label rating-label"><span>Value</span></span>
+                                                            <div class="rating-result" title="100%">
+                                                                <meta itemprop="worstRating" content="1"
+                                                                      itemtype="https://schema.org/worstRating">
+                                                                <span style="width:100%">
+</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="rating-summary item" itemprop="reviewRating"
-                                                         itemscope="" itemtype="http://schema.org/Rating">
-                                                        <span class="label rating-label"><span>Price</span></span>
-                                                        <div class="rating-result" title="100%">
-                                                            <meta itemprop="worstRating" content="1"
-                                                                  itemtype="https://schema.org/worstRating">
-                                                            <span style="width:100%">
-</span>
-                                                        </div>
+                                                    <div class="review-content" itemprop="description"
+                                                         itemtype="https://schema.org/description">
+                                                        {{ prod.description }}
                                                     </div>
-                                                    <div class="rating-summary item" itemprop="reviewRating"
-                                                         itemscope="" itemtype="http://schema.org/Rating">
-                                                        <span class="label rating-label"><span>Value</span></span>
-                                                        <div class="rating-result" title="100%">
-                                                            <meta itemprop="worstRating" content="1"
-                                                                  itemtype="https://schema.org/worstRating">
-                                                            <span style="width:100%">
-</span>
-                                                        </div>
+                                                    <div class="review-details">
+                                                        <p class="review-author">
+                                                            <span class="review-details-label">Review by</span>
+                                                            <strong class="review-details-value" itemprop="author"
+                                                                    itemtype="https://schema.org/author">Dylan </strong>
+                                                        </p>
+                                                        <p class="review-date">
+                                                            <span class="review-details-label">Posted on</span>
+                                                            <time class="review-details-value" itemprop="datePublished"
+                                                                  itemtype="https://schema.org/author"
+                                                                  datetime="3/21/21">
+                                                                3/21/21
+                                                            </time>
+                                                        </p>
                                                     </div>
-                                                </div>
-                                                <div class="review-content" itemprop="description"
-                                                     itemtype="https://schema.org/description">
-                                                    {{ prod.description}}
-                                                </div>
-                                                <div class="review-details">
-                                                    <p class="review-author">
-                                                        <span class="review-details-label">Review by</span>
-                                                        <strong class="review-details-value" itemprop="author"
-                                                                itemtype="https://schema.org/author">Dylan </strong>
-                                                    </p>
-                                                    <p class="review-date">
-                                                        <span class="review-details-label">Posted on</span>
-                                                        <time class="review-details-value" itemprop="datePublished"
-                                                              itemtype="https://schema.org/author" datetime="3/21/21">
-                                                            3/21/21
-                                                        </time>
-                                                    </p>
-                                                </div>
-                                            </li>
-                                        </ol>
-                                        <div class="toolbar review-toolbar">
-                                            <div class="pager">
-                                                <div class="limiter">
-                                                    <strong class="limiter-label">Show</strong>
-                                                    <select id="limiter" class="limiter-options">
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=10"
-                                                                selected="selected">
-                                                            10
-                                                        </option>
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=20">
-                                                            20
-                                                        </option>
-                                                        <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=50">
-                                                            50
-                                                        </option>
-                                                    </select>
-                                                    <span class="limiter-text">per page</span>
+                                                </li>
+                                            </ol>
+                                            <div class="toolbar review-toolbar">
+                                                <div class="pager">
+                                                    <div class="limiter">
+                                                        <strong class="limiter-label">Show</strong>
+                                                        <select id="limiter" class="limiter-options">
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=10"
+                                                                    selected="selected">
+                                                                10
+                                                            </option>
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=20">
+                                                                20
+                                                            </option>
+                                                            <option value="https://mageblueskytech.com/dukamarket/en3/review/product/listAjax/id/1/?limit=50">
+                                                                50
+                                                            </option>
+                                                        </select>
+                                                        <span class="limiter-text">per page</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="block review-add">
-                                <div class="block-title"><strong>Write Your Own Review</strong></div>
-                                <div class="block-content">
-                                    <form action="https://mageblueskytech.com/dukamarket/en3/review/product/post/id/1/"
-                                          class="review-form" method="post" id="review-form"
-                                          data-role="product-review-form" data-bind="scope: 'review-form'"
-                                          novalidate="novalidate">
-                                        <input name="form_key" type="hidden" value="5ArxxIyTQv6ViP8D">
-                                        <fieldset class="fieldset review-fieldset" data-hasrequired="* Required Fields">
-                                            <legend class="legend review-legend"><span>You're reviewing:</span><strong>{{ prod.title}}</strong></legend>
-                                            <br>
-                                            <span id="input-message-box"></span>
-                                            <fieldset class="field required review-field-ratings">
-                                                <legend class="label"><span>Your Rating</span></legend>
+                                <div class="block review-add">
+                                    <div class="block-title"><strong>Write Your Own Review</strong></div>
+                                    <div class="block-content">
+                                        <form action="https://mageblueskytech.com/dukamarket/en3/review/product/post/id/1/"
+                                              class="review-form" method="post" id="review-form"
+                                              data-role="product-review-form" data-bind="scope: 'review-form'"
+                                              novalidate="novalidate">
+                                            <input name="form_key" type="hidden" value="5ArxxIyTQv6ViP8D">
+                                            <fieldset class="fieldset review-fieldset"
+                                                      data-hasrequired="* Required Fields">
+                                                <legend class="legend review-legend">
+                                                    <span>You're reviewing:</span><strong>{{ prod.title }}</strong>
+                                                </legend>
                                                 <br>
-                                                <div class="control">
-                                                    <div class="nested" id="product-review-table">
-                                                        <div class="field choice review-field-rating">
-                                                            <label class="label"
-                                                                   id="Value_rating_label"><span>Value</span></label>
-                                                            <div class="control review-control-vote">
-                                                                <input type="radio" name="ratings[2]" id="Value_1"
-                                                                       value="6" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Value_rating_label Value_1_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-1" for="Value_1" title="1 star"
-                                                                       id="Value_1_label">
-                                                                    <span>1 star</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[2]" id="Value_2"
-                                                                       value="7" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Value_rating_label Value_2_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-2" for="Value_2" title="2 stars"
-                                                                       id="Value_2_label">
-                                                                    <span>2 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[2]" id="Value_3"
-                                                                       value="8" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Value_rating_label Value_3_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-3" for="Value_3" title="3 stars"
-                                                                       id="Value_3_label">
-                                                                    <span>3 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[2]" id="Value_4"
-                                                                       value="9" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Value_rating_label Value_4_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-4" for="Value_4" title="4 stars"
-                                                                       id="Value_4_label">
-                                                                    <span>4 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[2]" id="Value_5"
-                                                                       value="10" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Value_rating_label Value_5_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-5" for="Value_5" title="5 stars"
-                                                                       id="Value_5_label">
-                                                                    <span>5 stars</span>
-                                                                </label>
+                                                <span id="input-message-box"></span>
+                                                <fieldset class="field required review-field-ratings">
+                                                    <legend class="label"><span>Your Rating</span></legend>
+                                                    <br>
+                                                    <div class="control">
+                                                        <div class="nested" id="product-review-table">
+                                                            <div class="field choice review-field-rating">
+                                                                <label class="label"
+                                                                       id="Value_rating_label"><span>Value</span></label>
+                                                                <div class="control review-control-vote">
+                                                                    <input type="radio" name="ratings[2]" id="Value_1"
+                                                                           value="6" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Value_rating_label Value_1_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-1" for="Value_1" title="1 star"
+                                                                           id="Value_1_label">
+                                                                        <span>1 star</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[2]" id="Value_2"
+                                                                           value="7" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Value_rating_label Value_2_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-2" for="Value_2"
+                                                                           title="2 stars"
+                                                                           id="Value_2_label">
+                                                                        <span>2 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[2]" id="Value_3"
+                                                                           value="8" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Value_rating_label Value_3_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-3" for="Value_3"
+                                                                           title="3 stars"
+                                                                           id="Value_3_label">
+                                                                        <span>3 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[2]" id="Value_4"
+                                                                           value="9" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Value_rating_label Value_4_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-4" for="Value_4"
+                                                                           title="4 stars"
+                                                                           id="Value_4_label">
+                                                                        <span>4 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[2]" id="Value_5"
+                                                                           value="10" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Value_rating_label Value_5_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-5" for="Value_5"
+                                                                           title="5 stars"
+                                                                           id="Value_5_label">
+                                                                        <span>5 stars</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field choice review-field-rating">
+                                                                <label class="label"
+                                                                       id="Quality_rating_label"><span>Quality</span></label>
+                                                                <div class="control review-control-vote">
+                                                                    <input type="radio" name="ratings[1]" id="Quality_1"
+                                                                           value="1" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Quality_rating_label Quality_1_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-1" for="Quality_1"
+                                                                           title="1 star"
+                                                                           id="Quality_1_label">
+                                                                        <span>1 star</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[1]" id="Quality_2"
+                                                                           value="2" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Quality_rating_label Quality_2_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-2" for="Quality_2"
+                                                                           title="2 stars"
+                                                                           id="Quality_2_label">
+                                                                        <span>2 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[1]" id="Quality_3"
+                                                                           value="3" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Quality_rating_label Quality_3_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-3" for="Quality_3"
+                                                                           title="3 stars"
+                                                                           id="Quality_3_label">
+                                                                        <span>3 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[1]" id="Quality_4"
+                                                                           value="4" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Quality_rating_label Quality_4_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-4" for="Quality_4"
+                                                                           title="4 stars"
+                                                                           id="Quality_4_label">
+                                                                        <span>4 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[1]" id="Quality_5"
+                                                                           value="5" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Quality_rating_label Quality_5_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-5" for="Quality_5"
+                                                                           title="5 stars"
+                                                                           id="Quality_5_label">
+                                                                        <span>5 stars</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field choice review-field-rating">
+                                                                <label class="label"
+                                                                       id="Price_rating_label"><span>Price</span></label>
+                                                                <div class="control review-control-vote">
+                                                                    <input type="radio" name="ratings[3]" id="Price_1"
+                                                                           value="11" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Price_rating_label Price_1_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-1" for="Price_1" title="1 star"
+                                                                           id="Price_1_label">
+                                                                        <span>1 star</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[3]" id="Price_2"
+                                                                           value="12" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Price_rating_label Price_2_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-2" for="Price_2"
+                                                                           title="2 stars"
+                                                                           id="Price_2_label">
+                                                                        <span>2 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[3]" id="Price_3"
+                                                                           value="13" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Price_rating_label Price_3_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-3" for="Price_3"
+                                                                           title="3 stars"
+                                                                           id="Price_3_label">
+                                                                        <span>3 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[3]" id="Price_4"
+                                                                           value="14" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Price_rating_label Price_4_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-4" for="Price_4"
+                                                                           title="4 stars"
+                                                                           id="Price_4_label">
+                                                                        <span>4 stars</span>
+                                                                    </label>
+                                                                    <input type="radio" name="ratings[3]" id="Price_5"
+                                                                           value="15" class="radio"
+                                                                           data-validate="{'rating-required':true}"
+                                                                           aria-labelledby="Price_rating_label Price_5_label"
+                                                                           aria-required="true">
+                                                                    <label class="rating-5" for="Price_5"
+                                                                           title="5 stars"
+                                                                           id="Price_5_label">
+                                                                        <span>5 stars</span>
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="field choice review-field-rating">
-                                                            <label class="label"
-                                                                   id="Quality_rating_label"><span>Quality</span></label>
-                                                            <div class="control review-control-vote">
-                                                                <input type="radio" name="ratings[1]" id="Quality_1"
-                                                                       value="1" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Quality_rating_label Quality_1_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-1" for="Quality_1" title="1 star"
-                                                                       id="Quality_1_label">
-                                                                    <span>1 star</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[1]" id="Quality_2"
-                                                                       value="2" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Quality_rating_label Quality_2_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-2" for="Quality_2" title="2 stars"
-                                                                       id="Quality_2_label">
-                                                                    <span>2 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[1]" id="Quality_3"
-                                                                       value="3" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Quality_rating_label Quality_3_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-3" for="Quality_3" title="3 stars"
-                                                                       id="Quality_3_label">
-                                                                    <span>3 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[1]" id="Quality_4"
-                                                                       value="4" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Quality_rating_label Quality_4_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-4" for="Quality_4" title="4 stars"
-                                                                       id="Quality_4_label">
-                                                                    <span>4 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[1]" id="Quality_5"
-                                                                       value="5" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Quality_rating_label Quality_5_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-5" for="Quality_5" title="5 stars"
-                                                                       id="Quality_5_label">
-                                                                    <span>5 stars</span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="field choice review-field-rating">
-                                                            <label class="label"
-                                                                   id="Price_rating_label"><span>Price</span></label>
-                                                            <div class="control review-control-vote">
-                                                                <input type="radio" name="ratings[3]" id="Price_1"
-                                                                       value="11" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Price_rating_label Price_1_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-1" for="Price_1" title="1 star"
-                                                                       id="Price_1_label">
-                                                                    <span>1 star</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[3]" id="Price_2"
-                                                                       value="12" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Price_rating_label Price_2_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-2" for="Price_2" title="2 stars"
-                                                                       id="Price_2_label">
-                                                                    <span>2 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[3]" id="Price_3"
-                                                                       value="13" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Price_rating_label Price_3_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-3" for="Price_3" title="3 stars"
-                                                                       id="Price_3_label">
-                                                                    <span>3 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[3]" id="Price_4"
-                                                                       value="14" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Price_rating_label Price_4_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-4" for="Price_4" title="4 stars"
-                                                                       id="Price_4_label">
-                                                                    <span>4 stars</span>
-                                                                </label>
-                                                                <input type="radio" name="ratings[3]" id="Price_5"
-                                                                       value="15" class="radio"
-                                                                       data-validate="{'rating-required':true}"
-                                                                       aria-labelledby="Price_rating_label Price_5_label"
-                                                                       aria-required="true">
-                                                                <label class="rating-5" for="Price_5" title="5 stars"
-                                                                       id="Price_5_label">
-                                                                    <span>5 stars</span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
+                                                        <input type="hidden" name="validate_rating"
+                                                               class="validate-rating"
+                                                               value="" aria-required="true">
                                                     </div>
-                                                    <input type="hidden" name="validate_rating" class="validate-rating"
-                                                           value="" aria-required="true">
+                                                </fieldset>
+                                                <div class="field review-field-nickname required">
+                                                    <label for="nickname_field"
+                                                           class="label"><span>Nickname</span></label>
+                                                    <div class="control">
+                                                        <input type="text" name="nickname" id="nickname_field"
+                                                               class="input-text" data-validate="{required:true}"
+                                                               data-bind="value: nickname()" aria-required="true">
+                                                    </div>
                                                 </div>
-                                            </fieldset>
-                                            <div class="field review-field-nickname required">
-                                                <label for="nickname_field" class="label"><span>Nickname</span></label>
-                                                <div class="control">
-                                                    <input type="text" name="nickname" id="nickname_field"
-                                                           class="input-text" data-validate="{required:true}"
-                                                           data-bind="value: nickname()" aria-required="true">
+                                                <div class="field review-field-summary required">
+                                                    <label for="summary_field"
+                                                           class="label"><span>Summary</span></label>
+                                                    <div class="control">
+                                                        <input type="text" name="title" id="summary_field"
+                                                               class="input-text" data-validate="{required:true}"
+                                                               data-bind="value: review().title" aria-required="true">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="field review-field-summary required">
-                                                <label for="summary_field" class="label"><span>Summary</span></label>
-                                                <div class="control">
-                                                    <input type="text" name="title" id="summary_field"
-                                                           class="input-text" data-validate="{required:true}"
-                                                           data-bind="value: review().title" aria-required="true">
-                                                </div>
-                                            </div>
-                                            <div class="field review-field-text required">
-                                                <label for="review_field" class="label"><span>Review</span></label>
-                                                <div class="control">
+                                                <div class="field review-field-text required">
+                                                    <label for="review_field" class="label"><span>Review</span></label>
+                                                    <div class="control">
                                                     <textarea name="detail" id="review_field" cols="5" rows="3"
                                                               data-validate="{required:true}"
                                                               data-bind="value: review().detail"
                                                               aria-required="true"></textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="actions-toolbar review-form-actions">
+                                                <div class="primary actions-primary">
+                                                    <button type="submit" class="action submit primary">
+                                                        <span>Submit Review</span></button>
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                        <div class="actions-toolbar review-form-actions">
-                                            <div class="primary actions-primary">
-                                                <button type="submit" class="action submit primary">
-                                                    <span>Submit Review</span></button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-</div>
-
 
 
                     </div>
@@ -1245,19 +1273,19 @@
 
 {% include 'managestatic/footer.html' %}
 <script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 </script>
 {% include 'managestatic/productdetail.html' %}
 </body>
