@@ -7,24 +7,25 @@ from carts.models import Cart
 
 # Create your views here.
 def shopViews(request):
-    products = Product.objects.all()
+    shopList = Product.objects.all()
     objects = Cart.objects.all()
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(products, 12)
+    paginator = Paginator(shopList, 12)
     try:
-        shopList = paginator.page(page)
+        paging = paginator.page(page)
     except PageNotAnInteger:
-        shopList = paginator.page(1)
+        paging = paginator.page(1)
     except EmptyPage:
-        shopList = paginator.page(paginator.num_pages)
+        paging = paginator.page(paginator.num_pages)
 
     if search != '' and search is not None:
         shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
 
     context = {'shopList': shopList,
+               'paging':paging,
                'onsale': onsale,
                'objects': objects
                }
