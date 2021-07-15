@@ -13,7 +13,7 @@ def shopViews(request):
     page = request.GET.get('page', 1)
 
     if search != '' and search is not None:
-        products = Product.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        products = Product.objects.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
     else:
         products = Product.objects.all()
 
