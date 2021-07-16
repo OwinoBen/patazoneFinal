@@ -31,6 +31,7 @@ from carts.views import cartView, updateCart
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('adminpage/', include('Admin.urls', namespace="Admins")),
     path('', product, name="home"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('about/', aboutpage, name="about"),

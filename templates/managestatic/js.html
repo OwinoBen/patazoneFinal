@@ -9,7 +9,7 @@
     </script>
     <script
       type="text/javascript"
-      src="static/js/catchejs/cache.min.js"
+      src="{% static 'js/catchejs/cache.min.js' %}"
     ></script>
         <script>
           document.querySelector("#cookie-status").style.display = "none";
@@ -368,22 +368,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
 <!-- js Render -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.88/jsrender.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.88/jsrender.min.js"></script>
 {% include 'managestatic/js_template.html' %}
 
 
 <!-- Chart.js -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 <!-- Django Secure AJAX JS -->
-<script src='{% static "js/system/csrf.ajax.js" %}'></script>
+<script src="{% static 'js/system/csrf.ajax.js' %}"></script>
 
 <!-- patazone Sales Data JS -->
-<script src='{% static "js/system/patazone.sales.js" %}'></script>
+<script src="{% static 'js/system/patazone.sales.js' %}"></script>
 
 <!-- patazone Custom JS -->
 
 
 <!-- patazone Main JS -->
-<script src='{% static "js/system/patazone.main.js" %}'></script>
+<script src="{% static 'js/system/patazone.main.js' %}"></script>
 
