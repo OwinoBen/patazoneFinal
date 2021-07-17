@@ -4,5 +4,6 @@ from .views import *
 app_name = "Admin"
 
 urlpatterns = [
-    path('', adminpage, name='admin-home')
+    path('', adminpage, name='admin-home'),
+    path('users', userList, name='user'),
     ]
