@@ -99,6 +99,16 @@
                 <span class="active">Add User</span>
             </li>
         </ul>
+        {% if messages %}
+            {% for message in messages %}
+
+
+                <div {% if message.tags %} class="alert alert-danger {{ message.tags }}" {% endif %} >
+                    <button class="close" data-close="alert"></button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <!-- END PAGE BREADCRUMB -->
         <!-- BEGIN PAGE BASE CONTENT -->
         <div class="row card-body">
@@ -117,21 +127,6 @@
                         <form action="{% url 'Admins:adduser' %}" method="post" id="form_sample_3">
                             {% csrf_token %}
                             <div class="form-body">
-                                {% if messages  %}
-                                    {% for message in messages %}
-
-
-                                <div {% if message.tags %} class="alert alert-danger {{ message.tags }}" {% endif %} >
-                                    <button class="close" data-close="alert"></button>
-                                    {{ message}}
-                                </div>
-                                    {% endfor %}
-                                {% endif %}
-
-                                <div class="alert alert-success ">
-                                    <button class="close" data-close="alert"></button>
-                                    Your form validation is successful!
-                                </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <input type="text" class="form-control" name="username" id="username"
                                            autocomplete="false">
@@ -147,7 +142,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" name="fname" id="fname">
+                                    <input type="text" class="form-control" name="fullname" id="fullname">
                                     <label for="form_control_1">First Name</label>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">

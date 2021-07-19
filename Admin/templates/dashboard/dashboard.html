@@ -98,6 +98,14 @@
                             <span class="active">eCommerce</span>
                         </li>
                     </ul>
+                            {% if messages  %}
+                                    {% for message in messages %}
+                                <div {% if message.tags %} class="alert alert-success {{ message.tags }}" {% endif %} >
+                                    <button class="close" data-close="alert"></button>
+                                    {{ message}}
+                                </div>
+                                    {% endfor %}
+                            {% endif %}
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
