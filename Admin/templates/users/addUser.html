@@ -117,8 +117,24 @@
                         <form action="{% url 'Admins:adduser' %}" method="post" id="form_sample_3">
                             {% csrf_token %}
                             <div class="form-body">
+                                {% if messages  %}
+                                    {% for message in messages %}
+
+
+                                <div {% if message.tags %} class="alert alert-danger {{ message.tags }}" {% endif %} >
+                                    <button class="close" data-close="alert"></button>
+                                    {{ message}}
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                                <div class="alert alert-success ">
+                                    <button class="close" data-close="alert"></button>
+                                    Your form validation is successful!
+                                </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <input type="text" class="form-control" name="username" id="username" autocomplete="false">
+                                    <input type="text" class="form-control" name="username" id="username"
+                                           autocomplete="false">
                                     <label for="form_control_1">Username</label>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
@@ -137,7 +153,17 @@
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <input type="text" class="form-control" name="lname" id="lname">
                                     <label for="form_control_1">Last Name</label>
-                                    <span class="help-block">Some help goes here...</span>
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    <label for="form_control_1">Password</label>
+                                    <span class="help-block">Password should be atleast 8 characters</span>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="password" class="form-control" name="confirmpass" id="confirmpass">
+                                    <label for="form_control_1">Confirm Password</label>
+                                    <span class="help-block">Confirm Your password entry</span>
                                 </div>
 
                             </div>
@@ -166,36 +192,36 @@
                     </div>
                     <div class="portlet-body">
                         <div class="form-group form-md-checkboxes" style="float: right">
-                                    <label class="col-md-3 control-label" for="form_control_1">User Previllage</label>
-                                    <div class="col-md-9">
-                                        <div class="md-checkbox-inline">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox1_3" name="checkboxes2[]" value="1"
-                                                       class="md-check">
-                                                <label for="checkbox1_3">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span>Vendor </label>
-                                            </div>
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox1_4" name="checkboxes2[]" value="2"
-                                                       class="md-check">
-                                                <label for="checkbox1_4">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Staff  </label>
-                                            </div>
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox1_5" name="checkboxes2[]" value="3"
-                                                       class="md-check">
-                                                <label for="checkbox1_5">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Super User </label>
-                                            </div>
-                                        </div>
+                            <label class="col-md-3 control-label" for="form_control_1">User Previllage</label>
+                            <div class="col-md-9">
+                                <div class="md-checkbox-inline">
+                                    <div class="md-checkbox">
+                                        <input type="checkbox" id="checkbox1_3" name="checkboxes2[]" value="1"
+                                               class="md-check">
+                                        <label for="checkbox1_3">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>Vendor </label>
+                                    </div>
+                                    <div class="md-checkbox">
+                                        <input type="checkbox" id="checkbox1_4" name="checkboxes2[]" value="2"
+                                               class="md-check">
+                                        <label for="checkbox1_4">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span> Staff </label>
+                                    </div>
+                                    <div class="md-checkbox">
+                                        <input type="checkbox" id="checkbox1_5" name="checkboxes2[]" value="3"
+                                               class="md-check">
+                                        <label for="checkbox1_5">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span> Super User </label>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                         <!-- BEGIN FORM-->
                         <form action="#" class="form-horizontal" id="form_sample_1">
                             <div class="form-body">
@@ -229,7 +255,6 @@
 
                                     </div>
                                 </form>
-
 
 
                             </div>
