@@ -12,3 +12,7 @@ def userList(request):
     user = User.objects.all()
     context = {'user': user}
     return render(request, 'users/users.html', context)
+
+
+def addUsers(request):
+    return render(request,'users/addUser.html')

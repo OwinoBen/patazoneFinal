@@ -1,0 +1,248 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-content">
+        <!-- BEGIN PAGE HEAD-->
+        <div class="page-head">
+            <!-- BEGIN PAGE TITLE -->
+            <div class="page-title">
+                <h1>Add Users
+                    <small></small>
+                </h1>
+            </div>
+            <!-- END PAGE TITLE -->
+            <!-- BEGIN PAGE TOOLBAR -->
+            <div class="page-toolbar">
+                <!-- BEGIN THEME PANEL -->
+                <div class="btn-group btn-theme-panel">
+                    <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-settings"></i>
+                    </a>
+                    <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <h3>HEADER</h3>
+                                <ul class="theme-colors">
+                                    <li class="theme-color theme-color-default active" data-theme="default">
+                                        <span class="theme-color-view"></span>
+                                        <span class="theme-color-name">Dark Header</span>
+                                    </li>
+                                    <li class="theme-color theme-color-light " data-theme="light">
+                                        <span class="theme-color-view"></span>
+                                        <span class="theme-color-name">Light Header</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 seperator">
+                                <h3>LAYOUT</h3>
+                                <ul class="theme-settings">
+                                    <li> Layout
+                                        <select class="layout-option form-control input-small input-sm">
+                                            <option value="fluid" selected="selected">Fluid</option>
+                                            <option value="boxed">Boxed</option>
+                                        </select>
+                                    </li>
+                                    <li> Header
+                                        <select class="page-header-option form-control input-small input-sm">
+                                            <option value="fixed" selected="selected">Fixed</option>
+                                            <option value="default">Default</option>
+                                        </select>
+                                    </li>
+                                    <li> Top Dropdowns
+                                        <select class="page-header-top-dropdown-style-option form-control input-small input-sm">
+                                            <option value="light">Light</option>
+                                            <option value="dark" selected="selected">Dark</option>
+                                        </select>
+                                    </li>
+                                    <li> Sidebar Mode
+                                        <select class="sidebar-option form-control input-small input-sm">
+                                            <option value="fixed">Fixed</option>
+                                            <option value="default" selected="selected">Default</option>
+                                        </select>
+                                    </li>
+                                    <li> Sidebar Menu
+                                        <select class="sidebar-menu-option form-control input-small input-sm">
+                                            <option value="accordion" selected="selected">Accordion</option>
+                                            <option value="hover">Hover</option>
+                                        </select>
+                                    </li>
+                                    <li> Sidebar Position
+                                        <select class="sidebar-pos-option form-control input-small input-sm">
+                                            <option value="left" selected="selected">Left</option>
+                                            <option value="right">Right</option>
+                                        </select>
+                                    </li>
+                                    <li> Footer
+                                        <select class="page-footer-option form-control input-small input-sm">
+                                            <option value="fixed">Fixed</option>
+                                            <option value="default" selected="selected">Default</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END THEME PANEL -->
+            </div>
+            <!-- END PAGE TOOLBAR -->
+        </div>
+        <!-- END PAGE HEAD-->
+        <!-- BEGIN PAGE BREADCRUMB -->
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <a href="{% url 'Admins:admin-home' %}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="active">Add User</span>
+            </li>
+        </ul>
+        <!-- END PAGE BREADCRUMB -->
+        <!-- BEGIN PAGE BASE CONTENT -->
+        <div class="row card-body">
+            <div class="col-md-6">
+                <!-- BEGIN VALIDATION STATES-->
+                <div class="portlet light portlet-fit portlet-form bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class=" icon-layers font-red"></i>
+                            <span class="caption-subject font-red sbold uppercase">User Details</span>
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+                        <!-- BEGIN FORM-->
+                        <form action="#" id="form_sample_3">
+                            <div class="form-body">
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" name="username" id="username">
+                                    <label for="form_control_1">Username</label>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="email" id="email">
+                                        <label for="form_control_1">Email</label>
+                                        <span class="input-group-addon">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" name="fname" id="fname">
+                                    <label for="form_control_1">First Name</label>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <input type="text" class="form-control" name="lname" id="lname">
+                                    <label for="form_control_1">Last Name</label>
+                                    <span class="help-block">Some help goes here...</span>
+                                </div>
+
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="submit" class="btn green">Sumit</button>
+                                        <button type="reset" class="btn default">Back</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+                <!-- END VALIDATION STATES-->
+            </div>
+            <div class="col-md-6">
+                <!-- BEGIN VALIDATION STATES-->
+                <div class="portlet light portlet-fit portlet-form bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class=" icon-layers font-green"></i>
+                            <span class="caption-subject font-green sbold uppercase">User details</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="form-group form-md-checkboxes" style="float: right">
+                                    <label class="col-md-3 control-label" for="form_control_1">User Previllage</label>
+                                    <div class="col-md-9">
+                                        <div class="md-checkbox-inline">
+                                            <div class="md-checkbox">
+                                                <input type="checkbox" id="checkbox1_3" name="checkboxes2[]" value="1"
+                                                       class="md-check">
+                                                <label for="checkbox1_3">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span>Vendor </label>
+                                            </div>
+                                            <div class="md-checkbox">
+                                                <input type="checkbox" id="checkbox1_4" name="checkboxes2[]" value="2"
+                                                       class="md-check">
+                                                <label for="checkbox1_4">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> Staff  </label>
+                                            </div>
+                                            <div class="md-checkbox">
+                                                <input type="checkbox" id="checkbox1_5" name="checkboxes2[]" value="3"
+                                                       class="md-check">
+                                                <label for="checkbox1_5">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> Super User </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <!-- BEGIN FORM-->
+                        <form action="#" class="form-horizontal" id="form_sample_1">
+                            <div class="form-body">
+                                <div class="alert alert-danger display-hide">
+                                    <button class="close" data-close="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-hide">
+                                    <button class="close" data-close="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+
+                                <form action="#" role="form">
+                                    <div class="form-group">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="{% static 'images/no-image.png' %}"
+                                                     alt=""/></div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail"
+                                                 style="max-width: 200px; max-height: 150px;"></div>
+                                            <div>
+                                                    <span class="btn default btn-file">
+                                                        <span class="fileinput-new"> Select image </span>
+                                                        <span class="fileinput-exists"> Change </span>
+                                                        <input type="file" name="...">
+                                                    </span>
+                                                <a href="javascript:;" class="btn default fileinput-exists"
+                                                   data-dismiss="fileinput"> Remove </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+                            <div class="form-actions">
+
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+                <!-- END VALIDATION STATES-->
+            </div>
+        </div>
+        <!-- END PAGE BASE CONTENT -->
+    </div>
+
+{% endblock %}
