@@ -12,6 +12,7 @@ from django.template.loader import get_template
 from django.urls import reverse
 from django.utils import timezone
 
+
 from patazoneEcommerce.utils import unique_key_generator
 
 DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
@@ -228,3 +229,71 @@ class GuestEmail(models.Model):
 
     def __str__(self):
         return self.email
+BUSINESS_TYPE = (
+    ('company', 'Company'),
+    ('partnership', 'Partnership'),
+    ('individual', 'Individual')
+)
+Identification = (
+    ('D', 'ID'),
+    ('P', 'Passport'),
+)
+Employess_Range = (
+    ('one', '1-3'),
+    ('four', '4-10'),
+    ('eleven', '11-99'),
+    ('hundred', '100 and more'),
+)
+
+VAT = (
+    ('Y', 'Yes'),
+    ('N', 'No')
+)
+
+Produts_Range = (
+    ('one', '1-3'),
+    ('four', '4-10'),
+    ('eleven', '11-99'),
+    ('hundred', '100 and more'),
+)
+
+
+class shopInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    shopName = models.CharField(max_length=120, blank=True, null=True)
+    shopLicense = models.BooleanField(default=False)
+    productCategory = models.CharField(max_length=120, blank=True, null=True)
+    productsell_range = models.CharField(max_length=120, null=True, blank=True)
+
+
+class vendorBusinessInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    sellerid = models.CharField(max_length=120, blank=True, null=True)
+    email = models.CharField(max_length=120, null=True, blank=True)
+    shop = models.ForeignKey(shopInfo, on_delete=models.CASCADE, blank=True, null=True)
+    business_type = models.CharField(max_length=120, choices=BUSINESS_TYPE, blank=True, null=True)
+    phone_number = models.CharField(max_length=120, blank=True, null=True)
+    phone_number2 = models.CharField(max_length=120, blank=True, null=True)
+    Address = models.ForeignKey("address.Address", on_delete=models.CASCADE, blank=True, null=True)
+    incharge = models.CharField(max_length=120, blank=True, null=True)
+    Identity = models.CharField(max_length=120,blank=True, null=True, choices=Identification)
+    nationalID_Passport_No = models.CharField(max_length=50, null=True, blank=True)
+    id_photo = models.FileField(blank=True, null=True)
+    employessRange = models.CharField(max_length=30, blank=True, null=True, choices=Employess_Range)
+    business_Registration_No = models.CharField(max_length=50, blank=True, null=True)
+    businessDocImage = models.FileField(blank=True, null=True)
+    kraPin = models.CharField(max_length=120, null=True, blank=True)
+    KRAimage = models.FileField(blank=True, null=True)
+    VAT_Registered = models.CharField(max_length=10, null=True, blank=True, choices=VAT)
+
+
+class VendorPaymentInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    mode_of_payment = models.CharField(max_length=120, null=True, blank=True)
+    mpesa_name = models.CharField(max_length=120, blank=True, null=True)
+    mpesa_Number = models.CharField(max_length=120, blank=True, null=True)
+    bank_name = models.CharField(max_length=120, blank=True, null=True)
+    account_name = models.CharField(max_length=120, blank=True, null=True)
+    bank_code = models.CharField(max_length=120, blank=True, null=True)
+    branch = models.CharField(max_length=120, blank=True, null=True)
+    mpesa_name = models.CharField(max_length=120, blank=True, null=True)

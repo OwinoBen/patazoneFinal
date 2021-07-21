@@ -97,6 +97,6 @@ def Login(request):
         else:
             return render(request, 'auth/register.html', {'error': 'Please fill all the required fields'})
     else:
-        return render(request, 'auth/register.html')
+        return render(request, 'auth/profile.html')
 
-    return render(request, 'auth/register.html')
+    return render(request, 'auth/profile.html')
