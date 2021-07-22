@@ -12,7 +12,6 @@ from django.template.loader import get_template
 from django.urls import reverse
 from django.utils import timezone
 
-
 from patazoneEcommerce.utils import unique_key_generator
 
 DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
@@ -67,6 +66,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=25, blank=True, null=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
+    gender = models.CharField(max_length=20, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -229,6 +229,8 @@ class GuestEmail(models.Model):
 
     def __str__(self):
         return self.email
+
+
 BUSINESS_TYPE = (
     ('company', 'Company'),
     ('partnership', 'Partnership'),
@@ -276,7 +278,7 @@ class vendorBusinessInfo(models.Model):
     phone_number2 = models.CharField(max_length=120, blank=True, null=True)
     Address = models.ForeignKey("address.Address", on_delete=models.CASCADE, blank=True, null=True)
     incharge = models.CharField(max_length=120, blank=True, null=True)
-    Identity = models.CharField(max_length=120,blank=True, null=True, choices=Identification)
+    Identity = models.CharField(max_length=120, blank=True, null=True, choices=Identification)
     nationalID_Passport_No = models.CharField(max_length=50, null=True, blank=True)
     id_photo = models.FileField(blank=True, null=True)
     employessRange = models.CharField(max_length=30, blank=True, null=True, choices=Employess_Range)
@@ -296,4 +298,4 @@ class VendorPaymentInfo(models.Model):
     account_name = models.CharField(max_length=120, blank=True, null=True)
     bank_code = models.CharField(max_length=120, blank=True, null=True)
     branch = models.CharField(max_length=120, blank=True, null=True)
-    mpesa_name = models.CharField(max_length=120, blank=True, null=True)
+    bank_account_number = models.CharField(max_length=120, blank=True, null=True)

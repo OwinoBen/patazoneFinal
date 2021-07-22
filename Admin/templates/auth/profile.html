@@ -69,7 +69,7 @@
                                 <a href="#tab1" data-toggle="tab" class="step">
                                     <span class="number"> 1 </span>
                                     <span class="desc">
-                                        <i class="fa fa-check"></i> Account Setup
+                                        <i class="fa fa-check"></i> Profile Setup
                                     </span>
                                 </a>
                             </li>
@@ -77,7 +77,7 @@
                                 <a href="#tab2" data-toggle="tab" class="step">
                                     <span class="number"> 2 </span>
                                     <span class="desc">
-                                        <i class="fa fa-check"></i> Profile Setup
+                                        <i class="fa fa-check"></i>Business & Shop Info
                                     </span>
                                 </a>
                             </li>
@@ -85,7 +85,7 @@
                                 <a href="#tab3" data-toggle="tab" class="step active">
                                     <span class="number"> 3 </span>
                                     <span class="desc">
-                                        <i class="fa fa-check"></i> Billing Setup
+                                        <i class="fa fa-check"></i>  Billing Setup
                                     </span>
                                 </a>
                             </li>
@@ -110,34 +110,16 @@
                                 <button class="close" data-dismiss="alert"></button>
                                 Your form validation is successful!
                             </div>
-                            <div class="tab-pane active" id="tab1">
-                                <h3 class="block">Provide your account details</h3>
+                            <div class="tab-pane active row" id="tab1">
+
+                                <h3 class="block">Provide your profile details</h3>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Username
+                                    <label class="control-label col-md-3">SellerID
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="username"/>
-                                        <span class="help-block"> Provide your username </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Password
-                                        <span class="required"> * </span>
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="password" class="form-control" name="password"
-                                               id="submit_form_password"/>
-                                        <span class="help-block"> Provide your password. </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Confirm Password
-                                        <span class="required"> * </span>
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="password" class="form-control" name="rpassword"/>
-                                        <span class="help-block"> Confirm your password </span>
+                                        <input type="text" class="form-control" name="sellerid" readonly/>
+                                        <span class="help-block"> Your SellerID </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -145,19 +127,16 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="email"/>
-                                        <span class="help-block"> Provide your email address </span>
+                                        <input type="text" class="form-control" name="email" />
+                                        <span class="help-block"> Email Address </span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane" id="tab2">
-                                <h3 class="block">Provide your profile details</h3>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Fullname
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="fullname"/>
+                                        <input type="text" class="form-control" name="fullname" />
                                         <span class="help-block"> Provide your fullname </span>
                                     </div>
                                 </div>
@@ -168,6 +147,14 @@
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="phone"/>
                                         <span class="help-block"> Provide your phone number </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Phone Number 2
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="phone2"/>
+                                        <span class="help-block">  (optional) </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -447,73 +434,251 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Remarks</label>
+                                    <label class="control-label col-md-3">National ID/Passport
+                                        <span class="required"> * </span>
+                                    </label>
                                     <div class="col-md-4">
-                                        <textarea class="form-control" rows="3" name="remarks"></textarea>
+                                        <input type="text" class="form-control" name="nationalID" />
+                                        <span class="help-block"> Provide your National ID/Passport</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">National ID/Passport Photo</label>
+                                    <div class="col-md-4">
+                                         <input type="file" class="form-control" name="idPhoto" />
+                                        <span class="help-block"> Upload Your national Id/Passort Image</span>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab3">
-                                <h3 class="block">Provide your billing and credit card details</h3>
+
+                            <div class="tab-pane row" id="tab2">
+                                <h3 class="block">Provide your Business Information </h3>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Card Holder Name
+                                    <label class="control-label col-md-3">Organization/Company Name
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="card_name"/>
-                                        <span class="help-block"> </span>
+                                        <input type="text" class="form-control" name="organization" />
+                                        <span class="help-block"> Provide your Organization/Company Name </span>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3">Business Ownership
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="bstype" id="country_list" class="form-control">
+                                            <option value=""></option>
+                                            <option value="1">Individual</option>
+                                            <option value="1">Partnership</option>
+                                        </select>
+                                        <span class="help-block"> Provide business type </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Card Number
+                                    <label class="control-label col-md-3">Number of employess
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="card_number"/>
-                                        <span class="help-block"> </span>
+                                        <input type="text" class="form-control" name="totalEmployess"
+                                               id="submit_form_password"/>
+                                        <span class="help-block"> Provide The number of employees in your Organization/Company. </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">CVC
+                                    <label class="control-label col-md-3">Business Registration No.
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="" class="form-control" name="card_cvc"/>
-                                        <span class="help-block"> </span>
+                                        <input type="text" class="form-control" name="regNo"/>
+                                        <span class="help-block"> Provide your Business Registration No. </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Expiration(MM/YYYY)
+                                    <label class="control-label col-md-3">Business registration Document
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="MM/YYYY" maxlength="7" class="form-control"
-                                               name="card_expiry_date"/>
-                                        <span class="help-block"> e.g 11/2020 </span>
+                                        <input type="file" class="form-control" name="regDoc"/>
+                                        <span class="help-block"> Upload your business registration document </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Payment Options
+                                    <label class="control-label col-md-3">KRA PIN Number
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <div class="checkbox-list">
+                                        <input type="text" class="form-control" name="kra"/>
+                                        <span class="help-block"> Provide your KRA PIN Number </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">KRA PIN certificate copy
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="file" class="form-control" name="kraCopy"/>
+                                        <span class="help-block">  Upload a copy of your PIN certificate (KRA) </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">VAT Registered
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <div class="radio-list">
                                             <label>
-                                                <input type="checkbox" name="payment[]" value="1"
-                                                       data-title="Auto-Pay with this Credit Card."/> Auto-Pay with this
-                                                Credit Card </label>
+                                                <input type="radio" name="vat" value="Y" data-title="Yes"/> Yes
+                                            </label>
                                             <label>
-                                                <input type="checkbox" name="payment[]" value="2"
-                                                       data-title="Email me monthly billing."/> Email me monthly billing
+                                                <input type="radio" name="vat" value="N" data-title="No"/> No
                                             </label>
                                         </div>
-                                        <div id="form_payment_error"></div>
+                                        <div id="form_vat_error"></div>
+                                    </div>
+                                </div>
+                                <h3 class="block">Provide your shop details</h3>
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3">Shop Name
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="shopname"/>
+                                        <span class="help-block"> Provide your Shop Name </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">I have License
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="checkbox" class="form-control" name="license"/>
+                                        <span class="help-block"> Mark if yo have License </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Product Category
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="pcategory"/>
+                                        <span class="help-block"> Provide your Product Category </span>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3">Number of Products
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="productrange" id="country_list" class="form-control">
+                                            <option value=""></option>
+                                            <option value="1">1-10</option>
+                                            <option value="1">11-50</option>
+                                            <option value="1">51-100</option>
+                                            <option value="1">101-500</option>
+                                            <option value="1">501-1000</option>
+                                            <option value="1">1001-10000</option>
+                                            <option value="1">10001 & above</option>
+                                        </select>
+                                        <span class="help-block"> Provide your Total Products </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                <h3 class="block">Provide your Payment details</h3>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Mode of Payment
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="payment_mode" id="country_list" class="form-control">
+                                            <option value=""></option>
+                                            <option value="M">Mpesa</option>
+                                            <option value="B">Bank</option>
+                                        </select>
+                                        <span class="help-block">Tell us how to pay you! We will use those payment method & details to transfer your money for your weekly sales.(Mpesa,Bank Account)</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Mpesa Name
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="mpesaname"/>
+                                        <span class="help-block">Provide your Mpesa name  </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Mpesa Number
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="" class="form-control" name="mpesaNumber"/>
+                                        <span class="help-block">Provide your Mpesa Number  </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Bank Name
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control"
+                                               name="bankname"/>
+                                        <span class="help-block"> Provide your Bank Name </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Bank Account Name
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control"
+                                               name="accountname"/>
+                                        <span class="help-block"> Provide your Bank Account Name </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Bank Account Number
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text"  maxlength="16" class="form-control"
+                                               name="accountnumber"/>
+                                        <span class="help-block"> Provide your Bank Account Number </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Bank Code
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control"
+                                               name="bankcode"/>
+                                        <span class="help-block"> Provide your Bank Code </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Branch
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control"
+                                               name="bankbranch"/>
+                                        <span class="help-block"> Provide your Bank Branch </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab4">
                                 <h3 class="block">Confirm your account</h3>
                                 <h4 class="form-section">Account</h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Email:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="sellerid"></p>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Username:</label>
                                     <div class="col-md-4">
@@ -527,6 +692,18 @@
                                     </div>
                                 </div>
                                 <h4 class="form-section">Profile</h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">National ID/Passport:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="nationalID"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">National ID/Passport Photo:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="idPhoto"></p>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Fullname:</label>
                                     <div class="col-md-4">
@@ -546,6 +723,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-3">Alternative Phone:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="phone2"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="control-label col-md-3">Address:</label>
                                     <div class="col-md-4">
                                         <p class="form-control-static" data-display="address"></p>
@@ -563,43 +747,84 @@
                                         <p class="form-control-static" data-display="country"></p>
                                     </div>
                                 </div>
+
+                                <h4 class="form-section">Business Information</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Remarks:</label>
+                                    <label class="control-label col-md-3">Organization/Company Name:</label>
                                     <div class="col-md-4">
-                                        <p class="form-control-static" data-display="remarks"></p>
-                                    </div>
-                                </div>
-                                <h4 class="form-section">Billing</h4>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Card Holder Name:</label>
-                                    <div class="col-md-4">
-                                        <p class="form-control-static" data-display="card_name"></p>
+                                        <p class="form-control-static" data-display="organization"></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Card Number:</label>
+                                    <label class="control-label col-md-3">Business Ownership:</label>
                                     <div class="col-md-4">
-                                        <p class="form-control-static" data-display="card_number"></p>
+                                        <p class="form-control-static" data-display="bstype"></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">CVC:</label>
+                                    <label class="control-label col-md-3">Number of employess:</label>
                                     <div class="col-md-4">
-                                        <p class="form-control-static" data-display="card_cvc"></p>
+                                        <p class="form-control-static" data-display="totalEmployess"></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Expiration:</label>
+                                    <label class="control-label col-md-3">Business Registration No.:</label>
                                     <div class="col-md-4">
-                                        <p class="form-control-static" data-display="card_expiry_date"></p>
+                                        <p class="form-control-static" data-display="regNo"></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Payment Options:</label>
+                                    <label class="control-label col-md-3">Business registration Document:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="regDoc"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">KRA PIN Number:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="kra"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">KRA PIN certificate copy:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="kraCopy"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">VAT Registered:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="vat"></p>
+                                    </div>
+                                </div>
+
+                                <h4 class="form-section">Shop Details</h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Shop Name:</label>
                                     <div class="col-md-4">
                                         <p class="form-control-static" data-display="payment[]"></p>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">I have License:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="payment[]"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Product Category:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="payment[]"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Number of Products:</label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="payment[]"></p>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>

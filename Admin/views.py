@@ -3,7 +3,8 @@ from django.contrib.auth import *
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 
-from accounts.models import User
+from accounts.models import User, vendorBusinessInfo
+from carts.views import create_ref_code
 
 # Create your views here.
 from orders.models import UserProfile
@@ -34,7 +35,14 @@ def addUsers(request):
                                                     first_name=request.POST['fullname'],
                                                     last_name=request.POST['lname'],
                                                     password=request.POST['password'])
+
+                    vendorPrifix = "#VNDR"
+                    vendorID = (vendorPrifix + create_ref_code())
                     userprofile = UserProfile()
+                    vendor = vendorBusinessInfo()
+                    vendor.sellerid = vendorID
+                    vendor.user = user
+                    vendor.save()
                     userprofile.user = user
                     userprofile.save()
                     messages.success(request, 'User successfully added')
@@ -60,14 +68,19 @@ def createVendorAccount(request):
                     return render(request, 'users/addUser.html',
                                   {'error': "User with the given credentials already exists"})
                 except User.DoesNotExist:
-                    user = User.objects.create_user(email=request.POST['email'], username=request.POST['username'],
+                    username = request.POST['username']
+                    email = request.POST['email']
+                    user = User.objects.create_user(email=email, username=username,
                                                     first_name=request.POST['fullname'],
                                                     last_name=request.POST['lname'],
-                                                    password=request.POST['password'])
+                                                    password=request.POST['password'],
+                                                    is_vendor=True)
                     login(request, user)
                     userprofile = UserProfile()
                     userprofile.user = user
                     userprofile.save()
+                    request.session['username'] = username
+                    request.session['email'] = email
                     messages.success(request, 'Welcome successfully added')
                     return redirect('Admins:admin-home')
             else:
