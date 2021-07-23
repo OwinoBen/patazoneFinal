@@ -263,7 +263,7 @@ Produts_Range = (
 class shopInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     shopName = models.CharField(max_length=120, blank=True, null=True)
-    shopLicense = models.BooleanField(default=False)
+    shopLicense = models.CharField(max_length=20, default='No')
     productCategory = models.CharField(max_length=120, blank=True, null=True)
     productsell_range = models.CharField(max_length=120, null=True, blank=True)
 

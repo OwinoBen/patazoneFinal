@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # from .models import User
 
 from .forms import UserAdminCreationForm, UserAdminChangeForm
-from .models import EmailActivation, GuestEmail
+from .models import EmailActivation, GuestEmail, shopInfo, vendorBusinessInfo, VendorPaymentInfo
 
 User = get_user_model()
 
@@ -55,3 +55,6 @@ class GuestEmailAdmin(admin.ModelAdmin):
 
 
 admin.site.register(GuestEmail, GuestEmailAdmin)
+admin.site.register(vendorBusinessInfo)
+admin.site.register(shopInfo)
+admin.site.register(VendorPaymentInfo)

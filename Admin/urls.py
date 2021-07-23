@@ -9,4 +9,5 @@ urlpatterns = [
     path('addusers', addUsers, name='adduser'),
     path('accountcreation', createVendorAccount, name='account'),
     path('login', Login, name='adminlogin'),
+    path('completeregistration', vendorAccountInformation, name='completeregistration'),
     ]

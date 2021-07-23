@@ -61,7 +61,8 @@
             </div>
         </div>
         <div class="portlet-body form">
-            <form class="form-horizontal" action="#" id="submit_form" method="POST">
+            <form class="form-horizontal" action="{% url 'Admins:completeregistration' %}" id="submit_form" method="POST">
+                {% csrf_token %}
                 <div class="form-wizard">
                     <div class="form-body">
                         <ul class="nav nav-pills nav-justified steps">
@@ -447,7 +448,6 @@
                                     <div class="col-md-4">
                                          <input type="file" class="form-control" name="idPhoto" />
                                         <span class="help-block"> Upload Your national Id/Passort Image</span>
-
                                     </div>
                                 </div>
                             </div>
@@ -553,10 +553,26 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="checkbox" class="form-control" name="license"/>
-                                        <span class="help-block"> Mark if yo have License </span>
+                                        <div class="radio-list">
+                                            <label>
+                                                <input type="radio" name="license" value="M" data-title="Yes"/> Male
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="license" value="F" data-title="No"/> Female
+                                            </label>
+                                        </div>
+                                        <div id="form_gender_error"></div>
                                     </div>
                                 </div>
+{#                                <div class="form-group">#}
+{#                                    <label class="control-label col-md-3">I have License#}
+{#                                        <span class="required"> * </span>#}
+{#                                    </label>#}
+{#                                    <div class="col-md-4">#}
+{#                                        <input type="checkbox" class="form-control" name="license"/>#}
+{#                                        <span class="help-block"> Mark if yo have License </span>#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Product Category
                                         <span class="required"> * </span>
@@ -886,9 +902,9 @@
                                 <a href="javascript:;" class="btn btn-outline green button-next"> Continue
                                     <i class="fa fa-angle-right"></i>
                                 </a>
-                                <a href="javascript:;" class="btn green button-submit"> Submit
+                                <button type="submit" class="btn green button-submit"> Submit
                                     <i class="fa fa-check"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

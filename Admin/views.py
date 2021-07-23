@@ -3,7 +3,8 @@ from django.contrib.auth import *
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 
-from accounts.models import User, vendorBusinessInfo
+from accounts.models import User, vendorBusinessInfo, shopInfo, VendorPaymentInfo
+from address.models import Address
 from carts.views import create_ref_code
 
 # Create your views here.
@@ -36,13 +37,7 @@ def addUsers(request):
                                                     last_name=request.POST['lname'],
                                                     password=request.POST['password'])
 
-                    vendorPrifix = "#VNDR"
-                    vendorID = (vendorPrifix + create_ref_code())
                     userprofile = UserProfile()
-                    vendor = vendorBusinessInfo()
-                    vendor.sellerid = vendorID
-                    vendor.user = user
-                    vendor.save()
                     userprofile.user = user
                     userprofile.save()
                     messages.success(request, 'User successfully added')
@@ -58,6 +53,9 @@ def addUsers(request):
 
 
 def createVendorAccount(request):
+    vendorPrifix = "#VNDR"
+    vendorID = (vendorPrifix + create_ref_code())
+
     if request.method == 'POST':
         if request.POST['username'] != '' and request.POST['email'] != '' and request.POST['fullname'] != '' and \
                 request.POST['lname'] != '':
@@ -77,6 +75,10 @@ def createVendorAccount(request):
                                                     is_vendor=True)
                     login(request, user)
                     userprofile = UserProfile()
+                    vendor = vendorBusinessInfo()
+                    vendor.sellerid = vendorID
+                    vendor.user = request.user
+                    vendor.save()
                     userprofile.user = user
                     userprofile.save()
                     request.session['username'] = username
@@ -112,4 +114,99 @@ def Login(request):
     else:
         return render(request, 'auth/profile.html')
 
+    return render(request, 'auth/profile.html')
+
+
+def vendorAccountInformation(request):
+    phoneNumber = request.POST['phone']
+    phoneNumber2 = request.POST['phone2']
+    gender = request.POST['gender']
+    address = request.POST['address']
+    city = request.POST['city']
+    country = request.POST['country']
+    nationalID = request.POST['nationalID']
+    idphoto = request.POST['idPhoto']
+    organization = request.POST['organization']
+    bstype = request.POST['bstype']
+    totalEmployees = request.POST['totalEmployess']
+    regNo = request.POST['regNo']
+    regDoc = request.POST['regDoc']
+    kra = request.POST['kra']
+    kraCopy = request.POST['kraCopy']
+    vat = request.POST['vat']
+    shopname = request.POST['shopname']
+    license = request.POST['license']
+    pcategory = request.POST['pcategory']
+    productrange = request.POST['productrange']
+    payment_mode = request.POST['payment_mode']
+    mpesaname = request.POST['mpesaname']
+    mpesaNumber = request.POST['mpesaNumber']
+    bankname = request.POST['bankname']
+    accountname = request.POST['accountname']
+    accountnumber = request.POST['accountnumber']
+    bankcode = request.POST['bankcode']
+    bankbranch = request.POST['bankbranch']
+    email = request.POST['email']
+
+    if request.method == "POST":
+        if phoneNumber != '' and gender != '' and address != '' and city != '' and country != '' and nationalID != '' and idphoto != '' and regNo != '' and regDoc != '' and kra != '' and kraCopy != '' and shopname != '' and vat != '':
+
+            try:
+                shopname = shopInfo.objects.get(shopName= shopname)
+                if shopname.exists():
+                    messages.error(request, "Shop name already exists")
+                    return render(request, 'auth/profile.html')
+            except:
+                vendor = User.objects.get(email=email)
+                shop = shopInfo()
+                vendorInfo = vendorBusinessInfo()
+                vendorpayment = VendorPaymentInfo()
+                adress = Address()
+
+                adress.user = request.user
+                adress.firstname = vendor.first_name
+                adress.lastname = vendor.last_name
+                adress.mobile = phoneNumber
+                adress.mobile_phone = phoneNumber2
+                adress.city = city
+                adress.country = country
+                adress.save()
+
+                shop.user = request.user
+                shop.shopName = shopname
+                shop.shopLicense = license
+                shop.productCategory = pcategory
+                shop.productsell_range = productrange
+                shop.save()
+
+                vendorInfo.shop = shop
+                vendorInfo.business_Registration_No = regNo
+                vendorInfo.businessDocImage = regDoc
+                vendorInfo.business_type = bstype
+                vendorInfo.employessRange = totalEmployees
+                vendorInfo.nationalID_Passport_No = nationalID
+                vendorInfo.id_photo = idphoto
+                vendorInfo.kraPin = kra
+                vendorInfo.KRAimage = kraCopy
+                vendorInfo.VAT_Registered = vat
+                vendorInfo.phone_number = phoneNumber
+                vendorInfo.phone_number2 = phoneNumber2
+                vendorInfo.Address = adress
+                vendorInfo.save()
+
+                vendorpayment.user = request.user
+                vendorpayment.mode_of_payment = payment_mode
+                vendorpayment.mpesa_name = mpesaname
+                vendorpayment.mpesa_Number = mpesaNumber
+                vendorpayment.bank_name = bankname
+                vendorpayment.bank_account_number = accountnumber
+                vendorpayment.account_name = accountname
+                vendorpayment.bank_code = bankcode
+                vendorpayment.branch = bankbranch
+                vendorpayment.save()
+
+                return redirect('Admins:admin-home')
+        else:
+            messages.error(request, 'Please fill all the required fields.')
+            return render(request, 'auth/profile.html')
     return render(request, 'auth/profile.html')
