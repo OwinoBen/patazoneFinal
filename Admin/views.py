@@ -83,6 +83,9 @@ def createVendorAccount(request):
                     userprofile.save()
                     request.session['username'] = username
                     request.session['email'] = email
+                    request.session['sellerID'] = vendorID
+                    request.session['firstname'] = request.user.first_name
+                    request.session['lastname'] = request.user.last_name
                     messages.success(request, 'Welcome successfully added')
                     return redirect('Admins:admin-home')
             else:

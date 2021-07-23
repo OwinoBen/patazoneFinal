@@ -103,6 +103,14 @@
                             <div class="progress-bar progress-bar-success"></div>
                         </div>
                         <div class="tab-content">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div {% if message.tags %} class="alert alert-danger {{ message.tags }}" {% endif %} >
+                                        <button class="close" data-close="alert"></button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                             <div class="alert alert-danger display-none">
                                 <button class="close" data-dismiss="alert"></button>
                                 You have some form errors. Please check below.
@@ -119,7 +127,7 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="sellerid" readonly/>
+                                        <input type="text" class="form-control" name="sellerid" value="{{ request.session.sellerID }}" style="cursor: not-allowed" readonly/>
                                         <span class="help-block"> Your SellerID </span>
                                     </div>
                                 </div>
@@ -128,7 +136,7 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="email" />
+                                        <input type="text" class="form-control" name="email" value="{{ request.session.email }}" style="cursor: not-allowed" readonly/>
                                         <span class="help-block"> Email Address </span>
                                     </div>
                                 </div>
@@ -137,7 +145,7 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="fullname" />
+                                        <input type="text" class="form-control" name="fullname" value="{{ request.session.firstname }} {{ request.session.lastname }}" style="cursor: not-allowed" readonly />
                                         <span class="help-block"> Provide your fullname </span>
                                     </div>
                                 </div>
