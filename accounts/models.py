@@ -1,3 +1,5 @@
+import os
+import random
 from datetime import timedelta
 from django.conf import settings
 from django.db import models
@@ -12,14 +14,32 @@ from django.template.loader import get_template
 from django.urls import reverse
 from django.utils import timezone
 
+from patazoneEcommerce.storageLocation.utils import PrivateMediaStorage
 from patazoneEcommerce.utils import unique_key_generator
 
 DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 
+def get_filename_ext(filepath):
+    base_name = os.path.basename(filepath)
+    name, ext = os.path.splitext(base_name)
+    return name, ext
+
+
+def upload_image_path(instance, filename):
+    new_filename = random.randint(1, 3910209312)
+    name, ext = get_filename_ext(filename)
+    final_filename = f'{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
+    return f"users/{new_filename}/{final_filename}".format(
+        new_filename=new_filename,
+        final_filename=final_filename
+    )
+
+
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, email=None, username=None, first_name=None, last_name=None, password=None, is_active=True,
+    def create_user(self, email=None, username=None, first_name=None, last_name=None, password=None, image=None,
+                    is_active=True,
                     is_staff=False,
                     is_admin=False,
                     is_vendor=False):
@@ -31,7 +51,8 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
+            image=image
         )
         user_obj.set_password(password)
         user_obj.staff = is_staff
@@ -67,6 +88,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     gender = models.CharField(max_length=20, blank=True, null=True)
+    image = models.ImageField(upload_to=upload_image_path, storage=PrivateMediaStorage())
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

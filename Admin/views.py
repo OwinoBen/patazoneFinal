@@ -125,17 +125,17 @@ def vendorAccountInformation(request):
     city = request.POST['city']
     country = request.POST['country']
     nationalID = request.POST['nationalID']
-    idphoto = request.POST['idPhoto']
+    idphoto = request.FILES['idPhoto']
     organization = request.POST['organization']
     bstype = request.POST['bstype']
     totalEmployees = request.POST['totalEmployess']
     regNo = request.POST['regNo']
-    regDoc = request.POST['regDoc']
+    regDoc = request.FILES['regDoc']
     kra = request.POST['kra']
-    kraCopy = request.POST['kraCopy']
+    kraCopy = request.FILES['kraCopy']
     vat = request.POST['vat']
     shopname = request.POST['shopname']
-    license = request.POST['license']
+    licenses = request.POST['license']
     pcategory = request.POST['pcategory']
     productrange = request.POST['productrange']
     payment_mode = request.POST['payment_mode']
@@ -174,12 +174,13 @@ def vendorAccountInformation(request):
 
                 shop.user = request.user
                 shop.shopName = shopname
-                shop.shopLicense = license
+                shop.shopLicense = licenses
                 shop.productCategory = pcategory
                 shop.productsell_range = productrange
                 shop.save()
 
                 vendorInfo.shop = shop
+                vendorInfo.user=request.user
                 vendorInfo.business_Registration_No = regNo
                 vendorInfo.businessDocImage = regDoc
                 vendorInfo.business_type = bstype
