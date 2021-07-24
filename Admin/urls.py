@@ -10,4 +10,5 @@ urlpatterns = [
     path('accountcreation', createVendorAccount, name='account'),
     path('login', Login, name='adminlogin'),
     path('completeregistration', vendorAccountInformation, name='completeregistration'),
+    path('editprofile', editProfile, name='editprofile'),
     ]

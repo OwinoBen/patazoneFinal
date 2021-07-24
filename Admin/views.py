@@ -155,7 +155,7 @@ def vendorAccountInformation(request):
         if phoneNumber != '' and gender != '' and address != '' and city != '' and country != '' and nationalID != '' and idphoto != '' and regNo != '' and regDoc != '' and kra != '' and kraCopy != '' and shopname != '' and vat != '':
 
             try:
-                shopname = shopInfo.objects.get(shopName= shopname)
+                shopname = shopInfo.objects.get(shopName=shopname)
                 if shopname.exists():
                     messages.error(request, "Shop name already exists")
                     return render(request, 'auth/profile.html')
@@ -183,7 +183,7 @@ def vendorAccountInformation(request):
                 shop.save()
 
                 vendorInfo.shop = shop
-                vendorInfo.user=request.user
+                vendorInfo.user = request.user
                 vendorInfo.business_Registration_No = regNo
                 vendorInfo.businessDocImage = regDoc
                 vendorInfo.business_type = bstype
@@ -214,3 +214,9 @@ def vendorAccountInformation(request):
             messages.error(request, 'Please fill all the required fields.')
             return render(request, 'auth/profile.html')
     return render(request, 'auth/profile.html')
+
+
+def editProfile(request):
+    userImage = User.objects.get(email=request.user.email)
+    context = {'userImage': userImage}
+    return render(request, 'auth/profile-edit.html', context)
