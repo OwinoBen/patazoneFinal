@@ -733,8 +733,7 @@
                                 data-autoplay="false" data-speed="500"
                                 data-sameheight=".products-grid .product-item .product-item-details">
 
-                                {% for related in prod %}
-
+                                {% for related in relatedprod %}
                                 <li class="item-load item product product-item" style="display: none;">
                                     <div class="product-item-info related-available">
                                         <a href="{% url 'cart:productdetails' related.id related.category %}"

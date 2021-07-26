@@ -81,11 +81,12 @@ def productDetails(request, id, keyword):
     prod = None
     id = int(id)
     prod = Product.objects.filter(id=id, category=keyword)
+    relatedprod =Product.objects.filter(category=keyword)
     # if len(productdetail) > 0:
     #     prod = productdetail[0]
     # else:
     #     prod = None
-    context = {'prod': prod}
+    context = {'prod': prod, 'relatedprod':relatedprod}
     return render(request, 'product_details.html', context)
 
 
