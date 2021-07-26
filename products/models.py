@@ -131,7 +131,7 @@ class Product(models.Model):
     color = models.CharField(max_length=120, choices=COLORS, default='Black')
     size = models.CharField(max_length=20, null=True, blank=True)
     variation = models.CharField(max_length=20, null=True, blank=True)
-    weight = models.CharField(max_length=120, null=True, blank=True)
+    weight = models.CharField(max_length=20, null=True, blank=True)
     battery = models.CharField(max_length=120, null=True,blank=True)
     connectivity = models.CharField(max_length=120, blank=True, null=True)
     featured = models.BooleanField(default=False)
