@@ -334,7 +334,7 @@
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
                                                                 <form data-role="tocart-form" method="POST"
-                                                                      action='{% url 'cart:update' %}'
+                                                                      action='{% url 'cart:update' products.id %}'
                                                                       data-endpoint='{% url 'cart:update' %}'
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
@@ -600,7 +600,7 @@
                                                                                     <div class="actions-primary">
                                                                                         <form data-role="tocart-form"
                                                                                               method="POST"
-                                                                                              action='{% url 'cart:update' %}'
+                                                                                              action='{% url 'cart:update' feature.id %}'
                                                                                               data-endpoint='{% url 'cart:update' %}'
                                                                                                 {% if request.user.is_authenticated %}
                                                                                               data-user='abc'

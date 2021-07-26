@@ -82,17 +82,21 @@ def productDetails(request, id, keyword):
     id = int(id)
     prod = Product.objects.filter(id=id, category=keyword)
     relatedprod =Product.objects.filter(category=keyword)
+    order_qs = Order.objects.filter(user=request.user, ordered=False, id=id)
     # if len(productdetail) > 0:
     #     prod = productdetail[0]
     # else:
     #     prod = None
-    context = {'prod': prod, 'relatedprod':relatedprod}
+    context = {'prod': prod,
+               'relatedprod':relatedprod,
+               'orederItems':order_qs,
+               }
     return render(request, 'product_details.html', context)
 
 
 @login_required
-def updateCart(request):
-    product_id = request.POST.get('product_id')
+def updateCart(request, product_id):
+    # product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)
     order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
     try:
@@ -121,7 +125,7 @@ def updateCart(request):
         messages.info(request, f"{product.title} item was added in your cart")
         subject = 'Order submitted successfully (Patazone marketplace)'
         message = 'Your order 46246184414028 has been submitted successfully. Kindly pay within the timelime for ' \
-                  'quick dispatch.\n Delivery period varies from Patazome marketplace/Local Seller/Global taking 1-5, ' \
+                  'quick dispatch.\n Delivery period varies from Patazone marketplace/Local Seller/Global taking 1-5, ' \
                   '8-15, ' \
                   '10-25 working days respectively. '
         receipient = str(request.user.email)

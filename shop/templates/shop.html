@@ -162,7 +162,7 @@
                         {% for products in shopList %}
                             <li class="item product product-item">
                                 <div class="product-item-info" data-container="product-grid">
-                                    <a href="{% url 'cart:productdetails' id=products.id products.category %} "
+                                    <a href="{% url 'cart:productdetails' products.id products.category %} "
                                        class="product-photo photo product-item-photo product-list-image" tabindex="-1">
                                     <span class="product-image-container product-image-container-1930863537">
                                     <span class="product-image-wrapper">
@@ -198,7 +198,7 @@
                                     <div class="product details product-item-details">
                                         <strong class="product name product-item-name">
                                             <a class="product-item-link"
-                                               href="{% url 'cart:productdetails' id=products.id products.category %} ">
+                                               href="{% url 'cart:productdetails' products.id products.category %} ">
                                                 {{ products.title|truncatechars:20 }} </a>
                                         </strong>
                                         <div class="product-reviews-summary short">
@@ -232,7 +232,7 @@
                                         <div class="product-item-inner">
                                             <div class="product actions product-item-actions">
                                                 <div class="actions-primary visible-hover">
-                                                    <form class="form-product-ajax" data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
+                                                    <form class="form-product-ajax" data-role="tocart-form" method="POST" action='{% url 'cart:update' products.id %}' data-endpoint='{% url 'cart:update' products.id %}'
                                                           {% if request.user.is_authenticated %}
                                                           data-user='abc'
                                                           {% endif %}>
