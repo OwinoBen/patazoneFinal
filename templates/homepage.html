@@ -334,8 +334,8 @@
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
                                                                 <form data-role="tocart-form" method="POST"
-                                                                      action='{% url 'cart:update' products.id %}'
-                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                      action='{% url 'cart:update' product.id %}'
+                                                                      data-endpoint='{% url 'cart:update' product.id %}'
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
                                                                         {% endif %}>
@@ -601,7 +601,7 @@
                                                                                         <form data-role="tocart-form"
                                                                                               method="POST"
                                                                                               action='{% url 'cart:update' feature.id %}'
-                                                                                              data-endpoint='{% url 'cart:update' %}'
+                                                                                              data-endpoint='{% url 'cart:update' feature.id %}'
                                                                                                 {% if request.user.is_authenticated %}
                                                                                               data-user='abc'
                                                                                                 {% endif %}>
@@ -650,6 +650,8 @@
                                                             </div>
                                                         </div>
                                                     {% endfor %}
+                                                </div>
+                                            </div>
                                         </ol>
                                     </div>
 
@@ -658,7 +660,7 @@
                         </div>
                     </div>
                 </div>
-            {% include 'modals/modals.html' %}
+
                 <div style="background: #b92227;">
                     <div class="section auto-play" style="text-align: center; background: #b92227">
                         <div class="notification-text flex-layout no-wrap">
@@ -901,8 +903,8 @@
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       method="POST"
-                                                                                      action='{% url 'cart:update' %}'
-                                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                                      action='{% url 'cart:update' topsel.id %}'
+                                                                                      data-endpoint='{% url 'cart:update' topsel.id %}'
                                                                                         {% if request.user.is_authenticated %}
                                                                                       data-user='abc'
                                                                                         {% endif %}>
