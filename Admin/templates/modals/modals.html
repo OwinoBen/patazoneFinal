@@ -226,20 +226,25 @@
                         <!-- /.modal -->
                         <div id="responsive" class="modal fade" tabindex="-1" aria-hidden="true">
                             <div class="patazonemodal">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                                aria-hidden="true"></button>
-                                        <h4 class="modal-title">Add Shipping Address</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="scroller" style="height:300px" data-always-visible="1"
-                                             data-rail-visible1="1">
-                                            <div class="row">
-                                                <form class="form form-shipping-address" method="post" action="{% url 'checkout:address' %}" id="co-shipping-form" style="display: block;">
-                                                    {% csrf_token %}
-                                                <div class="col-md-6">
-                                                        <div id="shipping-new-address-form" class="fieldset address">
+                                <form class="form form-shipping-address" method="post"
+                                      action="{% url 'checkout:address' %}" id="co-shipping-form"
+                                      style="display: block;">
+                                    {% csrf_token %}
+                                    <div id="shipping-new-address-form" class="fieldset address">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true"></button>
+                                                <h4 class="modal-title">Add Shipping Address</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="scroller" style="height:300px" data-always-visible="1"
+                                                     data-rail-visible1="1">
+                                                    <div class="row">
+
+
+                                                        <div class="col-md-6">
+
                                                             <div class="field col-mp mp-12 mp-clear required _required"
                                                                  name="shippingAddress.firstname">
                                                                 <label><span>First Name</span></label>
@@ -289,190 +294,188 @@
                                                                 </div>
                                                             </fieldset>
 
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="field col-mp mp-12 mp-clear not-required"
+                                                                 name="shippingAddress.city">
+                                                                <label><span>Delivery Address</span></label>
+                                                                <div class="control">
+                                                                    <input class="input-text" type="text"
+                                                                           name="deliveryAddress"
+                                                                           id="deliveryAddress">
+                                                                </div>
+                                                            </div>
 
-                                                        </div>
-                                                        <div class="primary">
-                                                            <button type="submit" class="action action-login secondary">
-                                                                <span>Proceed</span>
-                                                            </button>
-                                                        </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="field col-mp mp-12 mp-clear not-required"
-                                                         name="shippingAddress.city">
-                                                        <label><span>Delivery Address</span></label>
-                                                        <div class="control">
-                                                            <input class="input-text" type="text" name="deliveryAddress"
-                                                                   id="deliveryAddress">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="field col-mp mp-12 mp-clear required _required"
-                                                         name="shippingAddress.region_id">
-                                                        <label>
-                                                            <span>State/Region</span>
-                                                        </label>
-                                                        <div class="control">
-                                                            <select class="select" name="state" id="state"
-                                                                    aria-required="true" aria-invalid="false">
-                                                                <option value="">Please select a region, state
-                                                                    or province.
-                                                                </option>
-                                                                <option data-title="Mombasa" value="1">
-                                                                    Mombasa
-                                                                </option>
-                                                                <option data-title="Kwale" value="2">Kwale
-                                                                </option>
-                                                                <option data-title="Kilifi" value="3">Kilifi
-                                                                </option>
-                                                                <option data-title="Tana River" value="4">Tana
-                                                                    River
-                                                                </option>
-                                                                <option data-title="Lamu" value="5">Lamu
-                                                                </option>
-                                                                <option data-title="Taita/Taveta" value="6">
-                                                                    Taita/Taveta
-                                                                </option>
-                                                                <option data-title="Garissa" value="7">Garissa
-                                                                </option>
-                                                                <option data-title="Wajir" value="8">Wajir
-                                                                </option>
-                                                                <option data-title="Mandera" value="9">Mandera
-                                                                </option>
-                                                                <option data-title="Marsabit"
-                                                                        value="10"></option>
-                                                                <option data-title="Isiolo" value="11">Isiolo
-                                                                </option>
-                                                                <option data-title="Meru" value="12">Meru
-                                                                </option>
-                                                                <option data-title="Tharaka-Nithi" value="13">
-                                                                    Tharaka-Nithi
-                                                                </option>
-                                                                <option data-title="Embu" value="14">Embu
-                                                                </option>
-                                                                <option data-title="Kitui" value="15">Kitui
-                                                                </option>
-                                                                <option data-title="Machakos" value="16">
-                                                                    Machakos
-                                                                </option>
-                                                                <option data-title="Makueni" value="17">
-                                                                    Makueni
-                                                                </option>
-                                                                <option data-title="Nyandarua" value="18">
-                                                                    Nyandarua
-                                                                </option>
-                                                                <option data-title="Nyeri" value="19">Nyeri
-                                                                </option>
-                                                                <option data-title="Kirinyaga" value="20">
-                                                                    Kirinyaga
-                                                                </option>
-                                                                <option data-title="Murang'a" value="21">
-                                                                    Murang'a
-                                                                </option>
-                                                                <option data-title="Kiambu" value="22">Kiambu
-                                                                </option>
-                                                                <option data-title="Turkana" value="23">
-                                                                    Turkana
-                                                                </option>
-                                                                <option data-title="West Pokot" value="24">West
-                                                                    Pokot
-                                                                </option>
-                                                                <option data-title="Samburu" value="25">
-                                                                    Samburu
-                                                                </option>
-                                                                <option data-title="Trans Nzoia" value="26">
-                                                                    Trans Nzoia
-                                                                </option>
-                                                                <option data-title="Uasin Gishu" value="27">
-                                                                    Uasin Gishu
-                                                                </option>
-                                                                <option data-title="Elgeyo/Marakwet" value="28">
-                                                                    Elgeyo/Marakwet
-                                                                </option>
-                                                                <option data-title="Nandi" value="29">Nandi
-                                                                </option>
-                                                                <option data-title="Baringo" value="30">Baringo
-                                                                </option>
-                                                                <option data-title="Laikipia" value="31">
-                                                                    Laikipia
-                                                                </option>
-                                                                <option data-title="Nakuru" value="32">Nakuru
-                                                                </option>
-                                                                <option data-title="Narok" value="33">Narok
-                                                                </option>
-                                                                <option data-title="Kajiado" value="34">
-                                                                    Kajiado
-                                                                </option>
-                                                                <option data-title="Kericho" value="35">
-                                                                    Kericho
-                                                                </option>
-                                                                <option data-title="Bomet" value="36">Bomet
-                                                                </option>
-                                                                <option data-title="Kakamega" value="37">
-                                                                    Kakamega
-                                                                </option>
-                                                                <option data-title="Vihiga" value="38">Vihiga
-                                                                </option>
-                                                                <option data-title="Bungoma" value="39">
-                                                                    Bungoma
-                                                                </option>
-                                                                <option data-title="Busia" value="40">Busia
-                                                                </option>
-                                                                <option data-title="Siaya" value="41">Siaya
-                                                                </option>
-                                                                <option data-title="Kisumu" value="42">Kisumu
-                                                                </option>
-                                                                <option data-title="Homa Bay" value="43">Homa
-                                                                    Bay
-                                                                </option>
-                                                                <option data-title="Migori" value="44">Migori
-                                                                </option>
-                                                                <option data-title="Kisii" value="45">Kisii
-                                                                </option>
-                                                                <option data-title="Nyamira" value="46">
-                                                                    Nyamira
-                                                                </option>
-                                                                <option data-title="Nairobi City" value="47">
-                                                                    Nairobi City
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="field col-mp mp-12 mp-clear not-required _required"
-                                                         name="shippingAddress.postcode">
-                                                        <label>
-                                                            <span>City</span>
-                                                        </label>
-                                                        <div class="control">
-                                                            <input class="input-text" type="text" name="city" id="city">
-                                                        </div>
-                                                    </div>
-                                                    <div class="field col-mp mp-12 mp-clear required _required"
-                                                         name="shippingAddress.country_id">
-                                                        <label><span>Country</span>
-                                                        </label>
-                                                        <div class="control">
-                                                            {{ form.shipping_country }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="checkout-billing-address">
-                                                        <div class="billing-address-same-as-shipping-block field choice">
-                                                            <input type="checkbox" name="set_default_shipping_address"
-                                                                   id="set_default_shipping_address">
-                                                            <label><span>Save as default shipping address</span></label>
+                                                            <div class="field col-mp mp-12 mp-clear required _required"
+                                                                 name="shippingAddress.region_id">
+                                                                <label>
+                                                                    <span>State/Region</span>
+                                                                </label>
+                                                                <div class="control">
+                                                                    <select class="select" name="state" id="state"
+                                                                            aria-required="true" aria-invalid="false">
+                                                                        <option value="">Please select a region, state
+                                                                            or province.
+                                                                        </option>
+                                                                        <option data-title="Mombasa" value="1">
+                                                                            Mombasa
+                                                                        </option>
+                                                                        <option data-title="Kwale" value="2">Kwale
+                                                                        </option>
+                                                                        <option data-title="Kilifi" value="3">Kilifi
+                                                                        </option>
+                                                                        <option data-title="Tana River" value="4">Tana
+                                                                            River
+                                                                        </option>
+                                                                        <option data-title="Lamu" value="5">Lamu
+                                                                        </option>
+                                                                        <option data-title="Taita/Taveta" value="6">
+                                                                            Taita/Taveta
+                                                                        </option>
+                                                                        <option data-title="Garissa" value="7">Garissa
+                                                                        </option>
+                                                                        <option data-title="Wajir" value="8">Wajir
+                                                                        </option>
+                                                                        <option data-title="Mandera" value="9">Mandera
+                                                                        </option>
+                                                                        <option data-title="Marsabit"
+                                                                                value="10"></option>
+                                                                        <option data-title="Isiolo" value="11">Isiolo
+                                                                        </option>
+                                                                        <option data-title="Meru" value="12">Meru
+                                                                        </option>
+                                                                        <option data-title="Tharaka-Nithi" value="13">
+                                                                            Tharaka-Nithi
+                                                                        </option>
+                                                                        <option data-title="Embu" value="14">Embu
+                                                                        </option>
+                                                                        <option data-title="Kitui" value="15">Kitui
+                                                                        </option>
+                                                                        <option data-title="Machakos" value="16">
+                                                                            Machakos
+                                                                        </option>
+                                                                        <option data-title="Makueni" value="17">
+                                                                            Makueni
+                                                                        </option>
+                                                                        <option data-title="Nyandarua" value="18">
+                                                                            Nyandarua
+                                                                        </option>
+                                                                        <option data-title="Nyeri" value="19">Nyeri
+                                                                        </option>
+                                                                        <option data-title="Kirinyaga" value="20">
+                                                                            Kirinyaga
+                                                                        </option>
+                                                                        <option data-title="Murang'a" value="21">
+                                                                            Murang'a
+                                                                        </option>
+                                                                        <option data-title="Kiambu" value="22">Kiambu
+                                                                        </option>
+                                                                        <option data-title="Turkana" value="23">
+                                                                            Turkana
+                                                                        </option>
+                                                                        <option data-title="West Pokot" value="24">West
+                                                                            Pokot
+                                                                        </option>
+                                                                        <option data-title="Samburu" value="25">
+                                                                            Samburu
+                                                                        </option>
+                                                                        <option data-title="Trans Nzoia" value="26">
+                                                                            Trans Nzoia
+                                                                        </option>
+                                                                        <option data-title="Uasin Gishu" value="27">
+                                                                            Uasin Gishu
+                                                                        </option>
+                                                                        <option data-title="Elgeyo/Marakwet" value="28">
+                                                                            Elgeyo/Marakwet
+                                                                        </option>
+                                                                        <option data-title="Nandi" value="29">Nandi
+                                                                        </option>
+                                                                        <option data-title="Baringo" value="30">Baringo
+                                                                        </option>
+                                                                        <option data-title="Laikipia" value="31">
+                                                                            Laikipia
+                                                                        </option>
+                                                                        <option data-title="Nakuru" value="32">Nakuru
+                                                                        </option>
+                                                                        <option data-title="Narok" value="33">Narok
+                                                                        </option>
+                                                                        <option data-title="Kajiado" value="34">
+                                                                            Kajiado
+                                                                        </option>
+                                                                        <option data-title="Kericho" value="35">
+                                                                            Kericho
+                                                                        </option>
+                                                                        <option data-title="Bomet" value="36">Bomet
+                                                                        </option>
+                                                                        <option data-title="Kakamega" value="37">
+                                                                            Kakamega
+                                                                        </option>
+                                                                        <option data-title="Vihiga" value="38">Vihiga
+                                                                        </option>
+                                                                        <option data-title="Bungoma" value="39">
+                                                                            Bungoma
+                                                                        </option>
+                                                                        <option data-title="Busia" value="40">Busia
+                                                                        </option>
+                                                                        <option data-title="Siaya" value="41">Siaya
+                                                                        </option>
+                                                                        <option data-title="Kisumu" value="42">Kisumu
+                                                                        </option>
+                                                                        <option data-title="Homa Bay" value="43">Homa
+                                                                            Bay
+                                                                        </option>
+                                                                        <option data-title="Migori" value="44">Migori
+                                                                        </option>
+                                                                        <option data-title="Kisii" value="45">Kisii
+                                                                        </option>
+                                                                        <option data-title="Nyamira" value="46">
+                                                                            Nyamira
+                                                                        </option>
+                                                                        <option data-title="Nairobi City" value="47">
+                                                                            Nairobi City
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field col-mp mp-12 mp-clear not-required _required"
+                                                                 name="shippingAddress.postcode">
+                                                                <label>
+                                                                    <span>City</span>
+                                                                </label>
+                                                                <div class="control">
+                                                                    <input class="input-text" type="text" name="city"
+                                                                           id="city">
+                                                                </div>
+                                                            </div>
+                                                            <div class="field col-mp mp-12 mp-clear required _required"
+                                                                 name="shippingAddress.country_id">
+                                                                <label><span>Country</span>
+                                                                </label>
+                                                                <div class="control">
+                                                                    {{ form.shipping_country }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="checkout-billing-address">
+                                                                <div class="billing-address-same-as-shipping-block field choice">
+                                                                    <input type="checkbox"
+                                                                           name="set_default_shipping_address"
+                                                                           id="set_default_shipping_address">
+                                                                    <label><span>Save as default shipping address</span></label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" data-dismiss="modal" class="btn dark btn-outline">
+                                                    Close
+                                                </button>
+                                                <button type="submit" class="btn green">Save changes</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close
-                                        </button>
-                                        <button type="button" class="btn green">Save changes</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <!--DOC: Aplly "modal-cached" class after "modal" class to enable ajax content caching-->
