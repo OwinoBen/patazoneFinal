@@ -132,6 +132,8 @@ class Product(models.Model):
     size = models.CharField(max_length=20, null=True, blank=True)
     variation = models.CharField(max_length=20, null=True, blank=True)
     weight = models.IntegerField(default=0)
+    battery = models.CharField(max_length=120, null=True,blank=True)
+    connectivity = models.CharField(max_length=120, blank=True, null=True)
     featured = models.BooleanField(default=False)
     topsell = models.BooleanField(default=False)
     flash = models.BooleanField(default=False)

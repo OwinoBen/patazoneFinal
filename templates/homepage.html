@@ -275,7 +275,7 @@
                                     <div class="item-load group-rows-fixed-supper-deal item-row">
                                         <div class="item product product-item">
                                             <div class="product-item-info">
-                                                <a href="{% url 'cart:productdetails' id=product.id %}"
+                                                <a href="{% url 'cart:productdetails' product.id product.category %}"
                                                    class="product photo product-item-photo" tabindex="-1">
                                                   <span class="image0 image-switch product-image-container">
                                                     <img class="product-image"
@@ -286,7 +286,7 @@
                                                 <div class="product details product-item-details">
                                                     <strong class="product name product-item-name">
                                                         <a class="product-item-link"
-                                                           href="{% url 'cart:productdetails' id=product.id %}">
+                                                           href="{% url 'cart:productdetails' product.id product.category %}">
                                                             {{ product.title|truncatechars:20 }}
                                                         </a>
                                                     </strong>
@@ -516,7 +516,7 @@
                                                                     style="width:100%;">
                                                                     <div class="product-item-info"
                                                                          data-container="product-grid">
-                                                                        <a href="{% url 'cart:productdetails' id=feature.id %} "
+                                                                        <a href="{% url 'cart:productdetails' feature.id feature.category %} "
                                                                            class="product photo product-item-photo"
                                                                            tabindex="-1">
                                                                             <span class="product-image-container product-image-container-31769822871"
@@ -555,7 +555,7 @@
                                                                              style="min-height: 141px;">
                                                                             <strong class="product name product-item-name">
                                                                                 <a class="product-item-link"
-                                                                                   href="{% url 'cart:productdetails' id=feature.id %} ">
+                                                                                   href="{% url 'cart:productdetails' feature.id feature.category %} ">
                                                                                     {{ feature.title|truncatechars:45 }} </a>
                                                                             </strong>
                                                                             <div class="product-reviews-summary short">
@@ -838,7 +838,7 @@
                                                     <div class="item-load group-rows-fixed-supper-deal item-row">
                                                         <div class="item product product-item">
                                                             <div class="product-item-info">
-                                                                <a href="{% url 'cart:productdetails' id=topsel.id %}"
+                                                                <a href="{% url 'cart:productdetails' topsel.id  topsel.category%}"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                             <span class="image0 image-switch product-image-container">
@@ -851,7 +851,7 @@
                                                                 <div class="product details product-item-details">
                                                                     <strong class="product name product-item-name">
                                                                         <a class="product-item-link"
-                                                                           href="{% url 'cart:productdetails' id=topsel.id %}">
+                                                                           href="{% url 'cart:productdetails' topsel.id topsel.category %}">
                                                                             {{ topsel.title|truncatechars:25 }}
                                                                         </a>
                                                                     </strong>

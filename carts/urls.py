@@ -10,6 +10,6 @@ urlpatterns = [
     # path(r'^checkout/$', checkoutHome, name='checkout'),
     path(r'^update/$', updateCart, name='update'),
     path(r'^quickcheck/(?P<id>)/$', QuickCheck, name='quickcheck'),
-    path(r'^productdetails/(?P<id>)/$', productDetails, name='productdetails'),
+    path(r'^productdetails/<int:id>/<keyword>$', productDetails, name='productdetails'),
     path('removed/<int:product_id>', remove_single_item_from_cart, name="removefromcart"),
 ]

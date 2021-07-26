@@ -77,14 +77,14 @@ def QuickCheck(request, id):
     return render(request, 'shop.html', context)
 
 
-def productDetails(request, id):
+def productDetails(request, id, keyword):
     prod = None
     id = int(id)
-    productdetail = Product.objects.filter(id=id)
-    if len(productdetail) > 0:
-        prod = productdetail[0]
-    else:
-        prod = None
+    prod = Product.objects.filter(id=id, category=keyword)
+    # if len(productdetail) > 0:
+    #     prod = productdetail[0]
+    # else:
+    #     prod = None
     context = {'prod': prod}
     return render(request, 'product_details.html', context)
 
