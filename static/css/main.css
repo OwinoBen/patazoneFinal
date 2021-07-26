@@ -30712,10 +30712,10 @@
     border-bottom: 1px solid #ebebeb;
   }
   header .header-container {
-    -webkit-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);
-    -moz-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);
-    -ms-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);
-    box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);
+    /*-webkit-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);*/
+    /*-moz-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);*/
+    /*-ms-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);*/
+    /*box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, 0.3);*/
   }
   html:not(.nav-open) .header-container .not-visible {
     height: 0;

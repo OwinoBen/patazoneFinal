@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="format-detection" content="telephone=no"/>
     <title>Patazone|Checkout</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/staticss/bootstrap-modal/css/bootstrap-modal.css'%}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/staticss/bootstrap-modal/css/bootstrap-modal-bs3patch.css'%}">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/staticss/bootstrap-modal/css/bootstrap-modal.css'%}">#}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/staticss/bootstrap-modal/css/bootstrap-modal-bs3patch.css'%}">#}
     {% include 'managestatic/css.html' %}
     {% block base_head %}{% endblock %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -1094,7 +1094,7 @@ p{margin-bottom:.3em;}
                                     </div>
                                 </div>
                                 <div class="new-address-popup">
-                                    <button type="button" class="action action-show-popup">
+                                    <button type="button" class="action  action-show-popup" data-toggle="modal" data-target="#responsive">
                                         <span>New Address</span>
                                     </button>
                                 </div>
@@ -1391,7 +1391,9 @@ p{margin-bottom:.3em;}
     </form>
 
 
+
 </main>
+{% include 'modals/modals.html' %}
 <script>
     var hideable_shipping_form = $('.hideable_shipping_form');
     var hideable_billing_form = $('.hideable_billing_form');
