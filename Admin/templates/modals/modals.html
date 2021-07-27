@@ -687,7 +687,7 @@
 <script type="text/javascript">
     function updateCat(id){
         e.preventDefault();
-         var point= '{% url 'cart:update' %}'
+         var point= '{% url 'cart:update' id %}'
         const product_id = id
         const data = {
             product_id: product_id
