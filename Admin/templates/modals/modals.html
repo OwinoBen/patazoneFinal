@@ -687,11 +687,12 @@
 <script type="text/javascript">
     function updateCat(id){
         e.preventDefault();
-         var point= '{% url 'cart:update' id %}'
+
         const product_id = id
         const data = {
             product_id: product_id
         }
+        var point= '{% url 'cart:update' product_id %}'
         $.post(point, data, function(response){
             const data = JSON.parse(response)
             alert(data)

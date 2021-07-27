@@ -95,8 +95,8 @@ def productDetails(request, id, keyword):
 
 
 @login_required
-def updateCart(request):
-    product_id = request.POST.get('product_id')
+def updateCart(request, product_id):
+    # product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)
     order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
     try:
