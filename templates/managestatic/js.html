@@ -53,25 +53,25 @@
 <link href="{% static 'js/system/toaster.js' %}" rel="stylesheet">
 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.tocart').on('click', function(){
-            var product_id = $(this).attr('id')
-            var data = {
-                product_id: product_id
-            }
-
-            $.ajax({
-                type: 'GET',
-                url: '{% url 'cart:update' %}',
-                data: data,
-                success: function(data){
-                    console.log('success')
-                }
-            })
-        })
-    });
-</script>
+{#<script type="text/javascript">#}
+{#    $(document).ready(function(){#}
+{#        $('.tocart').on('click', function(){#}
+{#            var product_id = $(this).attr('id')#}
+{#            var data = {#}
+{#                product_id: product_id#}
+{#            }#}
+{##}
+{#            $.ajax({#}
+{#                type: 'GET',#}
+{#                url: '{% url 'cart:update' product_id %}',#}
+{#                data: data,#}
+{#                success: function(data){#}
+{#                    console.log('success')#}
+{#                }#}
+{#            })#}
+{#        })#}
+{#    });#}
+{#</script>#}
 {#<script>#}
 {##}
 {#      var BASE_URL =#}
