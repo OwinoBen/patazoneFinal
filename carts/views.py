@@ -127,7 +127,7 @@ def updateCart(request, product_id):
             order.cart.add(order_item)
             messages.info(request, f"{product.title} item was added in your cart")
             subject = 'Order submitted successfully (Patazone marketplace)'
-            message = 'Your order' f"{order_id} has been submitted successfully. Kindly pay within the timelime for ' \
+            message = 'Your order ' f"{order_id} has been submitted successfully. Kindly pay within the timelime for ' \
                       'quick dispatch.\n Delivery period varies from Patazone marketplace/Local Seller/Global taking 1-5, ' \
                       '8-15, ' \
                       '10-25 working days respectively. "
@@ -155,6 +155,7 @@ def updateCart(request, product_id):
                     "cartItemCount": cart_obj.products.count()
                 }
                 return JsonResponse(jason_data, status=200)
+    return JsonResponse('success', status=200, safe=False )
 
 
 
