@@ -12,7 +12,7 @@ from django.views.generic import (
 )
 from address.models import Address
 from .models import Post
-from django.http import JsonResponse
+from django.http import JsonResponse, request
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
@@ -26,6 +26,8 @@ from orders.models import Order, Payment
 from django.core.mail import send_mail
 
 HOST_USER_EMAIL = settings.EMAIL_HOST_USER
+
+
 
 
 def home(request):

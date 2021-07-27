@@ -95,8 +95,8 @@ def productDetails(request, id, keyword):
 
 
 @login_required
-def updateCart(request, product_id):
-    # product_id = request.POST.get('product_id')
+def updateCart(request):
+    product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)
     order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
     try:
@@ -110,12 +110,14 @@ def updateCart(request, product_id):
         if order.cart.filter(product__id=product.id).exists():
             order_item.quantity += 1
             order_item.save()
+            data={'sucess': f"{product.title} Quantity successfully updated"}
             messages.info(request, f"{product.title} Quantity successfully updated")
-            return redirect("cart:shop")
+
+
         else:
             order.cart.add(order_item)
             messages.info(request, f"{product.title} was added in your cart")
-            return redirect("cart:shop")
+            return JsonResponse({}, status=200, safe=False)
     else:
         updated = timezone.now()
         odr = "ORD"
@@ -152,10 +154,11 @@ def updateCart(request, product_id):
                 "cartItemCount": cart_obj.products.count()
             }
             return JsonResponse(jason_data, status=200)
-    return redirect("cart:shop")
+    return JsonResponse({'status': 'success'})
 
 
-# @login_required
+
+    # @login_required
 def add_to_cart(request):
     product = get_object_or_404(Product)
     order_item, created = OrderItem.objects.get_or_create(

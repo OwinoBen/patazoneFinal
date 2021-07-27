@@ -334,22 +334,25 @@
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
                                                                 <form data-role="tocart-form" method="POST"
-                                                                      action='{% url 'cart:update' product.id %}'
-                                                                      data-endpoint='{% url 'cart:update' product.id %}'
+                                                                      action='{% url 'cart:update' %}'
+                                                                      data-endpoint='{% url 'cart:update' %}'
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
                                                                         {% endif %}>
                                                                     {% csrf_token %}
+
                                                                     <input type="hidden" name="product_id"
                                                                            value='{{ product.id }}'
                                                                             {% if products.is_digital %}
                                                                            data-is-digital='true'
                                                                             {% endif %} >
                                                                     <button type="submit" title="Add&#x20;to&#x20;Cart"
-                                                                            class="action tocart primary"
-                                                                            style="background-color: #b92227">
+                                                                            class="action tocart primary "
+                                                                            style="background-color: #b92227" onclick="updateCat({{ product.id }})">
                                                                         <span>Add to Cart</span>
                                                                     </button>
+{#                                                                <a  class="buy-product action primary"><button>BUY</button></a>#}
+
                                                                 </form>
                                                             </div>
                                                             <div data-role="add-to-links" class="actions-secondary">
@@ -600,8 +603,8 @@
                                                                                     <div class="actions-primary">
                                                                                         <form data-role="tocart-form"
                                                                                               method="POST"
-                                                                                              action='{% url 'cart:update' feature.id %}'
-                                                                                              data-endpoint='{% url 'cart:update' feature.id %}'
+                                                                                              action='{% url 'cart:update' %}'
+                                                                                              data-endpoint='{% url 'cart:update' %}'
                                                                                                 {% if request.user.is_authenticated %}
                                                                                               data-user='abc'
                                                                                                 {% endif %}>
@@ -903,8 +906,8 @@
                                                                             <div class="actions-primary">
                                                                                 <form data-role="tocart-form"
                                                                                       method="POST"
-                                                                                      action='{% url 'cart:update' topsel.id %}'
-                                                                                      data-endpoint='{% url 'cart:update' topsel.id %}'
+{#                                                                                      action='{% url 'cart:update' %}'#}
+{#                                                                                      data-endpoint='{% url 'cart:update' %}'#}
                                                                                         {% if request.user.is_authenticated %}
                                                                                       data-user='abc'
                                                                                         {% endif %}>
@@ -915,7 +918,7 @@
                                                                                             {% if topsel.is_digital %}
                                                                                            data-is-digital='true'
                                                                                             {% endif %} >
-                                                                                    <button type="submit"
+                                                                                    <button type="submit" id="{{ topsel.id }}"
                                                                                             title="Add&#x20;to&#x20;Cart"
                                                                                             class="action tocart primary"
                                                                                             style="background-color: #b92227">
@@ -1482,7 +1485,7 @@
             </div>
 
         </div>
-
+{% include 'modals/modals.html' %}
 
 
 {% endblock content %}
