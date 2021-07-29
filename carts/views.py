@@ -81,86 +81,85 @@ def productDetails(request, id, keyword):
     prod = None
     id = int(id)
     prod = Product.objects.filter(id=id, category=keyword)
-    relatedprod =Product.objects.filter(category=keyword)
+    relatedprod = Product.objects.filter(category=keyword)
     order_qs = Order.objects.filter(user=request.user, ordered=False, id=id)
     # if len(productdetail) > 0:
     #     prod = productdetail[0]
     # else:
     #     prod = None
     context = {'prod': prod,
-               'relatedprod':relatedprod,
-               'orederItems':order_qs,
+               'relatedprod': relatedprod,
+               'orederItems': order_qs,
                }
     return render(request, 'product_details.html', context)
 
 
 @login_required
-def updateCart(request, product_id):
-    if product_id:
-        # product_id = request.POST.get('product_id')
-        product = get_object_or_404(Product, id=product_id)
-        order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
-        try:
-            product_obj = Product.objects.get(id=product_id)
-        except Product.DoesNotExist:
-            return redirect("cart:home")
-        cart_obj, new_obj = Cart.objects.new_or_get(request)
-        order_qs = Order.objects.filter(user=request.user, ordered=False)
-        if order_qs.exists():
-            order = order_qs[0]
-            if order.cart.filter(product__id=product.id).exists():
-                order_item.quantity += 1
-                order_item.save()
-                data={'sucess': f"{product.title} Quantity successfully updated"}
-                messages.info(request, f"{product.title} Quantity successfully updated")
+def updateCart(request):
+    product_id = request.POST.get('product_id')
+    product = get_object_or_404(Product, id=product_id)
+    order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
+    try:
+        product_obj = Product.objects.get(id=product_id)
+    except Product.DoesNotExist:
+        return redirect("cart:home")
+    cart_obj, new_obj = Cart.objects.new_or_get(request)
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    if order_qs.exists():
+        order = order_qs[0]
+        if order.cart.filter(product__id=product.id).exists():
+            order_item.quantity += 1
+            order_item.save()
+            data = {'sucess': f"{product.title} Quantity successfully updated"}
+            messages.info(request, f"{product.title} Quantity successfully updated")
+            # return redirect("cart:shop")
+            return JsonResponse('success', status=200, safe=False)
 
-
-            else:
-                order.cart.add(order_item)
-                messages.info(request, f"{product.title} was added in your cart")
-                return JsonResponse({}, status=200, safe=False)
         else:
-            updated = timezone.now()
-            odr = "ORD"
-            order_id = (odr + create_ref_code())
-            order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
             order.cart.add(order_item)
-            messages.info(request, f"{product.title} item was added in your cart")
-            subject = 'Order submitted successfully (Patazone marketplace)'
-            message = 'Your order ' f"{order_id} has been submitted successfully. Kindly pay within the timelime for ' \
-                      'quick dispatch.\n Delivery period varies from Patazone marketplace/Local Seller/Global taking 1-5, ' \
+            messages.info(request, f"{product.title} was added in your cart")
+            # return redirect("cart:shop")
+            return JsonResponse('success', status=200, safe=False)
+    else:
+        updated = timezone.now()
+        odr = "ORD"
+        order_id = (odr + create_ref_code())
+        order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
+        order.cart.add(order_item)
+        messages.info(request, f"{product.title} item was added in your cart")
+        subject = 'Order submitted successfully (Patazone marketplace)'
+        message = 'Your order ' f"{order_id} has been submitted successfully. Kindly pay within the timelime for ' \
+                      'quick dispatch.\n Delivery period varies from Patazone marketplace/Local Seller/Global taking 1-5,' \
                       '8-15, ' \
                       '10-25 working days respectively. "
-            receipient = str(request.user.email)
+        receipient = str(request.user.email)
 
-            send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
+        send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
 
-            if product_obj in cart_obj.products.all():
-                sku = "PRUD"
-                sku_d = (sku + create_ref_code())
-                cart_obj.quantity += 1
-                cart_obj.save()
-                # cart_obj.products.remove(product_obj)
-                print(sku_d)
-                added = False
-            else:
-                cart_obj.products.add(product_obj)
-                added = True
-            request.session['cart_items'] = cart_obj.products.count()
-            if request.is_ajax():
-                print("Ajax request")
-                jason_data = {
-                    "added": added,
-                    "removed": not added,
-                    "cartItemCount": cart_obj.products.count()
-                }
-                return JsonResponse(jason_data, status=200)
-    return JsonResponse('success', status=200, safe=False )
-
-
+        if product_obj in cart_obj.products.all():
+            sku = "PRUD"
+            sku_d = (sku + create_ref_code())
+            cart_obj.quantity += 1
+            cart_obj.save()
+            # cart_obj.products.remove(product_obj)
+            print(sku_d)
+            added = False
+        else:
+            cart_obj.products.add(product_obj)
+            added = True
+        request.session['cart_items'] = cart_obj.products.count()
+        if request.is_ajax():
+            print("Ajax request")
+            jason_data = {
+                "added": added,
+                "removed": not added,
+                "cartItemCount": cart_obj.products.count()
+            }
+            return JsonResponse(jason_data, status=200)
+    return JsonResponse('success', status=200, safe=False)
 
 
-    # @login_required
+# @login_required
 def add_to_cart(request):
     product = get_object_or_404(Product)
     order_item, created = OrderItem.objects.get_or_create(

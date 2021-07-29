@@ -4,7 +4,7 @@
 "EMAIL_HOST": "smtp.gmail.com",
 "EMAIL_HOST_USER": "owinoben2020@gmail.com",
 "EMAIL_HOST_PASSWORD": "kwrnhbmunneldnix",
-"DEFAULT_FROM_EMAIL=Patazone": "MarketPlace Team <noreply@codingwithmitch.com",
+"DEFAULT_FROM_EMAIL":"Patazone MarketPlace Team <noreply@codingwithmitch.com",
   "AWS_ACCESS_KEY_ID":"AKIA364ENTIR6TTWV3BA",
   "AWS_SECRET_ACCESS_KEY": "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"
 }
