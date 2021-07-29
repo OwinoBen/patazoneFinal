@@ -334,8 +334,8 @@
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
                                                                 <form data-role="tocart-form" method="POST"
-                                                                      action='{% url 'cart:update' product.id %}'
-                                                                      data-endpoint='{% url 'cart:update' product.id %}'
+{#                                                                      action='{% url 'cart:update' product.id %}'#}
+{#                                                                      data-endpoint='{% url 'cart:update' product.id %}'#}
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
                                                                         {% endif %}>
@@ -346,10 +346,11 @@
                                                                            data-is-digital='true'
                                                                             {% endif %} >
                                                                     <button type="submit" title="Add&#x20;to&#x20;Cart"
-                                                                            class="action tocart primary" onclick="updateCat({{ product.id }})"
+                                                                            class="action tocart primary" id="{{ product.id }}"
                                                                             style="background-color: #b92227">
                                                                         <span>Add to Cart</span>
                                                                     </button>
+                                                                <a data-id="{{ product.id }}" class="buy-product"><button>BUY</button></a>
                                                                 </form>
                                                             </div>
                                                             <div data-role="add-to-links" class="actions-secondary">
