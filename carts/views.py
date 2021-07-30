@@ -100,7 +100,7 @@ def updateCart(request):
     product = get_object_or_404(Product, id=product_id)
     order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
     try:
-        product_obj = Product.objects.get(id=product_id)
+        product_obj = Product.objects.get(id=product_id )
     except Product.DoesNotExist:
         return redirect("cart:home")
     cart_obj, new_obj = Cart.objects.new_or_get(request)
@@ -117,6 +117,7 @@ def updateCart(request):
                     "added": added,
                     "update": not added,
                     "message": f"{product.title} quantity successfully updated",
+                    "image": product.imageURL
                 }
                 return JsonResponse(jason_data, status=200)
 

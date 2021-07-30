@@ -1,6 +1,5 @@
 $(document).ready(function(){
     // Contact Form Handler
-alert("good")
     var contactForm = $(".contact-form")
     var contactFormMethod = contactForm.attr("method")
     var contactFormEndpoint = contactForm.attr("action")
@@ -14,7 +13,6 @@ alert("good")
         submitBtn.removeClass("disabled")
         submitBtn.html(defaultText)
       }
-
     }
 
 
@@ -106,8 +104,8 @@ alert("good")
   var productForm = $(".form-product-ajax") // #form-product-ajax
 
   function getOwnedProduct(productId, submitSpan){
-    var actionEndpoint = '/orders/endpoint/verify/ownership/'
-    var httpMethod = 'GET'
+    var actionEndpoint = '/cart/details/update/'
+    var httpMethod = 'POST'
     var data = {
       product_id: productId
     }
@@ -127,7 +125,7 @@ alert("good")
             isOwner = false
           }
         },
-        error: function(erorr){
+        error: function(error){
           console.log(error)
 
         }
