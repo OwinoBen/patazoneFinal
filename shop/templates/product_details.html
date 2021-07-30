@@ -125,8 +125,8 @@
                             </div>
                             <div class="product-add-form">
 
-                                <form method="POST" action='{% url 'cart:update' details.id %}'
-                                      data-endpoint='{% url 'cart:update' details.id %}'
+                                <form method="POST" action='{% url 'cart:update' %}'
+                                      data-endpoint='{% url 'cart:update' %}'
                                         {% if request.user.is_authenticated %}
                                       data-user='abc'
                                         {% endif %} id="product_addtocart_form">
@@ -150,7 +150,7 @@
                                                            />
                                                 </div>
                                                 <div class="click-up-down flex-layout no-wrap column">
-                                                    <a class=" qty-up" href="{% url 'cart:update' details.id %}"><span
+                                                    <a class=" qty-up" href="{% url 'cart:update' %}"><span
                                                             class="icon-chevron-up"></span></a>
                                                     <a class="qty-down-fixed-onclick qty-down" href="#"><span
                                                             class="icon-chevron-down"></span></a>
