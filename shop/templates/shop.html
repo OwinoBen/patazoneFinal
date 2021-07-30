@@ -232,7 +232,7 @@
                                         <div class="product-item-inner">
                                             <div class="product actions product-item-actions">
                                                 <div class="actions-primary visible-hover">
-                                                    <form class="form-product-ajax" data-role="tocart-form" method="POST" action='{% url 'cart:update' products.id %}' data-endpoint='{% url 'cart:update' products.id %}'
+                                                    <form class="form-product-ajax" data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
                                                           {% if request.user.is_authenticated %}
                                                           data-user='abc'
                                                           {% endif %}>
