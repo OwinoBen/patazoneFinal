@@ -111,11 +111,8 @@ def updateCart(request):
             added =False
             order_item.quantity += 1
             order_item.save()
-            request.session['success'] = "hello"
-            data = {'sucess': f"{product.title} Quantity successfully updated"}
             messages.info(request, f"{product.title} Quantity successfully updated")
             if request.is_ajax():
-                print("Ajax request")
                 jason_data = {
                     "added": added,
                     "update": not added,
@@ -127,8 +124,16 @@ def updateCart(request):
             return JsonResponse('success', status=200, safe=False, )
 
         else:
+            added=True
             order.cart.add(order_item)
             messages.info(request, f"{product.title} was added in your cart")
+            if request.is_ajax():
+                jason_data = {
+                    "added": added,
+                    "update": not added,
+                    "message": f"{product.title} was added in your cart",
+                }
+                return JsonResponse(jason_data, status=200)
             # return redirect("cart:shop")
             return JsonResponse('success', status=200, safe=False)
     else:
