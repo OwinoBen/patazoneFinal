@@ -17,6 +17,9 @@
 <!-- Django Secure AJAX JS -->
 <script src="{% static 'js/system/csrf.ajax.js' %}"></script>
 <script src="{% static 'js/system/patazone.js' %}"></script>
+<script src="{% static 'js/system/notification/lobibox.min.js' %}" rel="stylesheet"></script>
+<script src="{% static 'js/system/notification/notification-custom-script.js' %}" rel="stylesheet"></script>
+<script src="{% static 'js/system/notification/notifications.min.js' %}" rel="stylesheet"></script>
 
 <script type="text/javascript">
     function updateCat(event, id){
@@ -35,9 +38,20 @@
             dataType: 'JSON',
             data: data,
             success: function(data){
-               if (data.update){
-                    alert(data.message)
-                    console.log(data.product_id)
+               if (data.message){
+                   {#success_noti(data.message)#}
+                    Lobibox.notify('info', {
+                        pauseDelayOnHover: true,
+                        continueDelayOnInactiveTab: false,
+                        position: 'top center',
+                        icon: 'bx bx-check-circle',
+                        width: 600,
+                        showClass: 'rollIn',
+                        hideClass: 'rollOut',
+                        img: data.image,
+                        msg: data.message
+                    });
+
                 }
                 else if (data.added)
                 {
