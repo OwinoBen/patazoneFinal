@@ -110,10 +110,12 @@ def updateCart(request):
         if order.cart.filter(product__id=product.id).exists():
             order_item.quantity += 1
             order_item.save()
+            request.session['success'] = "hello"
             data = {'sucess': f"{product.title} Quantity successfully updated"}
             messages.info(request, f"{product.title} Quantity successfully updated")
+
             # return redirect("cart:shop")
-            return JsonResponse('success', status=200, safe=False)
+            return JsonResponse('success', status=200, safe=False, )
 
         else:
             order.cart.add(order_item)

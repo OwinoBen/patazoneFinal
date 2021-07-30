@@ -333,9 +333,7 @@
                                                     <div class="product-item-inner">
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
-                                                                <form data-role="tocart-form" method="POST"
-                                                                      action='{% url 'cart:update' %}'
-                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                <form data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
                                                                         {% endif %}>
@@ -350,7 +348,9 @@
                                                                             style="background-color: #b92227">
                                                                         <span>Add to Cart</span>
                                                                     </button>
+
                                                                 </form>
+
                                                             </div>
                                                             <div data-role="add-to-links" class="actions-secondary">
                                                                 <a href="#" class="action towishlist" title=""
@@ -612,10 +612,8 @@
                                                                                                     {% if feature.is_digital %}
                                                                                                    data-is-digital='true'
                                                                                                     {% endif %} >
-                                                                                            <button type="submit"
-                                                                                                    title="Add&#x20;to&#x20;Cart"
-                                                                                                    class="action tocart primary"
-                                                                                                    style="background-color: #b92227">
+                                                                                            <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
+                                                                                                    style="background-color: #b92227" onclick="updateCat(event, {{ feature.id }})">
                                                                                                 <span>Add to Cart</span>
                                                                                             </button>
                                                                                         </form>
@@ -918,7 +916,7 @@
                                                                                     <button type="submit"
                                                                                             title="Add&#x20;to&#x20;Cart"
                                                                                             class="action tocart primary"
-                                                                                            style="background-color: #b92227">
+                                                                                            style="background-color: #b92227" onclick="updateCat(event, {{ topsel.id  }})">
                                                                                         <span>Add to Cart</span>
                                                                                     </button>
                                                                                 </form>
@@ -1482,7 +1480,6 @@
             </div>
 
         </div>
-    {% include 'modals/modals.html' %}
 
 
 

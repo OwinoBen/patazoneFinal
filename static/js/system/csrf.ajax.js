@@ -1,24 +1,26 @@
-
-$(document).ready(function (){
-
-    function getCookie(name){
+$(document).ready(function(){
+    // using jQuery
+    function getCookie(name) {
         var cookieValue = null;
-
-        if (document.cookie && document.cookie !== ''){
+        if (document.cookie && document.cookie !== '') {
             var cookies = document.cookie.split(';');
-            for (var i=0; i<cookies.length; i++){
-                var cookie = cookies[i];
-                if (cookie.substring(0,name.length + 1)=== name + '='){
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break
+                    break;
                 }
             }
         }
+        console.log(cookieValue)
         return cookieValue;
     }
     var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken)
-    function csrfSafeMethod(method){
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
     $.ajaxSetup({
@@ -28,4 +30,5 @@ $(document).ready(function (){
             }
         }
     });
+
 })

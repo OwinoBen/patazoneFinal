@@ -685,41 +685,12 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 {#        <script src="{% static 'assets/pages/scripts/ui-modals.min.js' %}" type="text/javascript"></script>#}
 <script type="text/javascript">
-    function getCookie(name){
-        var cookieValue = null;
 
-        if (document.cookie && document.cookie !== ''){
-            var cookies = document.cookie.split(';');
-            for (var i=0; i<cookies.length; i++){
-                var cookie = cookies[i];
-                if (cookie.substring(0,name.length + 1)=== name + '='){
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break
-                }
-            }
-        }
-        return cookieValue;
-    }
-    var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken)
-    function csrfSafeMethod(method){
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
 
     function updateCat(event, id){
         event.preventDefault();
         var actionEndpoint = '/cart/details/update/'
         {#var actionEndpoint = '{% url 'cart:update' %}'#}
-        var headers ={
-        'CSRFToken':csrftoken
-    }
         var httpMethod = 'POST'
         var data = {
           product_id: id
@@ -728,7 +699,6 @@
         {#var point= '{% url 'cart:update' product_id %}'#}
         $.ajax({
             url: actionEndpoint,
-            headers:headers,
             method: httpMethod,
             dataType: 'JSON',
             data: data,
@@ -741,41 +711,9 @@
 
             }
         })
-        {#$.post(actionEndpoint, data, function(response){#}
-        {#    const data = JSON.parse(response)#}
-        {#    alert(data)#}
-        {#})#}
     }
 
-    {#$(".tocart").on('click', function(e){#}
-    {#    console.log('hello')#}
-    {#        e.preventDefault();#}
-    {#        var product_id = $(this).attr('data-id')#}
-    {#        var quantity = 1#}
-    {#        alert(product_id)#}
-    {#        console.log(quantity)#}
-    {##}
-    {#        data = {#}
-    {#            'product_id': product_id,#}
-    {#            'quantity': quantity#}
-    {#        }#}
-    {#        var point= '{% url 'cart:update' product_id %}'#}
-    {##}
-    {#        $.ajax({#}
-    {#            headers:{#}
-    {#            'Content-Type':'application/json',#}
-    {#            'X-CSRFToken':csrftoken,#}
-    {#            },#}
-    {#            url: point,#}
-    {#            type: 'POST',#}
-    {#            data: data,#}
-    {##}
-    {#            success: function(data){#}
-    {#                console.log('success')#}
-    {#                console.log(csrftoken)#}
-    {#            }#}
-    {#    })#}
-    {#})#}
+
 </script>
 
 </body>

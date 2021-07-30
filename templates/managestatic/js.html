@@ -52,26 +52,35 @@
         <script src="{% static 'assets/layouts/global/scripts/quick-nav.min.js' %}" type="text/javascript"></script>
 <link href="{% static 'js/system/toaster.js' %}" rel="stylesheet">
 
+<script type="text/javascript">
+    function updateCat(event, id){
+        event.preventDefault();
+        var actionEndpoint = '/cart/details/update/'
+        {#var actionEndpoint = '{% url 'cart:update' %}'#}
+        var httpMethod = 'POST'
+        var data = {
+          product_id: id
+        }
 
-{#<script type="text/javascript">#}
-{#    $(document).ready(function(){#}
-{#        $('.tocart').on('click', function(){#}
-{#            var product_id = $(this).attr('id')#}
-{#            var data = {#}
-{#                product_id: product_id#}
-{#            }#}
-{##}
-{#            $.ajax({#}
-{#                type: 'GET',#}
-{#                url: '{% url 'cart:update' product_id %}',#}
-{#                data: data,#}
-{#                success: function(data){#}
-{#                    console.log('success')#}
-{#                }#}
-{#            })#}
-{#        })#}
-{#    });#}
-{#</script>#}
+        {#var point= '{% url 'cart:update' product_id %}'#}
+        $.ajax({
+            url: actionEndpoint,
+            method: httpMethod,
+            dataType: 'JSON',
+            data: data,
+            success: function(data){
+                alert("item added successfully")
+                console.log(data.product_id)
+            },
+            error: function(error){
+              console.log(error)
+
+            }
+        })
+    }
+
+
+</script>
 {#<script>#}
 {##}
 {#      var BASE_URL =#}

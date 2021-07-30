@@ -1,3 +1,32 @@
+
+<script type="text/javascript">
+    function updateCat(event, id){
+        event.preventDefault();
+        var actionEndpoint = '/cart/details/update/'
+        {#var actionEndpoint = '{% url 'cart:update' %}'#}
+        var httpMethod = 'POST'
+        var data = {
+          product_id: id
+        }
+
+        {#var point= '{% url 'cart:update' product_id %}'#}
+        $.ajax({
+            url: actionEndpoint,
+            method: httpMethod,
+            dataType: 'JSON',
+            data: data,
+            success: function(data){
+                alert("item added successfully")
+                console.log(data.product_id)
+            },
+            error: function(error){
+              console.log(error)
+
+            }
+        })
+    }
+
+</script>
 <script>
     var BASE_URL = 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002F';
     var require = {
