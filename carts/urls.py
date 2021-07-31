@@ -12,5 +12,5 @@ urlpatterns = [
     path('update/', updateCart, name='update'),
     path('^quickcheck/(?P<id>)/$', QuickCheck, name='quickcheck'),
     path('productdetails/<int:id>/<keyword>$', productDetails, name='productdetails'),
-    path('removed/<int:product_id>', remove_single_item_from_cart, name="removefromcart"),
+    path('removed/<int:product_id>', remove_from_cart, name="removefromcart"),
 ]

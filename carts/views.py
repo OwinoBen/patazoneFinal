@@ -216,6 +216,7 @@ def remove_from_cart(request, product_id):
         user=request.user,
         ordered=False
     )
+
     if order_qs.exists():
         order = order_qs[0]
         # check if the order item is in the order
