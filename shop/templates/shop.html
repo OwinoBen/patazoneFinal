@@ -221,13 +221,17 @@
                                         <span id="product-price-1" data-price-type="finalPrice" class="price-wrapper "><span class="price">Ksh. {{ products.price|floatformat:"0"|intcomma }}</span></span>
                                         </span>
                                         </span>
-                                            <span class="old-price">
-                                        <span class="price-container price-final_price&#x20;tax&#x20;weee">
-                                        <span class="price-label">Regular Price</span>
-                                        <span id="old-price-1" data-price-amount="79.99" data-price-type="oldPrice"
-                                              class="price-wrapper "><span class="price">Ksh. {{ products.old_price|floatformat:"0"|intcomma }}</span></span>
-                                        </span>
-                                        </span>
+                                            {% if products.old_price != 0 %}
+                                               <span class="old-price">
+                                                <span class="price-container price-final_price&#x20;tax&#x20;weee">
+                                                    <span class="price-label">Regular Price</span>
+                                                    <span id="old-price-1" data-price-type="oldPrice" class="price-wrapper ">
+                                                        <span class="price">Ksh. {{ products.old_price|floatformat:"0"|intcomma }}</span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            {% endif %}
+
                                         </div>
                                         <div class="product-item-inner">
                                             <div class="product actions product-item-actions">

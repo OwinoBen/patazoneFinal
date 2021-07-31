@@ -133,6 +133,7 @@ def updateCart(request):
                     "added": added,
                     "update": not added,
                     "message": f"{product.title} was added in your cart",
+                    "image": product.imageURL
                 }
                 return JsonResponse(jason_data, status=200)
             # return redirect("cart:shop")

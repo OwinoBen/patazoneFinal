@@ -122,6 +122,7 @@ class Product(models.Model):
     category = models.CharField(max_length=120, choices=CATEGORY, default="Phones and Electronics")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
+    brand = models.CharField(max_length=120, blank=True, null=True)
     cost_price = models.DecimalField(default=0.00, decimal_places=2, max_digits=20)
     price = models.FloatField(default=0.00)
     old_price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
