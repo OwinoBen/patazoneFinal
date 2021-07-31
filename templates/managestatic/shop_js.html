@@ -38,7 +38,6 @@
             dataType: 'JSON',
             data: data,
             success: function(data){
-                console.log(data.message)
                if (data.message){
                    {#success_noti(data.message)#}
                     Lobibox.notify('info', {

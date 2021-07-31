@@ -13,15 +13,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.views import View
-from django.views.generic import DetailView
 
-from accounts.forms import LoginForm, GuestForm
-from accounts.models import GuestEmail
-
-# from address.forms import AddressCheckoutForm
-from address.models import Address
-
-from billing.models import BillingProfile
 from mpesa.views import HOST_USER_EMAIL
 from orders.models import Order
 from products.models import Product
@@ -93,6 +85,12 @@ def productDetails(request, id, keyword):
                }
     return render(request, 'product_details.html', context)
 
+def cart_item_count(user):
+    if user.is_authenticated:
+        qs = Order.objects.filter(user=user, ordered=False)
+        if qs.exists():
+            return qs[0].cart.count()
+    return 0
 
 @login_required
 def updateCart(request):
@@ -117,7 +115,8 @@ def updateCart(request):
                     "added": added,
                     "update": not added,
                     "message": f"{product.title} quantity successfully updated",
-                    "image": product.imageURL
+                    "image": product.imageURL,
+                    "cartItems": cart_item_count(request.user)
                 }
                 return JsonResponse(jason_data, status=200)
 
@@ -133,7 +132,8 @@ def updateCart(request):
                     "added": added,
                     "update": not added,
                     "message": f"{product.title} was added in your cart",
-                    "image": product.imageURL
+                    "image": product.imageURL,
+                    "cartItems": cart_item_count(request.user)
                 }
                 return JsonResponse(jason_data, status=200)
             # return redirect("cart:shop")
