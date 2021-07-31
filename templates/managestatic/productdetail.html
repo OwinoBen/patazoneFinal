@@ -39,6 +39,8 @@
                      alert(data.message)
                     console.log(data.product_id)
                 }
+                var navbarCount = $(".total-mini-cart-item")
+                   navbarCount.text(data.update)
             },
             error: function(error){
               console.log(error)

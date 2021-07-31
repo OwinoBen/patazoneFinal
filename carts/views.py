@@ -103,6 +103,7 @@ def updateCart(request):
         return redirect("cart:home")
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
+    request.session['cartItems'] = cart_item_count(request.user)
     if order_qs.exists():
         order = order_qs[0]
         if order.cart.filter(product__id=product.id).exists():
@@ -113,10 +114,10 @@ def updateCart(request):
             if request.is_ajax():
                 jason_data = {
                     "added": added,
-                    "update": not added,
+                    "update": cart_item_count(request.user),
                     "message": f"{product.title} quantity successfully updated",
                     "image": product.imageURL,
-                    "cartItems": cart_item_count(request.user)
+                    "cartItemCount": not added
                 }
                 return JsonResponse(jason_data, status=200)
 
@@ -130,10 +131,10 @@ def updateCart(request):
             if request.is_ajax():
                 jason_data = {
                     "added": added,
-                    "update": not added,
+                    "update": cart_item_count(request.user),
                     "message": f"{product.title} was added in your cart",
                     "image": product.imageURL,
-                    "cartItems": cart_item_count(request.user)
+                    "cartItemCount": not added
                 }
                 return JsonResponse(jason_data, status=200)
             # return redirect("cart:shop")
