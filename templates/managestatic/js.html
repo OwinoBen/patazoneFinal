@@ -97,6 +97,18 @@
                    navbarCount.text(data.update)
             },
             error: function(error){
+                if (data.user != 'Authenticated'){
+                    Lobibox.notify('error', {
+                        pauseDelayOnHover: true,
+                        icon: 'bx bx-x-circle',
+                        size: 'mini',
+                        continueDelayOnInactiveTab: false,
+                        position: 'bottom left',
+                        msg: "Please login or create Account to shop with us"
+                    });
+
+                }
+
               console.log(error)
 
             }

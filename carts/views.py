@@ -85,6 +85,7 @@ def productDetails(request, id, keyword):
                }
     return render(request, 'product_details.html', context)
 
+
 def cart_item_count(user):
     if user.is_authenticated:
         qs = Order.objects.filter(user=user, ordered=False)
@@ -92,13 +93,14 @@ def cart_item_count(user):
             return qs[0].cart.count()
     return 0
 
+
 @login_required
 def updateCart(request):
     product_id = request.POST.get('product_id')
     product = get_object_or_404(Product, id=product_id)
     order_item, created = OrderItem.objects.get_or_create(product=product, user=request.user, ordered=False)
     try:
-        product_obj = Product.objects.get(id=product_id )
+        product_obj = Product.objects.get(id=product_id)
     except Product.DoesNotExist:
         return redirect("cart:home")
     cart_obj, new_obj = Cart.objects.new_or_get(request)
@@ -107,25 +109,27 @@ def updateCart(request):
     if order_qs.exists():
         order = order_qs[0]
         if order.cart.filter(product__id=product.id).exists():
-            added =False
+            added = False
             order_item.quantity += 1
             order_item.save()
             messages.info(request, f"{product.title} Quantity successfully updated")
-            if request.is_ajax():
-                jason_data = {
-                    "added": added,
-                    "update": cart_item_count(request.user),
-                    "message": f"{product.title} quantity successfully updated",
-                    "image": product.imageURL,
-                    "cartItemCount": not added
-                }
-                return JsonResponse(jason_data, status=200)
+            if request.user.is_authenticated:
+                if request.is_ajax():
+                    jason_data = {
+                        "added": added,
+                        "update": cart_item_count(request.user),
+                        "message": f"{product.title} quantity successfully updated",
+                        "image": product.imageURL,
+                        "cartItemCount": not added,
+                        "user": "Authenticated"
+                    }
+                    return JsonResponse(jason_data, status=200)
 
             # return redirect("cart:shop")
             return JsonResponse('success', status=200, safe=False, )
 
         else:
-            added=True
+            added = True
             order.cart.add(order_item)
             messages.info(request, f"{product.title} was added in your cart")
             if request.is_ajax():
