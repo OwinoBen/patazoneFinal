@@ -74,7 +74,7 @@ def productDetails(request, id, keyword):
     id = int(id)
     prod = Product.objects.filter(id=id, category=keyword)
     relatedprod = Product.objects.filter(category=keyword)
-    order_qs = Order.objects.filter(user=request.user, ordered=False, id=id)
+    order_qs = Order.objects.filter(ordered=False, id=id)
     # if len(productdetail) > 0:
     #     prod = productdetail[0]
     # else:
