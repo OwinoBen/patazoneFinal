@@ -1,5 +1,21 @@
 {% load static %}
 <script>
+    $(document).ready(function(){
+    $(".delete_button").click(function() {
+        var id = $(this).attr('id');
+        $.ajax({
+            url: "{% url 'cart:removefromcart' 1 %}",
+            data: { 'id' : id },
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}" );
+            },
+            success: function(response){
+            }
+        });
+    });
+});
+</script>
+<script>
     var BASE_URL = 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002F';
     var require = {
         'baseUrl': 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620877543\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US'
