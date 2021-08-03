@@ -1013,7 +1013,7 @@ p{margin-bottom:.3em;}
                             </div>
                         </li>
                         {% if shipping_addres %}
-                    <li id="shipping" class="checkout-shipping-address">
+                    <li id="shipping" class="checkout-shipping-address shipping">
                             <div class="step-title" data-role="title">Shipping Address</div>
                             <div id="checkout-step-shipping" class="step-content" data-role="content">
                                 {% for shipping in shipping_addres %}
@@ -1193,10 +1193,12 @@ p{margin-bottom:.3em;}
         if (radio_value == '0') {
           $("#addressAdd").fadeIn("slow");
           $("#pickup").fadeOut("slow");
+          $(".shipping").fadeOut("slow");
         } else if (radio_value == '1') {
 
           $("#pickup").fadeIn("slow");
           $("#addressAdd").fadeOut("slow");
+          $(".shipping").fadeOut("slow");
            {#if ({{ shipping_addres > 0 }}){#}
            {#     console.log('shipping address present')#}
            {# }else#}
