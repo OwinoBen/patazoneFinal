@@ -83,8 +83,7 @@ a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
     </style>
-    {#<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>#}
-    <script type="text/javascript" src="static/js/jsbootstrap/js/js/jquery.min.js"></script>
+
 <body data-container="body" id="html-body"
       class="bluesky-page-preloader rokanthemes-onepagecheckout checkout-index-index onepagecheckout-index-index page-layout-1column">
 {% include 'managestatic/nav_bar.html' %}
@@ -961,70 +960,7 @@ p{margin-bottom:.3em;}
                 <div data-role="checkout-messages" class="messages"></div>
                 <div class="opc-wrapper">
                     <div class="opc" id="checkoutSteps">
-                        <li id="opc-shipping_method" class="checkout-shipping-address" role="presentation">
-                            <div class="checkout-shipping-method">
-                                <div class="step-title">Mpesa Payment</div>
-                                <div id="checkout-step-shipping" class="step-content" data-role="content">
-                                    <div class="form form-shipping-address" id="co-shipping-form" style="display: block;">
-                                        <div id="shipping-new-address-form" class="fieldset address">
-                                            <div class="field col-mp mp-12 mp-clear not-required _required "
-                                                        style="margin-top: 80px; text-align: center" >
-                                                        <img style="margin-top: 10px " src="{% static 'images/mpesa_icon.png' %}">
-                                                        <div class="pay-type-detail">
-                                                            <p class="pay-type-detail-notice"
-                                                               style=" padding: 20px 70px 0 70px; line-height: 18px;">
-                                                                <span style="margin-right: 10px; font-weight:bold;">·</span>Confirm
-                                                                phone No. then click <span
-                                                                    style="font-weight:bold;color: #06AF98;font-size: 15px">'Proceed'</span>
-                                                                to generate payment request to your phone.&nbsp;
-                                                            </p>
-                                                            <p class="pay-type-detail-notice"
-                                                               style=" padding: 10px 70px 0 70px; line-height:18px;">
-                                                                <span style="margin-right: 10px; font-weight:  bold;">·</span>
-                                                                Enter your <span
-                                                                    style="font-weight:bold;color: #06AF98;font-size: 15px">MPESA PIN</span>
-                                                                on prompt pop-up on your phone to complete the payment.
-                                                            </p>
 
-                                                            <div class="pay-input-box clearfix"
-                                                                 style="margin-top:20px;">
-                                                                <form method="POST" action="{% url 'mpesa:mpesaApp-about' %}">
-                                                                    {% csrf_token %}
-                                                                    <div class="fieldset">
-                                                                        <div class="field field-email required">
-                                                                            <label class="label" for="login-email">
-                                                                                <span>Phone Number</span></label>
-                                                                            <div class="control">
-                                                                                <input type="text" class="input-text" id="PhoneNumber"
-                                                                                       name="PhoneNumber" autocomplete="off" placeholder="7xxxxxx" required>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="field field-password required">
-{#                                                                            <label for="login-password" class="label">#}
-{#                                                                                <span>Total Order Amount (Ksh.)</span>#}
-{#                                                                            </label>#}
-                                                                            <div class="control">
-                                                                                <input type="hidden" class="input-text" style="text-align: center; font-weight: bold"
-                                                                                       id="Amount" name="Amount" value="{{ order.get_total|floatformat:"0"}}"
-                                                                                       autocomplete="off" readonly>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="primary">
-                                                                        <button type="submit" class="action action-login secondary">
-                                                                            <span>Proceed</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </li>
                         <li id="shipping" role="presentation" class="checkout-shipping-address">
                             <div id="checkout-step-payment" class="step-content " data-role="content" role="tabpanel"
                                  aria-hidden="false">
@@ -1037,9 +973,11 @@ p{margin-bottom:.3em;}
                                                 <div class="payment-group" data-repeat-index="0">
                                                         <div class="payment-method" style="float: left;margin: 2px 0 0 2px">
                                                                <div class="cc-selector">
-                                                                    <input id="visa" type="radio" name="credit-card" value="visa" />
+                                                                    <input id="visa" type="radio" name="bn" value="0" />
                                                                     <label class="drinkcard-cc visa" for="visa"></label>
-                                                                    <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+                                                                    <input id="mastercard" type="radio" name="bn" value="1" />
+                                                                    <label class="drinkcard-cc mastercard"for="mastercard"></label>
+                                                                   <input id="mastercard" type="radio" name="bn" value="1" />
                                                                     <label class="drinkcard-cc mastercard"for="mastercard"></label>
                                                                </div>
                                                         </div>
@@ -1095,7 +1033,7 @@ p{margin-bottom:.3em;}
                                 </div>
                                 <div class="new-address-popup">
                                     <button type="button" class="action  action-show-popup" data-toggle="modal" data-target="#responsive">
-                                        <span>New Address</span>
+                                        <span>Edit Shipping Address</span>
                                     </button>
                                 </div>
                                 {% endfor %}
@@ -1104,174 +1042,28 @@ p{margin-bottom:.3em;}
                         {% else %}
                         <li id="shipping" class="checkout-shipping-address " >
                             <div class="step-title" data-role="title">Shipping Address</div>
-                            {% if error %}
-                                <div id="password-strength-meter" class="password-strength-meter" style="text-align: center; margin-bottom: 10px;">
-                                    <span style="color: red;margin: auto;">{{ error }}</span>
-                                </div>
-                            {% endif %}
-                            <div id="checkout-step-shipping" class="step-content" data-role="content">
-
-                                <form class="form form-shipping-address" method="post" action="{% url 'checkout:address' %}" id="co-shipping-form" style="display: block;">
-                                    {% csrf_token %}
-                                    <div id="shipping-new-address-form" class="fieldset address">
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.firstname">
-                                            <label class="label"><span>First Name</span></label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="firstname"
-                                                       aria-required="true" aria-invalid="false" id="firstname">
-                                            </div>
-                                        </div>
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.lastname">
-                                            <label class="label"><span>Last Name</span>
-                                            </label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="lastname"
-                                                       aria-required="true" aria-invalid="false" id="lastname">
-                                            </div>
-                                        </div>
-                                        <fieldset
-                                                class="field street col-mp mp-12 mp-clear not-required admin__control-fields required">
-                                            <legend class="label">
-                                                <span>Mobile phone number</span>
-                                            </legend>
-                                            <div class="control">
-                                                <div class="field _required">
-                                                    <label class="label">
-                                                        <span>Mobile phone number</span>
-                                                    </label>
-                                                    <div class="control">
-                                                        <input class="input-text" type="text" name="mobilephone1"
-                                                               id="mobilephone1">
-                                                    </div>
-                                                </div>
-                                                <div class="field additional" name="shippingAddress.street.1">
-                                                    <label class="label">
-                                                        <span>Additional phone number (Optional)</span>
-                                                    </label>
-                                                    <div class="control">
-                                                        <input class="input-text" type="text" name="mobilephone2"
-                                                               id="mobilephone2">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <div class="field col-mp mp-12 mp-clear not-required" name="shippingAddress.city">
-                                            <label class="label"><span>Delivery Address</span></label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="deliveryAddress" id="deliveryAddress">
-                                            </div>
-                                        </div>
-
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.region_id">
-                                            <label class="label">
-                                                <span>State/Region</span>
-                                            </label>
-                                            <div class="control">
-                                                <select class="select" name="state" id="state" aria-required="true" aria-invalid="false">
-                                                    <option value="">Please select a region, state or province.
-                                                    </option>
-                                                    <option data-title="Mombasa" value="1"> Mombasa</option>
-                                                    <option data-title="Kwale" value="2">Kwale</option>
-                                                    <option data-title="Kilifi" value="3">Kilifi
-                                                    </option>
-                                                    <option data-title="Tana River" value="4">Tana River</option>
-                                                    <option data-title="Lamu" value="5">Lamu</option>
-                                                    <option data-title="Taita/Taveta" value="6">Taita/Taveta</option>
-                                                    <option data-title="Garissa" value="7">Garissa</option>
-                                                    <option data-title="Wajir" value="8">Wajir</option>
-                                                    <option data-title="Mandera" value="9">Mandera</option>
-                                                    <option data-title="Marsabit" value="10"></option>
-                                                    <option data-title="Isiolo" value="11">Isiolo</option>
-                                                    <option data-title="Meru" value="12">Meru</option>
-                                                    <option data-title="Tharaka-Nithi" value="13">Tharaka-Nithi</option>
-                                                    <option data-title="Embu" value="14">Embu</option>
-                                                    <option data-title="Kitui" value="15">Kitui</option>
-                                                    <option data-title="Machakos" value="16">Machakos
-                                                    </option>
-                                                    <option data-title="Makueni" value="17">Makueni</option>
-                                                    <option data-title="Nyandarua" value="18">Nyandarua</option>
-                                                    <option data-title="Nyeri" value="19">Nyeri</option>
-                                                    <option data-title="Kirinyaga" value="20">Kirinyaga</option>
-                                                    <option data-title="Murang'a" value="21">Murang'a</option>
-                                                    <option data-title="Kiambu" value="22">Kiambu</option>
-                                                    <option data-title="Turkana" value="23">Turkana</option>
-                                                    <option data-title="West Pokot" value="24">West Pokot</option>
-                                                    <option data-title="Samburu" value="25">Samburu</option>
-                                                    <option data-title="Trans Nzoia" value="26">Trans Nzoia</option>
-                                                    <option data-title="Uasin Gishu" value="27">Uasin Gishu</option>
-                                                    <option data-title="Elgeyo/Marakwet" value="28">Elgeyo/Marakwet
-                                                    </option>
-                                                    <option data-title="Nandi" value="29">Nandi</option>
-                                                    <option data-title="Baringo" value="30">Baringo
-                                                    </option>
-                                                    <option data-title="Laikipia" value="31">Laikipia</option>
-                                                    <option data-title="Nakuru" value="32">Nakuru
-                                                    </option>
-                                                    <option data-title="Narok" value="33">Narok</option>
-                                                    <option data-title="Kajiado" value="34">Kajiado</option>
-                                                    <option data-title="Kericho" value="35">Kericho</option>
-                                                    <option data-title="Bomet" value="36">Bomet</option>
-                                                    <option data-title="Kakamega" value="37">Kakamega</option>
-                                                    <option data-title="Vihiga" value="38">Vihiga</option>
-                                                    <option data-title="Bungoma" value="39">Bungoma</option>
-                                                    <option data-title="Busia" value="40">Busia
-                                                    </option>
-                                                    <option data-title="Siaya" value="41">Siaya</option>
-                                                    <option data-title="Kisumu" value="42">Kisumu</option>
-                                                    <option data-title="Homa Bay" value="43">Homa Bay</option>
-                                                    <option data-title="Migori" value="44">Migori
-                                                    </option>
-                                                    <option data-title="Kisii" value="45">Kisii
-                                                    </option>
-                                                    <option data-title="Nyamira" value="46">Nyamira</option>
-                                                    <option data-title="Nairobi City" value="47">Nairobi City</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="field col-mp mp-12 mp-clear not-required _required" name="shippingAddress.postcode">
-                                            <label class="label">
-                                                <span>City</span>
-                                            </label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" name="city" id="city">
-                                            </div>
-                                        </div>
-                                        <div class="field col-mp mp-12 mp-clear required _required"
-                                             name="shippingAddress.country_id">
-                                            <label class="label"><span>Country</span>
-                                            </label>
-                                            <div class="control">
-                                                {{ form.shipping_country }}
-
-                                            </div>
-                                        </div>
-
-                                        <div class="checkout-billing-address">
-                                            <div class="billing-address-same-as-shipping-block field choice">
-                                                <input type="checkbox" name="set_default_shipping_address"
-                                                       id="set_default_shipping_address">
-                                                <label><span>Save as default shipping address</span></label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="primary">
-                                        <button type="submit" class="action action-login secondary">
-                                            <span>Proceed</span>
-                                        </button>
-                                    </div>
-                                </form>
+                            <div class="new-address-popup">
+                                <button type="button" id="addressAdd" class="action  action-show-popup" data-toggle="modal" data-target="#responsive">
+                                    <span>Add shipping Address</span>
+                                </button>
                             </div>
-{#                            {% if default_shipping_address %}#}
-{#                                <div class="billing-address-same-as-shipping-block field choice">#}
-{#                                    <input type="checkbox" name="use_default_shipping"#}
-{#                                           id="use_default_shipping">#}
-{#                                    <label><span>Use default shipping address: {{ default_shipping_address.street_address|truncatechars:10 }}</span></label>#}
-{#                                </div>#}
-{#                            {% endif %}#}
+                            <div id="pickup">
+                                <div class="field">
+                                    <label class="field">Phone number</label>
+                                    <div class="control">
+                                        <input class="input-text" type="text" id="discount-code" name="discount_code" placeholder="Enter Your Phone number">
+                                    </div>
+                                </div><br>
+                                <div class="field">
+                                    <label>Email</label>
+                                    <div class="control">
+                                        <input class="input-text" type="text" id="discount-code" name="discount_code" placeholder="Enter Your Email">
+                                    </div>
+                                </div><br>
+                                <button type="button" id="addressAdd" class="action  action-show-popup">
+                                    <span>Add shipping Address</span>
+                                </button>
+                            </div>
                         </li>
                         {% endif %}
                     </div>
@@ -1357,18 +1149,18 @@ p{margin-bottom:.3em;}
                                 <th class="mark" scope="row">Cart Subtotal</th>
                                 <td class="amount">
                                     <span class="price"
-                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|intcomma }}</span>
+                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>
                                 </td>
                             </tr>
 
                             <tr class="totals shipping excl">
                                 <th class="mark" scope="row">
-                                    <span class="label" data-bind="i18n: title">Shipping</span>
+                                    <span class="" data-bind="i18n: title">Shipping</span>
                                     <span class="value"
                                           data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
                                 </th>
                                 <td class="amount">
-                                    <span class="price" data-th="Shipping">$5.00</span>
+                                    <span class="price" data-th="Shipping">Ksh. 00</span>
                                 </td>
                             </tr>
 
@@ -1377,7 +1169,7 @@ p{margin-bottom:.3em;}
                                     <strong>Order Total</strong>
                                 </th>
                                 <td class="amount" data-th="Order Total">
-                                    <strong><span class="price">Ksh. {{ order.get_total|intcomma }}</span></strong>
+                                    <strong><span class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>
                                 </td>
                             </tr>
 
@@ -1394,6 +1186,26 @@ p{margin-bottom:.3em;}
 
 </main>
 {% include 'modals/modals.html' %}
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("input[name$='bn']").click(function() {
+        var radio_value = $(this).val();
+        if (radio_value == '0') {
+          $("#addressAdd").fadeIn("slow");
+          $("#pickup").fadeOut("slow");
+        } else if (radio_value == '1') {
+          $("#pickup").fadeIn("slow");
+          $("#addressAdd").fadeOut("slow");
+        }
+      });
+    });
+
+    $('input[name="bn"]').change(function() {
+       if($(this).is(':checked') && $(this).val() == '0') {
+            $('#stack1').modal('show');
+       }
+    });
+</script>
 <script>
     var hideable_shipping_form = $('.hideable_shipping_form');
     var hideable_billing_form = $('.hideable_billing_form');
@@ -1420,9 +1232,6 @@ p{margin-bottom:.3em;}
 
 </script>
 {% include 'managestatic/footer.html' %}
-<script type="text/javascript" src="static/js/jsbootstrap/js/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/js/jsbootstrap/js/js/bootstrap-modalmanager.js"></script>
-<script type="text/javascript" src="static/js/jsbootstrap/js/js/bootstrap-modal.js"></script>
 {% include 'managestatic/js.html' %}
 
 <script>
@@ -1542,6 +1351,12 @@ p{margin-bottom:.3em;}
     //alert(val);
     $(this).parent().find('input').val(val);
 });
+</script>
+<script>
+    function addressSubmit(event){
+        event.preventDefault()
+        alert("sending data")
+    }
 </script>
 </body>
 </html>

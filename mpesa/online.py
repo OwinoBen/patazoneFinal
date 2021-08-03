@@ -9,8 +9,8 @@ from django.conf import settings
 
 
 def getAccessToken():
-    consumer_key = '7NGrk2RPIW1SGZirGOn6A3xfRUA9egN8'
-    consumer_secret = 'luKizjW5A47Te73h'
+    consumer_key = 'DreE5Tw3IZ0c4K0q8vINnEMERs68Lqf9'
+    consumer_secret = 'elCYrk0bAJfcDkHv'
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
     return r.json()['access_token']

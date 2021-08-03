@@ -4914,11 +4914,12 @@ tbody.collapse.in {
 }
 
 .label {
-    display: inline;
-    padding: .2em .6em .3em;
-    font-size: 75%;
-    color: #fff;
-    border-radius: .25em
+
+    font-size: 1.2rem;
+    color: #666;
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: bold;
 }
 
 .label:empty {
