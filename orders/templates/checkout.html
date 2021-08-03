@@ -48,8 +48,8 @@
        -moz-appearance:none;
             appearance:none;
 }
-.visa{background-image:url(/static/images/mpesa_icon.png);}
-.mastercard{background-image:url(/static/images/visa.jpg);}
+{#.visa{background-image:url(/static/images/mpesa_icon.png);}#}
+{#.mastercard{background-image:url(/static/images/visa.jpg);}#}
 
 .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector input:checked +.drinkcard-cc{
@@ -967,16 +967,16 @@ p{margin-bottom:.3em;}
                                 <form id="co-payment-form" class="form payments">
                                     <input type="hidden" name="form_key" value="">
                                     <fieldset class="fieldset">
-                                        <div class="step-title">Payment Method</div>
+                                        <div class="step-title">Delivery Method</div>
                                         <div id="checkout-payment-method-load" class="opc-payment">
                                             <div class="items payment-methods">
                                                 <div class="payment-group" data-repeat-index="0">
                                                         <div class="payment-method" style="float: left;margin: 2px 0 0 2px">
                                                                <div class="cc-selector">
                                                                     <input id="visa" type="radio" name="bn" value="0" />
-                                                                    <label class="drinkcard-cc visa" for="visa"></label>
+                                                                    <label class="drinkcard-cc visa" for="visa"> Deliver to my location</label>
                                                                     <input id="mastercard" type="radio" name="bn" value="1" />
-                                                                    <label class="drinkcard-cc mastercard"for="mastercard"></label>
+                                                                    <label class="drinkcard-cc mastercard"for="mastercard">Pick from Store</label>
                                                                    <input id="mastercard" type="radio" name="bn" value="1" />
                                                                     <label class="drinkcard-cc mastercard"for="mastercard"></label>
                                                                </div>
@@ -1055,13 +1055,13 @@ p{margin-bottom:.3em;}
                                     </div>
                                 </div><br>
                                 <div class="field">
-                                    <label>Email</label>
+                                    <label>Pickup Station</label>
                                     <div class="control">
-                                        <input class="input-text" type="text" id="discount-code" name="discount_code" placeholder="Enter Your Email">
+                                        <input class="input-text" type="text" id="discount-code" name="discount_code" value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya" readonly placeholder="Enter Your Email">
                                     </div>
                                 </div><br>
                                 <button type="button" id="addressAdd" class="action  action-show-popup">
-                                    <span>Add shipping Address</span>
+                                    <span>Place Order</span>
                                 </button>
                             </div>
                         </li>
@@ -1194,8 +1194,15 @@ p{margin-bottom:.3em;}
           $("#addressAdd").fadeIn("slow");
           $("#pickup").fadeOut("slow");
         } else if (radio_value == '1') {
+
           $("#pickup").fadeIn("slow");
           $("#addressAdd").fadeOut("slow");
+           {#if ({{ shipping_addres > 0 }}){#}
+           {#     console.log('shipping address present')#}
+           {# }else#}
+           {# {#}
+           {#     console.log('no shipping shiping address present ')#}
+           {# }#}
         }
       });
     });
