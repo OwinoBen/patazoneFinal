@@ -314,7 +314,7 @@
                                                               ">
                                                       <span data-price-amount="70" data-price-type="finalPrice"
                                                             class="price-wrapper"><span
-                                                              class="price">KES {{ product.price|floatformat:"0"|intcomma  }}</span></span>
+                                                              class="price">KES {{ product.price|floatformat:"0"|intcomma }}</span></span>
                                                     </span>
                                                     </div>
                                                     <div class="product-sold">
@@ -330,7 +330,9 @@
                                                     <div class="product-item-inner">
                                                         <div class="product actions product-item-actions">
                                                             <div class="actions-primary">
-                                                                <form data-role="tocart-form" method="POST" action='{% url 'cart:update' %}' data-endpoint='{% url 'cart:update' %}'
+                                                                <form data-role="tocart-form" method="POST"
+                                                                      action='{% url 'cart:update' %}'
+                                                                      data-endpoint='{% url 'cart:update' %}'
                                                                         {% if request.user.is_authenticated %}
                                                                       data-user='abc'
                                                                         {% endif %}>
@@ -341,7 +343,8 @@
                                                                            data-is-digital='true'
                                                                             {% endif %} >
                                                                     <button type="submit" title="Add&#x20;to&#x20;Cart"
-                                                                            class="action tocart primary" onclick="updateCat(event, {{ product.id }})"
+                                                                            class="action tocart primary"
+                                                                            onclick="updateCat(event, {{ product.id }})"
                                                                             style="background-color: #b92227">
                                                                         <span>Add to Cart</span>
                                                                     </button>
@@ -497,7 +500,8 @@
                                     <div class="products wrapper grid products-grid">
                                         <ol class="products list items product-items owl-carousel owl-loaded owl-drag">
                                             <div class="owl-stage-outer">
-                                                <div class="owl-stage" style="transform: translate3d(-990px, 0px, 0px); transition: all 0s ease 0s; width: 2477px;" >
+                                                <div class="owl-stage"
+                                                     style="transform: translate3d(-990px, 0px, 0px); transition: all 0s ease 0s; width: 2477px;">
                                                     {% for feature in featured %}
 
                                                         <div class="owl-item" style="width: 247.667px;">
@@ -572,7 +576,7 @@
                                                                                     <span id="product-price-3"
                                                                                           data-price-type="finalPrice"
                                                                                           class="price-wrapper ">
-                                                                                        <span class="price">Ksh. {{ feature.price|floatformat:"0"|intcomma  }}</span>
+                                                                                        <span class="price">Ksh. {{ feature.price|floatformat:"0"|intcomma }}</span>
                                                                                     </span>
                                                                                 </span>
                                                                             </span>
@@ -581,7 +585,7 @@
                                                                             <span class="price-label">Regular Price</span>
                                                                             <span id="old-price-3"
                                                                                   class="price-wrapper ">
-                                                                                <span class="price">Ksh. {{ feature.old_price|floatformat:"0"|intcomma  }}</span></span>
+                                                                                <span class="price">Ksh. {{ feature.old_price|floatformat:"0"|intcomma }}</span></span>
                                                                             </span>
                                                                             </span>
                                                                             </div>
@@ -602,8 +606,11 @@
                                                                                                     {% if feature.is_digital %}
                                                                                                    data-is-digital='true'
                                                                                                     {% endif %} >
-                                                                                            <button type="submit" title="Add&#x20;to&#x20;Cart" class="action tocart primary"
-                                                                                                    style="background-color: #b92227" onclick="updateCat(event, {{ feature.id }})">
+                                                                                            <button type="submit"
+                                                                                                    title="Add&#x20;to&#x20;Cart"
+                                                                                                    class="action tocart primary"
+                                                                                                    style="background-color: #b92227"
+                                                                                                    onclick="updateCat(event, {{ feature.id }})">
                                                                                                 <span>Add to Cart</span>
                                                                                             </button>
                                                                                         </form>
@@ -733,7 +740,8 @@
                     </div>
                     <div>
                         <div class="container">
-                            <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions" id="category_product_tab_843580351">
+                            <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions"
+                                 id="category_product_tab_843580351">
                                 <div class="rokan-title">
                                     <h3 class="module-title">
                                         <span>Top Selling Products</span>
@@ -793,7 +801,7 @@
                                                     <div class="item-load group-rows-fixed-supper-deal item-row">
                                                         <div class="item product product-item">
                                                             <div class="product-item-info">
-                                                                <a href="{% url 'cart:productdetails' topsel.id  topsel.category%}"
+                                                                <a href="{% url 'cart:productdetails' topsel.id  topsel.category %}"
                                                                    class="product photo product-item-photo"
                                                                    tabindex="-1">
                                                             <span class="image0 image-switch product-image-container">
@@ -834,10 +842,11 @@
                                                                               price-container
                                                                               price-final_price&#x20;tax&#x20;weee
                                                                             ">
-                                                                    <span data-price-amount="120"
-                                                                          data-price-type="finalPrice"
-                                                                          class="price-wrapper"><span
-                                                                            class="price">Ksh. {{ topsel.price|floatformat:"0"|intcomma  }}</span></span>
+                                                                    <span
+                                                                            data-price-type="finalPrice"
+                                                                            class="price-wrapper"><span
+                                                                            class="price">Ksh. {{ topsel.price|floatformat:"0"|intcomma }}</span>
+                                                                    </span>
                                                                   </span>
                                                                     </div>
                                                                     <div class="product-sold">
@@ -871,7 +880,8 @@
                                                                                     <button type="submit"
                                                                                             title="Add&#x20;to&#x20;Cart"
                                                                                             class="action tocart primary"
-                                                                                            style="background-color: #b92227" onclick="updateCat(event, {{ topsel.id  }})">
+                                                                                            style="background-color: #b92227"
+                                                                                            onclick="updateCat(event, {{ topsel.id }})">
                                                                                         <span>Add to Cart</span>
                                                                                     </button>
                                                                                 </form>
@@ -910,7 +920,7 @@
                         <div class="widget box-section block-recent-posts section">
                             <div class="rokan-title has-see-all">
                                 <h3 class="module-title">
-                                    <span>From the Blog</span><a class="see-all" href="blog/">See All</a>
+                                    <span>Electronics</span><a class="see-all" href="blog/">See All</a>
                                 </h3>
                                 <div class="rokan-description blog-description">
                                     <p></p>
@@ -921,418 +931,51 @@
                                      data-bigdesktop="5"
                                      data-smalldesktop="4" data-bigtablet="4" data-tablet="3" data-smalltablet="3"
                                      data-mobile="2.2"
-                                     data-margin="30" data-loop="true" data-center="false" data-mousedrag="false"
+                                     data-margin="30" data-loop="false" data-center="false" data-mousedrag="true"
                                      data-touchdrag="true"
-                                     data-stagepadding="0" data-nav="true" data-navnext="" data-navprev=""
+                                     data-stagepadding="0" data-nav="true" data-navnext="true" data-navprev="true"
                                      data-rewind="false"
-                                     data-dots="false" data-autoplay="false" data-speed="250">
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/14.jpg"
-                                                                alt="Features To Look For On Camera Phones"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Headphone"
-                                                       href="#">Headphone</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                Features To Look For On Camera Phones
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                        <a title="tony pham"
-                                                           href="#">
-                                                          tony pham
+                                     data-dots="false" data-autoplay="true" data-speed="250">
+                                    {% for electronic in electronics %}
+                                        <div class="item-load post-holder item-post-full has-thumb">
+                                            <div class="post-item">
+                                                <div class="blog-post-thumb">
+                                                    <div class="post-ftimg-hld">
+                                                        <a
+                                                                href="#">
+                                                            <img
+                                                                    src="{{ electronic.imageURL }}"
+                                                                    alt=" "/>
                                                         </a>
-                                                      </span>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            The last of a series of dinner chairs wegner
-                                                            designed based on inspiration from antique
-                                                            Chinese armchairs. The gently rounded top
-                                                            together with the back
+                                                <div class="blog-post-info">
+                                                    {% if electronic.brand %}
+                                                        <div class="item post-categories">
+                                                            <a title="Headphone"
+                                                               href="#">{{ electronic.brand }}</a>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="Features To Look For On Camera Phones">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Mar 11 2021</span></span>
+                                                    {% endif %}
+
+                                                    <div class="post-header">
+                                                        <div class="post-title-holder clearfix">
+                                                            <h3 class="post-title">
+                                                                <a class="post-item-link"
+                                                                   href="#">
+                                                                    {{ electronic.title|truncatechars:25 }}
+                                                                </a>
+                                                            </h3>
                                                         </div>
+                                                        <span
+                                                            data-price-type="finalPrice"
+                                                            class="price-wrapper"><span
+                                                            class="price">Ksh. {{ electronic.price|floatformat:"0"|intcomma }}</span>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/22.jpg"
-                                                                alt="Differences Between Good &amp; Bad Phone"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Photography"
-                                                       href="#">Photography</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                Differences Between Good &amp; Bad Phone
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                    <a title="tony pham"
-                                                       href="https://mageblueskytech.com/dukamarket/en3/blog/author/tony-pham">
-                                                      tony pham
-                                                    </a>
-                                                  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            The last of a series of dinner chairs wegner
-                                                            designed based on inspiration from antique
-                                                            Chinese armchairs. The gently rounded top
-                                                            together with the back
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="Differences Between Good &amp; Bad Phone">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Mar 10 2021</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/3_122.jpg"
-                                                                alt="19 Things To Look Out For In A Smartphone Camera"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Dukamarket"
-                                                       href="#">Dukamarket</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                6 Things To Look Out For In A Smartphone
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                        <a title="tony pham"
-                                                           href="#">
-                                                          tony pham
-                                                        </a>
-                                                      </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            The last of a series of dinner chairs wegner
-                                                            designed based on inspiration from antique
-                                                            Chinese armchairs. The gently rounded top
-                                                            together with the back
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="6 Things To Look Out For In A Smartphone">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Feb 09 2021</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/4_12.jpg"
-                                                                alt="Tips on How to choose the best headset?"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Photography"
-                                                       href="#">Photography</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                Tips on How to choose the best headset?
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                        <a title="tony pham"
-                                                           href="#">
-                                                          tony pham
-                                                        </a>
-                                                      </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            The last of a series of dinner chairs wegner
-                                                            designed based on inspiration from antique
-                                                            Chinese armchairs. The gently rounded top
-                                                            together with the back
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="Tips on How to choose the best headset?">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Feb 08 2021</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/6_1.jpg"
-                                                                alt="tips for choosing the best camera phone"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Creative"
-                                                       href="#">Creative</a>,
-                                                    <a title="Image"
-                                                       href="#">Image</a>,
-                                                    <a title="Music"
-                                                       href="#">Music</a>,
-                                                    <a title="Travel"
-                                                       href="#">Travel</a>,
-                                                    <a title="Uncategorized"
-                                                       href="#">Uncategorized</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                tips for choosing the best camera phone
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                    <a title="tony pham"
-                                                       href="#">
-                                                      tony pham
-                                                    </a>
-                                                  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            The last of a series of dinner chairs wegner
-                                                            designed based on inspiration from antique
-                                                            Chinese armchairs. The gently rounded top
-                                                            together with the back
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="tips for choosing the best camera phone">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Jan 06 2021</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-load post-holder item-post-full has-thumb">
-                                        <div class="post-item">
-                                            <div class="blog-post-thumb">
-                                                <div class="post-ftimg-hld">
-                                                    <a
-                                                            href="#">
-                                                        <img
-                                                                src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                                                                data-src="https://mageblueskytech.com/dukamarket/media/magefan_blog/2210.jpg"
-                                                                alt="Special Limited Edition &amp; Silver  Summicron"/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="blog-post-info">
-                                                <div class="item post-categories">
-                                                    <a title="Image"
-                                                       href="#">Image</a>,
-                                                    <a title="Music"
-                                                       href="#">Music</a>,
-                                                    <a title="Travel"
-                                                       href="#">Travel</a>,
-                                                    <a title="Uncategorized"
-                                                       href="#">Uncategorized</a>
-                                                </div>
-                                                <div class="post-header">
-                                                    <div class="post-title-holder clearfix">
-                                                        <h3 class="post-title">
-                                                            <a class="post-item-link"
-                                                               href="#">
-                                                                Special Limited Edition &amp; Silver
-                                                                Summicron
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="post-info">
-                                                        <div class="item post-author">
-                                                            <span class="label">Post by:</span>
-                                                            <span class="value">
-                                                    <a title="tony pham"
-                                                       href="#">
-                                                      tony pham
-                                                    </a>
-                                                  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-content">
-                                                    <div class="post-description clearfix">
-                                                        <div class="post-text-hld clearfix">
-                                                            <p>
-                                                                The last of a series of dinner chairs wegner
-                                                                designed based on inspiration from antique
-                                                                Chinese armchairs. The gently rounded top
-                                                                together with the back
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="post-bottom">
-                                                    <div class="flex-layout space-between no-wrap">
-                                                        <a class="post-read-more"
-                                                           href="#"
-                                                           title="Special Limited Edition &amp; Silver  Summicron">
-                                                            Read more
-                                                        </a>
-                                                        <div class="item post-posed-date hidden-xs">
-                                                        <span class="value"><span
-                                                                class="value">Aug 07 2019</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
