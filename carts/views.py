@@ -124,8 +124,9 @@ def updateCart(request):
                         "user": "Authenticated"
                     }
                     return JsonResponse(jason_data, status=200)
+                else:
+                    return redirect('register:login')
 
-            # return redirect("cart:shop")
             return JsonResponse('success', status=200, safe=False, )
 
         else:
