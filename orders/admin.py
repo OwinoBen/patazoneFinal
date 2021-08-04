@@ -20,7 +20,9 @@ class OrderAdmin(admin.ModelAdmin):
                     'shipping_address',
                     'billing_address',
                     'paid_amount',
-                    'payment_receipt'
+                    'payment_receipt',
+                    'customerNumber',
+                    'delivery',
                     ]
     list_display_links = [
         'user',

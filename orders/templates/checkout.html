@@ -1048,21 +1048,24 @@ p{margin-bottom:.3em;}
                                 </button>
                             </div>
                             <div id="pickup">
-                                <div class="field">
-                                    <label class="field">Phone number</label>
-                                    <div class="control">
-                                        <input class="input-text" type="text" id="discount-code" name="discount_code" placeholder="Enter Your Phone number">
-                                    </div>
-                                </div><br>
-                                <div class="field">
-                                    <label>Pickup Station</label>
-                                    <div class="control">
-                                        <input class="input-text" type="text" id="discount-code" name="discount_code" value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya" readonly placeholder="Enter Your Email">
-                                    </div>
-                                </div><br>
-                                <button type="button" id="addressAdd" class="action  action-show-popup">
-                                    <span>Place Order</span>
-                                </button>
+                                <form method="post" action="{% url 'checkout:pickup' %}">
+                                    {% csrf_token %}
+                                    <div class="field">
+                                        <label class="field">Phone number</label>
+                                        <div class="control">
+                                            <input class="input-text" type="text" id="pickupPhone" name="pickupPhone" placeholder="Enter Your Phone number">
+                                        </div>
+                                    </div><br>
+                                    <div class="field">
+                                        <label>Pickup Station</label>
+                                        <div class="control">
+                                            <input class="input-text" type="text" id="discount-code" name="discount_code" value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya" readonly placeholder="Enter Your Email">
+                                        </div>
+                                    </div><br>
+                                    <button type="submit" id="addressAdd" class="action  action-show-popup">
+                                        <span>Place Order</span>
+                                    </button>
+                                </form>
                             </div>
                         </li>
                         {% endif %}

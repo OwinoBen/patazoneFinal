@@ -200,7 +200,9 @@ def PaymentDone(request, *args, **kwargs):
                 order.ordered = True
                 order.payment_receipt = phoneNumber.MpesaReceiptNumber
                 order.paid_amount = phoneNumber.Amount
-                order.status = ''
+                order.customerNumber = PhoneNumber
+                order.status = 'Pending'
+                order.delivery = 'Customer delivery'
                 order.save()
                 status = Mpesa_Payments.objects.filter(PhoneNumber=PhoneNumber, Status=0).update(Status=1)
                 subject = 'Patazone marketplace, order placement'

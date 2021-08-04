@@ -191,6 +191,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 # STATIC_URL = '/static/'
+#"EMAIL_HOST_PASSWORD": "kwrnhbmunneldnix",
 
 USE_S3 = os.getenv('USE_S3') == 'TRUE'
 # if USE_S3:
@@ -258,4 +259,5 @@ DEFAULT_FROM_EMAIL = 'Patazone MarketPlace Team <noreply@codingwithmitch.com>'
 # SECURE_HSTS_SECONDS = None
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 # SECURE_FRAME_DENY = False
+
 # email pass ="kwrnhbmunneldnix"

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from django.http import Http404, JsonResponse
 from django.views.generic import View, ListView, DetailView
 from django.shortcuts import render, redirect, get_object_or_404
@@ -13,6 +14,7 @@ from billing.models import BillingProfile
 from django.conf import settings
 
 from carts.views import create_ref_code
+from mpesa.views import HOST_USER_EMAIL
 from .forms import CheckoutForm, CouponForm, PaymentForm
 from .models import Order, ProductPurchase, UserProfile, Payment, OrderItem
 
@@ -118,7 +120,7 @@ class CheckoutView(View):
                 'form': form,
                 'couponform': CouponForm(),
                 'order': order,
-                'shipping_addres':shipping_addres,
+                'shipping_addres': shipping_addres,
                 'DISPLAY_COUPON_FORM': True
             }
 
@@ -418,3 +420,26 @@ class PaymentView(View):
 
         messages.warning(self.request, "Invalid data received")
         return redirect("/payment/stripe/")
+
+
+def order_pick_from_store(request):
+    pickup = request.POST['pickupPhone']
+    if request.method == 'POST':
+        order = Order.objects.get(user=request.user, ordered=False)
+        orderItems = order.cart.all()
+        orderItems.update(ordered=True)
+        for orderitem in orderItems:
+            orderitem.save()
+        order.ordered = True
+        order.customerNumber = pickup
+        order.status = 'Pending'
+        order.delivery = 'Pick from store'
+        order.save()
+
+        subject = 'Patazone marketplace, order placement'
+        message = 'You have successfully placed an order with patazone marketplace.\n your order will be ' \
+                  'shipped within two days '
+        receipient = str(request.user.email)
+
+        send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
+    return redirect('register:orders')

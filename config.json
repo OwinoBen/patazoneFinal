@@ -2,8 +2,8 @@
 "SECRET_KEY": "pk_test_51I60VJBTjFwTIuIO4pckLczHCK2klJyn9C1Zgw9oZRtEpk30uKP3Cw55v7PwjJHLNavBJvwoJbYhnAsx8J2PEFJS00toncWNRK",
 "STRIPE_PUBLIC_KEY": "STRIPE_PUBLIC_KEY",
 "EMAIL_HOST": "smtp.gmail.com",
-"EMAIL_HOST_USER": "owinoben2020@gmail.com",
-"EMAIL_HOST_PASSWORD": "kwrnhbmunneldnix",
+"EMAIL_HOST_USER": "info@patazone.co.ke",
+"EMAIL_HOST_PASSWORD": "ysjvpeyiznorqddc",
 "DEFAULT_FROM_EMAIL":"Patazone MarketPlace Team <noreply@codingwithmitch.com",
   "AWS_ACCESS_KEY_ID":"AKIA364ENTIR6TTWV3BA",
   "AWS_SECRET_ACCESS_KEY": "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"
