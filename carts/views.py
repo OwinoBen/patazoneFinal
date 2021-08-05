@@ -105,7 +105,6 @@ def updateCart(request):
         return redirect("cart:home")
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
-    request.session['cartItems'] = cart_item_count(request.user)
     if order_qs.exists():
         order = order_qs[0]
         if order.cart.filter(product__id=product.id).exists():
