@@ -1037,7 +1037,8 @@ p{margin-bottom:.3em;}
                                     </button>
                                 </div>
                                 {% endfor %}
-                                <div id="pickup">
+                            </div>
+                            <div id="pickup">
                                 <form method="post" action="{% url 'checkout:pickup' %}">
                                     {% csrf_token %}
                                     <div class="field">
@@ -1057,8 +1058,6 @@ p{margin-bottom:.3em;}
                                     </button>
                                 </form>
                             </div>
-                            </div>
-
                         </li>
                         {% else %}
                         <li id="shipping" class="checkout-shipping-address " >
