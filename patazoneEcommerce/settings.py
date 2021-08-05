@@ -43,7 +43,7 @@ DEBUG = True
 #     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ALLOWED_HOSTS = ['127.0.0.1', '192.168.100.99', '192.168.100.31', '192.168.0.14', '192.168.0.29',
-                 'patazone.herokuapp.com']
+                 'patazone.herokuapp.com', 'www.patazon.co.ke']
 
 # Application definition
 
