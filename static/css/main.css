@@ -1987,9 +1987,9 @@
   .abs-actions-addto-gridlist:before,
   .table-comparison .wishlist.split.button > .action.split:before,
   .product-items .wishlist.split.button > .action.split:before,
-  .product-items .action.towishlist:before,
-  .products.list.items .action.towishlist:before,
-  .table-comparison .action.towishlist:before,
+  .product-items .action.towishlist,
+  .products.list.items .action.towishlist,
+  .table-comparison .action.towishlist,
   .product-item-actions .actions-secondary > .action:before,
   .product-info-main .product-addto-links .action:before,
   .product-options-bottom .product-addto-links .action:before {
@@ -18627,7 +18627,7 @@
   .product-item-actions .actions-secondary > .action {
     line-height: 35px;
     text-align: center;
-    width: 35px;
+    width: 40px;
   }
   .product-item-actions .actions-secondary > .action:before {
     margin: 0;
@@ -22511,7 +22511,7 @@
       .product-item-actions
       .actions-primary
       .tocart:before {
-      content: "\e917";
+      content: "\f217";
       font-family: icon-dukamarket, sans-serif;
       font-size: 13px;
       color: #666;
