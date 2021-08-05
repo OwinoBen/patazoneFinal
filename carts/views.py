@@ -212,6 +212,13 @@ def add_to_cart(request):
         return redirect("core:order-summary")
 
 
+def clearCart(request):
+    order = Order.objects.filter(user=request.user, ordered=False)
+    if order.exists():
+        order.delete()
+        return redirect("cart:home")
+
+
 @login_required
 def remove_from_cart(request, product_id):
     product_id = product_id

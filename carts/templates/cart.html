@@ -250,18 +250,21 @@
                                title="Continue Shopping">
                                 <span>Continue Shopping</span>
                             </a>
-                            <button type="button" name="update_cart_action" data-cart-empty="" value="empty_cart"
-                                    title="Clear Shopping Cart" class="action clear" id="empty_cart_button">
-                                <span>Clear Shopping Cart</span>
-                            </button>
-                            <button type="submit" name="update_cart_action" data-cart-item-update="" value="update_qty"
-                                    title="Update Shopping Cart" class="action update">
+                            <form method="post" action="{% url 'cart:clearcart' %}">
+                                {% csrf_token %}
+                                <button type="submit" name="update_cart_action" data-cart-empty="" value="empty_cart"
+                                        title="Clear Shopping Cart" class="action clear" id="empty_cart_button">
+                                    <span>Clear Shopping Cart</span>
+                                </button>
+                            </form>
+
+                            <button type="submit" name="update_cart_action" data-cart-item-update="" value="update_qty" title="Update Shopping Cart" class="action update">
                                 <span>Update Shopping Cart</span>
                             </button>
                             <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update="">
                         </div>
                     </form>
-                    <div id="gift-options-cart" data-bind="scope:'giftOptionsCart'">
+                    <div id="gift-options-cart">
                     </div>
                 </div>
 
