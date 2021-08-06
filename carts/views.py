@@ -83,7 +83,7 @@ def productDetails(request, id, keyword):
                'relatedprod': relatedprod,
                'orederItems': order_qs,
                }
-    return render(request, 'product_details2.html', context)
+    return render(request, 'product_details.html', context)
 
 
 def cart_item_count(user):
