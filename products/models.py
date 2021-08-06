@@ -17,7 +17,7 @@ CATEGORY = (('Phones & Accessories', 'Phones & Accessories'),
             ('Computer & Tablets', 'Computer & Tablets'),
             ('Home and Office', 'Home and Office'),
             ('Schooling', 'Schooling'),
-            ('Grocery', 'Grocery'),
+            ('supermarket', 'Supermarket'),
             ('Beauty, Health & Hair', 'Beauty, Health & Hair'),
             ('Baby, kids & Maternity', 'Baby, kids & Maternity'),
             ('Cloths', 'Cloths'),
@@ -211,7 +211,12 @@ def upload_product_file_loc(instance, filename):
 
 
 class SlideShow(models.Model):
-    slide_id = models.CharField(max_length=20, null=True, blank=True)
+    rs_group_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    rs_layer1_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    rs_layer2_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    rs_layer3_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    rs_layer4_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    anchor_slide_id = models.CharField(max_length=120, null=True, blank=True)
     name = models.CharField(max_length=120, null=True, blank=True)
     tag1 = models.CharField(max_length=12, blank=True, null=True)
     tag2 = models.CharField(max_length=12, blank=True, null=True)

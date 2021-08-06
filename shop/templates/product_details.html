@@ -16,21 +16,6 @@
 {% include 'managestatic/nav_bar.html' %}
 <div class="breadcrumbs"></div>
 <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
-    <div class="page messages">
-        <div data-placeholder="messages"></div>
-        <div data-bind="scope: 'messages'">
-            <div aria-atomic="true" role="alert" class="messages">
-                <div>
-                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
-                </div>
-            </div>
-            <div aria-atomic="true" role="alert" class="messages">
-                <div>
-                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     {% if prod is not None %}
         {% for details in prod %}
 
@@ -87,9 +72,7 @@
                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="1"
                                      data-price-box="product-id-1">
                                 <span class="special-price">
-                                <span class="price-container price-final_price&#x20;tax&#x20;weee" itemprop="offers"
-                                      itemscope
-                                      itemtype="http://schema.org/Offer">
+                                <span class="price-container price-final_price&#x20;tax&#x20;weee">
                                 <span class="price-label">Special Price</span>
                                 <span id="product-price-1"
                                       data-price-amount="{{ details.price|floatformat:"0"|intcomma }}"
@@ -174,7 +157,7 @@
                                        class="action tocompare"><span>Add to Compare</span></a>
                                 </div>
                                 <div class="product-share-links">
-                                    <div class="share-links"><a href="#" class="share-links-click">share</a></div>
+                                    <div class="share-links"><a href="#" class="share-links-click fas fa-share">share</a></div>
                                     <div class="share-dialog" style="display:none;">
                                         <a href="#"
                                            onclick=" window.open( 'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=436,height=436'); return false;"><span

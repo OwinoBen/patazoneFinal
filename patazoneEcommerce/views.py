@@ -5,7 +5,7 @@ from django.http import JsonResponse
 
 def homepage(request):
     context = {}
-    return render(request, "homepage.html", context)
+    return render(request, "managestatic/home2.html", context)
 
 
 def aboutpage(request):
