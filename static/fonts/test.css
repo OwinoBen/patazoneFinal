@@ -2092,8 +2092,7 @@ address {
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/static/fonts/opensans-300.woff2') format('woff2'),
-    url('/static/fonts/opensans-300.woff') format('woff');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/light/opensans-300.woff2') format('woff2'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/light/opensans-300.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap
@@ -2101,8 +2100,7 @@ address {
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/static/fonts/opensans-400.woff2') format('woff2'),
-    url('/static/fonts/OpenSans-400.woff') format('woff');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/regular/opensans-400.woff2') format('woff2'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/regular/opensans-400.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap
@@ -2110,8 +2108,7 @@ address {
 
 @font-face {
     font-family: 'Open Sans';
-        src: url('/static/fonts/opensans-600.woff2') format('woff2'),
-        url('/static/fonts/opensans-600.woff') format('woff');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/semibold/opensans-600.woff2') format('woff2'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/semibold/opensans-600.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap
@@ -2119,8 +2116,7 @@ address {
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/static/fonts/opensans-700.woff2') format('woff2'),
-    url('/static/fonts/opensans-700.woff') format('woff');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/bold/opensans-700.woff2') format('woff2'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/opensans/bold/opensans-700.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap
@@ -2715,7 +2711,7 @@ table > caption {
     font-weight: 400;
     overflow: hidden;
     speak: none;
-    text-align: center
+    text-align: center;
 }
 
 .nav-toggle:hover:before {
@@ -4554,8 +4550,7 @@ input:focus ~ .tooltip .tooltip-content, select:focus ~ .tooltip .tooltip-conten
 
 @font-face {
     font-family: 'icons-blank-theme';
-    src: url('/static/fonts/Blank-Theme-Icons.woff2') format('woff2'),
-    url('/static/fonts/Blank-Theme-Icons.woff') format('woff');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/Blank-Theme-Icons/Blank-Theme-Icons.woff2') format('woff2'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/Blank-Theme-Icons/Blank-Theme-Icons.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: block
@@ -9064,7 +9059,7 @@ span.klarna-payments-method-cell > img {
 }
 
 .lazyload-image .brand-image, .lazyload-image .post-list-wrapper .blog-post-thumb .post-ftimg-hld a, .lazyload-image .product img[data-src], .lazyload-image .absolute-content-image.lazyload-content:not(.col-banner), .lazyload-image .absolute-content-image .banner-img, .lazyload-image .default-banner-image img[data-src] {
-    background-image: url("/static/fonts/lazy-load.svg");
+    background-image: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/lazy-load.svg);
     background-size: 23px auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -9246,7 +9241,7 @@ span.klarna-payments-method-cell > img {
     font-weight: 400;
     overflow: hidden;
     speak: none;
-    text-align: center
+    text-align: center;
 }
 
 #newsletter_pop_up .newletter_popup_close:before {
@@ -9567,7 +9562,7 @@ body .product-item .price-box > span:last-child {
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-image: url("/static/fonts/lazy-load.svg");
+    background-image: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/lazy-load.svg);
     background-size: 23px auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -10078,7 +10073,7 @@ body .product-item .price-box > span:last-child {
     bottom: 0;
     right: 0;
     margin: auto;
-    background-image: url("/static/fonts/lazy-load.svg");
+    background-image: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/lazy-load.svg);
     background-size: 23px auto;
     background-position: center center;
     background-repeat: no-repeat
@@ -21878,10 +21873,10 @@ body {
         height: 16px;
         display: inline-flex;
         align-items: center;
-        -webkit-mask: url("/static/fonts/empty_cart.svg") no-repeat center;
-        -moz-mask: url("/static/fonts/empty_cart.svg") no-repeat center;
-        -ms-mask: url("/static/fonts/empty_cart.svg") no-repeat center;
-        mask: url("/static/fonts/empty_cart.svg") no-repeat center;
+        -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+        -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+        -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+        mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
         -webkit-mask-size: contain
     }
 
@@ -23488,7 +23483,7 @@ select {
     color: #666;
     -webkit-appearance: none;
     appearance: none;
-    background-image: url(/static/fonts/icon_select_update.png);
+    background-image: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_select_update.png);
     background-repeat: no-repeat;
     background-position: right 10px center;
     padding-right: 3rem !important
@@ -24390,10 +24385,10 @@ body .owl-carousel.owl-loaded {
 
 .header-container .header.links li.authorization-link a:before {
     content: '';
-    -webkit-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    mask: url(/static/fonts/icon_user.svg) no-repeat center;
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
     background-color: #222;
     width: 3.1rem;
     height: 2.7rem;
@@ -24498,10 +24493,10 @@ body .owl-carousel.owl-loaded {
 
 .header-container .col-action .action-header > li.wishlist a:before {
     content: '';
-    -webkit-mask: url(/static/fonts/icon_wishlist.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/icon_wishlist.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/icon_wishlist.svg) no-repeat center;
-    mask: url(/static/fonts/icon_wishlist.svg) no-repeat center;
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_wishlist.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_wishlist.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_wishlist.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_wishlist.svg) no-repeat center;
     background-color: #222;
     width: 3.1rem;
     height: 2.7rem;
@@ -24528,10 +24523,10 @@ body .owl-carousel.owl-loaded {
 
 .header-container .col-action .action-header > li .minicart-wrapper > a:before, .header-container .col-action .action-header > li .minicart-wrapper > a.active:before {
     content: '';
-    -webkit-mask: url(/static/fonts/icon_cart.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/icon_cart.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/icon_cart.svg) no-repeat center;
-    mask: url(/static/fonts/icon_cart.svg) no-repeat center;
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_cart.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_cart.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_cart.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_cart.svg) no-repeat center;
     background-color: #222;
     width: 3.1rem;
     height: 2.7rem;
@@ -24992,18 +24987,18 @@ footer .fixed-bottom {
 
 .toolbar .modes .modes-mode.mode-grid:before {
     width: 16px;
-    -webkit-mask: url(/static/fonts/mode_grid.svg);
-    -moz-mask: url(/static/fonts/mode_grid.svg);
-    -ms-mask: url(/static/fonts/mode_grid.svg);
-    mask: url(/static/fonts/mode_grid.svg)
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_grid.svg);
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_grid.svg);
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_grid.svg);
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_grid.svg)
 }
 
 .toolbar .modes .modes-mode.mode-list:before {
     width: 24px;
-    -webkit-mask: url(/static/fonts/mode_list.svg);
-    -moz-mask: url(/static/fonts/mode_list.svg);
-    -ms-mask: url(/static/fonts/mode_list.svg);
-    mask: url(/static/fonts/mode_list.svg)
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_list.svg);
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_list.svg);
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_list.svg);
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/mode_list.svg)
 }
 
 .toolbar:not(:last-child) .grid-mode-show-type-products {
@@ -25042,31 +25037,31 @@ footer .fixed-bottom {
 }
 
 .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-2:before {
-    -webkit-mask: url(/static/fonts/grid_2.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/grid_2.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/grid_2.svg) no-repeat center;
-    mask: url(/static/fonts/grid_2.svg) no-repeat center
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_2.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_2.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_2.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_2.svg) no-repeat center
 }
 
 .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-3:before {
-    -webkit-mask: url(/static/fonts/grid_3.svg) no-repeat center;
-    -moz-mask: url(./static/fonts/grid_3.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/grid_3.svg) no-repeat center;
-    mask: url(/static/fonts/grid_3.svg) no-repeat center
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_3.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_3.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_3.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_3.svg) no-repeat center
 }
 
 .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-4:before {
-    -webkit-mask: url(/static/fonts/grid_4.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/grid_4.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/grid_4.svg) no-repeat center;
-    mask: url(/static/fonts/grid_4.svg) no-repeat center
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_4.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_4.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_4.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_4.svg) no-repeat center
 }
 
 .toolbar:not(:last-child) .grid-mode-show-type-products > a.grid-mode-5:before {
-    -webkit-mask: url(/static/fonts/grid_5.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/grid_5.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/grid_5.svg) no-repeat center;
-    mask: url(/static/fonts/grid_5.svg) no-repeat center
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_5.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_5.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_5.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/grid_5.svg) no-repeat center
 }
 
 @media only screen and (max-width: 1366px) {
@@ -26935,10 +26930,10 @@ body .searchsuite-autocomplete {
 
 .header-container .account-link-header:before {
     content: '';
-    -webkit-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/icon_user.svg) no-repeat center;
-    mask: url(/static/fonts/icon_user.svg) no-repeat center;
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/icon_user.svg) no-repeat center;
     background-color: #222;
     width: 3.1rem;
     height: 2.7rem;
@@ -27165,7 +27160,7 @@ html body .page-wrapper .verticalmenu.navigation .title-category-dropdown:before
     font-family: icon-dukamarket, sans-serif;
     font-size: 24px;
     color: #fff;
-    line-height: 1
+    line-height: 1;
 }
 
 .nav-toggle:before {
@@ -27257,10 +27252,10 @@ html body .page-wrapper .verticalmenu.navigation .title-category-dropdown:before
 .minicart-wrapper .subtitle.empty:before {
     content: '';
     display: block;
-    -webkit-mask: url(/static/fonts/empty_cart.svg) no-repeat center;
-    -moz-mask: url(/static/fonts/empty_cart.svg) no-repeat center;
-    -ms-mask: url(/static/fonts/empty_cart.svg) no-repeat center;
-    mask: url(/static/fonts/empty_cart.svg) no-repeat center;
+    -webkit-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+    -moz-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+    -ms-mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
+    mask: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/empty_cart.svg) no-repeat center;
     background-color: #999;
     width: 4.5rem;
     height: 4.5rem;
@@ -37333,7 +37328,7 @@ progress {
 }
 
 .blockquote-footer:before {
-    content: "â€”Â "
+    content: "— "
 }
 
 .img-fluid {
@@ -53044,12 +53039,8 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(/static/fonts/fonts/fa-brands-400.eot);
-    src: url(/static/fonts/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),
-    url(/static/fonts/fonts/fa-brands-400.woff2) format("woff2"),
-    url(/static/fonts/fonts/fa-brands-400.woff) format("woff"),
-    url(/static/fonts/fonts/fa-brands-400.ttf) format("truetype"),
-    url(/static/fonts/fonts/fa-brands-400.svg#fontawesome) format("svg")
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.eot);
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.woff2) format("woff2"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.woff) format("woff"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.ttf) format("truetype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-brands-400.svg#fontawesome) format("svg")
 }
 
 .fab {
@@ -53061,12 +53052,8 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(/static/fonts/fonts/fa-regular-400.eot);
-    src: url(/static/fonts/fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),
-    url(/static/fonts/fonts/fa-regular-400.woff2) format("woff2"),
-    url(/static/fonts/fonts/fa-regular-400.woff) format("woff"),
-    url(/static/fonts/fonts/fa-regular-400.ttf) format("truetype"),
-    url(/static/fonts/fonts/fa-regular-400.svg#fontawesome) format("svg")
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.eot);
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.woff2) format("woff2"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.woff) format("woff"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.ttf) format("truetype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-regular-400.svg#fontawesome) format("svg")
 }
 
 .fab, .far {
@@ -53078,12 +53065,8 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url(/static/fonts/fonts/fa-solid-900.eot);
-    src: url(/static/fonts/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
-    url(/static/fonts/fonts/fa-solid-900.woff2) format("woff2"),
-    url(/static/fonts/fonts/fa-solid-900.woff) format("woff"),
-    url(/static/fonts/fonts/fa-solid-900.ttf) format("truetype"),
-    url(/static/fonts/fonts/fa-solid-900.svg#fontawesome) format("svg")
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.eot);
+    src: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.woff2) format("woff2"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.woff) format("woff"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.ttf) format("truetype"), url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
 .fa, .far, .fas {
@@ -53096,11 +53079,8 @@ textarea.form-control-lg {
 
 @font-face {
     font-family: 'icon-dukamarket';
-    src: url('/static/fonts/fonts/icon-dukamarket.eot?yk7d8s');
-    src: url('/static/fonts/fonts/icon-dukamarket.eot?yk7d8s#iefix') format('embedded-opentype'),
-    url('/static/fonts/fonts/icon-dukamarket.ttf?yk7d8s') format('truetype'),
-    url('/static/fonts/fonts/icon-dukamarket.woff?yk7d8s') format('woff'),
-    url('/static/fonts/fonts/icon-dukamarket.svg?yk7d8s#icon-dukamarket') format('svg');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/icon-dukamarket.eot?yk7d8s');
+    src: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/icon-dukamarket.eot?yk7d8s#iefix') format('embedded-opentype'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/icon-dukamarket.ttf?yk7d8s') format('truetype'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/icon-dukamarket.woff?yk7d8s') format('woff'), url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/fonts/icon-dukamarket.svg?yk7d8s#icon-dukamarket') format('svg');
     font-weight: 400;
     font-style: normal;
     font-display: block
@@ -55009,7 +54989,7 @@ form.minisearch.loading .control input[type=text] {
     speak: none;
     width: 16px;
     height: 32px;
-    background: url(/static/fonts/fonts/search.svg) no-repeat -10px -7px;
+    background: url(../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Magefan_Blog/images/search-icon.svg) no-repeat -10px -7px;
     background-size: 35px;
     opacity: .5
 }
@@ -56957,7 +56937,7 @@ This file is generated by `grunt build`, do not edit it by hand.
 }
 
 .fotorama__spinner {
-    background-image: url(/static/fonts/loader-1.gif);
+    background-image: url('../../frontend/bluesky/bluesky_dukamarket_digital_03/en_US/images/loader-1.gif');
     bottom: 0;
     display: none;
     height: 64px;
