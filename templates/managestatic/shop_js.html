@@ -53,11 +53,6 @@
                     });
 
                 }
-                else if (data.added)
-                {
-                     alert(data.message)
-                    console.log(data.product_id)
-                }
                 var navbarCount = $(".total-mini-cart-item")
                    navbarCount.text(data.update)
             },
@@ -82,10 +77,57 @@
 <script>
     var BASE_URL = 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002F';
     var require = {
-        'baseUrl': 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1620877543\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US'
+        'baseUrl': 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1627024984\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US'
     };</script>
-
-
+<script type="text/javascript" src="https://mageblueskytech.com/dukamarket/static/version1627024984/_cache/merged/cfaf61deada0d746640ae2d937eb9eb7.min.js"></script>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_PageCache/js/form-key-provider": {}
+            }
+        }
+    </script>
+<script>
+    window.logoUrl = 'https://mageblueskytech.com/dukamarket/media/rokanthemes/pupuplogo/default/wishlist-popup-logo-1.png';
+	window.backgroundUrl = 'https://mageblueskytech.com/dukamarket/media/rokanthemes/pupupbg/default/bg-login-popup.png';
+	window.title = 'Welcome Back!';
+	window.description = "Log in to view your shopping cart and receive \r\nmany great deals from the store.";
+</script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "rokanthemes/ajaxsuite"    : {
+                "loginUrl": "https://mageblueskytech.com/dukamarket/en3/customer/account/login/",
+                "customerId": "",
+                "ajaxCart" : {
+                    "enabled" : 1,
+                    "actionAfterSuccess" : "popup"
+                },
+                "ajaxWishList" : {
+                    "enabled" : 1,
+                    "WishlistUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/wishlist/add/"
+                },
+                "ajaxCompare" : {
+                    "enabled" : 1,
+                    "CompareUrl": "https://mageblueskytech.com/dukamarket/en3/ajaxsuite/compare/add/"
+                }
+            }
+    }
+}
+</script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "rokanthemes/quickview"    : {
+                "quickviewUrl": "https://mageblueskytech.com/dukamarket/en3/quickview/product/view/",
+                "buttonText": "Quick View",
+                "classInsertPosition": ".product-item-actions",
+                "actionInsert": "append",
+                "isEnabled": "1"
+            }
+    }
+}
+</script>
 <script>document.querySelector("#cookie-status").style.display = "none";</script>
 <script type="text/x-magento-init">
     {
@@ -94,72 +136,86 @@
         }
     }
 </script>
-
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "\u002Fdukamarket",
+                "domain": ".mageblueskytech.com",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
 <script>
     window.cookiesConfig = window.cookiesConfig || {};
     window.cookiesConfig.secure = true;
 </script>
 <script>    require.config({
-    map: {
-        '*': {
-            wysiwygAdapter: 'mage/adminhtml/wysiwyg/tiny_mce/tinymce4Adapter'
+        map: {
+            '*': {
+                wysiwygAdapter: 'mage/adminhtml/wysiwyg/tiny_mce/tinymce4Adapter'
+            }
         }
-    }
-});</script>
+    });</script>
 <script>
-    require(["jquery"], function ($) {
-        function setCookie(name, value, days) {
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                var expires = "; expires=" + date.toGMTString();
-            } else var expires = "";
-            document.cookie = name + "=" + value + expires + "; path=/";
-        }
+require(["jquery"], function($){
+	function setCookie(name,value,days)
+	{
+	  if (days) {
+			var date = new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+		  }
+		  else var expires = "";
+		  document.cookie = name+"="+value+expires+"; path=/";
+	}
 
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
+	function getCookie(name)
+	{
+		  var nameEQ = name + "=";
+		  var ca = document.cookie.split(';');
+		  for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		  }
+		  return null;
+	}
+	$(document).ready(function(){
+		        if($("body").hasClass("cms-index-index")) {
+					if(getCookie("shownewsletter") != 1){
+				var height_window = $(window).height();
+				var height_pupup = 600;
+				var fixed_height = (height_window - height_pupup) / 2;
+				var pPopup = $('#newsletter_pop_up').bPopup({
+					position:['auto',fixed_height],
+					speed: 500,
+					transition: 'slideDown',
+					onClose: function() {
+					}
+				});
+				$('.newletter_popup_close').on('click', function(){
+					pPopup.close();
+				});
+			}
 
-        $(document).ready(function () {
-            if ($("body").hasClass("cms-index-index")) {
-                if (getCookie("shownewsletter") != 1) {
-                    var height_window = $(window).height();
-                    var height_pupup = 600;
-                    var fixed_height = (height_window - height_pupup) / 2;
-                    var pPopup = $('#newsletter_pop_up').bPopup({
-                        position: ['auto', fixed_height],
-                        speed: 500,
-                        transition: 'slideDown',
-                        onClose: function () {
-                        }
-                    });
-                    $('.newletter_popup_close').on('click', function () {
-                        pPopup.close();
-                    });
-                }
+			$( "#newsletter_pop_up form" ).submit(function( event ) {
+				setCookie("shownewsletter",'1',1);
+			});
 
-                $("#newsletter_pop_up form").submit(function (event) {
-                    setCookie("shownewsletter", '1', 1);
-                });
-
-                $('#newsletter_popup_dont_show_again').on('change', function () {
-                    if (getCookie("shownewsletter") != 1) {
-                        setCookie("shownewsletter", '1', 1)
-                    } else {
-                        setCookie("shownewsletter", '0', 1)
-                    }
-                });
-            }
-        });
-    });
+			$('#newsletter_popup_dont_show_again').on('change', function(){
+				if(getCookie("shownewsletter") != 1){
+					setCookie("shownewsletter",'1',1)
+				}else{
+					setCookie("shownewsletter",'0',1)
+				}
+			});
+		        }
+			});
+ });
 </script>
 <script>
     require([
@@ -167,16 +223,16 @@
         'rokanthemes/custommenu'
     ], function ($) {
         $(".custommenu").CustomMenu();
-        $(document).ready(function () {
-            $(document).on('click', '.custommenu .menu-mobile-title a', function () {
-                var data = $(this).data('menu');
-                $('.custommenu .menu-mobile-title a').removeClass('active');
-                $(this).addClass('active');
-                $('.custommenu ul.menu').hide();
-                $(this).closest('.custommenu').find('ul.menu.' + data + '').show();
-                return false;
-            });
-        });
+		$( document ).ready(function() {
+			$(document).on('click', '.custommenu .menu-mobile-title a', function(){
+				var data = $(this).data('menu');
+				$('.custommenu .menu-mobile-title a').removeClass('active');
+				$(this).addClass('active');
+				$('.custommenu ul.menu').hide();
+				$(this).closest('.custommenu').find('ul.menu.'+data+'').show();
+				return false;
+			});
+		});
     });
 </script>
 <script>
@@ -184,154 +240,496 @@
         'jquery',
         'rokanthemes/choose'
     ], function ($) {
-        'use strict';
+		'use strict';
         $("#choose_category").chosen();
     });
 </script>
 <script>
-    require([
-        'jquery'
-    ], function ($) {
-        'use strict';
-        $(document).ready(function () {
-            $('.block-search .dropdown-toggle > .top-search').click(function (event) {
-                $('.block-search #search_mini_form').slideToggle();
-                $('#search-input-autocomplate').focus();
-            });
-        });
-    });
+	require([
+		'jquery'
+	], function ($) {
+		'use strict';
+		$( document ).ready(function() {
+			$('.block-search .dropdown-toggle > .top-search').click(function(event){
+				$('.block-search #search_mini_form').slideToggle();
+				$('#search-input-autocomplate').focus();
+			});
+		});
+	});
 </script>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "searchsuiteautocomplete_form": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/autocomplete"
+                },
+                "searchsuiteautocompleteBindEvents": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/bindEvents",
+                    "config": {
+                        "searchFormSelector": "#search_mini_form",
+                        "searchButtonSelector": "button.search",
+                        "inputSelector": "#search, #mobile_search, .minisearch .search input[type=\"text\"]",
+                        "searchDelay": "500"
+                    }
+                },
+                "searchsuiteautocompleteDataProvider": {
+                    "component": "MageWorx_SearchSuiteAutocomplete/js/dataProvider",
+                    "config": {
+                        "url": "https://mageblueskytech.com/dukamarket/en3/mageworx_searchsuiteautocomplete/ajax/index/"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
 
-
-<script>window.authenticationPopup = {
-    "autocomplete": "off",
-    "customerRegisterUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/create\/",
-    "customerForgotPasswordUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/forgotpassword\/",
-    "baseUrl": "https:\/\/mageblueskytech.com\/dukamarket\/en3\/"
-}</script>
-
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-1930863537");
+</script>
+<script>
+        window.checkout = {"shoppingCartUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/checkout\/cart\/","checkoutUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/checkout\/","updateItemQtyUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/","minicartMaxItemsVisible":5,"websiteId":"1","maxItemsToDisplay":10,"storeId":"5","storeGroupId":"1","customerLoginUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/login\/referer\/aHR0cHM6Ly9tYWdlYmx1ZXNreXRlY2guY29tL2R1a2FtYXJrZXQvZW4zL3Nob3AuaHRtbD9wcm9kdWN0X2xpc3RfbGltaXQ9MjQ%2C\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/captcha\/refresh\/","isRequired":false,"timestamp":1628452594}}};
+    </script>
+<script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"Magento_Checkout\/js\/view\/cart-item-renderer","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
+        "*": {
+            "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1627024984\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+        }
+    }
+    </script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+<script>window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/create\/","customerForgotPasswordUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/customer\/account\/forgotpassword\/","baseUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/"}</script>
+<script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fstatic\u002Fversion1627024984\u002Ffrontend\u002Fbluesky\u002Fbluesky_dukamarket_digital_03\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/section-config": {
+                "sections": {"stores\/store\/switch":["*"],"stores\/store\/switchrequest":["*"],"directory\/currency\/switch":["*"],"*":["messages"],"customer\/account\/logout":["*","recently_viewed_product","recently_compared_product","persistent"],"customer\/account\/loginpost":["*"],"customer\/account\/createpost":["*"],"customer\/account\/editpost":["*"],"customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart","directory-data"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"braintree\/googlepay\/placeorder":["cart","checkout-data"]},
+                "clientSideSections": ["checkout-data","cart-data","chatData"],
+                "baseUrls": ["https:\/\/mageblueskytech.com\/dukamarket\/en3\/"],
+                "sectionNames": ["messages","customer","compare-products","last-ordered-items","cart","directory-data","captcha","instant-purchase","loggedAsCustomer","persistent","review","wishlist","chatData","recently_viewed_product","recently_compared_product","product_data_storage","paypal-billing-agreement"]            }
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/customer-data": {
+                "sectionLoadUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Fsection\u002Fload\u002F",
+                "expirableSectionLifetime": 60,
+                "expirableSectionNames": ["cart","persistent"],
+                "cookieLifeTime": "3600",
+                "updateSessionUrl": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fcustomer\u002Faccount\u002FupdateSession\u002F"
+            }
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/invalidation-processor": {
+                "invalidationRules": {
+                    "website-rule": {
+                        "Magento_Customer/js/invalidation-rules/website-rule": {
+                            "scopeConfig": {
+                                "websiteId": "1"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/page_cache\/block\/render\/id\/50\/?product_list_limit=24","handles":["default","catalog_category_view","catalog_category_view_type_layered","catalog_category_view_displaymode_products","catalog_category_view_id_50"],"originalRequest":{"route":"catalog","controller":"category","action":"view","uri":"\/dukamarket\/en3\/shop.html?product_list_limit=24"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": {"productType":["simple","virtual","bundle","downloadable","grouped","configurable"]}        }
+    }
+</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-11482723030");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-1930863537  span.product-image-wrapper"
+    ".product-image-container-11482723030  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-21619475241");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-21825784394");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-21619475241  span.product-image-wrapper"
+    ".product-image-container-21825784394  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-31104133807");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-31282699551");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-31104133807  span.product-image-wrapper"
+    ".product-image-container-31282699551  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-4434617414");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-41626330358");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-4434617414  span.product-image-wrapper"
+    ".product-image-container-41626330358  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-51101339729");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-51478555766");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-51101339729  span.product-image-wrapper"
+    ".product-image-container-51478555766  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-6823042440");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-61057345276");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-6823042440  span.product-image-wrapper"
+    ".product-image-container-61057345276  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-7813609003");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-7224873310");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-7813609003  span.product-image-wrapper"
+    ".product-image-container-7224873310  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-8929906515");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-8673071632");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-8929906515  span.product-image-wrapper"
+    ".product-image-container-8673071632  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-9460093654");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-91918258951");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-9460093654  span.product-image-wrapper"
+    ".product-image-container-91918258951  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-101993336014");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-10132690167");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-101993336014  span.product-image-wrapper"
+    ".product-image-container-10132690167  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-11531259909");
+<script type="text/x-magento-init">
+        {
+            "[data-role=swatch-option-10]": {
+                "Magento_Swatches/js/swatch-renderer": {
+                    "selectorProduct": ".product-item-details",
+                    "onlySwatches": true,
+                    "enableControlLabel": false,
+                    "numberToShow": 16,
+                    "jsonConfig": {"attributes":{"93":{"id":"93","code":"color","label":"Color","options":[{"id":"4","label":"Purple","products":["84","85","86"]},{"id":"5","label":"Black","products":["93","94","95"]},{"id":"8","label":"Gold","products":["90","91","92"]},{"id":"10","label":"Blue","products":["87","88","89"]}],"position":"0"},"181":{"id":"181","code":"size","label":"Size","options":[{"id":"14","label":"16 Gb","products":["85","88","91","94"]},{"id":"15","label":"32 Gb","products":["84","87","90","93"]},{"id":"16","label":"64 Gb","products":["86","89","92","95"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"84":{"baseOldPrice":{"amount":250},"oldPrice":{"amount":250},"basePrice":{"amount":250},"finalPrice":{"amount":250},"tierPrices":[],"msrpPrice":{"amount":0}},"85":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186},"tierPrices":[],"msrpPrice":{"amount":0}},"86":{"baseOldPrice":{"amount":218},"oldPrice":{"amount":218},"basePrice":{"amount":218},"finalPrice":{"amount":218},"tierPrices":[],"msrpPrice":{"amount":0}},"87":{"baseOldPrice":{"amount":250},"oldPrice":{"amount":250},"basePrice":{"amount":250},"finalPrice":{"amount":250},"tierPrices":[],"msrpPrice":{"amount":0}},"88":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186},"tierPrices":[],"msrpPrice":{"amount":0}},"89":{"baseOldPrice":{"amount":218},"oldPrice":{"amount":218},"basePrice":{"amount":218},"finalPrice":{"amount":218},"tierPrices":[],"msrpPrice":{"amount":0}},"90":{"baseOldPrice":{"amount":250},"oldPrice":{"amount":250},"basePrice":{"amount":250},"finalPrice":{"amount":250},"tierPrices":[],"msrpPrice":{"amount":0}},"91":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186},"tierPrices":[],"msrpPrice":{"amount":0}},"92":{"baseOldPrice":{"amount":218},"oldPrice":{"amount":218},"basePrice":{"amount":218},"finalPrice":{"amount":218},"tierPrices":[],"msrpPrice":{"amount":0}},"93":{"baseOldPrice":{"amount":250},"oldPrice":{"amount":250},"basePrice":{"amount":250},"finalPrice":{"amount":250},"tierPrices":[],"msrpPrice":{"amount":0}},"94":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186},"tierPrices":[],"msrpPrice":{"amount":0}},"95":{"baseOldPrice":{"amount":218},"oldPrice":{"amount":218},"basePrice":{"amount":218},"finalPrice":{"amount":218},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186}},"productId":"10","chooseText":"Choose an Option...","images":[],"index":{"84":{"93":"4","181":"15"},"85":{"93":"4","181":"14"},"86":{"93":"4","181":"16"},"87":{"93":"10","181":"15"},"88":{"93":"10","181":"14"},"89":{"93":"10","181":"16"},"90":{"93":"8","181":"15"},"91":{"93":"8","181":"14"},"92":{"93":"8","181":"16"},"93":{"93":"5","181":"15"},"94":{"93":"5","181":"14"},"95":{"93":"5","181":"16"}},"channel":"website","salesChannelCode":"base","sku":{"84":"Digital011-Purple-32 Gb","85":"Digital011-Purple-16 Gb","86":"Digital011-Purple-64 Gb","87":"Digital011-Blue-32 Gb","88":"Digital011-Blue-16 Gb","89":"Digital011-Blue-64 Gb","90":"Digital011-Gold-32 Gb","91":"Digital011-Gold-16 Gb","92":"Digital011-Gold-64 Gb","93":"Digital011-Black-32 Gb","94":"Digital011-Black-16 Gb","95":"Digital011-Black-64 Gb"}},
+                    "jsonSwatchConfig": {"93":{"4":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/2\/7\/27_1_3.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/2\/7\/27_1_3.jpg","label":"Purple"},"5":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/2\/9\/29_1_2.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/2\/9\/29_1_2.jpg","label":"Black"},"8":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/1\/4\/14_1_1_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/1\/4\/14_1_1_1.jpg","label":"Gold"},"10":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/2\/8\/28_1_3.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/2\/8\/28_1_3.jpg","label":"Blue"},"additional_data":"{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":\"1\",\"use_product_image_for_swatch\":\"1\"}"}},
+                    "mediaCallback": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    "jsonSwatchImageSizeConfig": {"swatchImage":{"width":50,"height":50},"swatchThumb":{"height":90,"width":110}},
+                    "showTooltip": 0                }
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=priceBox][data-price-box=product-id-10]": {
+                "priceBox": {
+                    "priceConfig": {
+                        "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                        "prices": {"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186}}                    }
+                }
+            }
+        }
+    </script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-111067437420");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-11531259909  span.product-image-wrapper"
+    ".product-image-container-111067437420  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-151551658888");
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-1592014601");
 for (var i = 0; i < prodImageContainers.length; i++) {
     prodImageContainers[i].style.width = "500px";
 }
 prodImageContainersWrappers = document.querySelectorAll(
-    ".product-image-container-151551658888  span.product-image-wrapper"
+    ".product-image-container-1592014601  span.product-image-wrapper"
 );
 for (var i = 0; i < prodImageContainersWrappers.length; i++) {
     prodImageContainersWrappers[i].style.paddingBottom = "100%";
 }</script>
-
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-161112224056");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-161112224056  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-171888354437");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-171888354437  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=swatch-option-17]": {
+                "Magento_Swatches/js/swatch-renderer": {
+                    "selectorProduct": ".product-item-details",
+                    "onlySwatches": true,
+                    "enableControlLabel": false,
+                    "numberToShow": 16,
+                    "jsonConfig": {"attributes":{"181":{"id":"181","code":"size","label":"Size","options":[{"id":"12","label":"5 Gb","products":["98"]},{"id":"13","label":"12 Gb","products":["99"]},{"id":"17","label":"128 Gb","products":["100"]},{"id":"18","label":"256 Gb","products":["101"]}],"position":"0"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"98":{"baseOldPrice":{"amount":168},"oldPrice":{"amount":168},"basePrice":{"amount":168},"finalPrice":{"amount":168},"tierPrices":[],"msrpPrice":{"amount":0}},"99":{"baseOldPrice":{"amount":186},"oldPrice":{"amount":186},"basePrice":{"amount":186},"finalPrice":{"amount":186},"tierPrices":[],"msrpPrice":{"amount":0}},"100":{"baseOldPrice":{"amount":216},"oldPrice":{"amount":216},"basePrice":{"amount":216},"finalPrice":{"amount":216},"tierPrices":[],"msrpPrice":{"amount":0}},"101":{"baseOldPrice":{"amount":268},"oldPrice":{"amount":268},"basePrice":{"amount":268},"finalPrice":{"amount":268},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":168},"oldPrice":{"amount":168},"basePrice":{"amount":168},"finalPrice":{"amount":168}},"productId":"17","chooseText":"Choose an Option...","images":[],"index":{"98":{"181":"12"},"99":{"181":"13"},"100":{"181":"17"},"101":{"181":"18"}},"preSelectedGallery":[],"channel":"website","salesChannelCode":"base","sku":{"98":"Digital0120-5 Gb","99":"Digital0120-12 Gb","100":"Digital0120-128 Gb","101":"Digital0120-256 Gb"}},
+                    "jsonSwatchConfig": [],
+                    "mediaCallback": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    "jsonSwatchImageSizeConfig": {"swatchImage":{"width":50,"height":50},"swatchThumb":{"height":90,"width":110}},
+                    "showTooltip": 0                }
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=priceBox][data-price-box=product-id-17]": {
+                "priceBox": {
+                    "priceConfig": {
+                        "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                        "prices": {"baseOldPrice":{"amount":168},"oldPrice":{"amount":168},"basePrice":{"amount":168},"finalPrice":{"amount":168}}                    }
+                }
+            }
+        }
+    </script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-19896637863");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-19896637863  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-201689024462");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-201689024462  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-21807313601");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-21807313601  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-22770934084");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-22770934084  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-23446726762");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-23446726762  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-241952079638");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-241952079638  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-25903784671");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-25903784671  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=swatch-option-25]": {
+                "Magento_Swatches/js/swatch-renderer": {
+                    "selectorProduct": ".product-item-details",
+                    "onlySwatches": true,
+                    "enableControlLabel": false,
+                    "numberToShow": 16,
+                    "jsonConfig": {"attributes":{"93":{"id":"93","code":"color","label":"Color","options":[{"id":"7","label":"Pink","products":["104"]},{"id":"19","label":"Red","products":["103"]},{"id":"20","label":"Yellow","products":["102"]}],"position":"0"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"102":{"baseOldPrice":{"amount":99},"oldPrice":{"amount":99},"basePrice":{"amount":99},"finalPrice":{"amount":99},"tierPrices":[],"msrpPrice":{"amount":0}},"103":{"baseOldPrice":{"amount":99},"oldPrice":{"amount":99},"basePrice":{"amount":99},"finalPrice":{"amount":99},"tierPrices":[],"msrpPrice":{"amount":0}},"104":{"baseOldPrice":{"amount":99},"oldPrice":{"amount":99},"basePrice":{"amount":99},"finalPrice":{"amount":99},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":99},"oldPrice":{"amount":99},"basePrice":{"amount":99},"finalPrice":{"amount":99}},"productId":"25","chooseText":"Choose an Option...","images":[],"index":{"102":{"93":"20"},"103":{"93":"19"},"104":{"93":"7"}},"preSelectedGallery":[],"channel":"website","salesChannelCode":"base","sku":{"102":"Digital039-Yellow","103":"Digital039-Red","104":"Digital039-Pink"}},
+                    "jsonSwatchConfig": {"93":{"7":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/5\/_\/5_1_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/5\/_\/5_1_1.jpg","label":"Pink"},"19":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/6\/_\/6_1_1_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/6\/_\/6_1_1_1.jpg","label":"Red"},"20":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/6\/-\/6-2_1_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/6\/-\/6-2_1_1.jpg","label":"Yellow"},"additional_data":"{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":\"1\",\"use_product_image_for_swatch\":\"1\"}"}},
+                    "mediaCallback": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    "jsonSwatchImageSizeConfig": {"swatchImage":{"width":50,"height":50},"swatchThumb":{"height":90,"width":110}},
+                    "showTooltip": 0                }
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=priceBox][data-price-box=product-id-25]": {
+                "priceBox": {
+                    "priceConfig": {
+                        "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                        "prices": {"baseOldPrice":{"amount":99},"oldPrice":{"amount":99},"basePrice":{"amount":99},"finalPrice":{"amount":99}}                    }
+                }
+            }
+        }
+    </script>
+<script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-272011656599");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "500px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-272011656599  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "100%";
+}</script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=swatch-option-27]": {
+                "Magento_Swatches/js/swatch-renderer": {
+                    "selectorProduct": ".product-item-details",
+                    "onlySwatches": true,
+                    "enableControlLabel": false,
+                    "numberToShow": 16,
+                    "jsonConfig": {"attributes":{"93":{"id":"93","code":"color","label":"Color","options":[{"id":"6","label":"White","products":["97"]},{"id":"7","label":"Pink","products":["96"]}],"position":"0"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"96":{"baseOldPrice":{"amount":30},"oldPrice":{"amount":30},"basePrice":{"amount":30},"finalPrice":{"amount":30},"tierPrices":[],"msrpPrice":{"amount":0}},"97":{"baseOldPrice":{"amount":30},"oldPrice":{"amount":30},"basePrice":{"amount":30},"finalPrice":{"amount":30},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":30},"oldPrice":{"amount":30},"basePrice":{"amount":30},"finalPrice":{"amount":30}},"productId":"27","chooseText":"Choose an Option...","images":[],"index":{"96":{"93":"7"},"97":{"93":"6"}},"channel":"website","salesChannelCode":"base","sku":{"96":"Digital040-Pink","97":"Digital040-White"}},
+                    "jsonSwatchConfig": {"93":{"6":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/1\/9\/19_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/1\/9\/19_1.jpg","label":"White"},"7":{"type":2,"value":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/66bc4b351ede9accda2e2b3b109e02a7\/2\/0\/20_1.jpg","thumb":"https:\/\/mageblueskytech.com\/dukamarket\/media\/catalog\/product\/cache\/37bd8cf41722856587d7e4fc466337d3\/2\/0\/20_1.jpg","label":"Pink"},"additional_data":"{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":\"1\",\"use_product_image_for_swatch\":\"1\"}"}},
+                    "mediaCallback": "https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    "jsonSwatchImageSizeConfig": {"swatchImage":{"width":50,"height":50},"swatchThumb":{"height":90,"width":110}},
+                    "showTooltip": 0                }
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=priceBox][data-price-box=product-id-27]": {
+                "priceBox": {
+                    "priceConfig": {
+                        "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                        "prices": {"baseOldPrice":{"amount":30},"oldPrice":{"amount":30},"basePrice":{"amount":30},"finalPrice":{"amount":30}}                    }
+                }
+            }
+        }
+    </script>
+<script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                    "product_sku": "Digital040"
+                }
+            }
+        }
+        </script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/cookie\/index\/noCookies\/","triggers":[".action.towishlist"],"isRedirectCmsPage":true}        }
+    }
+</script>
 <script>var swatchImageOption4 = document.querySelector('div[data-option-id="4"]');
 swatchImageOption4.style.background = "\u0023b310b3 no-repeat center";
 swatchImageOption4.style.backgroundSize = "initial";</script>
@@ -370,65 +768,92 @@ swatchImageOption20.style.backgroundSize = "initial";</script>
             .SwatchRendererTooltip();
     });
 </script>
-
-
-
-<script>
-    require(["jquery"], function ($) {
-        require(["rokanthemes/lazyloadimg"], function (lazy) {
-            $("img[data-src]").lazy({
-                "bind": "event",
-                "attribute": "data-src",
-                visibleOnly: true,
-                threshold: 0,
-                enableThrottle: true,
-                throttle: 500,
-                afterLoad: function (element) {
-                    $(element).addClass("lazy-loaded");
-                    $(element).closest(".absolute-content-image").removeClass("lazyload-content");
-                    setTimeout(function () {
-                        $(element).addClass("transition");
-                    }, 1000);
-                }
-            });
-            $(document).ready(function ($) {
-                var win = $(window);
-                $(".owl-carousel").on("translated.owl.carousel", function (event) {
-                    var bounds = $(this).offset();
-                    var viewport = {
-                        top: win.scrollTop(),
-                        left: win.scrollLeft()
-                    };
-                    viewport.bottom = viewport.top + win.height();
-                    if (viewport.bottom > bounds.top) {
-                        $(this).find("img[data-src]").lazy({
-                            "bind": "event",
-                            delay: 0,
-                            afterLoad: function (element) {
-                                $(element).addClass("lazy-loaded");
-                                $(element).closest(".absolute-content-image").removeClass("lazyload-content");
-                                setTimeout(function () {
-                                    $(element).addClass("transition");
-                                }, 1000);
-                            }
-                        });
-                    }
-                });
-                setTimeout(function () {
-                    $("img[data-src]").each(function () {
-                        if ($(this).is(":hidden")) {
-                            var new_url = $(this).attr("data-src");
-                            $(this).attr("src", new_url);
-                            $(this).removeAttr("data-src");
-                            $(this).addClass("lazy-loaded");
-                            $(this).closest(".absolute-content-image").removeClass("lazyload-content");
-                            setTimeout(function () {
-                                $(this).addClass("transition");
-                            }, 1000);
-                        }
-                    });
-                }, 1000);
-            });
-        });
-    });
+<script type="text/x-magento-init">
+{"[data-role=compare-products-sidebar]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
 </script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "storage-manager": {
+                            "component": "Magento_Catalog/js/storage-manager",
+                            "appendTo": "",
+                            "storagesConfiguration" : {"recently_viewed_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/rest\/en3\/V1\/products-render-info"},"requestConfig":{"syncUrl":"https:\/\/mageblueskytech.com\/dukamarket\/en3\/catalog\/product\/frontend_action_synchronize\/"},"allowToSendRequest":null}}                        }
+                    }
+                }
+            }
+        }
+</script>
+<script>
+                        require(["jquery"], function ($) {
+                            require(["rokanthemes/lazyloadimg"], function(lazy) {
+								$("img[data-src]").lazy({
+									"bind":"event",
+									"attribute": "data-src",
+									visibleOnly: true,
+									threshold: 0,
+									enableThrottle: true,
+									throttle: 500,
+									afterLoad: function(element) {
+										$(element).addClass("lazy-loaded");
+										$(element).closest(".absolute-content-image").removeClass("lazyload-content");
+										setTimeout(function(){
+											$(element).addClass("transition");
+										}, 1000);
+									}
+								});
+								$(document).ready(function($) {
+									var win = $(window);
+									$(".owl-carousel").on("translated.owl.carousel", function(event) {
+										var bounds = $(this).offset();
+										var viewport = {
+											top : win.scrollTop(),
+											left : win.scrollLeft()
+										};
+										viewport.bottom = viewport.top + win.height();
+										if(viewport.bottom > bounds.top){
+											$(this).find("img[data-src]").lazy({
+												"bind":"event",
+												delay: 0,
+												afterLoad: function(element) {
+													$(element).addClass("lazy-loaded");
+													$(element).closest(".absolute-content-image").removeClass("lazyload-content");
+													setTimeout(function(){
+														$(element).addClass("transition");
+													}, 1000);
+												}
+											});
+										}
+									});
+									setTimeout(function(){
+										$("img[data-src]").each(function() {
+											if($(this).is(":hidden") ) {
+												var new_url = $(this).attr("data-src");
+												$(this).attr("src", new_url);
+												$(this).removeAttr("data-src");
+												$(this).addClass("lazy-loaded");
+												$(this).closest(".absolute-content-image").removeClass("lazyload-content");
+												setTimeout(function(){
+													$(this).addClass("transition");
+												}, 1000);
+											}
+										});
+									}, 1000);
+								});
+                            });
+                        });
+                    </script>
