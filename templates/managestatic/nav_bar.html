@@ -8,8 +8,7 @@
       <a
         href="javascript: void(0);"
         class="btn-close newletter_popup_close"
-        ><i class="fa fa-times" style=" color: #fff; font-size: 24px"></i
-      ></a>
+        ></a>
       <div class="col-newsletter-popup col-content">
         <div class="col-img-bg-pupup"></div>
         <div class="content-popup">
@@ -187,7 +186,7 @@
             <div class="flex-layout space-between center_vertical no-wrap-desktop header-middle">
               <div class="logo-container">
                 <div class="logo-site">
-                  <i data-action="toggle-nav" class="fa fa-bars action nav-toggle"></i>
+                  <span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
                   <a class="logo" href="{% url 'home' %}" title="" aria-label="store logo">
                   <img id="cart-icon" >
                     <img src="{% static 'images/logo.png' %}" title="" alt="" width="201" height="28"/>
@@ -540,7 +539,7 @@
                             </div>
                             <div class="actions">
                               <button type="submit" title="Search" class=" action search">
-                                  <i class="icon-search icon-large"></i>
+{#                                  <i class="icon-search icon-large"></i>#}
                                 <span>Search</span>
                               </button>
                             </div>
@@ -562,7 +561,7 @@
                     "
                   >
                     <li class="account-link-header hidden-xs">
-                        <i class="far fa-user fa-2x" style="margin-right: 5px"></i>
+{#                        <i class="far fa-user fa-2x" style="margin-right: 5px"></i>#}
                       <ul class="header links">
                           {% if request.user.is_authenticated %}
                                 <li class="link authorization-link" data-label="or">
@@ -593,7 +592,7 @@
                     >
 
                       <a href="{% url 'register:mywhishlist' %}">
-                          <i class="far fa-heart fa-2x" style="margin-right: 5px;"></i>
+{#                          <i class="far fa-heart fa-2x" style="margin-right: 5px;"></i>#}
                         <span>
                           <span class="text">Favorite</span>
                           <span>My Wish List</span>
@@ -604,7 +603,7 @@
                     <li class="minicart-li-content-show-hide">
                         <div data-block="minicart" class="minicart-wrapper">
                             <a class="action showcart" href="{% url 'cart:home' %}" data-bind="scope: 'minicart_content'">
-                            <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>
+{#                            <i class="fas fa-shopping-basket fa-2x" style="margin-right: 5px;"></i>#}
                             {% if request.user.is_authenticated %}
                           <span class="counter qty empty" style="background-color: #b92227;margin-top: -6px;" >
 
@@ -619,7 +618,6 @@
 
                               <span
                                 class="total-mini-cart-price"
-                                data-bind="html: getCartParam('subtotal')"
                               ></span>
                               <span class="total-mini-cart-price"
                                 ><span class="price">
