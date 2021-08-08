@@ -960,7 +960,7 @@
   .product-info-main .action.tocompare:active,
   .product-options-bottom .action.tocompare:focus,
   .product-options-bottom .action.tocompare:active {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -976,7 +976,7 @@
   .block-bundle-summary .action.towishlist:hover,
   .product-info-main .action.tocompare:hover,
   .product-options-bottom .action.tocompare:hover {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -2347,7 +2347,7 @@
     > .action:active,
   .cart-summary .actions-toolbar > .primary .action-gift:focus,
   .cart-summary .actions-toolbar > .primary .action-gift:active {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -2363,7 +2363,7 @@
     .actions-toolbar
     > .action:hover,
   .cart-summary .actions-toolbar > .primary .action-gift:hover {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -7700,7 +7700,7 @@
     #mb-ajaxsuite-popup-wrapper
     .product-name
     strong {
-    color: #0068c9;
+    color: #b92227;
     display: block;
     margin-bottom: 6px;
   }
@@ -8746,7 +8746,7 @@
     .page-main
     .authentication-wrapper
     .action-gift:active {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -8761,7 +8761,7 @@
     .page-main
     .authentication-wrapper
     .action-gift:hover {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
   }
@@ -9269,7 +9269,7 @@
     .minicart-items
     .product-item-name
     a:not(:hover) {
-    color: #0068c9;
+    color: #b92227;
   }
   .rokanthemes-onepagecheckout
     #opc-sidebar
@@ -9601,10 +9601,10 @@
     margin-bottom: 0.3rem;
   }
   #purchase-fake-order.purchase-order .purchase-info .title a:not(:hover) {
-    color: #0068c9;
+    color: #b92227;
   }
   #purchase-fake-order.purchase-order .purchase-info .title a:hover {
-    color: #0068c9;
+    color: #b92227;
   }
   #purchase-fake-order.purchase-order .purchase-close {
     position: absolute;
@@ -11292,7 +11292,7 @@
     .container-the-blue-sky-slider
     .the-blue-sky-banner-text
     .btn:hover {
-    background: #0057b8;
+    background: #b92227;
     color: #fff !important;
   }
   @media only screen and (max-width: 1439px) {
