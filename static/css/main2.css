@@ -500,22 +500,22 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, h1 .small, h2 .small
 }
 
 a, .alink {
-    color: #0063d1;
+    color: #b92227;
     text-decoration: none
 }
 
 a:visited, .alink:visited {
-    color: #0063d1;
+    color: #b92227;
     text-decoration: none
 }
 
 a:hover, .alink:hover {
-    color: #0063d1;
+    color: #b92227;
     text-decoration: none
 }
 
 a:active, .alink:active {
-    color: #0063d1;
+    color: #b92227;
     text-decoration: none
 }
 
@@ -662,7 +662,7 @@ table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table
 
 button, .cart.table-wrapper .actions-toolbar > .action, .action-gift {
     background-image: none;
-    background: #0063d1;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff;
     cursor: pointer;
@@ -678,7 +678,7 @@ button, .cart.table-wrapper .actions-toolbar > .action, .action-gift {
 }
 
 button:focus, button:active, .cart.table-wrapper .actions-toolbar > .action:focus, .cart.table-wrapper .actions-toolbar > .action:active, .action-gift:focus, .action-gift:active {
-    background: #0057b8;
+    background: #b92227;
     border: 1px solid transparent;
     color: #fff
 }
@@ -21772,7 +21772,7 @@ body {
     }
 
     footer .shipping-support .col-content {
-        background-color: #0959b2
+        background-color: #b92227
     }
 
     footer .layout-8 .footer-bottom .footer {
@@ -22707,7 +22707,7 @@ body {
 
     .page-footer .footer-static_link .footer-links .footer-title, .page-footer .footer-static_link .footer-links .rokan-title .module-title {
         font-size: 1.6rem;
-        background-color: #0959b2;
+        background-color: #b92227;
         margin: 0;
         padding: 1.5rem 0;
         border-radius: 2px;
@@ -22786,7 +22786,7 @@ body {
     }
 
     .page-footer .container-inner .footer-static_link .footer-links {
-        background-color: #0959b2;
+        background-color: #b92227;
         margin: 5px 0;
         padding: 0 2rem;
         border-radius: 2px
