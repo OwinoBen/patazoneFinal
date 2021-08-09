@@ -40,6 +40,7 @@ COLORS = (('Red', 'Red'),
           )
 SUBCATEGORIES = (('television', 'Television'),
                  ('home audio', 'Home audio'),
+                 ('home appliances', 'Home Appliances'),
                  ('makeup', 'Makeup'),
                  ('oral care', 'Oral Care'),
                  ('hair care', 'Hair Care'),

@@ -216,10 +216,15 @@
                           <div class="row">
                             <ul class="subchildmenu col-sm-9 mega-columns columns4">
                                 <li class="ui-menu-item level1">
-                                <a
-                                  href="{% url 'shopsearch:grocery' %}"
-                                  ><span>Patazon Supermarket</span></a>
-                              </li>
+                                    <a
+                                      href="{% url 'shop:sortedproducts' 'supermarket' %}"
+                                      ><span>Patazon Supermarket</span></a>
+                                </li>
+                                <li class="ui-menu-item level1">
+                                    <a
+                                      href="{% url 'shop:sortedproducts' 'home appliances' %}"
+                                      ><span>Home Appliances</span></a>
+                                </li>
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
