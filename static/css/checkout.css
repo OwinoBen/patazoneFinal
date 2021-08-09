@@ -1322,6 +1322,12 @@ span[data-currency-iso], span[data-price] {
     width: 87.5%
 }
 
+@media (min-width: 640px) {
+    .bg-white{
+
+    }
+}
+
 @media (min-width: 0) and (max-width: 1169px) {
     .oshun-col-md-1of1 {
         width: 100%
@@ -2852,57 +2858,7 @@ label {
     color: #000
 }
 
-header {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
-    height: 45px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    color: #6b6866;
-    background: #fff
-}
 
-header .osh-checkout-header {
-    margin: 0 10px;
-    padding-top: 3px;
-    overflow: hidden
-}
-
-header .osh-checkout-header > .characteristic {
-    float: left;
-    display: table;
-    height: 42px
-}
-
-header .osh-checkout-header > .characteristic.-additional {
-    float: right;
-    margin: 0;
-    padding: 0
-}
-
-header .osh-checkout-header > .characteristic.-additional > .stamp {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 0 30px;
-    font-size: 12px;
-    line-height: 12px
-}
-
-header .osh-checkout-header > .characteristic.-logo {
-    padding-top: 5px
-}
-
-.-completed header .osh-checkout-header > .characteristic.-logo > .-link > img, header .-completed .osh-checkout-header > .characteristic.-logo > .-link > img, header .osh-checkout-header > .characteristic.-logo > a > img {
-    width: 108px;
-    height: 27px
-}
-
-header .osh-checkout-header > .characteristic .description, header .osh-checkout-header > .characteristic .iconography {
-    display: table-cell;
-    vertical-align: middle
-}
-
-header .osh-checkout-header > .characteristic .iconography {
-    padding-right: 5px
-}
 
 header .osh-checkout-header > .characteristic .iconography > i {
     font-size: 20px;
@@ -2944,7 +2900,7 @@ header .osh-checkout-header > .characteristic .description > .text, header .osh-
     width: 18px;
     line-height: 18px;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     position: absolute;
     opacity: .7;
     cursor: pointer;
