@@ -237,12 +237,7 @@ def upload_product_file_loc(instance, filename):
 
 
 class SlideShow(models.Model):
-    rs_group_slide_id = models.CharField(max_length=120, null=True, blank=True)
-    rs_layer1_slide_id = models.CharField(max_length=120, null=True, blank=True)
-    rs_layer2_slide_id = models.CharField(max_length=120, null=True, blank=True)
-    rs_layer3_slide_id = models.CharField(max_length=120, null=True, blank=True)
-    rs_layer4_slide_id = models.CharField(max_length=120, null=True, blank=True)
-    anchor_slide_id = models.CharField(max_length=120, null=True, blank=True)
+    slide_id = models.CharField(max_length=120, null=True, blank=True)
     name = models.CharField(max_length=120, null=True, blank=True)
     tag1 = models.CharField(max_length=12, blank=True, null=True)
     tag2 = models.CharField(max_length=12, blank=True, null=True)
