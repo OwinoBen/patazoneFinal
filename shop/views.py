@@ -10,7 +10,7 @@ def shopViews(request):
     objects = Cart.objects.all()
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
-    pager=request.GET.get('value')
+    pager = request.GET.get('value')
     # pages = int(pager)
     page = request.GET.get('page', 1)
 
@@ -31,8 +31,6 @@ def shopViews(request):
         shopList = paginator.page(1)
     except EmptyPage:
         shopList = paginator.page(paginator.num_pages)
-
-
 
     context = {'shopList': shopList,
                'onsale': onsale,
@@ -80,8 +78,38 @@ def SortedProductList(request, keyword):
         return render(request, 'shop.html', {'shopList': shopList})
 
 
+def SortedProductSubcategory(request, keyword):
+    if keyword == 'shop':
+        shopList = Product.objects.all()
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
+    else:
+        shopList = Product.objects.filter(subcategory__iexact=str(keyword))
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
+
+
+def SortedProductminorCategory(request, keyword):
+    if keyword == 'shop':
+        shopList = Product.objects.all()
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
+    else:
+        shopList = Product.objects.filter(minorCategory__iexact=str(keyword))
+        search = request.GET.get('search')
+        if search != '' and search is not None:
+            shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
+        return render(request, 'shop.html', {'shopList': shopList})
+
+
 def grocerySearch(request):
-    shopList = Product.objects.filter(category='G')
+    shopList = Product.objects.filter(category='supermarket')
     context = {'shopList': shopList}
     return render(request, 'menu/grocery.html', context)
 

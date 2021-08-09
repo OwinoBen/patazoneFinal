@@ -1,3 +1,4 @@
+{% load  static %}
 <footer class="page-footer" style="background-color: #212529; color: #ffffff;">
         <div id="focus-area"></div>
         <div id="back-top" class=""><i class="fas fa-angle-double-up"></i>  </div>
@@ -36,7 +37,7 @@
                   <div class="footer-links" >
                     <h4 class="footer-title">My Account</h4>
                     <ul class="footer-contents">
-                      <li><a href="#">Product Support</a></li>
+{#                      <li><a href="#">Product Support</a></li>#}
                       <li><a href="{% url 'checkout:checkout' %}">Checkout</a></li>
                       <li><a href="{% url 'cart' %}">Shopping Cart</a></li>
                       <li><a href="{% url 'register:mywhishlist' %}">Wishlist</a></li>
@@ -48,17 +49,18 @@
                     <h4 class="footer-title">Customer Service</h4>
                     <ul class="footer-contents">
                       <li><a href="{% url 'fqa' %}">Help Center</a></li>
+                        <li><a href="#">Returns Policy</a></li>
                       <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                      <li><a href="#">Report Abuse</a></li>
-                      <li><a href="#">Submit a Dispute</a></li>
-                      <li><a href="#">Policies & Rules</a></li>
-                      <li><a href="#">Online Returns Policy</a></li>
+{#                      <li><a href="#">Report Abuse</a></li>#}
+{#                      <li><a href="#">Submit a Dispute</a></li>#}
+{#                      <li><a href="#">Policies & Rules</a></li>#}
+
                     </ul>
                   </div>
                   <div class="footer-links">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-contents">
-                      <li><a href="{% url 'contact' %}">Store Location</a></li>
+{#                      <li><a href="{% url 'contact' %}">Store Location</a></li>#}
                       <li><a href="{% url 'register:myaccount' %}">My Account</a></li>
                       <li><a href="#">Orders Tracking</a></li>
                       <li><a href="#">FAQs</a></li>
@@ -72,7 +74,7 @@
                           <div class="block newsletter newsletter-form">
                             <div class="rokan-title">
                               <p class="short-des rokan-description">
-                                Join 60.000+ subscribers and get a new discount
+                                Join our subscribers and get a new discount
                                 coupon<br />
                                 on every Saturday.
                               </p>
@@ -81,9 +83,7 @@
                               <form
                                 class="form subscribe"
                                 novalidate
-                                action="https://mageblueskytech.com/dukamarket/en3/newsletter/subscriber/new/"
-                                method="post"
-                                data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+
                                 id="newsletter-validate-detail"
                               >
                                 <div class="field newsletter">
@@ -99,7 +99,7 @@
                                         type="email"
                                         id="newsletter"
                                         placeholder="Enter your email"
-                                        data-validate="{required:true, 'validate-email':true}"
+
                                       />
                                     </div>
                                     <div class="actions">
@@ -149,31 +149,19 @@
                     <li><a href="#">Promotions</a></li>
                     <li><a href="#">My Orders</a></li>
                     <li><a href="#">Help</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Special Products</a></li>
-                    <li><a href="#">Manufacturers</a></li>
                   </ul>
                   <ul>
-                    <li><a href="#">Our Stores</a></li>
                     <li><a href="#">Shipping</a></li>
                     <li><a href="#">Payments</a></li>
-                    <li><a href="#">Checkout</a></li>
-                    <li><a href="#">Discount</a></li>
                     <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Policy Shipping</a></li>
                     <li><a href="#">Returns</a></li>
-                    <li><a href="#">Refunds</a></li>
                   </ul>
                 </div>
                 <div class="footer-payment">
                   <p>
                     <img
-                      src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
-                      data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/payment.png"
-                      alt="Payment method"
+                      src="{% static 'images/mpesa.png' %}"
+                      alt="Payment method" width="100"
                     />
                   </p>
                 </div>

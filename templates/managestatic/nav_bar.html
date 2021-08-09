@@ -215,6 +215,11 @@
                         <div class="level0 submenu">
                           <div class="row">
                             <ul class="subchildmenu col-sm-9 mega-columns columns4">
+                                <li class="ui-menu-item level1">
+                                <a
+                                  href="{% url 'shopsearch:grocery' %}"
+                                  ><span>Patazon Supermarket</span></a>
+                              </li>
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
                                 <a
@@ -231,12 +236,6 @@
                                     <a
                                       href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
                                       ><span>Laptops</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Tabulates</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
@@ -264,52 +263,87 @@
                               </li>
                               <li class="ui-menu-item level1 parent">
                                 <div class="open-children-toggle"></div>
-                                <a href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                  ><span>Electronics</span></a
-                                >
+                                <a href="{% url 'shop:sortedproducts' 'Electronics' %}"><span>Consumer Electronics</span></a>
                                 <ul class="subchildmenu">
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Watches</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Keyboards</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Mice & Accessories</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Memory Card Accessories</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Memory Cards</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Monitor Accessories</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Electronics' %}"
-                                      ><span>Printer Accessories</span></a
-                                    >
-                                  </li>
+                                    <li class="ui-menu-item level1 parent">
+                                        <div class="open-children-toggle"></div>
+                                        <a href="{% url 'shop:sortedproductsubcategory' 'television' %}"><span>Televisions</span></a>
+                                        <ul class="subchildmenu">
+                                          <li class="ui-menu-item level2">
+                                            <a href="{% url 'shop:sortedproductminorcategory' 'smart tv' %}"><span>- Smart TV's</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'led tv' %}"
+                                              ><span>- LED & LCD Tv's</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'projector' %}"
+                                              ><span>- Projectors</span></a
+                                            >
+                                          </li>
+                                        </ul>
+                                    </li>
+                                    <li class="ui-menu-item level1 parent">
+                                        <div class="open-children-toggle"></div>
+                                        <a href="{% url 'shop:sortedproductsubcategory' 'home audio' %}"><span>Home Audio</span></a>
+                                        <ul class="subchildmenu">
+                                          <li class="ui-menu-item level2">
+                                            <a href="{% url 'shop:sortedproductminorcategory' 'home theatre' %}"><span>- Home Theatre Systems</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'sound bars' %}"
+                                              ><span>- Sound Bars</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'speakers' %}"
+                                              ><span>- Speakers</span></a
+                                            >
+                                          </li>
+                                        </ul>
+                                    </li>
+                                    <li class="ui-menu-item level1 parent">
+                                        <div class="open-children-toggle"></div>
+                                        <a href="{% url 'shop:sortedproductsubcategory' 'accessories' %}"><span>Accessories</span></a>
+                                        <ul class="subchildmenu">
+                                          <li class="ui-menu-item level2">
+                                            <a href="{% url 'shop:sortedproductminorcategory' 'bateries' %}"><span>- Bateries</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'cables' %}"
+                                              ><span>- Cables</span></a
+                                            >
+                                          </li>
+                                          <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'power protection' %}"
+                                              ><span>- Power Protections</span></a
+                                            >
+                                          </li>
+                                            <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'charger' %}"
+                                              ><span>- Chargers</span></a
+                                            >
+                                          </li>
+                                            </li>
+                                            <li class="ui-menu-item level2">
+                                            <a
+                                              href="{% url 'shop:sortedproductminorcategory' 'television accessories' %}"
+                                              ><span>- Television accessories</span></a
+                                            >
+                                          </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                               </li>
                               <li class="ui-menu-item level1 parent">
@@ -321,37 +355,37 @@
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href={% url 'shop:sortedproductsubcategory' 'makeup' %}
                                       ><span>Make Up</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'oral care' %}"
                                       ><span>Oral Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'hair care' %}"
                                       ><span>Hair Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'health care' %}"
                                       ><span>Health Care</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'luxury beauty' %}"
                                       ><span>Luxury Beauty</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'personal care' %}"
                                       ><span>Personal care</span></a
                                     >
                                   </li>
@@ -361,19 +395,19 @@
                                 <div class="open-children-toggle"></div>
                                 <a
                                   href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                  ><span>Phones & Accessories</span></a
+                                  ><span>Phones & Tabulates</span></a
                                 >
                                 <ul class="subchildmenu">
                                   <li class="ui-menu-item level2">
                                     <a
-                                      href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
+                                      href="{% url 'shop:sortedproductsubcategory' 'mobile phones' %}"
                                       ><span>Mobile phones</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
                                     <a
-                                     href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                      ><span>Accessories</span></a
+                                     href="{% url 'shop:sortedproductsubcategory' 'tabulates' %}"
+                                      ><span>Tabulates</span></a
                                     >
                                   </li>
                                   <li class="ui-menu-item level2">
@@ -397,63 +431,10 @@
                             </ul>
 
                           </div>
-                          <div class="menu-bottom-block">
-                            <p style="text-align: center">
-                              <strong>30% Off</strong> the shipping of your
-                              first order with the code:
-                              <strong>DUKA-SALE30</strong>
-                            </p>
-                          </div>
+
                         </div>
                       </li>
-                      <li
-                        class="
-                          ui-menu-item
-                          level0
-                          classic
-                          menu-item-has-children
-                          parent
-                        "
-                      >
-                        <a class="level-top">Page</a>
-                        <div class="open-children-toggle">&nbsp;</div>
-                        <div class="level0 submenu">
-                          <div class="row">
-                            <ul class="subchildmenu">
-                              <li class="ui-menu-item level2">
-                                <a href="store/storelocal.html"
-                                  >Store Locator</a
-                                >
-                              </li>
-                              <li class="ui-menu-item level2">
-                                <a
-                                  href="#"
-                                  >Shop by brand</a
-                                >
-                              </li>
-                              <li class="ui-menu-item level2">
-                                <a
-                                  href="{% url 'fqa' %}"
-                                  >Faq</a
-                                >
-                              </li>
-                              <li class="ui-menu-item level2">
-                                <a
-                                  href="https://mageblueskytech.com/dukamarket/en3/404/"
-                                  >404 page</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="ui-menu-item level0">
-                        <a
-                          class="level-top"
-                          href="#"
-                          >Blog</a
-                        >
-                      </li>
+
                       <li class="ui-menu-item level0 classic">
                         <a
                           class="level-top"
@@ -514,9 +495,10 @@
                               <option value="13">Audio & Headphones</option>
                               <option value="14">Toys & Hobbies</option>
                               <option value="17">Fashion & Clothing</option>
-                              <option value="16">Decor & Furniture</option>
+                              <option value="161">Beauty & Cosmetics</option>
                               <option value="50">Shop</option>
                               <option value="161">Stereo Headphones</option>
+
                             </select>
                           </div>
                           <div class="field search">

@@ -103,6 +103,7 @@
                     <!-- /.modal -->
                     <div id="responsive" class="modal fade" tabindex="-1" aria-hidden="true">
                         <div class="patazonemodal">
+
                             <form class="form form-shipping-address" method="post"
                                   action="{% url 'checkout:address' %}" id="co-shipping-form"
                                   style="display: block;">
@@ -370,17 +371,27 @@
                     <!-- /.modal -->
                     <div id="stack1" class="modal fade" tabindex="-1" data-width="400">
                         <div class="patazonemodal">
-                            <form method="POST"
-                                  action="{% url 'mpesa:mpesaApp-about' %}">
-                                {% csrf_token %}
+
                                 <div class="modal-content">
                                     <div class="modal-header"
                                          style="background-color: #1b2732; color: #ffffff; text-align: center">
+                                        <button type="button" data-dismiss="modal" class="close fa fa-times" style="background-color: #ffffff"></button>
                                         <button type="button" class="close" data-dismiss="modal"
                                                 aria-hidden="true"></button>
                                         <h4 class="modal-title">Mpesa payment</h4>
                                     </div>
+                                    <div class="cc-selector">
+                                        <input id="visa" type="radio" name="bn" value="0" />
+                                        <label class="drinkcard-cc visa" for="visa"> Online Payment</label>
+                                        <input id="mastercard" type="radio" name="bn" value="1" />
+                                        <label class="drinkcard-cc mastercard"for="mastercard">Pay on delivery</label>
+                                       <input id="mastercard" type="radio" name="bn" value="1" />
+                                        <label class="drinkcard-cc mastercard"for="mastercard"></label>
+                                   </div>
                                     <div class="modal-body">
+                                        <form method="POST"
+                                          action="{% url 'mpesa:mpesaApp-about' %}">
+                                        {% csrf_token %}
                                         <div id="checkout-step-shipping" class="step-content" data-role="content">
                                             <div class="form form-shipping-address" id="co-shipping-form"
                                                  style="display: block;">
@@ -436,15 +447,17 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
+                                        </form>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>
-                                        <button type="submit" class="btn red">Ok</button>
-                                    </div>
+{#                                    <div class="modal-footer">#}
+{#                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>#}
+{#                                        <button type="submit" class="btn red">Ok</button>#}
+{#                                    </div>#}
                                 </div>
-                            </form>
+
                         </div>
                     </div>
                     <div id="stack2" class="modal fade" tabindex="-1">

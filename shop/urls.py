@@ -12,4 +12,6 @@ urlpatterns = [
     path(r'^householdappliances/$', householdSearch, name='houseHold'),
     path('Phones&Accessories/', phonesSearch, name='phones'),
     path('sortedproducts/<keyword>', SortedProductList, name="sortedproducts"),
+    path('products/<keyword>', SortedProductSubcategory, name="sortedproductsubcategory"),
+    path('productsview/<keyword>', SortedProductminorCategory, name="sortedproductminorcategory"),
 ]

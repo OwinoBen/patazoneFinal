@@ -38,7 +38,30 @@ COLORS = (('Red', 'Red'),
           ('White', 'White'),
           ('Indigo', 'Indigo'),
           )
+SUBCATEGORIES = (('television', 'Television'),
+                 ('home audio', 'Home audio'),
+                 ('makeup', 'Makeup'),
+                 ('oral care', 'Oral Care'),
+                 ('hair care', 'Hair Care'),
+                 ('health care', 'Health Care'),
+                 ('luxury beauty', 'Luxury Beauty'),
+                 ('personal care', 'Personal Care'),
+                 ('mobile phones', 'Mobile Phones'),
+                 ('tabulates', 'Tabulates'),
+                 )
 
+Minorcategory = (('smart tv', 'Smart Tv'),
+                 ('led tv', 'Led Tv'),
+                 ('projector', 'Projector'),
+                 ('home theatre', 'Home Theatre'),
+                 ('sound bars', 'Sound bars'),
+                 ('speakers', 'Speakers'),
+                 ('bateries', 'Bateries'),
+                 ('cables', 'Cables'),
+                 ('power protection', 'Power protection'),
+                 ('charger', 'Charger'),
+                 ('television accessories', 'Television Accessories'),
+                 )
 
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
@@ -120,6 +143,8 @@ class Product(models.Model):
     title = models.CharField(max_length=120)
     sku = models.CharField(max_length=120, null=True)
     category = models.CharField(max_length=120, choices=CATEGORY, default="Phones and Electronics")
+    subcategory = models.CharField(max_length=120, choices=SUBCATEGORIES, null=True, blank=True)
+    minorCategory = models.CharField(max_length=120, choices=Minorcategory, null=True, blank=True)
     slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
     brand = models.CharField(max_length=120, blank=True, null=True)
@@ -133,7 +158,7 @@ class Product(models.Model):
     size = models.CharField(max_length=20, null=True, blank=True)
     variation = models.CharField(max_length=20, null=True, blank=True)
     weight = models.CharField(max_length=20, null=True, blank=True)
-    battery = models.CharField(max_length=120, null=True,blank=True)
+    battery = models.CharField(max_length=120, null=True, blank=True)
     connectivity = models.CharField(max_length=120, blank=True, null=True)
     featured = models.BooleanField(default=False)
     topsell = models.BooleanField(default=False)
