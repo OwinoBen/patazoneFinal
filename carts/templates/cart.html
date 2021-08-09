@@ -233,10 +233,14 @@
                                                title="Edit item parameters">
                                                 <span>Edit</span>
                                             </a>
-                                            <a href="{% url 'cart:removefromcart' order_item.product.id %}" title="Remove item" class=" fal fa-trash-alt fa-1x delete_button">
+{#                                            <a href="" title="Remove item" class=" fal fa-trash-alt fa-1x delete_button">#}
 {#                                            <a href="{% url 'cart:removefromcart' order_item.product.id %}" title="Remove item" class="fa fa-times fa-6x" style="font-size: 2px">#}
-                                                <span>Remove item </span>
-                                            </a>
+{#                                                <span>Remove item </span>#}
+{#                                            </a>#}
+                                            <a href="{% url 'cart:removefromcart' order_item.product.id %}" title="Remove item" class="action action-delete" >
+<span>
+Remove item </span>
+</a>
                                         </div>
                                     </td>
                                 </tr>
