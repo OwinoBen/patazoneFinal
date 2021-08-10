@@ -110,6 +110,26 @@ def saveAddress(request):
     return render(request, 'checkout.html', context)
 
 
+def pay(request, payment_option):
+    order =Order.objects.get(user= request.user, ordered=False)
+    context= {
+        'order':order
+    }
+    return render(request, 'payment.html', context)
+
+
+def confirmPayment(request):
+    payment_option = request.POST['payment_option']
+    print(payment_option)
+    if payment_option == 'paynow':
+        return redirect('orders:pay', payment_option='paynow')
+    elif payment_option == 'payondelivery':
+        return redirect('orders:payment', payment_option='payondelivery')
+    else:
+        messages.warning(request, "Invalid payment option selected")
+        return redirect('')
+
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:

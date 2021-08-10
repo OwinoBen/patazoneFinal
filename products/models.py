@@ -148,6 +148,8 @@ class Product(models.Model):
     minorCategory = models.CharField(max_length=120, choices=Minorcategory, null=True, blank=True)
     slug = models.SlugField(max_length=255, blank=True, unique=True)
     description = models.TextField()
+    shortdescription = models.TextField(blank=True, null=True)
+    tag = models.TextField(blank=True, null=True)
     brand = models.CharField(max_length=120, blank=True, null=True)
     cost_price = models.FloatField(default=0.00)
     price = models.FloatField(default=0.00)

@@ -17,7 +17,7 @@
     {% block base_head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
 
-    <script rel="stylesheet" type="text/javascript" src="{% static 'js/checkout.js' %}"></script>
+{#    <script rel="stylesheet" type="text/javascript" src="{% static 'js/checkout.js' %}"></script>#}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -1018,17 +1018,15 @@
                         <div class="bg-white -rad -shad -mbm step ft-payment-step -active">
 
                             <div class="cont brdt">
-                                <form onsubmit="" id="osh-opc-paymentForm" class="-validate-form"
-                                      action="#" method="post">
-                                    <div style="display:none"><input class="js-store" type="hidden" value=""
-                                                                     name="YII_CSRF_TOKEN"/></div>
+                                <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">
+                                        {% csrf_token %}
                                     <div class="subt color-default -fwm -pbm">How do you want to pay for your order?
                                     </div>
                                     <div class="list list-options">
                                         <div class="list--item list--item-options -ptxl brdb -pbxl">
-                                            <input class="osh-radio option" value="39"
+                                            <input class="osh-radio option" value="paynow"
                                                    checked="checked" type="radio"
-                                                   name="bn"/>
+                                                   name="payment_option"/>
                                             <label class="-fwm"><span
                                                     class="-prm"><img
                                                     src="https://static.jumia.co.ke/cms/Jumia_Pay/mpesamastercard.png"
@@ -1057,8 +1055,8 @@
                                             </div>
                                         </div>
                                         <div class="list--item list--item-options -ptxl -pbxl">
-                                            <input class="osh-radio option" value="9" id="MpesaOnDelivery_CashOnDelivery" type="radio"
-                                                   name="bn"/>
+                                            <input class="osh-radio option" value="payondelivery" id="MpesaOnDelivery_CashOnDelivery" type="radio"
+                                                   name="payment_option"/>
                                             <label class="-fwm" for="MpesaOnDelivery_CashOnDelivery"><span class="-prm"><img
                                                     src="https://static.jumia.co.ke/cms/mpesa.png" alt=""/></span>M-PESA On Delivery</label>
                                             <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">
@@ -1123,7 +1121,7 @@
                                             <div class="not_applicable-box color-primary -fs-17 -hidden"></div>
                                         </div>
                                     </div>
-                                    <button  class="osh-btn -primary -full-width -mtxxl js-throttle"><span
+                                    <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
                                             class="label ">Confirm Order</span></button>
                                 </form>
                             </div>
@@ -1417,7 +1415,7 @@
 {% include 'modals/modals.html' %}
 <script type="text/javascript">
     $(document).ready(function () {
-        $("input[name$='bn']").click(function () {
+        $("input[name$='bn2']").click(function () {
             var radio_value = $(this).val();
             if (radio_value == '0') {
                 $("#addressAdd").fadeIn("slow");
@@ -1438,7 +1436,7 @@
         });
     });
 
-    $('input[name="bn"]').change(function () {
+    $('input[name="bn2"]').change(function () {
         if ($(this).is(':checked') && $(this).val() == '0') {
             $('#stack1').modal('show');
         }
