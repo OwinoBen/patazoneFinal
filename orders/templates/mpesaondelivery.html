@@ -55,29 +55,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-            <div class="field col-mp mp-12 mp-clear not-required _required "
-                 style="margin-top: 80px; text-align: center">
-                <img style="margin-top: 10px "
-                     src="{% static 'images/mpesa_icon.png' %}">
-                <div class="pay-type-detail">
-                    <p class="pay-type-detail-notice"
-                       style=" padding: 20px 70px 0 70px; line-height: 18px;">
-                        <span style="margin-right: 10px; font-weight:bold;">·</span>Confirm
-                        phone No. then click <span
-                            style="font-weight:bold;color: #06AF98;font-size: 15px">'Proceed'</span>
-                        to generate payment request to your phone.&nbsp;
-                    </p>
-                    <p class="pay-type-detail-notice"
-                       style=" padding: 10px 70px 0 70px; line-height:18px;">
-                        <span style="margin-right: 10px; font-weight:  bold;">·</span>
-                        Enter your <span
-                            style="font-weight:bold;color: #06AF98;font-size: 15px">MPESA PIN</span>
-                        on prompt pop-up on your phone to complete the payment.
-                    </p>
 
-
-                </div>
-            </div>
             <form class="form-horizontal" action="{% url 'mpesa:mpesaApp-about' %}" enctype="multipart/form-data"
                   id="submit_form" method="POST">
                 {% csrf_token %}
@@ -99,11 +77,11 @@
                             {% endif %}
                             <div class="alert alert-danger display-none">
                                 <button class="close" data-dismiss="alert"></button>
-                                Please provide your valid Mpesa number to proceed.
+                                Please provide your valid Mpesa number to proceed
                             </div>
                             <div class="alert alert-success display-none">
                                 <button class="close" data-dismiss="alert"></button>
-                                Your form validation is successful!
+                                Please wait..
                             </div>
                             <div class="tab-pane active row" id="tab1">
 

@@ -193,6 +193,7 @@ class Order(models.Model):
     total = models.FloatField(default=0.00)
     active = models.BooleanField(default=True)
     updated = models.DateTimeField(auto_now=True)
+    payment_method = models.CharField(max_length=120, blank=True, null=True)
     delivery = models.CharField(max_length=120, blank=True,null=True)
     customerNumber = models.CharField(max_length=120, blank=True,null=True)
     timestamp = models.DateTimeField(auto_now_add=True)

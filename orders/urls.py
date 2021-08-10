@@ -7,6 +7,7 @@ urlpatterns = [
     path(r'^address/$', saveAddress, name='address'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('pay/<payment_option>/', pay, name='pay'),
+    path('payondelivery/<payment_option>/', payondelivery, name='payondelivery'),
     path('confirmpayment/', confirmPayment, name='confirmpayment'),
     path('pickformstore/', order_pick_from_store, name='pickup'),
 ]
