@@ -128,7 +128,33 @@ def confirmPayment(request):
     if payment_option == 'paynow':
         return redirect('orders:pay', payment_option='paynow')
     elif payment_option == 'payondelivery':
-        return redirect('orders:payondelivery', payment_option='payondelivery')
+        order = Order.objects.filter(user=request.user, ordered=False)
+        try:
+            address = Address.objects.get(user=request.user)
+            orderitems = order.cart.all()
+            orderitems.update(ordered=True)
+            for item in orderitems:
+                item.save()
+            order.ordered = True
+            order.paid_amount = order.get_total()
+            order.customerNumber = address.mobile_phone
+            order.status = 'Pending'
+            order.delivery = 'Customer delivery'
+            order.payment_method = 'Mpesa payment'
+            order.save()
+            subject = 'Patazone marketplace, order placement'
+            message = 'You have successfully placed an order with patazone marketplace.\n your order will be ' \
+                      'shipped within two days '
+            receipient = str(request.user.email)
+
+            send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
+
+            return redirect('register:orders')
+        except Address.DoesNotExist:
+            messages.error(request, 'Please Add your shipping Address')
+            print('no address found')
+
+            return redirect('checkout:checkout')
     else:
         messages.warning(request, "Invalid payment option selected")
         return redirect('')
