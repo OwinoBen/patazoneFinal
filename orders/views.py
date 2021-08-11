@@ -130,7 +130,7 @@ def confirmPayment(request):
     elif payment_option == 'payondelivery':
         order = Order.objects.filter(user=request.user, ordered=False)
         try:
-            address = Address.objects.get(user=request.user)
+            address = Address.objects.get(user=request.user, default=True)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
             for item in orderitems:
