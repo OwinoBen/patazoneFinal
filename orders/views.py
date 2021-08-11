@@ -140,7 +140,7 @@ def confirmPayment(request):
             order.customerNumber = address.mobile_phone
             order.status = 'Pending'
             order.delivery = 'Customer delivery'
-            order.payment_method = 'Mpesa payment'
+            order.payment_method = 'Mpesa payment On delivery'
             order.save()
             subject = 'Patazone marketplace, order placement'
             message = 'You have successfully placed an order with patazone marketplace.\n your order will be ' \
