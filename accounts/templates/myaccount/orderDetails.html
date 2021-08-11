@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if object.cart.exists %}
-    {% for orderitemdetail in object.cart.all %}
+
     <div class="page-title-wrapper">
         <h1 class="page-title">
             <span class="base" data-ui-id="page-title-wrapper">Order # {{ object.order_id }}</span>
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-        {% endfor %}
+
     <a id="contentarea" tabindex="-1"></a>
     <div class="page messages">
         <div data-placeholder="messages"></div>
