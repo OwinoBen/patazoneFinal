@@ -128,8 +128,8 @@ def confirmPayment(request):
     if payment_option == 'paynow':
         return redirect('orders:pay', payment_option='paynow')
     elif payment_option == 'payondelivery':
-        order = Order.objects.filter(user=request.user, ordered=False)
         try:
+            order = Order.objects.get(user=request.user, ordered=False)
             address = Address.objects.get(user=request.user, default=True)
             orderitems = order.cart.all()
             orderitems.update(ordered=True)
