@@ -174,7 +174,7 @@ def edit_profile(request, *args, **kwargs):
         if form.is_valid():
             form.save()
             new_firstname = form.cleaned_data['first_name']
-            return redirect("register:account", user_id=account.pk)
+            return redirect("register:myaccount")
         else:
             form = AccountUpdateForm(request.POST, instance=request.user,
                                      initial={
