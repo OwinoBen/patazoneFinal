@@ -53,7 +53,7 @@
                     <table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
                         <caption class="table-caption">Items Ordered</caption>
                         <thead>
-                        <tr>
+                        <tr><th class="col name">Product Image</th>
                             <th class="col name">Product Name</th>
                             <th class="col sku">SKU</th>
                             <th class="col price">Price</th>
@@ -63,7 +63,11 @@
                         </thead>
                         <tbody>
                         {% for orderitemdetail in object.cart.all %}
+
                         <tr id="order-item-row-139">
+                            <td class="col name" data-th="Product Name">
+                                <strong class="product name product-item-name"><img src="{{ orderitemdetail.product.imageURL}}" width="100"></strong>
+                            </td>
                             <td class="col name" data-th="Product Name">
                                 <strong class="product name product-item-name">{{ orderitemdetail.product.title }}</strong>
                             </td>
