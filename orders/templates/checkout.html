@@ -15,7 +15,8 @@
     {#    <link rel="stylesheet" type="text/css" href="{% static 'css/staticss/bootstrap-modal/css/bootstrap-modal-bs3patch.css'%}">#}
     {% include 'managestatic/css.html' %}
     {% block base_head %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/device.css' %}">
+
 
 {#    <script rel="stylesheet" type="text/javascript" src="{% static 'js/checkout.js' %}"></script>#}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -113,6 +114,30 @@
         p {
             margin-bottom: .3em;
         }
+
+
+
+.osh-btn {
+    font-weight: 500;
+    padding: 10px;
+}
+.-full-width {
+    width: 100% !important;
+    height: auto !important;
+}
+.-mtxxl {
+    margin-top: 20px !important;
+}
+.cont, .osh-btn, .osh-radio + label {
+    font-size: 14px;
+}
+.osh-btn {
+    font-weight: 500;
+    padding: 10px;
+}
+.vch_box > button {
+    width: 30%;
+}
     </style>
 
 <body data-container="body" id="html-body"
@@ -218,9 +243,184 @@
                 </div>
                 <div class="opc-wrapper">
                     <div class="opc" id="checkoutSteps">
-                        <div class="bg-white -rad -shad -mbm step ft-payment-step -active">
+                        <div class="row">
 
-                            <div class="cont brdt">
+                        <li id="shipping" role="presentation" class="checkout-shipping-address">
+                            <div id="checkout-step-payment" class="step-content " data-role="content" role="tabpanel"
+                                 aria-hidden="false">
+                                <form id="co-payment-form" class="form payments">
+                                    <input type="hidden" name="form_key" value="">
+                                    <fieldset class="fieldset">
+                                        <div class="step-title">Delivery Method</div>
+                                        <div id="checkout-payment-method-load" class="opc-payment">
+                                            <div class="items payment-methods">
+                                                <div class="payment-group" data-repeat-index="0">
+                                                    <div class="payment-method" style="float: left;margin: 2px 0 0 2px">
+                                                        <div class="cc-selector">
+                                                            <input id="visa" type="radio" name="bn" value="0"/>
+                                                            <label class="drinkcard-cc visa" for="visa"> Deliver to my
+                                                                location</label>
+                                                            <input id="mastercard" type="radio" name="bn" value="1"/>
+                                                            <label class="drinkcard-cc mastercard" for="mastercard">Pick
+                                                                from Store</label>
+                                                            <input id="mastercard" type="radio" name="bn" value="1"/>
+                                                            <label class="drinkcard-cc mastercard"
+                                                                   for="mastercard"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div style="text-align: center;margin-top: 80px; border: 1px solid #ebebeb;border-radius:10px;"
+                                                         class="cardpayment hideable_shipping_form" style="">
+                                                        <img src="{% static 'images/credit-card-logos.jpg' %}"
+                                                             width="250">
+                                                        <form action="" method="post" id="payment-form"
+                                                              style="text-align: center;">
+                                                            {% csrf_token %}
+                                                            <div style="width: 75%; height: 25px;">
+                                                                <input id="input" type="hidden" name="amount"
+                                                                       value="{{ total }}" readonly>
+                                                            </div>
+
+                                                            <div class="form-row" style="margin-bottom: 20px;">
+                                                                <label for="card-element">
+
+                                                                </label>
+                                                                <div id="card-element"
+                                                                     class="StripeElement StripeElement--empty">
+                                                                    <div class="__PrivateStripeElement"
+                                                                         style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">
+                                                                        <iframe frameborder="0" allowtransparency="true"
+                                                                                scrolling="no"
+                                                                                name="__privateStripeFrame5"
+                                                                                allowpaymentrequest="true"
+                                                                                src="https://js.stripe.com/v3/elements-inner-card-19066928f2ed1ba3ffada645e45f5b50.html#style[base][color]=%2332325d&amp;style[base][fontFamily]=%22Helvetica+Neue%22%2C+Helvetica%2C+sans-serif&amp;style[base][fontSmoothing]=antialiased&amp;style[base][fontSize]=16px&amp;style[base][::placeholder][color]=%23aab7c4&amp;style[invalid][color]=%23fa755a&amp;style[invalid][iconColor]=%23fa755a&amp;componentName=card&amp;wait=false&amp;rtl=false&amp;keyMode=test&amp;origin=https%3A%2F%2Fstripe.com&amp;referrer=https%3A%2F%2Fstripe.com%2Fdocs%2Fstripe-js&amp;controllerId=__privateStripeController1"
+                                                                                title="Secure payment input frame"
+                                                                                style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; height: 19.2px;"></iframe>
+                                                                        <input class="__PrivateStripeElement-input"
+                                                                               aria-hidden="true" aria-label=" "
+                                                                               autocomplete="false" maxlength="1"
+                                                                               style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Used to display form errors. -->
+                                                                <div id="card-errors" role="alert"></div>
+                                                            </div>
+                                                            <button id="sb">Submit Payment</button>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="no-quotes-block"
+                                             style="display: none;">
+                                            <span>No Payment method available.</span>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </li>
+
+                        {% if shipping_addres %}
+                            <li id="shipping" class="checkout-shipping-address ">
+                                <div class="step-title" data-role="title">Shipping Address</div>
+                                <div id="checkout-step-shipping" class="step-content shipping" data-role="content">
+                                    {% for shipping in shipping_addres %}
+                                        <div class="field addresses">
+                                            <div class="control">
+                                                <div class="shipping-address-items">
+                                                    <div class="shipping-address-item selected-item">
+                                                        {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>
+                                                        {{ shipping.delivery_address }}<br/>
+                                                        {{ shipping.region }}<br/>
+                                                        {{ shippingcountry.name }}<br/>
+                                                        Tel: <a
+                                                            href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="new-address-popup">
+                                            <button type="button" class="action  action-show-popup" data-toggle="modal"
+                                                    data-target="">
+                                                <span>Edit Shipping Address</span>
+                                            </button>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div id="pickup">
+                                    <form method="post" action="{% url 'checkout:pickup' %}">
+                                        {% csrf_token %}
+                                        <div class="field">
+                                            <label class="field">Phone number</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="pickupPhone"
+                                                       name="pickupPhone" placeholder="Enter Your Phone number">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="field">
+                                            <label>Pickup Station</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="discount-code"
+                                                       name="discount_code"
+                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
+                                                       readonly placeholder="Enter Your Email">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
+                                            <span>Place Order</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li id="shipping" class="checkout-shipping-address ">
+                                <div class="step-title" data-role="title">Shipping Address</div>
+                                <div class="new-address-popup">
+                                    <button type="button" id="addressAdd" class="action  action-show-popup"
+                                            data-toggle="modal" data-target="#responsive">
+                                        <span>Add shipping Address</span>
+                                    </button>
+                                </div>
+                                <div id="pickup">
+                                    <form method="post" action="{% url 'checkout:pickup' %}">
+                                        {% csrf_token %}
+                                        <div class="field">
+                                            <label class="field">Phone number</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="pickupPhone"
+                                                       name="pickupPhone" placeholder="Enter Your Phone number">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="field">
+                                            <label>Pickup Station</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="discount-code"
+                                                       name="discount_code"
+                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
+                                                       readonly placeholder="Enter Your Email">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
+                                            <span>Place Order</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="opc-wrapper">
+                    <div class="opc" id="checkoutSteps">
+                        <div class="card">
+
+                            <div class="card-body">
                                 <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">
                                         {% csrf_token %}
                                     <div class="subt color-default -fwm -pbm">How do you want to pay for your order?
@@ -240,13 +440,10 @@
                                                     Banking, Mastercard or Visa
                                                 </div>
                                                 <div class="additional-data"></div>
-                                                <div class="description "><br>1. Your security is our #1 priority. You
+                                                <div class="description "><br>- Your security is our #1 priority. You
                                                     keep control of
                                                     every transaction and are protected against fraud and theft.
-                                                    <br>2. Faster refund process. The refund will happen almost
-                                                    instantly. No need to
-                                                    wait. Patazon's return/refund policy applies.
-                                                    <br><br>Before you proceed, please make sure you have enough money
+                                                        <br>-Before you proceed, please make sure you have enough money
                                                     in your account.
                                                     <br>
                                                 </div>
@@ -289,7 +486,7 @@
                                                    class="vch_input -pal -fs-14 ft-voucher-input"
                                                    placeholder="Enter voucher code here" type="text" value=""
                                                    name="couponcode"/>
-                                            <button name="addCoupon" class="osh-btn ft-apply-voucher js-throttle"><span
+                                            <button name="addCoupon" class="osh-btn ft-apply-voucher js-throttle " style="font-size: 12px"><span
                                                     class="label ">Add voucher</span>
                                             </button>
                                         </div>
@@ -325,7 +522,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
-                                            class="label ">Confirm Order</span></button>
+                                            class="label ">CONFIRM ORDER</span></button>
                                 </form>
                             </div>
                         </div>
