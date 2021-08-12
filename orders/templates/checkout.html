@@ -309,32 +309,32 @@
                                         <span>Add shipping Address</span>
                                     </button>
                                 </div>
-                                <div id="pickup">
-                                    <form method="post" action="{% url 'checkout:pickup' %}">
-                                        {% csrf_token %}
-                                        <div class="field">
-                                            <label class="field">Phone number</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="pickupPhone"
-                                                       name="pickupPhone" placeholder="Enter Your Phone number">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="field">
-                                            <label>Pickup Station</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="discount-code"
-                                                       name="discount_code"
-                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                                       readonly placeholder="Enter Your Email">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
-                                    </form>
-                                </div>
+{#                                <div id="pickup">#}
+{#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+{#                                        {% csrf_token %}#}
+{#                                        <div class="field">#}
+{#                                            <label class="field">Phone number</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="pickupPhone"#}
+{#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <div class="field">#}
+{#                                            <label>Pickup Station</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="discount-code"#}
+{#                                                       name="discount_code"#}
+{#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+{#                                                       readonly placeholder="Enter Your Email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+{#                                            <span>Place Order</span>#}
+{#                                        </button>#}
+{#                                    </form>#}
+{#                                </div>#}
                             </li>
                         {% endif %}
                         <li id="opc-shipping_method" role="presentation" class=" col-md-4">
