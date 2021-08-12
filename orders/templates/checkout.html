@@ -349,15 +349,13 @@
                                                 <div class="payment-group" data-repeat-index="0">
                                                     <div class="payment-method" style="float: left;margin: 2px 0 0 2px">
                                                         <div class="cc-selector">
-                                                            <input id="visa" type="radio" name="bn" value="0"/>
+                                                            <input id="visa" type="radio" name="bn" checked="checked" value="1"/>
                                                             <label class="drinkcard-cc visa" for="visa"> Deliver to my
                                                                 location</label>
-                                                            <input id="mastercard" type="radio" name="bn" value="1"/>
+                                                            <input id="mastercard" type="radio"  name="bn" value="0"/>
                                                             <label class="drinkcard-cc mastercard" for="mastercard">Pick
                                                                 from Store</label>
-                                                            <input id="mastercard" type="radio" name="bn" value="1"/>
-                                                            <label class="drinkcard-cc mastercard"
-                                                                   for="mastercard"></label>
+
                                                         </div>
                                                     </div>
                                                     <div style="text-align: center;margin-top: 80px; border: 1px solid #ebebeb;border-radius:10px;"
@@ -527,8 +525,33 @@
                 </li>
                 </div>
 
-
                     <div class="opc" id="checkoutSteps">
+                         <div id="pickup">
+                                    <form method="post" action="{% url 'checkout:pickup' %}">
+                                        {% csrf_token %}
+                                        <div class="field">
+                                            <label class="field">Phone number</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="pickupPhone"
+                                                       name="pickupPhone" placeholder="Enter Your Phone number">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="field">
+                                            <label>Pickup Station</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="discount-code"
+                                                       name="discount_code"
+                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
+                                                       readonly placeholder="Enter Your Email">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
+                                            <span>Place Order</span>
+                                        </button>
+                                    </form>
+                                </div>
                         <div class="card m-auto" style="margin: auto">
 
                             <div class="card-body">
@@ -584,8 +607,7 @@
                                                 <div class="additional-data -hidden"></div>
                                             </div>
                                             <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>
-                                                <span dir="ltr"
-                                                      data-price="1107"></span>
+                                                <span dir="ltr"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -607,28 +629,27 @@
                                                 class="price_col-desc">Subtotal</span> <span
                                                 class="price_col-value"><span
                                                 data-currency-iso="KES">KSh</span> <span dir="ltr"
-                                                                                         data-price="999">999</span>  </span><span
+                                                                                         ></span>  </span><span
                                                 class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                         </div>
                                         <div class=" color-default -pbm price_row "><span
                                                 class="price_col-desc">VAT</span> <span
                                                 class="price_col-value"><span data-currency-iso="KES">KSh</span> <span
                                                 dir="ltr"
-                                                data-price="13.26">13</span>  </span><span
+                                                data-price="13.26"></span>  </span><span
                                                 class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                         </div>
                                         <div class="applied-shipping ft-shipping-amount color-default -pbm price_row "><span
                                                 class="price_col-desc">Local delivery fees</span> <span
                                                 class="price_col-value -b "><span
                                                 data-currency-iso="KES">KSh</span> <span dir="ltr"
-                                                                                         data-price="108">108</span>  </span><span
+                                                                                         data-price="108"></span>  </span><span
                                                 class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                         </div>
                                         <div class="cart-rules js-cart-rules ft-price-cart-rules"></div>
                                         <div class="total ft-total brdt -ptl color-default -fwm"> Total
                                             <div class="total-value color-primary -fs-17"><span data-currency-iso="KES">KSh</span>
-                                                <span
-                                                        dir="ltr" data-price="1107">1,107</span></div>
+                                                <span dir="ltr" ></span></div>
                                             <div class="not_applicable-box color-primary -fs-17 -hidden"></div>
                                         </div>
                                     </div>
@@ -816,33 +837,54 @@
 {% include 'modals/modals.html' %}
 <script type="text/javascript">
     $(document).ready(function () {
-        $("input[name$='bn2']").click(function () {
+        {#$("#pickup").fadeOut("slow");#}
+        var hideable_shipping_form = $('#pickup');
+        hideable_shipping_form.hide()
+        $("input[name$='bn']").click(function () {
             var radio_value = $(this).val();
             if (radio_value == '0') {
                 $("#addressAdd").fadeIn("slow");
-                $("#pickup").fadeOut("slow");
+                $("#pickup").fadeIn("slow");
+                $(".card").fadeOut("slow");
                 $(".shipping").fadeOut("slow");
             } else if (radio_value == '1') {
 
-                $("#pickup").fadeIn("slow");
-                $("#addressAdd").fadeOut("slow");
-                $(".shipping").fadeOut("slow");
-                {#if ({{ shipping_addres > 0 }}){#}
-                {#     console.log('shipping address present')#}
-                {# }else#}
-                {# {#}
-                {#     console.log('no shipping shiping address present ')#}
-                {# }#}
+                $("#pickup").fadeOut("slow");
+                $(".card").fadeIn("slow");
+                $(".shipping").fadeIn("slow");
             }
         });
     });
 
-    $('input[name="bn2"]').change(function () {
+    $('input[name="bn"]').change(function () {
         if ($(this).is(':checked') && $(this).val() == '0') {
-            $('#stack1').modal('show');
+
         }
     });
 </script>
+{#<script type="text/javascript">#}
+{#    $(document).ready(function () {#}
+{#        $("input[name$='bn']").click(function () {#}
+{#            var radio_value = $(this).val();#}
+{#            if (radio_value == '0') {#}
+{#                $("#addressAdd").fadeIn("slow");#}
+{#                $("#pickup").fadeOut("slow");#}
+{#                $(".shipping").fadeIn("slow");#}
+{#            } else if (radio_value == '1') {#}
+{##}
+{#                $("#pickup").fadeIn("slow");#}
+                {#$("#addressAdd").fadeOut("slow");#}
+{#                $(".shipping").fadeOut("slow");#}
+{#            }#}
+{#        });#}
+{#    });#}
+{##}
+{#    $('input[name="bn"]').change(function () {#}
+{#        if ($(this).is(':checked') && $(this).val() == '0') {#}
+{#            $('#stack1').modal('show');#}
+{#        }#}
+{#    });#}
+{#</script>#}
 <script>
     var hideable_shipping_form = $('.hideable_shipping_form');
     var hideable_billing_form = $('.hideable_billing_form');
