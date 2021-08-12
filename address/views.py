@@ -1,91 +1,34 @@
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.views.generic import ListView, UpdateView, CreateView
-# from django.shortcuts import render, redirect
-# from django.utils.http import is_safe_url
-#
-# from billing.models import BillingProfile
-# from .forms import AddressForm, AddressCheckoutForm
-# from .models import Address
-#
-#
-# class AddressListView(LoginRequiredMixin, ListView):
-#     template_name = 'address/list.html'
-#
-#     def get_queryset(self):
-#         request = self.request
-#         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-#         return Address.objects.filter(billing_profile=billing_profile)
-#
-#
-# class UpdateAddressView(LoginRequiredMixin, UpdateView):
-#     template_name = 'address/update.html'
-#     form_class = AddressForm
-#     success_url = "/addresses"
-#
-#     def get_queryset(self):
-#         request = self.request
-#         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-#         return Address.objects.filter(billing_profile=billing_profile)
-#
-#
-# class AddressCreateView(LoginRequiredMixin, CreateView):
-#     template_name = 'address/update.html'
-#     form_class = AddressForm
-#     success_url = "/addresses"
-#
-#     def form_valid(self, form):
-#         request = self.request
-#         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-#         instance = form.save(commit=False)
-#         instance.billing_profile = billing_profile
-#         instance.save()
-#         return super(AddressCreateView, self).form_valid(form)
-#
-#
-# def checkout_address_create_view(request):
-#     form = AddressCheckoutForm(request.POST or None)
-#     context = {
-#         "form": form
-#     }
-#     next_ = request.GET.get('next')
-#     next_post = request.POST.get('next')
-#     redirect_path = next_ or next_post or None
-#     if form.is_valid():
-#         print(request.POST)
-#         instance = form.save(commit=False)
-#         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-#         if billing_profile is not None:
-#             address_type = request.POST.get('address_type', 'shipping')
-#             instance.billing_profile = billing_profile
-#             instance.address_type = address_type
-#             instance.save()
-#             request.session[address_type + "_address_id"] = instance.id
-#             print(address_type + "_address_id")
-#         else:
-#             print("error found")
-#             return redirect("cart:checkout")
-#         if is_safe_url(redirect_path, request.get_host()):
-#             return redirect(redirect_path)
-#     return redirect("cart:checkout")
-#
-#
-# def checkout_address_reuse_view(request):
-#     if request.user.is_authenticated():
-#         context = {}
-#         next_ = request.GET.get('next')
-#         next_post = request.POST.get('next')
-#         redirect_path = next_ or next_post or None
-#         if request.method == "POST":
-#             print(request.POST)
-#             shipping_address = request.POST.get('shipping_address', None)
-#             address_type = request.POST.get('address_type', 'shipping')
-#             billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
-#             if shipping_address is not None:
-#                 qs = Address.objects.filter(billing_profile=billing_profile, id=shipping_address)
-#                 if qs.exists():
-#                     request.session[address_type + "_address_id"] = shipping_address
-#                 if is_safe_url(redirect_path,request.get_host()):
-#                     return redirect(redirect_path)
-#     return redirect("cart:checkout")
+from django.shortcuts import render
+
+from orders.models import Order
+from .models import Address
+from django.core.exceptions import ObjectDoesNotExist
 
 
+def updateAddress(request):
+    shipping_addres = Address.objects.filter(user=request.user, address_type='S', default=True)
+    order = Order.objects.get(user=request.user, ordered=False)
+    try:
+
+        if request.method == 'POST':
+            firstname = request.POST['fname']
+            lastname = request.POST['lname']
+            phone1 = request.POST['phone1']
+            phone2 = request.POST['phone2']
+            delveryAddress = request.POST['delveryAddress']
+            stateregion = request.POST['stateregion']
+            city2 = request.POST['city2']
+            # set_default_shipping_addres = request.POST['set_default_shipping_addres']
+
+            if shipping_addres:
+                shipping_addres.update(firstname=firstname)
+                shipping_addres.update(lastname=lastname)
+                shipping_addres.update(mobile_phone=phone1)
+                shipping_addres.update(mobile=phone2)
+                shipping_addres.update(delivery_address=delveryAddress)
+                shipping_addres.update(region=stateregion)
+                shipping_addres.update(city=city2)
+    except  ObjectDoesNotExist:
+        print('No such address found')
+
+    return render(request, 'checkout.html', {'shipping_addres': shipping_addres, 'order':order})

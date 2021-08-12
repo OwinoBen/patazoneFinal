@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from address.views import updateAddress
 
 app_name = "orders"
 urlpatterns = [
@@ -9,5 +10,6 @@ urlpatterns = [
     path('pay/<payment_option>/', pay, name='pay'),
     path('payondelivery/<payment_option>/', payondelivery, name='payondelivery'),
     path('confirmpayment/', confirmPayment, name='confirmpayment'),
+    path('updateaddress/', updateAddress, name='updateAddress'),
     path('pickformstore/', order_pick_from_store, name='pickup'),
 ]
