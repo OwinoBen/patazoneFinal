@@ -486,40 +486,40 @@
                             </div>
 
                         </div>
-                        <table class="data table table-totals">
-                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>
-                            <tbody>
-                            <tr class="totals sub">
-                                <th class="mark" scope="row">Cart Subtotal</th>
-                                <td class="amount">
-                                    <span class="price"
-                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>
-                                </td>
-                            </tr>
-
-                            <tr class="totals shipping excl">
-                                <th class="mark" scope="row">
-                                    <span class="" data-bind="i18n: title">Shipping</span>
-                                    <span class="value"
-                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
-                                </th>
-                                <td class="amount">
-                                    <span class="price" data-th="Shipping">Ksh. 00</span>
-                                </td>
-                            </tr>
-
-                            <tr class="grand totals">
-                                <th class="mark" scope="row">
-                                    <strong>Order Total</strong>
-                                </th>
-                                <td class="amount" data-th="Order Total">
-                                    <strong><span
-                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
+{#                        <table class="data table table-totals">#}
+{#                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>#}
+{#                            <tbody>#}
+{#                            <tr class="totals sub">#}
+{#                                <th class="mark" scope="row">Cart Subtotal</th>#}
+{#                                <td class="amount">#}
+{#                                    <span class="price"#}
+{#                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>#}
+{#                                </td>#}
+{#                            </tr>#}
+{##}
+{#                            <tr class="totals shipping excl">#}
+{#                                <th class="mark" scope="row">#}
+{#                                    <span class="" data-bind="i18n: title">Shipping</span>#}
+{#                                    <span class="value"#}
+{#                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>#}
+{#                                </th>#}
+{#                                <td class="amount">#}
+{#                                    <span class="price" data-th="Shipping">Ksh. 00</span>#}
+{#                                </td>#}
+{#                            </tr>#}
+{##}
+{#                            <tr class="grand totals">#}
+{#                                <th class="mark" scope="row">#}
+{#                                    <strong>Order Total</strong>#}
+{#                                </th>#}
+{#                                <td class="amount" data-th="Order Total">#}
+{#                                    <strong><span#}
+{#                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>#}
+{#                                </td>#}
+{#                            </tr>#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
 
                     </div>
                 </li>
@@ -547,9 +547,8 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
+                                        <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
+                                            class="label ">Place Order</span></button>
                                     </form>
                                 </div>
                         <div class="card m-auto" style="margin: auto">
@@ -628,7 +627,7 @@
                                         <div class="ft-subtotal color-default -pbm price_row "><span
                                                 class="price_col-desc">Subtotal</span> <span
                                                 class="price_col-value"><span
-                                                data-currency-iso="KES">KSh</span> <span dir="ltr"
+                                                data-currency-iso="KES">KSh</span> {{ order.subtotal|floatformat:"0"|intcomma }}<span dir="ltr"
                                                                                          ></span>  </span><span
                                                 class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                         </div>
@@ -642,14 +641,13 @@
                                         <div class="applied-shipping ft-shipping-amount color-default -pbm price_row "><span
                                                 class="price_col-desc">Local delivery fees</span> <span
                                                 class="price_col-value -b "><span
-                                                data-currency-iso="KES">KSh</span> <span dir="ltr"
-                                                                                         data-price="108"></span>  </span><span
+                                                data-currency-iso="KES">KSh</span> <span dir="ltr" data-price="108"></span>  </span><span
                                                 class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                         </div>
                                         <div class="cart-rules js-cart-rules ft-price-cart-rules"></div>
                                         <div class="total ft-total brdt -ptl color-default -fwm"> Total
                                             <div class="total-value color-primary -fs-17"><span data-currency-iso="KES">KSh</span>
-                                                <span dir="ltr" ></span></div>
+                                                <span dir="ltr" >{{ order.get_total|floatformat:"0"|intcomma }}</span></div>
                                             <div class="not_applicable-box color-primary -fs-17 -hidden"></div>
                                         </div>
                                     </div>

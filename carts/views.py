@@ -131,7 +131,6 @@ def updateCart(request):
         else:
             added = True
             order.cart.add(order_item)
-            messages.info(request, f"{product.title} was added in your cart")
             if request.is_ajax():
                 jason_data = {
                     "added": added,
