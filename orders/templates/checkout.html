@@ -245,7 +245,99 @@
                     <div class="opc" id="checkoutSteps">
                         <div class="row">
 
-                        <li id="shipping" role="presentation" class="checkout-shipping-address">
+                        {% if shipping_addres %}
+                            <li id="shipping" class="checkout-shipping-address col-md-4 ">
+                                <div class="step-title" data-role="title">Shipping Address</div>
+                                <div id="checkout-step-shipping" class="step-content shipping" data-role="content">
+                                    {% for shipping in shipping_addres %}
+                                        <div class="field addresses">
+                                            <div class="control">
+                                                <div class="shipping-address-items">
+                                                    <div class="shipping-address-item selected-item">
+                                                        {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>
+                                                        {{ shipping.delivery_address }}<br/>
+                                                        {{ shipping.region }}<br/>
+                                                        {{ shippingcountry.name }}<br/>
+                                                        Tel: <a
+                                                            href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="new-address-popup">
+                                            <button type="button" class="action  action-show-popup" data-toggle="modal"
+                                                    data-target="">
+                                                <span>Edit Shipping Address</span>
+                                            </button>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+{#                                <div id="pickup">#}
+{#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+{#                                        {% csrf_token %}#}
+{#                                        <div class="field">#}
+{#                                            <label class="field">Phone number</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="pickupPhone"#}
+{#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <div class="field">#}
+{#                                            <label>Pickup Station</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="discount-code"#}
+{#                                                       name="discount_code"#}
+{#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+{#                                                       readonly placeholder="Enter Your Email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+{#                                            <span>Place Order</span>#}
+{#                                        </button>#}
+{#                                    </form>#}
+{#                                </div>#}
+                            </li>
+                        {% else %}
+                            <li id="shipping" class="checkout-shipping-address ">
+                                <div class="step-title" data-role="title">Shipping Address</div>
+                                <div class="new-address-popup">
+                                    <button type="button" id="addressAdd" class="action  action-show-popup"
+                                            data-toggle="modal" data-target="#responsive">
+                                        <span>Add shipping Address</span>
+                                    </button>
+                                </div>
+                                <div id="pickup">
+                                    <form method="post" action="{% url 'checkout:pickup' %}">
+                                        {% csrf_token %}
+                                        <div class="field">
+                                            <label class="field">Phone number</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="pickupPhone"
+                                                       name="pickupPhone" placeholder="Enter Your Phone number">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="field">
+                                            <label>Pickup Station</label>
+                                            <div class="control">
+                                                <input class="input-text" type="text" id="discount-code"
+                                                       name="discount_code"
+                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
+                                                       readonly placeholder="Enter Your Email">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
+                                            <span>Place Order</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endif %}
+                        <li id="opc-shipping_method" role="presentation" class=" col-md-4">
                             <div id="checkout-step-payment" class="step-content " data-role="content" role="tabpanel"
                                  aria-hidden="false">
                                 <form id="co-payment-form" class="form payments">
@@ -319,106 +411,125 @@
                                 </form>
                             </div>
                         </li>
-
-                        {% if shipping_addres %}
-                            <li id="shipping" class="checkout-shipping-address ">
-                                <div class="step-title" data-role="title">Shipping Address</div>
-                                <div id="checkout-step-shipping" class="step-content shipping" data-role="content">
-                                    {% for shipping in shipping_addres %}
-                                        <div class="field addresses">
-                                            <div class="control">
-                                                <div class="shipping-address-items">
-                                                    <div class="shipping-address-item selected-item">
-                                                        {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>
-                                                        {{ shipping.delivery_address }}<br/>
-                                                        {{ shipping.region }}<br/>
-                                                        {{ shippingcountry.name }}<br/>
-                                                        Tel: <a
-                                                            href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="new-address-popup">
-                                            <button type="button" class="action  action-show-popup" data-toggle="modal"
-                                                    data-target="">
-                                                <span>Edit Shipping Address</span>
-                                            </button>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                <div id="pickup">
-                                    <form method="post" action="{% url 'checkout:pickup' %}">
-                                        {% csrf_token %}
-                                        <div class="field">
-                                            <label class="field">Phone number</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="pickupPhone"
-                                                       name="pickupPhone" placeholder="Enter Your Phone number">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="field">
-                                            <label>Pickup Station</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="discount-code"
-                                                       name="discount_code"
-                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                                       readonly placeholder="Enter Your Email">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </li>
-                        {% else %}
-                            <li id="shipping" class="checkout-shipping-address ">
-                                <div class="step-title" data-role="title">Shipping Address</div>
-                                <div class="new-address-popup">
-                                    <button type="button" id="addressAdd" class="action  action-show-popup"
-                                            data-toggle="modal" data-target="#responsive">
-                                        <span>Add shipping Address</span>
-                                    </button>
-                                </div>
-                                <div id="pickup">
-                                    <form method="post" action="{% url 'checkout:pickup' %}">
-                                        {% csrf_token %}
-                                        <div class="field">
-                                            <label class="field">Phone number</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="pickupPhone"
-                                                       name="pickupPhone" placeholder="Enter Your Phone number">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="field">
-                                            <label>Pickup Station</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="discount-code"
-                                                       name="discount_code"
-                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                                       readonly placeholder="Enter Your Email">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </li>
-                        {% endif %}
                         </div>
                         </div>
                     </div>
+            <li id="opc-sidebar">
+                    <div class="opc-block-summary">
+                        <span class="title">Order Summary</span>
+                        <div class="block items-in-cart active"
+                             data-collapsible="true" role="tablist">
+                            <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="true"
+                                 tabindex="0">
+                                <strong role="heading" aria-level="1">
+                                        <span>
+                                            {% if request.user.is_authenticated %}
+                                                {{ request.user|cart_item_count }}
+                                            {% endif %}
+                                        </span>
+                                    <span>Item in Cart</span>
+                                </strong>
+                            </div>
+
+                            <div class="content minicart-items" data-role="content" role="tabpanel"
+                                 aria-hidden="false">
+
+                                <div class="minicart-items-wrapper">
+                                    {% for cart_items in order.cart.all %}
+                                        <ol class="minicart-items">
+                                            <li class="product-item">
+                                                <div class="product">
+
+                                                    <span class="product-image-container"
+                                                          style="height: 70px; width: 70px;">
+                                                        <span class="product-image-wrapper">
+                                                        <img
+                                                                src="{{ cart_items.product.imageURL }}"
+                                                                alt="{{ cart_items.product.title }}"
+                                                                title="{{ cart_items.product.title }}" width="140"
+                                                                height="140">
+                                                        </span>
+                                                        </span>
+                                                    <div class="product-item-details">
+                                                        <div class="product-item-inner">
+                                                            <div class="product-item-name-block">
+                                                                <strong class="product-item-name">
+                                                                    <a href="#">{{ cart_items.product.title }}</a>
+                                                                </strong>
+                                                                <div class="details-qty">
+                                                                    <span class="label"><span>Qty</span>
+                                                                        </span>
+                                                                    <input type="number" class="input-text qty"
+                                                                           title="Qty"
+                                                                           value="{{ cart_items.quantity }}">
+                                                                    <span class="qty-button">
+                                                                    <span class="increase">&nbsp;</span>
+                                                                    <span class="decrease" action="decrease"
+                                                                          itemid="1250">&nbsp;</span>
+                                                                    </span>
+                                                                    <span class="error-message"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="subtotal">
+                                                                <span class="price-excluding-tax">
+                                                                <span class="cart-price">
+                                                                <span class="price">Ksh{{ cart_items.product.price|intcomma }}</span>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <table class="data table table-totals">
+                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>
+                            <tbody>
+                            <tr class="totals sub">
+                                <th class="mark" scope="row">Cart Subtotal</th>
+                                <td class="amount">
+                                    <span class="price"
+                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>
+                                </td>
+                            </tr>
+
+                            <tr class="totals shipping excl">
+                                <th class="mark" scope="row">
+                                    <span class="" data-bind="i18n: title">Shipping</span>
+                                    <span class="value"
+                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
+                                </th>
+                                <td class="amount">
+                                    <span class="price" data-th="Shipping">Ksh. 00</span>
+                                </td>
+                            </tr>
+
+                            <tr class="grand totals">
+                                <th class="mark" scope="row">
+                                    <strong>Order Total</strong>
+                                </th>
+                                <td class="amount" data-th="Order Total">
+                                    <strong><span
+                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </li>
                 </div>
+
                 <div class="opc-wrapper">
                     <div class="opc" id="checkoutSteps">
-                        <div class="card">
+                        <div class="card" style="float: right">
 
                             <div class="card-body">
                                 <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">
@@ -601,211 +712,101 @@
                                 </form>
                             </div>
                         </li>
-                        {% if shipping_addres %}
-                            <li id="shipping" class="checkout-shipping-address ">
-                                <div class="step-title" data-role="title">Shipping Address</div>
-                                <div id="checkout-step-shipping" class="step-content shipping" data-role="content">
-                                    {% for shipping in shipping_addres %}
-                                        <div class="field addresses">
-                                            <div class="control">
-                                                <div class="shipping-address-items">
-                                                    <div class="shipping-address-item selected-item">
-                                                        {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>
-                                                        {{ shipping.delivery_address }}<br/>
-                                                        {{ shipping.region }}<br/>
-                                                        {{ shippingcountry.name }}<br/>
-                                                        Tel: <a
-                                                            href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="new-address-popup">
-                                            <button type="button" class="action  action-show-popup" data-toggle="modal"
-                                                    data-target="">
-                                                <span>Edit Shipping Address</span>
-                                            </button>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                <div id="pickup">
-                                    <form method="post" action="{% url 'checkout:pickup' %}">
-                                        {% csrf_token %}
-                                        <div class="field">
-                                            <label class="field">Phone number</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="pickupPhone"
-                                                       name="pickupPhone" placeholder="Enter Your Phone number">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="field">
-                                            <label>Pickup Station</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="discount-code"
-                                                       name="discount_code"
-                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                                       readonly placeholder="Enter Your Email">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </li>
-                        {% else %}
-                            <li id="shipping" class="checkout-shipping-address ">
-                                <div class="step-title" data-role="title">Shipping Address</div>
-                                <div class="new-address-popup">
-                                    <button type="button" id="addressAdd" class="action  action-show-popup"
-                                            data-toggle="modal" data-target="#responsive">
-                                        <span>Add shipping Address</span>
-                                    </button>
-                                </div>
-                                <div id="pickup">
-                                    <form method="post" action="{% url 'checkout:pickup' %}">
-                                        {% csrf_token %}
-                                        <div class="field">
-                                            <label class="field">Phone number</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="pickupPhone"
-                                                       name="pickupPhone" placeholder="Enter Your Phone number">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="field">
-                                            <label>Pickup Station</label>
-                                            <div class="control">
-                                                <input class="input-text" type="text" id="discount-code"
-                                                       name="discount_code"
-                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                                       readonly placeholder="Enter Your Email">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button type="submit" id="addressAdd" class="action  action-show-popup">
-                                            <span>Place Order</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </li>
-                        {% endif %}
+{#                        {% if shipping_addres %}#}
+{#                            <li id="shipping" class="checkout-shipping-address ">#}
+{#                                <div class="step-title" data-role="title">Shipping Address</div>#}
+{#                                <div id="checkout-step-shipping" class="step-content shipping" data-role="content">#}
+{#                                    {% for shipping in shipping_addres %}#}
+{#                                        <div class="field addresses">#}
+{#                                            <div class="control">#}
+{#                                                <div class="shipping-address-items">#}
+{#                                                    <div class="shipping-address-item selected-item">#}
+{#                                                        {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>#}
+{#                                                        {{ shipping.delivery_address }}<br/>#}
+{#                                                        {{ shipping.region }}<br/>#}
+{#                                                        {{ shippingcountry.name }}<br/>#}
+{#                                                        Tel: <a#}
+{#                                                            href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>#}
+{#                                                        <br>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="new-address-popup">#}
+{#                                            <button type="button" class="action  action-show-popup" data-toggle="modal"#}
+{#                                                    data-target="">#}
+{#                                                <span>Edit Shipping Address</span>#}
+{#                                            </button>#}
+{#                                        </div>#}
+{#                                    {% endfor %}#}
+{#                                </div>#}
+{#                                <div id="pickup">#}
+{#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+{#                                        {% csrf_token %}#}
+{#                                        <div class="field">#}
+{#                                            <label class="field">Phone number</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="pickupPhone"#}
+{#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <div class="field">#}
+{#                                            <label>Pickup Station</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="discount-code"#}
+{#                                                       name="discount_code"#}
+{#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+{#                                                       readonly placeholder="Enter Your Email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+{#                                            <span>Place Order</span>#}
+{#                                        </button>#}
+{#                                    </form>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        {% else %}#}
+{#                            <li id="shipping" class="checkout-shipping-address ">#}
+{#                                <div class="step-title" data-role="title">Shipping Address</div>#}
+{#                                <div class="new-address-popup">#}
+{#                                    <button type="button" id="addressAdd" class="action  action-show-popup"#}
+{#                                            data-toggle="modal" data-target="#responsive">#}
+{#                                        <span>Add shipping Address</span>#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                                <div id="pickup">#}
+{#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+{#                                        {% csrf_token %}#}
+{#                                        <div class="field">#}
+{#                                            <label class="field">Phone number</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="pickupPhone"#}
+{#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <div class="field">#}
+{#                                            <label>Pickup Station</label>#}
+{#                                            <div class="control">#}
+{#                                                <input class="input-text" type="text" id="discount-code"#}
+{#                                                       name="discount_code"#}
+{#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+{#                                                       readonly placeholder="Enter Your Email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <br>#}
+{#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+{#                                            <span>Place Order</span>#}
+{#                                        </button>#}
+{#                                    </form>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        {% endif %}#}
                     </div>
                 </div>
-                <li id="opc-sidebar">
-                    <div class="opc-block-summary">
-                        <span class="title">Order Summary</span>
-                        <div class="block items-in-cart active"
-                             data-collapsible="true" role="tablist">
-                            <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="true"
-                                 tabindex="0">
-                                <strong role="heading" aria-level="1">
-                                        <span>
-                                            {% if request.user.is_authenticated %}
-                                                {{ request.user|cart_item_count }}
-                                            {% endif %}
-                                        </span>
-                                    <span>Item in Cart</span>
-                                </strong>
-                            </div>
 
-                            <div class="content minicart-items" data-role="content" role="tabpanel"
-                                 aria-hidden="false">
-
-                                <div class="minicart-items-wrapper">
-                                    {% for cart_items in order.cart.all %}
-                                        <ol class="minicart-items">
-                                            <li class="product-item">
-                                                <div class="product">
-
-                                                    <span class="product-image-container"
-                                                          style="height: 70px; width: 70px;">
-                                                        <span class="product-image-wrapper">
-                                                        <img
-                                                                src="{{ cart_items.product.imageURL }}"
-                                                                alt="{{ cart_items.product.title }}"
-                                                                title="{{ cart_items.product.title }}" width="140"
-                                                                height="140">
-                                                        </span>
-                                                        </span>
-                                                    <div class="product-item-details">
-                                                        <div class="product-item-inner">
-                                                            <div class="product-item-name-block">
-                                                                <strong class="product-item-name">
-                                                                    <a href="#">{{ cart_items.product.title }}</a>
-                                                                </strong>
-                                                                <div class="details-qty">
-                                                                    <span class="label"><span>Qty</span>
-                                                                        </span>
-                                                                    <input type="number" class="input-text qty"
-                                                                           title="Qty"
-                                                                           value="{{ cart_items.quantity }}">
-                                                                    <span class="qty-button">
-                                                                    <span class="increase">&nbsp;</span>
-                                                                    <span class="decrease" action="decrease"
-                                                                          itemid="1250">&nbsp;</span>
-                                                                    </span>
-                                                                    <span class="error-message"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="subtotal">
-                                                                <span class="price-excluding-tax">
-                                                                <span class="cart-price">
-                                                                <span class="price">Ksh{{ cart_items.product.price|intcomma }}</span>
-                                                                </span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ol>
-                                    {% endfor %}
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <table class="data table table-totals">
-                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>
-                            <tbody>
-                            <tr class="totals sub">
-                                <th class="mark" scope="row">Cart Subtotal</th>
-                                <td class="amount">
-                                    <span class="price"
-                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>
-                                </td>
-                            </tr>
-
-                            <tr class="totals shipping excl">
-                                <th class="mark" scope="row">
-                                    <span class="" data-bind="i18n: title">Shipping</span>
-                                    <span class="value"
-                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>
-                                </th>
-                                <td class="amount">
-                                    <span class="price" data-th="Shipping">Ksh. 00</span>
-                                </td>
-                            </tr>
-
-                            <tr class="grand totals">
-                                <th class="mark" scope="row">
-                                    <strong>Order Total</strong>
-                                </th>
-                                <td class="amount" data-th="Order Total">
-                                    <strong><span
-                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-
-                    </div>
-                </li>
             </div>
         </div>
     </form>
