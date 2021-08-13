@@ -7,7 +7,6 @@ from requests.auth import HTTPBasicAuth
 from django.conf import settings
 
 
-
 def getAccessToken():
     consumer_key = 'DreE5Tw3IZ0c4K0q8vINnEMERs68Lqf9'
     consumer_secret = 'elCYrk0bAJfcDkHv'

@@ -11,7 +11,6 @@ def shopViews(request):
     onsale = Product.objects.onSaleDeals()
     search = request.GET.get('search')
     pager = request.GET.get('value')
-    # pages = int(pager)
     page = request.GET.get('page', 1)
 
     if search != '' and search is not None:
@@ -19,12 +18,7 @@ def shopViews(request):
     else:
         products = Product.objects.all()
     paginator = Paginator(products, 12)
-    # if pages == 24:
-    #     paginator = Paginator(products, 24)
-    # elif pages == 36:
-    #     paginator = Paginator(products, 36)
-    # else:
-    #     paginator = Paginator(products, 12)
+
     try:
         shopList = paginator.page(page)
     except PageNotAnInteger:

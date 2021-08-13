@@ -13,7 +13,7 @@ $(document).ready(function(){
                 }
             }
         }
-        console.log(cookieValue)
+        // console.log(cookieValue)
         return cookieValue;
     }
     var csrftoken = getCookie('csrftoken');

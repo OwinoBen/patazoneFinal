@@ -145,9 +145,19 @@ def updateCart(request):
     else:
         updated = timezone.now()
         odr = "ORD"
+        added = True
         order_id = (odr + create_ref_code())
         order = Order.objects.create(user=request.user, updated=updated, order_id=order_id)
         order.cart.add(order_item)
+        if request.is_ajax():
+            jason_data = {
+                "added": added,
+                "update": cart_item_count(request.user),
+                "message": f"{product.title} was added in your cart",
+                "image": product.imageURL,
+                "cartItemCount": not added
+            }
+            return JsonResponse(jason_data, status=200)
         messages.info(request, f"{product.title} item was added in your cart")
         subject = 'Order submitted successfully (Patazone marketplace)'
         message = 'Your order ' f"{order_id} has been submitted successfully. Kindly pay within the timelime for ' \
@@ -157,27 +167,6 @@ def updateCart(request):
         receipient = str(request.user.email)
 
         send_mail(subject, message, HOST_USER_EMAIL, [receipient], fail_silently=False)
-
-        if product_obj in cart_obj.products.all():
-            sku = "PRUD"
-            sku_d = (sku + create_ref_code())
-            cart_obj.quantity += 1
-            cart_obj.save()
-            # cart_obj.products.remove(product_obj)
-            print(sku_d)
-            added = False
-        else:
-            cart_obj.products.add(product_obj)
-            added = True
-        request.session['cart_items'] = cart_obj.products.count()
-        if request.is_ajax():
-            print("Ajax request")
-            jason_data = {
-                "added": added,
-                "removed": not added,
-                "cartItemCount": cart_obj.products.count()
-            }
-            return JsonResponse(jason_data, status=200)
     return JsonResponse('success', status=200, safe=False)
 
 
