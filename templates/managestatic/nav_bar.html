@@ -1,4 +1,4 @@
-{% load static %}
+    {% load static %}
 {% load cart_template_tags %}
     <div
       id="newsletter_pop_up"
@@ -479,11 +479,11 @@
                     <div class="dropdown">
                       <div class="dropdown-toggle">
                         <div class="top-search">
-
                           <span class="text">Search</span>
                         </div>
                       </div>
                       <form class="form minisearch search-content cat-search" id="search_mini_form" action="{% url 'shop' %}" method="get">
+                          {% csrf_token %}
                         <div class="search-form">
                           <div class="field-by-cat-search hidden-xs">
                             <select name="cat" id="choose_category">
@@ -500,7 +500,7 @@
                               <option value="13">Audio & Headphones</option>
                               <option value="14">Toys & Hobbies</option>
                               <option value="17">Fashion & Clothing</option>
-                              <option value="161">Beauty & Cosmetics</option>
+                              <option value="20">Beauty & Cosmetics</option>
                               <option value="50">Shop</option>
                               <option value="161">Stereo Headphones</option>
 

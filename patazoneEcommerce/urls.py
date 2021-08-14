@@ -25,7 +25,7 @@ import carts
 from django.contrib.auth import views as auth_views
 from .views import aboutpage, contactus, frequentquiz, featured
 from accounts.views import createAccount
-from products.views import product
+from products.views import product, ajaxDisplayProducts
 from shop.views import shopViews
 from carts.views import cartView, updateCart
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminpage/', include('Admin.urls', namespace="Admins")),
     path('', product, name="home"),
+    path('', ajaxDisplayProducts, name="home2"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('about/', aboutpage, name="about"),
     path('contactus/', contactus, name="contact"),
