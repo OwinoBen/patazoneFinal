@@ -5,12 +5,12 @@ from .models import *
 # Create your views here.
 
 def product(request):
-    shopList = Product.objects.all()
-    products = Product.objects.all().flashDeals()
-    featured = Product.objects.all().featured()
+    shopList = Product.objects.all().order_by('-id')
+    products = Product.objects.all().flashDeals().order_by('-id')
+    featured = Product.objects.all().featured().order_by('-id')
     pro_featured_count = Product.objects.count()
-    electronics = Product.objects.filter(category='Electronics')
-    topselling =Product.objects.all().topselling()
+    electronics = Product.objects.filter(category='Electronics').order_by('-id')
+    topselling =Product.objects.all().topselling().order_by('-id')
     slideshow = SlideShow.objects.all()
     search = request.GET.get('search')
 

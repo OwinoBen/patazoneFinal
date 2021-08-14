@@ -115,10 +115,15 @@ def payondelivery(request, payment_option):
 
 
 def pay(request, payment_option):
-    order = Order.objects.get(user=request.user, ordered=False)
-    context = {
-        'order': order
-    }
+    shipping_address = Address.objects.filter(user=request.user, default=True)
+    if shipping_address.exists():
+        order = Order.objects.get(user=request.user, ordered=False)
+        context = {
+            'order': order
+        }
+    else:
+        messages.error(request, 'please Add default Shipping address to Proceed')
+        return redirect('checkout:checkout')
     return render(request, 'payment.html', context)
 
 
