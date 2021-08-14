@@ -59,13 +59,13 @@ def electronicsSearch(request):
 
 def SortedProductList(request, keyword):
     if keyword == 'shop':
-        shopList = Product.objects.all()
+        shopList = Product.objects.all().order_by('-id')
         search = request.GET.get('search')
         if search != '' and search is not None:
             shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
         return render(request, 'shop.html', {'shopList': shopList})
     else:
-        shopList = Product.objects.filter(category__iexact=str(keyword))
+        shopList = Product.objects.filter(category__iexact=str(keyword)).order_by('-id')
         search = request.GET.get('search')
         if search != '' and search is not None:
             shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
@@ -89,7 +89,7 @@ def SortedProductSubcategory(request, keyword):
 
 def SortedProductminorCategory(request, keyword):
     if keyword == 'shop':
-        shopList = Product.objects.all()
+        shopList = Product.objects.all().order_by('-id')
         search = request.GET.get('search')
         if search != '' and search is not None:
             shopList = shopList.filter(Q(title__icontains=search) | Q(price__icontains=search)).distinct()
