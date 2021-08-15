@@ -391,12 +391,12 @@ Color variants
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
   color: #fff;
-  background: #337ab7; }
+  background: #b92227; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {
   color: #fff;
-  background: #659be0; }
+  background: #b92227; }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {
@@ -1886,10 +1886,10 @@ NoUIRangeSlider
 Color variants
 ***/
 .noUi-primary .noUi-connect {
-  background: #337ab7; }
+  background: #b92227; }
 
 .noUi-info .noUi-connect {
-  background: #659be0; }
+  background: #b92227; }
 
 .noUi-success .noUi-connect {
   background: #36c6d3; }

@@ -616,7 +616,7 @@ body {
   .form-md-checkboxes.has-error label {
     color: #ed6b75; }
   .form-md-checkboxes.has-info label {
-    color: #659be0; }
+    color: #b92227; }
   .form-md-checkboxes.has-success label {
     color: #36c6d3; }
   .form-md-checkboxes.has-warning label {
@@ -800,7 +800,7 @@ body {
   .form-md-radios.has-error label {
     color: #ed6b75; }
   .form-md-radios.has-info label {
-    color: #659be0; }
+    color: #b92227; }
   .form-md-radios.has-success label {
     color: #36c6d3; }
   .form-md-radios.has-warning label {
@@ -919,7 +919,7 @@ h6.block {
 /* Links */
 a {
   text-shadow: none;
-  color: #337ab7; }
+  color: #b92227; }
   a:hover {
     color: #23527c; }
   a:focus, a:hover, a:active {
@@ -1867,7 +1867,7 @@ li [class*=" icon-"].icon-large {
   color: #36c6d3; }
 
 .icon-state-info {
-  color: #659be0; }
+  color: #b92227; }
 
 .icon-state-warning {
   color: #F1C40F; }
@@ -2000,11 +2000,11 @@ Custom Bootstrap Badges
   background-image: none; }
 
 .badge-primary {
-  background-color: #337ab7;
+  background-color: #b92227;
   background-image: none; }
 
 .badge-info {
-  background-color: #659be0;
+  background-color: #b92227;
   background-image: none; }
 
 .badge-success {
@@ -6956,7 +6956,7 @@ Input icons
     .has-warning .input-icon > i {
       color: #F1C40F; }
     .has-info .input-icon > i {
-      color: #659be0; }
+      color: #b92227; }
     .has-error .input-icon > i {
       color: #ed6b75; }
   .input-icon.right {
@@ -7009,7 +7009,7 @@ Customized Bootstrap Labels
     background-color: #9ca8bb; }
 
 .label-primary {
-  background-color: #337ab7; }
+  background-color: #b92227; }
   .label-primary[href]:hover, .label-primary[href]:focus {
     background-color: #286090; }
 
@@ -7019,7 +7019,7 @@ Customized Bootstrap Labels
     background-color: #27a4b0; }
 
 .label-info {
-  background-color: #659be0; }
+  background-color: #b92227; }
   .label-info[href]:hover, .label-info[href]:focus {
     background-color: #3a80d7; }
 
@@ -7054,13 +7054,13 @@ Text states
   color: #bac3d0; }
 
 .text-primary {
-  color: #337ab7; }
+  color: #b92227; }
 
 .text-success {
   color: #36c6d3; }
 
 .text-info {
-  color: #659be0; }
+  color: #b92227; }
 
 .text-warning {
   color: #F1C40F; }
@@ -12949,13 +12949,13 @@ Custom tables
   margin-left: 15px; }
 
 .table-advance td.highlight div.primary {
-  border-left: 2px solid #337ab7; }
+  border-left: 2px solid #b92227; }
 
 .table-advance td.highlight div.success {
   border-left: 2px solid #36c6d3; }
 
 .table-advance td.highlight div.info {
-  border-left: 2px solid #659be0; }
+  border-left: 2px solid #b92227; }
 
 .table-advance td.highlight div.warning {
   border-left: 2px solid #F1C40F; }
@@ -13846,11 +13846,11 @@ Custimized Bootstrap Wells
     color: #fff;
     border: 1px solid #ebf0f6;
     padding: 3px 10px;
-    background: #337ab7; }
+    background: #b92227; }
     .widget-media .widget-btn-blue .widget-btn-icon {
       line-height: 1.5; }
     .widget-media .widget-btn-blue:hover {
-      color: #337ab7;
+      color: #b92227;
       background: #fff;
       text-decoration: none; }
   .widget-media .widget-media-body {
@@ -18918,29 +18918,29 @@ body.stop-scrolling {
           border-left-color: #bac3d0;
           border-right-color: #bac3d0; }
     .mt-element-ribbon .ribbon.ribbon-color-primary {
-      background-color: #337ab7;
+      background-color: #b92227;
       color: #fff; }
       .mt-element-ribbon .ribbon.ribbon-color-primary:after {
         border-color: #286090; }
       .mt-element-ribbon .ribbon.ribbon-color-primary > .ribbon-sub {
-        background-color: #337ab7;
+        background-color: #b92227;
         color: black; }
         .mt-element-ribbon .ribbon.ribbon-color-primary > .ribbon-sub:after {
           border-color: #122b40;
-          border-left-color: #337ab7;
-          border-right-color: #337ab7; }
+          border-left-color: #b92227;
+          border-right-color: #b92227; }
     .mt-element-ribbon .ribbon.ribbon-color-info {
-      background-color: #659be0;
+      background-color: #b92227;
       color: #fff; }
       .mt-element-ribbon .ribbon.ribbon-color-info:after {
         border-color: #3a80d7; }
       .mt-element-ribbon .ribbon.ribbon-color-info > .ribbon-sub {
-        background-color: #659be0;
+        background-color: #b92227;
         color: #0c203a; }
         .mt-element-ribbon .ribbon.ribbon-color-info > .ribbon-sub:after {
           border-color: #1d4f8e;
-          border-left-color: #659be0;
-          border-right-color: #659be0; }
+          border-left-color: #b92227;
+          border-right-color: #b92227; }
     .mt-element-ribbon .ribbon.ribbon-color-success {
       background-color: #36c6d3;
       color: #fff; }

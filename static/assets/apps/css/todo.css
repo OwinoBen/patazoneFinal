@@ -25,7 +25,7 @@ NEW TODO Page
         text-transform: uppercase;
         text-decoration: none; }
         .todo-main-header > .todo-breadcrumb > li > a:hover {
-          color: #337ab7;
+          color: #b92227;
           text-decoration: none; }
       .todo-main-header > .todo-breadcrumb > li > .todo-active {
         color: #49a7fa; }
