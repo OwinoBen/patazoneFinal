@@ -24281,8 +24281,8 @@ body .owl-carousel.owl-loaded {
 }
 
 .header-container .topbar {
-    background-color: #fff;
-    color: #666;
+    background-color: #c30b11;
+    color: #fff;
     position: relative;
     z-index: 15
 }
@@ -24307,7 +24307,7 @@ body .owl-carousel.owl-loaded {
 }
 
 .header-container .topbar .topbar-inner .col-top-link a:not(:hover) {
-    color: #666
+    color: #fff
 }
 
 .header-container .topbar .topbar-inner .col-top-link a:hover {
@@ -24315,7 +24315,7 @@ body .owl-carousel.owl-loaded {
 }
 
 .header-container .topbar .topbar-inner .col-top-link .action strong, .header-container .topbar .topbar-inner .col-top-link .action.toggle:after {
-    color: #666
+    color: #fff !important;
 }
 
 .header-container .topbar .topbar-inner .col-top-link .action strong:hover, .header-container .topbar .topbar-inner .col-top-link .action.toggle::after:hover {
@@ -27081,7 +27081,7 @@ body .searchsuite-autocomplete {
 }
 
 .header-container.layout-3-additional .action-header li span.text {
-    color: #999
+    color: #fff;
 }
 
 .header-container.layout-4 {
@@ -27138,6 +27138,7 @@ body .searchsuite-autocomplete {
 }
 
 header .header-container {
+    background: #f4868a;
     -webkit-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, .3);
     -moz-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, .3);
     -ms-box-shadow: 1px 3px 5px 0px rgba(210, 217, 237, .3);
