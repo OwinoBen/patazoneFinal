@@ -296,6 +296,18 @@
 
     <form method="POST" class="columns">
         {% csrf_token %}
+        <div class="bg-white -rad -shad -mbm step ft-address-step -completed">
+            <div class="hdr -pal"><i class="osh-font-check"></i> <span class="text-uppercase">1. Address Details</span>
+                <div class="js-address-change -link text-uppercase">Change</div>
+            </div>
+            <div class="cont brdt">
+                <div class="color-default -fwm ft-address-name">benson Opondo</div>
+                <div class="color-default-800 -fs-13">
+                    <div class="-block ft-address-location">rng plaza, Embakasi South - Landimawe, Nairobi</div>
+                    <div class="-block ft-address-phone">+254746180701</div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 order-md-2 mb-4">
@@ -560,37 +572,37 @@
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label for="zip">Zip</label>
-                                <div class="form-control">
-                                    {{ form.shipping_country }}
-                                </div>
+                                <label for="zip">Coutry</label>
+
+                                {{ form.shipping_country }}
+
                                 <div class="invalid-feedback">
-                                    Zip code required.
+                                    Country code required.
                                 </div>
                             </div>
                         </div>
                         <hr class="mb-4">
                         <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="same-address">
-                          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                            <input type="checkbox" class="custom-control-input" id="same-address">
+                            <label class="custom-control-label" for="same-address">Save as default shipping
+                                address</label>
                         </div>
-{#                        <div class="custom-control custom-checkbox">#}
-{#                          <input type="checkbox" class="custom-control-input" id="save-info">#}
-{#                          <label class="custom-control-label" for="save-info">Save this information for next time</label>#}
-{#                        </div>#}
+                        {#                        <div class="custom-control custom-checkbox">#}
+                        {#                          <input type="checkbox" class="custom-control-input" id="save-info">#}
+                        {#                          <label class="custom-control-label" for="save-info">Save this information for next time</label>#}
+                        {#                        </div>#}
                         <hr class="mb-4">
 
                         <h4 class="mb-3">Delivery Method</h4>
 
                         <div class="d-block my-3">
                             <div class="custom-control custom-radio">
-                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input"
-                                       checked
+                                <input id="credit" name="bn" id="bn" type="radio" value="1" class="custom-control-input"
                                        required>
                                 <label class="custom-control-label" for="credit">Deliver to My location.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
+                                <input id="debit" name="bn" id="bn" type="radio" value="0" class="custom-control-input"
                                        required>
                                 <label class="custom-control-label" for="debit">Pick from store.</label>
                             </div>
@@ -639,526 +651,637 @@
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
                     </form>
-                </div>
-            </div>
+                    <div class="card m-auto" style="margin: auto">
 
-
-        </div>
-
-
-        <div class="column main"><input name="form_key" type="hidden" value="1uKeWrt1uSfUno1k">
-            <div id="authenticationPopup" style="display: none;"></div>
-            <div id="checkout" data-bind="scope:'checkout'" class="checkout-container">
-                <div class="authentication-wrapper">
-                    <a href="{% url 'cart:home' %}" type="button" class="action action-auth-toggle" id="3">
-                        <span>Back to cart</span>
-                    </a>
-                    <aside role="dialog" class="modal-custom authentication-dropdown custom-slide"
-                           aria-describedby="modal-content-10" data-role="modal" data-type="custom" tabindex="0">
-                        <div data-role="focusable-start" tabindex="0"></div>
-                        <div class="modal-inner-wrap" data-role="focusable-scope">
-                            <header class="modal-header">
-                                <button class="action-close" data-role="closeBtn" type="button">
-                                    <span>Close</span>
-                                </button>
-                            </header>
-                            <div id="modal-content-10" class="modal-content" data-role="content">
-                                <div class="block-authentication">
-                                    <div class="block block-customer-login">
-                                        <div class="block-title">
-                                            <strong id="block-customer-login-heading" role="heading" aria-level="2"
-                                                    data-bind="i18n: 'Sign In'">Sign In</strong>
+                        <div class="card-body">
+                            <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">
+                                {% csrf_token %}
+                                <div class="subt color-default -fwm -pbm">How do you want to pay for your order?
+                                </div>
+                                <div class="list list-options">
+                                    <div class="list--item list--item-options -ptxl brdb -pbxl">
+                                        <input class="osh-radio option" value="paynow"
+                                               checked="checked" type="radio"
+                                               name="payment_option"/>
+                                        <label class="-fwm"><span
+                                                class="-prm"><img
+                                                src="https://static.jumia.co.ke/cms/Jumia_Pay/mpesamastercard.png"
+                                                alt=""/></span>Pay Now</label>
+                                        <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">
+                                            <div class="title -hidden"> Pay now fast and securely with M-PESA,
+                                                Airtel, DTB Mobile
+                                                Banking, Mastercard or Visa
+                                            </div>
+                                            <div class="additional-data"></div>
+                                            <div class="description "><br>- Your security is our #1 priority. You
+                                                keep control of
+                                                every transaction and are protected against fraud and theft.
+                                                <br>-Before you proceed, please make sure you have enough money
+                                                in your account.
+                                                <br>
+                                            </div>
+                                            <div class="additional-data"></div>
                                         </div>
-                                        <div data-role="checkout-messages" class="messages"></div>
-                                        <div class="block-content" aria-labelledby="block-customer-login-heading">
-                                            <form data-role="login" method="post">
-                                                <div class="fieldset">
-                                                    <div class="field field-email required">
-                                                        <label class="label" for="login-email"><span
-                                                                data-bind="i18n: 'Email Address'">Email Address</span></label>
-                                                        <div class="control">
-                                                            <input type="email" class="input-text" id="login-email"
-                                                                   name="username" autocomplete="off">
-                                                        </div>
-                                                    </div>
-                                                    <div class="field field-password required">
-                                                        <label for="login-password" class="label">
-                                                            <span>Password</span>
-                                                        </label>
-                                                        <div class="control">
-                                                            <input type="password" class="input-text"
-                                                                   id="login-password" name="password"
-                                                                   autocomplete="off">
-                                                        </div>
-                                                    </div>
-                                                    <input name="captcha_form_id" type="hidden"
-                                                           value="user_login" data-scope="">
-                                                </div>
-                                                <div class="actions-toolbar">
-                                                    <input name="context" type="hidden" value="checkout">
-                                                    <div class="primary">
-                                                        <button type="submit" class="action action-login secondary">
-                                                            <span>Sign In</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="secondary">
-                                                        <a class="action action-remind" href="#">
-                                                            <span>Forgot Your Password?</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                        <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>
+                                            <span dir="ltr"
+                                                  data-price="1107"></span>
+                                        </div>
+                                    </div>
+                                    <div class="list--item list--item-options -ptxl -pbxl">
+                                        <input class="osh-radio option" value="payondelivery"
+                                               id="MpesaOnDelivery_CashOnDelivery" type="radio"
+                                               name="payment_option"/>
+                                        <label class="-fwm" for="MpesaOnDelivery_CashOnDelivery"><span class="-prm"><img
+                                                src="https://static.jumia.co.ke/cms/mpesa.png" alt=""/></span>M-PESA On
+                                            Delivery</label>
+                                        <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">
+                                            <div> Pay M-PESA at your doorstep/pickup station.<br/>
+                                                <br/>
+                                            </div>
+                                            <div class="additional-data -hidden"></div>
+                                            <div class="description  -hidden"><p>Pay for your package when our
+                                                delivery associate
+                                                brings it to your doorstep or when you pick it up at one of our
+                                                pickup stations.
+                                                <br/> <br/>We encourage you to Pay Online - it saves you time &amp;
+                                                money</p></div>
+                                            <div class="additional-data -hidden"></div>
+                                        </div>
+                                        <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>
+                                            <span dir="ltr"></span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
-                        <div data-role="focusable-end" tabindex="0"></div>
-                    </aside>
-                </div>
-
-                <div data-role="checkout-messages" class="messages">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div {% if message.tags %}
-                                class="alert alert-danger {{ message.tags }}" {% endif %} >
-                                <button class="close" data-close="alert"></button>
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="opc-wrapper">
-                    <div class="opc" id="checkoutSteps">
-                        <div class="row">
-
-                            {% if shipping_addres %}
-                                <li id="shipping" class="checkout-shipping-address col-md-4 ">
-                                    <div class="step-title" data-role="title">Shipping Address</div>
-                                    <div id="checkout-step-shipping" class="step-content shipping" data-role="content">
-                                        {% for shipping in shipping_addres %}
-                                            <div class="field addresses">
-                                                <div class="control">
-                                                    <div class="shipping-address-items">
-                                                        <div class="shipping-address-item selected-item">
-                                                            {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>
-                                                            {{ shipping.delivery_address }}<br/>
-                                                            {{ shipping.region }}<br/>
-                                                            {{ shippingcountry.name }}<br/>
-                                                            Tel: <a
-                                                                href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="new-address-popup">
-                                                <button type="button" class="action  action-show-popup"
-                                                        data-toggle="modal"
-                                                        data-target="#responsive2">
-                                                    <span>Edit Shipping Address</span>
-                                                </button>
-                                            </div>
-                                        {% endfor %}
+                                <div class="-pbxxl">
+                                    <div class="subt color-default -fwm -fs-14 -ptl -pbxs">Do you have a voucher?
                                     </div>
-                                    {#                                <div id="pickup">#}
-                                    {#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
-                                    {#                                        {% csrf_token %}#}
-                                    {#                                        <div class="field">#}
-                                    {#                                            <label class="field">Phone number</label>#}
-                                    {#                                            <div class="control">#}
-                                    {#                                                <input class="input-text" type="text" id="pickupPhone"#}
-                                    {#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
-                                    {#                                            </div>#}
-                                    {#                                        </div>#}
-                                    {#                                        <br>#}
-                                    {#                                        <div class="field">#}
-                                    {#                                            <label>Pickup Station</label>#}
-                                    {#                                            <div class="control">#}
-                                    {#                                                <input class="input-text" type="text" id="discount-code"#}
-                                    {#                                                       name="discount_code"#}
-                                    {#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
-                                    {#                                                       readonly placeholder="Enter Your Email">#}
-                                    {#                                            </div>#}
-                                    {#                                        </div>#}
-                                    {#                                        <br>#}
-                                    {#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
-                                    {#                                            <span>Place Order</span>#}
-                                    {#                                        </button>#}
-                                    {#                                    </form>#}
-                                    {#                                </div>#}
-                                </li>
-                            {% else %}
-                                <li id="shipping" class="checkout-shipping-address ">
-                                    <div class="step-title" data-role="title">Shipping Address</div>
-                                    <div class="new-address-popup">
-                                        <button type="button" id="addressAdd" class="action  action-show-popup"
-                                                data-toggle="modal" data-target="#responsive">
-                                            <span>Add shipping Address</span>
+                                    <div class="vch_box brda">
+                                        <input id="opc-cart-promocode"
+                                               class="vch_input -pal -fs-14 ft-voucher-input"
+                                               placeholder="Enter voucher code here" type="text" value=""
+                                               name="couponcode"/>
+                                        <button name="addCoupon" class="osh-btn ft-apply-voucher js-throttle "
+                                                style="font-size: 12px"><span
+                                                class="label ">Add voucher</span>
                                         </button>
                                     </div>
-                                    {#                                <div id="pickup">#}
-                                    {#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
-                                    {#                                        {% csrf_token %}#}
-                                    {#                                        <div class="field">#}
-                                    {#                                            <label class="field">Phone number</label>#}
-                                    {#                                            <div class="control">#}
-                                    {#                                                <input class="input-text" type="text" id="pickupPhone"#}
-                                    {#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
-                                    {#                                            </div>#}
-                                    {#                                        </div>#}
-                                    {#                                        <br>#}
-                                    {#                                        <div class="field">#}
-                                    {#                                            <label>Pickup Station</label>#}
-                                    {#                                            <div class="control">#}
-                                    {#                                                <input class="input-text" type="text" id="discount-code"#}
-                                    {#                                                       name="discount_code"#}
-                                    {#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
-                                    {#                                                       readonly placeholder="Enter Your Email">#}
-                                    {#                                            </div>#}
-                                    {#                                        </div>#}
-                                    {#                                        <br>#}
-                                    {#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
-                                    {#                                            <span>Place Order</span>#}
-                                    {#                                        </button>#}
-                                    {#                                    </form>#}
-                                    {#                                </div>#}
-                                </li>
-                            {% endif %}
-                            <li id="opc-shipping_method" role="presentation" class=" col-md-4">
-                                <div id="checkout-step-payment" class="step-content " data-role="content"
-                                     role="tabpanel"
-                                     aria-hidden="false">
-                                    <form id="co-payment-form" class="form payments">
-                                        <input type="hidden" name="form_key" value="">
-                                        <fieldset class="fieldset">
-                                            <div class="step-title">Delivery Method</div>
-                                            <div id="checkout-payment-method-load" class="opc-payment">
-                                                <div class="items payment-methods">
-                                                    <div class="payment-group" data-repeat-index="0">
-                                                        <div class="payment-method"
-                                                             style="float: left;margin: 2px 0 0 2px">
-                                                            <div class="cc-selector">
-                                                                <input id="visa" type="radio" name="bn"
-                                                                       checked="checked" value="1"/>
-                                                                <label class="drinkcard-cc visa" for="visa"> Deliver to
-                                                                    my
-                                                                    location</label>
-                                                                <input id="mastercard" type="radio" name="bn"
-                                                                       value="0"/>
-                                                                <label class="drinkcard-cc mastercard" for="mastercard">Pick
-                                                                    from Store</label>
-
-                                                            </div>
-                                                        </div>
-                                                        <div style="text-align: center;margin-top: 80px; border: 1px solid #ebebeb;border-radius:10px;"
-                                                             class="cardpayment hideable_shipping_form" style="">
-                                                            <img src="{% static 'images/credit-card-logos.jpg' %}"
-                                                                 width="250">
-                                                            <form action="" method="post" id="payment-form"
-                                                                  style="text-align: center;">
-                                                                {% csrf_token %}
-                                                                <div style="width: 75%; height: 25px;">
-                                                                    <input id="input" type="hidden" name="amount"
-                                                                           value="{{ total }}" readonly>
-                                                                </div>
-
-                                                                <div class="form-row" style="margin-bottom: 20px;">
-                                                                    <label for="card-element">
-
-                                                                    </label>
-                                                                    <div id="card-element"
-                                                                         class="StripeElement StripeElement--empty">
-                                                                        <div class="__PrivateStripeElement"
-                                                                             style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">
-                                                                            <iframe frameborder="0"
-                                                                                    allowtransparency="true"
-                                                                                    scrolling="no"
-                                                                                    name="__privateStripeFrame5"
-                                                                                    allowpaymentrequest="true"
-                                                                                    src="https://js.stripe.com/v3/elements-inner-card-19066928f2ed1ba3ffada645e45f5b50.html#style[base][color]=%2332325d&amp;style[base][fontFamily]=%22Helvetica+Neue%22%2C+Helvetica%2C+sans-serif&amp;style[base][fontSmoothing]=antialiased&amp;style[base][fontSize]=16px&amp;style[base][::placeholder][color]=%23aab7c4&amp;style[invalid][color]=%23fa755a&amp;style[invalid][iconColor]=%23fa755a&amp;componentName=card&amp;wait=false&amp;rtl=false&amp;keyMode=test&amp;origin=https%3A%2F%2Fstripe.com&amp;referrer=https%3A%2F%2Fstripe.com%2Fdocs%2Fstripe-js&amp;controllerId=__privateStripeController1"
-                                                                                    title="Secure payment input frame"
-                                                                                    style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; height: 19.2px;"></iframe>
-                                                                            <input class="__PrivateStripeElement-input"
-                                                                                   aria-hidden="true" aria-label=" "
-                                                                                   autocomplete="false" maxlength="1"
-                                                                                   style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- Used to display form errors. -->
-                                                                    <div id="card-errors" role="alert"></div>
-                                                                </div>
-                                                                <button id="sb">Submit Payment</button>
-                                                            </form>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="no-quotes-block"
-                                                 style="display: none;">
-                                                <span>No Payment method available.</span>
-                                            </div>
-                                        </fieldset>
-                                    </form>
                                 </div>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-                <li id="opc-sidebar">
-                    <div class="opc-block-summary">
-                        <span class="title">Order Summary</span>
-                        <div class="block items-in-cart active"
-                             data-collapsible="true" role="tablist">
-                            <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="true"
-                                 tabindex="0">
-                                <strong role="heading" aria-level="1">
-                                        <span>
-                                            {% if request.user.is_authenticated %}
-                                                {{ request.user|cart_item_count }}
-                                            {% endif %}
-                                        </span>
-                                    <span>Item in Cart</span>
-                                </strong>
-                            </div>
-
-                            <div class="content minicart-items" data-role="content" role="tabpanel"
-                                 aria-hidden="false">
-
-                                <div class="minicart-items-wrapper">
-                                    {% for cart_items in order.cart.all %}
-                                        <ol class="minicart-items">
-                                            <li class="product-item">
-                                                <div class="product">
-
-                                                    <span class="product-image-container"
-                                                          style="height: 70px; width: 70px;">
-                                                        <span class="product-image-wrapper">
-                                                        <img
-                                                                src="{{ cart_items.product.imageURL }}"
-                                                                alt="{{ cart_items.product.title }}"
-                                                                title="{{ cart_items.product.title }}" width="140"
-                                                                height="140">
-                                                        </span>
-                                                        </span>
-                                                    <div class="product-item-details">
-                                                        <div class="product-item-inner">
-                                                            <div class="product-item-name-block">
-                                                                <strong class="product-item-name">
-                                                                    <a href="#">{{ cart_items.product.title }}</a>
-                                                                </strong>
-                                                                <div class="details-qty">
-                                                                    <span class="label"><span>Qty</span>
-                                                                        </span>
-                                                                    <input type="number" class="input-text qty"
-                                                                           title="Qty"
-                                                                           value="{{ cart_items.quantity }}">
-                                                                    <span class="qty-button">
-                                                                    <span class="increase">&nbsp;</span>
-                                                                    <span class="decrease" action="decrease"
-                                                                          itemid="1250">&nbsp;</span>
-                                                                    </span>
-                                                                    <span class="error-message"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="subtotal">
-                                                                <span class="price-excluding-tax">
-                                                                <span class="cart-price">
-                                                                <span class="price">Ksh{{ cart_items.product.price|intcomma }}</span>
-                                                                </span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ol>
-                                    {% endfor %}
-                                </div>
-
-                            </div>
-
-                        </div>
-                        {#                        <table class="data table table-totals">#}
-                        {#                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>#}
-                        {#                            <tbody>#}
-                        {#                            <tr class="totals sub">#}
-                        {#                                <th class="mark" scope="row">Cart Subtotal</th>#}
-                        {#                                <td class="amount">#}
-                        {#                                    <span class="price"#}
-                        {#                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>#}
-                        {#                                </td>#}
-                        {#                            </tr>#}
-                        {##}
-                        {#                            <tr class="totals shipping excl">#}
-                        {#                                <th class="mark" scope="row">#}
-                        {#                                    <span class="" data-bind="i18n: title">Shipping</span>#}
-                        {#                                    <span class="value"#}
-                        {#                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>#}
-                        {#                                </th>#}
-                        {#                                <td class="amount">#}
-                        {#                                    <span class="price" data-th="Shipping">Ksh. 00</span>#}
-                        {#                                </td>#}
-                        {#                            </tr>#}
-                        {##}
-                        {#                            <tr class="grand totals">#}
-                        {#                                <th class="mark" scope="row">#}
-                        {#                                    <strong>Order Total</strong>#}
-                        {#                                </th>#}
-                        {#                                <td class="amount" data-th="Order Total">#}
-                        {#                                    <strong><span#}
-                        {#                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>#}
-                        {#                                </td>#}
-                        {#                            </tr>#}
-                        {##}
-                        {#                            </tbody>#}
-                        {#                        </table>#}
-
-                    </div>
-                </li>
-            </div>
-
-            <div class="opc" id="checkoutSteps">
-                <div id="pickup">
-                    <form method="post" action="{% url 'checkout:pickup' %}">
-                        {% csrf_token %}
-                        <div class="field">
-                            <label class="field">Phone number</label>
-                            <div class="control">
-                                <input class="input-text" type="text" id="pickupPhone"
-                                       name="pickupPhone" placeholder="Enter Your Phone number" required>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="field">
-                            <label>Pickup Station</label>
-                            <div class="control">
-                                <input class="input-text" type="text" id="discount-code"
-                                       name="discount_code"
-                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"
-                                       readonly placeholder="Enter Your Email">
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
-                                class="label ">CONFIRM ORDER</span></button>
-                    </form>
-                </div>
-                <div class="card m-auto" style="margin: auto">
-
-                    <div class="card-body">
-                        <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">
-                            {% csrf_token %}
-                            <div class="subt color-default -fwm -pbm">How do you want to pay for your order?
-                            </div>
-                            <div class="list list-options">
-                                <div class="list--item list--item-options -ptxl brdb -pbxl">
-                                    <input class="osh-radio option" value="paynow"
-                                           checked="checked" type="radio"
-                                           name="payment_option"/>
-                                    <label class="-fwm"><span
-                                            class="-prm"><img
-                                            src="https://static.jumia.co.ke/cms/Jumia_Pay/mpesamastercard.png"
-                                            alt=""/></span>Pay Now</label>
-                                    <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">
-                                        <div class="title -hidden"> Pay now fast and securely with M-PESA,
-                                            Airtel, DTB Mobile
-                                            Banking, Mastercard or Visa
-                                        </div>
-                                        <div class="additional-data"></div>
-                                        <div class="description "><br>- Your security is our #1 priority. You
-                                            keep control of
-                                            every transaction and are protected against fraud and theft.
-                                            <br>-Before you proceed, please make sure you have enough money
-                                            in your account.
-                                            <br>
-                                        </div>
-                                        <div class="additional-data"></div>
+                                <div class="osh-resume -mtxl -plm -prm">
+                                    <div class="ft-subtotal color-default -pbm price_row "><span
+                                            class="price_col-desc">Subtotal</span> <span
+                                            class="price_col-value"><span
+                                            data-currency-iso="KES">KSh</span> {{ order.subtotal|floatformat:"0"|intcomma }}<span
+                                            dir="ltr"
+                                    ></span>  </span><span
+                                            class="price_col-value not_applicable-box -b color-primary -hidden"></span>
                                     </div>
-                                    <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>
-                                        <span dir="ltr"
-                                              data-price="1107"></span>
+                                    <div class=" color-default -pbm price_row "><span
+                                            class="price_col-desc">VAT</span> <span
+                                            class="price_col-value"><span data-currency-iso="KES">KSh</span> 0.00 <span
+                                            dir="ltr"
+                                            data-price="13.26"></span>  </span><span
+                                            class="price_col-value not_applicable-box -b color-primary -hidden"></span>
+                                    </div>
+                                    <div class="applied-shipping ft-shipping-amount color-default -pbm price_row "><span
+                                            class="price_col-desc">Local delivery fees</span> <span
+                                            class="price_col-value -b "><span
+                                            data-currency-iso="KES">KSh</span> 0.00 <span dir="ltr"
+                                                                                          data-price="108"></span>  </span><span
+                                            class="price_col-value not_applicable-box -b color-primary -hidden"></span>
+                                    </div>
+                                    <div class="cart-rules js-cart-rules ft-price-cart-rules"></div>
+                                    <div class="total ft-total brdt -ptl color-default -fwm"> Total
+                                        <div class="total-value color-primary -fs-17"><span
+                                                data-currency-iso="KES">KSh</span>
+                                            <span dir="ltr">{{ order.get_total|floatformat:"0"|intcomma }}</span></div>
+                                        <div class="not_applicable-box color-primary -fs-17 -hidden"></div>
                                     </div>
                                 </div>
-                                <div class="list--item list--item-options -ptxl -pbxl">
-                                    <input class="osh-radio option" value="payondelivery"
-                                           id="MpesaOnDelivery_CashOnDelivery" type="radio"
-                                           name="payment_option"/>
-                                    <label class="-fwm" for="MpesaOnDelivery_CashOnDelivery"><span class="-prm"><img
-                                            src="https://static.jumia.co.ke/cms/mpesa.png" alt=""/></span>M-PESA On
-                                        Delivery</label>
-                                    <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">
-                                        <div> Pay M-PESA at your doorstep/pickup station.<br/>
-                                            <br/>
-                                        </div>
-                                        <div class="additional-data -hidden"></div>
-                                        <div class="description  -hidden"><p>Pay for your package when our
-                                            delivery associate
-                                            brings it to your doorstep or when you pick it up at one of our
-                                            pickup stations.
-                                            <br/> <br/>We encourage you to Pay Online - it saves you time &amp;
-                                            money</p></div>
-                                        <div class="additional-data -hidden"></div>
-                                    </div>
-                                    <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>
-                                        <span dir="ltr"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="-pbxxl">
-                                <div class="subt color-default -fwm -fs-14 -ptl -pbxs">Do you have a voucher?
-                                </div>
-                                <div class="vch_box brda">
-                                    <input id="opc-cart-promocode"
-                                           class="vch_input -pal -fs-14 ft-voucher-input"
-                                           placeholder="Enter voucher code here" type="text" value=""
-                                           name="couponcode"/>
-                                    <button name="addCoupon" class="osh-btn ft-apply-voucher js-throttle "
-                                            style="font-size: 12px"><span
-                                            class="label ">Add voucher</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="osh-resume -mtxl -plm -prm">
-                                <div class="ft-subtotal color-default -pbm price_row "><span
-                                        class="price_col-desc">Subtotal</span> <span
-                                        class="price_col-value"><span
-                                        data-currency-iso="KES">KSh</span> {{ order.subtotal|floatformat:"0"|intcomma }}<span
-                                        dir="ltr"
-                                ></span>  </span><span
-                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>
-                                </div>
-                                <div class=" color-default -pbm price_row "><span
-                                        class="price_col-desc">VAT</span> <span
-                                        class="price_col-value"><span data-currency-iso="KES">KSh</span> 0.00 <span
-                                        dir="ltr"
-                                        data-price="13.26"></span>  </span><span
-                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>
-                                </div>
-                                <div class="applied-shipping ft-shipping-amount color-default -pbm price_row "><span
-                                        class="price_col-desc">Local delivery fees</span> <span
-                                        class="price_col-value -b "><span
-                                        data-currency-iso="KES">KSh</span> 0.00 <span dir="ltr"
-                                                                                      data-price="108"></span>  </span><span
-                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>
-                                </div>
-                                <div class="cart-rules js-cart-rules ft-price-cart-rules"></div>
-                                <div class="total ft-total brdt -ptl color-default -fwm"> Total
-                                    <div class="total-value color-primary -fs-17"><span
-                                            data-currency-iso="KES">KSh</span>
-                                        <span dir="ltr">{{ order.get_total|floatformat:"0"|intcomma }}</span></div>
-                                    <div class="not_applicable-box color-primary -fs-17 -hidden"></div>
-                                </div>
-                            </div>
-                            <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
-                                    class="label ">CONFIRM ORDER</span></button>
-                        </form>
+                                <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span
+                                        class="label ">CONFIRM ORDER</span></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
+
+
+        {#        <div class="column main"><input name="form_key" type="hidden" value="1uKeWrt1uSfUno1k">#}
+        {#            <div id="authenticationPopup" style="display: none;"></div>#}
+        {#            <div id="checkout" data-bind="scope:'checkout'" class="checkout-container">#}
+        {#                <div class="authentication-wrapper">#}
+        {#                    <a href="{% url 'cart:home' %}" type="button" class="action action-auth-toggle" id="3">#}
+        {#                        <span>Back to cart</span>#}
+        {#                    </a>#}
+        {#                    <aside role="dialog" class="modal-custom authentication-dropdown custom-slide"#}
+        {#                           aria-describedby="modal-content-10" data-role="modal" data-type="custom" tabindex="0">#}
+        {#                        <div data-role="focusable-start" tabindex="0"></div>#}
+        {#                        <div class="modal-inner-wrap" data-role="focusable-scope">#}
+        {#                            <header class="modal-header">#}
+        {#                                <button class="action-close" data-role="closeBtn" type="button">#}
+        {#                                    <span>Close</span>#}
+        {#                                </button>#}
+        {#                            </header>#}
+        {#                            <div id="modal-content-10" class="modal-content" data-role="content">#}
+        {#                                <div class="block-authentication">#}
+        {#                                    <div class="block block-customer-login">#}
+        {#                                        <div class="block-title">#}
+        {#                                            <strong id="block-customer-login-heading" role="heading" aria-level="2"#}
+        {#                                                    data-bind="i18n: 'Sign In'">Sign In</strong>#}
+        {#                                        </div>#}
+        {#                                        <div data-role="checkout-messages" class="messages"></div>#}
+        {#                                        <div class="block-content" aria-labelledby="block-customer-login-heading">#}
+        {#                                            <form data-role="login" method="post">#}
+        {#                                                <div class="fieldset">#}
+        {#                                                    <div class="field field-email required">#}
+        {#                                                        <label class="label" for="login-email"><span#}
+        {#                                                                data-bind="i18n: 'Email Address'">Email Address</span></label>#}
+        {#                                                        <div class="control">#}
+        {#                                                            <input type="email" class="input-text" id="login-email"#}
+        {#                                                                   name="username" autocomplete="off">#}
+        {#                                                        </div>#}
+        {#                                                    </div>#}
+        {#                                                    <div class="field field-password required">#}
+        {#                                                        <label for="login-password" class="label">#}
+        {#                                                            <span>Password</span>#}
+        {#                                                        </label>#}
+        {#                                                        <div class="control">#}
+        {#                                                            <input type="password" class="input-text"#}
+        {#                                                                   id="login-password" name="password"#}
+        {#                                                                   autocomplete="off">#}
+        {#                                                        </div>#}
+        {#                                                    </div>#}
+        {#                                                    <input name="captcha_form_id" type="hidden"#}
+        {#                                                           value="user_login" data-scope="">#}
+        {#                                                </div>#}
+        {#                                                <div class="actions-toolbar">#}
+        {#                                                    <input name="context" type="hidden" value="checkout">#}
+        {#                                                    <div class="primary">#}
+        {#                                                        <button type="submit" class="action action-login secondary">#}
+        {#                                                            <span>Sign In</span>#}
+        {#                                                        </button>#}
+        {#                                                    </div>#}
+        {#                                                    <div class="secondary">#}
+        {#                                                        <a class="action action-remind" href="#">#}
+        {#                                                            <span>Forgot Your Password?</span>#}
+        {#                                                        </a>#}
+        {#                                                    </div>#}
+        {#                                                </div>#}
+        {#                                            </form>#}
+        {#                                        </div>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {##}
+        {#                        </div>#}
+        {#                        <div data-role="focusable-end" tabindex="0"></div>#}
+        {#                    </aside>#}
+        {#                </div>#}
+        {##}
+        {#                <div data-role="checkout-messages" class="messages">#}
+        {#                    {% if messages %}#}
+        {#                        {% for message in messages %}#}
+        {#                            <div {% if message.tags %}#}
+        {#                                class="alert alert-danger {{ message.tags }}" {% endif %} >#}
+        {#                                <button class="close" data-close="alert"></button>#}
+        {#                                {{ message }}#}
+        {#                            </div>#}
+        {#                        {% endfor %}#}
+        {#                    {% endif %}#}
+        {#                </div>#}
+        {#                <div class="opc-wrapper">#}
+        {#                    <div class="opc" id="checkoutSteps">#}
+        {#                        <div class="row">#}
+        {##}
+        {#                            {% if shipping_addres %}#}
+        {#                                <li id="shipping" class="checkout-shipping-address col-md-4 ">#}
+        {#                                    <div class="step-title" data-role="title">Shipping Address</div>#}
+        {#                                    <div id="checkout-step-shipping" class="step-content shipping" data-role="content">#}
+        {#                                        {% for shipping in shipping_addres %}#}
+        {#                                            <div class="field addresses">#}
+        {#                                                <div class="control">#}
+        {#                                                    <div class="shipping-address-items">#}
+        {#                                                        <div class="shipping-address-item selected-item">#}
+        {#                                                            {{ shipping.user.first_name }} {{ shipping.user.last_name }}<br/>#}
+        {#                                                            {{ shipping.delivery_address }}<br/>#}
+        {#                                                            {{ shipping.region }}<br/>#}
+        {#                                                            {{ shippingcountry.name }}<br/>#}
+        {#                                                            Tel: <a#}
+        {#                                                                href="tel:{{ shipping.mobile_phone }}">{{ shipping.mobile_phone }}</a>#}
+        {#                                                            <br>#}
+        {#                                                        </div>#}
+        {#                                                    </div>#}
+        {#                                                </div>#}
+        {#                                            </div>#}
+        {#                                            <div class="new-address-popup">#}
+        {#                                                <button type="button" class="action  action-show-popup"#}
+        {#                                                        data-toggle="modal"#}
+        {#                                                        data-target="#responsive2">#}
+        {#                                                    <span>Edit Shipping Address</span>#}
+        {#                                                </button>#}
+        {#                                            </div>#}
+        {#                                        {% endfor %}#}
+        {#                                    </div>#}
+        {#                                <div id="pickup">#}
+        {#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+        {#                                        {% csrf_token %}#}
+        {#                                        <div class="field">#}
+        {#                                            <label class="field">Phone number</label>#}
+        {#                                            <div class="control">#}
+        {#                                                <input class="input-text" type="text" id="pickupPhone"#}
+        {#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <br>#}
+        {#                                        <div class="field">#}
+        {#                                            <label>Pickup Station</label>#}
+        {#                                            <div class="control">#}
+        {#                                                <input class="input-text" type="text" id="discount-code"#}
+        {#                                                       name="discount_code"#}
+        {#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+        {#                                                       readonly placeholder="Enter Your Email">#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <br>#}
+        {#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+        {#                                            <span>Place Order</span>#}
+        {#                                        </button>#}
+        {#                                    </form>#}
+        {#                                </div>#}
+        {#                                </li>#}
+        {#                            {% else %}#}
+        {#                                <li id="shipping" class="checkout-shipping-address ">#}
+        {#                                    <div class="step-title" data-role="title">Shipping Address</div>#}
+        {#                                    <div class="new-address-popup">#}
+        {#                                        <button type="button" id="addressAdd" class="action  action-show-popup"#}
+        {#                                                data-toggle="modal" data-target="#responsive">#}
+        {#                                            <span>Add shipping Address</span>#}
+        {#                                        </button>#}
+        {#                                    </div>#}
+        {#                                <div id="pickup">#}
+        {#                                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+        {#                                        {% csrf_token %}#}
+        {#                                        <div class="field">#}
+        {#                                            <label class="field">Phone number</label>#}
+        {#                                            <div class="control">#}
+        {#                                                <input class="input-text" type="text" id="pickupPhone"#}
+        {#                                                       name="pickupPhone" placeholder="Enter Your Phone number">#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <br>#}
+        {#                                        <div class="field">#}
+        {#                                            <label>Pickup Station</label>#}
+        {#                                            <div class="control">#}
+        {#                                                <input class="input-text" type="text" id="discount-code"#}
+        {#                                                       name="discount_code"#}
+        {#                                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+        {#                                                       readonly placeholder="Enter Your Email">#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <br>#}
+        {#                                        <button type="submit" id="addressAdd" class="action  action-show-popup">#}
+        {#                                            <span>Place Order</span>#}
+        {#                                        </button>#}
+        {#                                    </form>#}
+        {#                                </div>#}
+        {#                                </li>#}
+        {#                            {% endif %}#}
+        {#                            <li id="opc-shipping_method" role="presentation" class=" col-md-4">#}
+        {#                                <div id="checkout-step-payment" class="step-content " data-role="content"#}
+        {#                                     role="tabpanel"#}
+        {#                                     aria-hidden="false">#}
+        {#                                    <form id="co-payment-form" class="form payments">#}
+        {#                                        <input type="hidden" name="form_key" value="">#}
+        {#                                        <fieldset class="fieldset">#}
+        {#                                            <div class="step-title">Delivery Method</div>#}
+        {#                                            <div id="checkout-payment-method-load" class="opc-payment">#}
+        {#                                                <div class="items payment-methods">#}
+        {#                                                    <div class="payment-group" data-repeat-index="0">#}
+        {#                                                        <div class="payment-method"#}
+        {#                                                             style="float: left;margin: 2px 0 0 2px">#}
+        {#                                                            <div class="cc-selector">#}
+        {#                                                                <input id="visa" type="radio" name="bn"#}
+        {#                                                                       checked="checked" value="1"/>#}
+        {#                                                                <label class="drinkcard-cc visa" for="visa"> Deliver to#}
+        {#                                                                    my#}
+        {#                                                                    location</label>#}
+        {#                                                                <input id="mastercard" type="radio" name="bn"#}
+        {#                                                                       value="0"/>#}
+        {#                                                                <label class="drinkcard-cc mastercard" for="mastercard">Pick#}
+        {#                                                                    from Store</label>#}
+        {##}
+        {#                                                            </div>#}
+        {#                                                        </div>#}
+        {#                                                        <div style="text-align: center;margin-top: 80px; border: 1px solid #ebebeb;border-radius:10px;"#}
+        {#                                                             class="cardpayment hideable_shipping_form" style="">#}
+        {#                                                            <img src="{% static 'images/credit-card-logos.jpg' %}"#}
+        {#                                                                 width="250">#}
+        {#                                                            <form action="" method="post" id="payment-form"#}
+        {#                                                                  style="text-align: center;">#}
+        {#                                                                {% csrf_token %}#}
+        {#                                                                <div style="width: 75%; height: 25px;">#}
+        {#                                                                    <input id="input" type="hidden" name="amount"#}
+        {#                                                                           value="{{ total }}" readonly>#}
+        {#                                                                </div>#}
+        {##}
+        {#                                                                <div class="form-row" style="margin-bottom: 20px;">#}
+        {#                                                                    <label for="card-element">#}
+        {##}
+        {#                                                                    </label>#}
+        {#                                                                    <div id="card-element"#}
+        {#                                                                         class="StripeElement StripeElement--empty">#}
+        {#                                                                        <div class="__PrivateStripeElement"#}
+        {#                                                                             style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">#}
+        {#                                                                            <iframe frameborder="0"#}
+        {#                                                                                    allowtransparency="true"#}
+        {#                                                                                    scrolling="no"#}
+        {#                                                                                    name="__privateStripeFrame5"#}
+        {#                                                                                    allowpaymentrequest="true"#}
+        {#                                                                                    src="https://js.stripe.com/v3/elements-inner-card-19066928f2ed1ba3ffada645e45f5b50.html#style[base][color]=%2332325d&amp;style[base][fontFamily]=%22Helvetica+Neue%22%2C+Helvetica%2C+sans-serif&amp;style[base][fontSmoothing]=antialiased&amp;style[base][fontSize]=16px&amp;style[base][::placeholder][color]=%23aab7c4&amp;style[invalid][color]=%23fa755a&amp;style[invalid][iconColor]=%23fa755a&amp;componentName=card&amp;wait=false&amp;rtl=false&amp;keyMode=test&amp;origin=https%3A%2F%2Fstripe.com&amp;referrer=https%3A%2F%2Fstripe.com%2Fdocs%2Fstripe-js&amp;controllerId=__privateStripeController1"#}
+        {#                                                                                    title="Secure payment input frame"#}
+        {#                                                                                    style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; height: 19.2px;"></iframe>#}
+        {#                                                                            <input class="__PrivateStripeElement-input"#}
+        {#                                                                                   aria-hidden="true" aria-label=" "#}
+        {#                                                                                   autocomplete="false" maxlength="1"#}
+        {#                                                                                   style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">#}
+        {#                                                                        </div>#}
+        {#                                                                    </div>#}
+        {#                                                                    <!-- Used to display form errors. -->#}
+        {#                                                                    <div id="card-errors" role="alert"></div>#}
+        {#                                                                </div>#}
+        {#                                                                <button id="sb">Submit Payment</button>#}
+        {#                                                            </form>#}
+        {#                                                        </div>#}
+        {##}
+        {#                                                    </div>#}
+        {#                                                </div>#}
+        {#                                            </div>#}
+        {#                                            <div class="no-quotes-block"#}
+        {#                                                 style="display: none;">#}
+        {#                                                <span>No Payment method available.</span>#}
+        {#                                            </div>#}
+        {#                                        </fieldset>#}
+        {#                                    </form>#}
+        {#                                </div>#}
+        {#                            </li>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <li id="opc-sidebar">#}
+        {#                    <div class="opc-block-summary">#}
+        {#                        <span class="title">Order Summary</span>#}
+        {#                        <div class="block items-in-cart active"#}
+        {#                             data-collapsible="true" role="tablist">#}
+        {#                            <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="true"#}
+        {#                                 tabindex="0">#}
+        {#                                <strong role="heading" aria-level="1">#}
+        {#                                        <span>#}
+        {#                                            {% if request.user.is_authenticated %}#}
+        {#                                                {{ request.user|cart_item_count }}#}
+        {#                                            {% endif %}#}
+        {#                                        </span>#}
+        {#                                    <span>Item in Cart</span>#}
+        {#                                </strong>#}
+        {#                            </div>#}
+        {##}
+        {#                            <div class="content minicart-items" data-role="content" role="tabpanel"#}
+        {#                                 aria-hidden="false">#}
+        {##}
+        {#                                <div class="minicart-items-wrapper">#}
+        {#                                    {% for cart_items in order.cart.all %}#}
+        {#                                        <ol class="minicart-items">#}
+        {#                                            <li class="product-item">#}
+        {#                                                <div class="product">#}
+        {##}
+        {#                                                    <span class="product-image-container"#}
+        {#                                                          style="height: 70px; width: 70px;">#}
+        {#                                                        <span class="product-image-wrapper">#}
+        {#                                                        <img#}
+        {#                                                                src="{{ cart_items.product.imageURL }}"#}
+        {#                                                                alt="{{ cart_items.product.title }}"#}
+        {#                                                                title="{{ cart_items.product.title }}" width="140"#}
+        {#                                                                height="140">#}
+        {#                                                        </span>#}
+        {#                                                        </span>#}
+        {#                                                    <div class="product-item-details">#}
+        {#                                                        <div class="product-item-inner">#}
+        {#                                                            <div class="product-item-name-block">#}
+        {#                                                                <strong class="product-item-name">#}
+        {#                                                                    <a href="#">{{ cart_items.product.title }}</a>#}
+        {#                                                                </strong>#}
+        {#                                                                <div class="details-qty">#}
+        {#                                                                    <span class="label"><span>Qty</span>#}
+        {#                                                                        </span>#}
+        {#                                                                    <input type="number" class="input-text qty"#}
+        {#                                                                           title="Qty"#}
+        {#                                                                           value="{{ cart_items.quantity }}">#}
+        {#                                                                    <span class="qty-button">#}
+        {#                                                                    <span class="increase">&nbsp;</span>#}
+        {#                                                                    <span class="decrease" action="decrease"#}
+        {#                                                                          itemid="1250">&nbsp;</span>#}
+        {#                                                                    </span>#}
+        {#                                                                    <span class="error-message"></span>#}
+        {#                                                                </div>#}
+        {#                                                            </div>#}
+        {#                                                            <div class="subtotal">#}
+        {#                                                                <span class="price-excluding-tax">#}
+        {#                                                                <span class="cart-price">#}
+        {#                                                                <span class="price">Ksh{{ cart_items.product.price|intcomma }}</span>#}
+        {#                                                                </span>#}
+        {#                                                                </span>#}
+        {#                                                            </div>#}
+        {#                                                        </div>#}
+        {#                                                    </div>#}
+        {#                                                </div>#}
+        {#                                            </li>#}
+        {#                                        </ol>#}
+        {#                                    {% endfor %}#}
+        {#                                </div>#}
+        {##}
+        {#                            </div>#}
+        {##}
+        {#                        </div>#}
+        {#                        <table class="data table table-totals">#}
+        {#                            <caption class="table-caption" data-bind="i18n: 'Order Summary'">Order Summary</caption>#}
+        {#                            <tbody>#}
+        {#                            <tr class="totals sub">#}
+        {#                                <th class="mark" scope="row">Cart Subtotal</th>#}
+        {#                                <td class="amount">#}
+        {#                                    <span class="price"#}
+        {#                                          data-th="Cart Subtotal">Ksh. {{ order.subtotal|floatformat:"0"|intcomma }}</span>#}
+        {#                                </td>#}
+        {#                            </tr>#}
+        {##}
+        {#                            <tr class="totals shipping excl">#}
+        {#                                <th class="mark" scope="row">#}
+        {#                                    <span class="" data-bind="i18n: title">Shipping</span>#}
+        {#                                    <span class="value"#}
+        {#                                          data-bind="text: getShippingMethodTitle()">Flat Rate - Fixed</span>#}
+        {#                                </th>#}
+        {#                                <td class="amount">#}
+        {#                                    <span class="price" data-th="Shipping">Ksh. 00</span>#}
+        {#                                </td>#}
+        {#                            </tr>#}
+        {##}
+        {#                            <tr class="grand totals">#}
+        {#                                <th class="mark" scope="row">#}
+        {#                                    <strong>Order Total</strong>#}
+        {#                                </th>#}
+        {#                                <td class="amount" data-th="Order Total">#}
+        {#                                    <strong><span#}
+        {#                                            class="price">Ksh. {{ order.get_total|floatformat:"0"|intcomma }}</span></strong>#}
+        {#                                </td>#}
+        {#                            </tr>#}
+        {##}
+        {#                            </tbody>#}
+        {#                        </table>#}
+        {##}
+        {#                    </div>#}
+        {#                </li>#}
+        {#            </div>#}
+        {##}
+        {#            <div class="opc" id="checkoutSteps">#}
+        {#                <div id="pickup">#}
+        {#                    <form method="post" action="{% url 'checkout:pickup' %}">#}
+        {#                        {% csrf_token %}#}
+        {#                        <div class="field">#}
+        {#                            <label class="field">Phone number</label>#}
+        {#                            <div class="control">#}
+        {#                                <input class="input-text" type="text" id="pickupPhone"#}
+        {#                                       name="pickupPhone" placeholder="Enter Your Phone number" required>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                        <br>#}
+        {#                        <div class="field">#}
+        {#                            <label>Pickup Station</label>#}
+        {#                            <div class="control">#}
+        {#                                <input class="input-text" type="text" id="discount-code"#}
+        {#                                       name="discount_code"#}
+        {#                                       value="RNG Plaza, 6th floor, Ronald Ngala street, Nairobi Kenya"#}
+        {#                                       readonly placeholder="Enter Your Email">#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                        <br>#}
+        {#                        <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span#}
+        {#                                class="label ">CONFIRM ORDER</span></button>#}
+        {#                    </form>#}
+        {#                </div>#}
+        {#                <div class="card m-auto" style="margin: auto">#}
+        {##}
+        {#                    <div class="card-body">#}
+        {#                        <form class="-validate-form" action="{% url 'orders:confirmpayment' %}" method="post">#}
+        {#                            {% csrf_token %}#}
+        {#                            <div class="subt color-default -fwm -pbm">How do you want to pay for your order?#}
+        {#                            </div>#}
+        {#                            <div class="list list-options">#}
+        {#                                <div class="list--item list--item-options -ptxl brdb -pbxl">#}
+        {#                                    <input class="osh-radio option" value="paynow"#}
+        {#                                           checked="checked" type="radio"#}
+        {#                                           name="payment_option"/>#}
+        {#                                    <label class="-fwm"><span#}
+        {#                                            class="-prm"><img#}
+        {#                                            src="https://static.jumia.co.ke/cms/Jumia_Pay/mpesamastercard.png"#}
+        {#                                            alt=""/></span>Pay Now</label>#}
+        {#                                    <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">#}
+        {#                                        <div class="title -hidden"> Pay now fast and securely with M-PESA,#}
+        {#                                            Airtel, DTB Mobile#}
+        {#                                            Banking, Mastercard or Visa#}
+        {#                                        </div>#}
+        {#                                        <div class="additional-data"></div>#}
+        {#                                        <div class="description "><br>- Your security is our #1 priority. You#}
+        {#                                            keep control of#}
+        {#                                            every transaction and are protected against fraud and theft.#}
+        {#                                            <br>-Before you proceed, please make sure you have enough money#}
+        {#                                            in your account.#}
+        {#                                            <br>#}
+        {#                                        </div>#}
+        {#                                        <div class="additional-data"></div>#}
+        {#                                    </div>#}
+        {#                                    <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>#}
+        {#                                        <span dir="ltr"#}
+        {#                                              data-price="1107"></span>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="list--item list--item-options -ptxl -pbxl">#}
+        {#                                    <input class="osh-radio option" value="payondelivery"#}
+        {#                                           id="MpesaOnDelivery_CashOnDelivery" type="radio"#}
+        {#                                           name="payment_option"/>#}
+        {#                                    <label class="-fwm" for="MpesaOnDelivery_CashOnDelivery"><span class="-prm"><img#}
+        {#                                            src="https://static.jumia.co.ke/cms/mpesa.png" alt=""/></span>M-PESA On#}
+        {#                                        Delivery</label>#}
+        {#                                    <div class="color-default-800 -fs-13 -plxxxl -mtxs" id="content">#}
+        {#                                        <div> Pay M-PESA at your doorstep/pickup station.<br/>#}
+        {#                                            <br/>#}
+        {#                                        </div>#}
+        {#                                        <div class="additional-data -hidden"></div>#}
+        {#                                        <div class="description  -hidden"><p>Pay for your package when our#}
+        {#                                            delivery associate#}
+        {#                                            brings it to your doorstep or when you pick it up at one of our#}
+        {#                                            pickup stations.#}
+        {#                                            <br/> <br/>We encourage you to Pay Online - it saves you time &amp;#}
+        {#                                            money</p></div>#}
+        {#                                        <div class="additional-data -hidden"></div>#}
+        {#                                    </div>#}
+        {#                                    <div class="js-grand-total -hidden"><span data-currency-iso="KES">KSh</span>#}
+        {#                                        <span dir="ltr"></span>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                            <div class="-pbxxl">#}
+        {#                                <div class="subt color-default -fwm -fs-14 -ptl -pbxs">Do you have a voucher?#}
+        {#                                </div>#}
+        {#                                <div class="vch_box brda">#}
+        {#                                    <input id="opc-cart-promocode"#}
+        {#                                           class="vch_input -pal -fs-14 ft-voucher-input"#}
+        {#                                           placeholder="Enter voucher code here" type="text" value=""#}
+        {#                                           name="couponcode"/>#}
+        {#                                    <button name="addCoupon" class="osh-btn ft-apply-voucher js-throttle "#}
+        {#                                            style="font-size: 12px"><span#}
+        {#                                            class="label ">Add voucher</span>#}
+        {#                                    </button>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                            <div class="osh-resume -mtxl -plm -prm">#}
+        {#                                <div class="ft-subtotal color-default -pbm price_row "><span#}
+        {#                                        class="price_col-desc">Subtotal</span> <span#}
+        {#                                        class="price_col-value"><span#}
+        {#                                        data-currency-iso="KES">KSh</span> {{ order.subtotal|floatformat:"0"|intcomma }}<span#}
+        {#                                        dir="ltr"#}
+        {#                                ></span>  </span><span#}
+        {#                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>#}
+        {#                                </div>#}
+        {#                                <div class=" color-default -pbm price_row "><span#}
+        {#                                        class="price_col-desc">VAT</span> <span#}
+        {#                                        class="price_col-value"><span data-currency-iso="KES">KSh</span> 0.00 <span#}
+        {#                                        dir="ltr"#}
+        {#                                        data-price="13.26"></span>  </span><span#}
+        {#                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>#}
+        {#                                </div>#}
+        {#                                <div class="applied-shipping ft-shipping-amount color-default -pbm price_row "><span#}
+        {#                                        class="price_col-desc">Local delivery fees</span> <span#}
+        {#                                        class="price_col-value -b "><span#}
+        {#                                        data-currency-iso="KES">KSh</span> 0.00 <span dir="ltr"#}
+        {#                                                                                      data-price="108"></span>  </span><span#}
+        {#                                        class="price_col-value not_applicable-box -b color-primary -hidden"></span>#}
+        {#                                </div>#}
+        {#                                <div class="cart-rules js-cart-rules ft-price-cart-rules"></div>#}
+        {#                                <div class="total ft-total brdt -ptl color-default -fwm"> Total#}
+        {#                                    <div class="total-value color-primary -fs-17"><span#}
+        {#                                            data-currency-iso="KES">KSh</span>#}
+        {#                                        <span dir="ltr">{{ order.get_total|floatformat:"0"|intcomma }}</span></div>#}
+        {#                                    <div class="not_applicable-box color-primary -fs-17 -hidden"></div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                            <button type="submit" class="osh-btn -primary -full-width -mtxxl js-throttle"><span#}
+        {#                                    class="label ">CONFIRM ORDER</span></button>#}
+        {#                        </form>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
 
         </div>
         </div>
@@ -1171,6 +1294,8 @@
     $(document).ready(function () {
         {#$("#pickup").fadeOut("slow");#}
         var hideable_shipping_form = $('#pickup');
+        var shipping_form = $('.card');
+        shipping_form.hide()
         hideable_shipping_form.hide()
         $("input[name$='bn']").click(function () {
             var radio_value = $(this).val();
