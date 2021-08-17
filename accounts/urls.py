@@ -16,6 +16,5 @@ urlpatterns = [
     path('orders', orders, name='orders'),
     path('newslettersubscription', newsletter, name='newsletter'),
     path('vieworderdetails/(?P<id>)/$', OrderdetailView.as_view(), name='orderdetails'),
-    # path('mywishlist/', createAccount, name='account'),
 
 ]
