@@ -109,16 +109,19 @@
 
     $(document).ready(function (){
         $.ajax({
-            url: '/',
+            url: '/home/',
+            method: 'get',
             dataType: 'json',
             beforeSend: function (){
 
             },
-            success: function (){
+            success: function (response){
+                 console.log(response)
+                $("#ajaxnewarivals").html(response.data)
 
             },
-            error: function (){
-
+            error: function (error){
+                console.log(error)
             }
         })
     });

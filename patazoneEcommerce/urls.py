@@ -33,7 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminpage/', include('Admin.urls', namespace="Admins")),
     path('', product, name="home"),
-    path('', ajaxDisplayProducts, name="home2"),
+    path('home/', ajaxDisplayProducts, name="home2"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('about/', aboutpage, name="about"),
     path('contactus/', contactus, name="contact"),

@@ -54,5 +54,5 @@ def ajaxDisplayProducts(request):
         'topselling': topselling,
         'electronics': electronics,
     }
-    endproductdata = render_to_string('homepage.html', context)
+    endproductdata = render_to_string('homeview.html', context)
     return JsonResponse({'data': endproductdata})
