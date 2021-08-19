@@ -128,15 +128,10 @@
     });
 
 </script>
-{#<script>#}
-{##}
-{#      var BASE_URL =#}
-{#        "https\u003A\u002F\u002Fpatazone.herokuapp.com\u002F";#}
-{#      var require = {#}
-{#        baseUrl:#}
-{#          "https\u003A\u002F\u002Fpatazone.herokuapp.com\u002Fstatic\u002Fjs\u002Fpatazone_ui",#}
-{#      };#}
-{#    </script>#}
+<script src="{% static 'jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/global/plugins/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="/static/js/patazone_ui/jquery/jquery.mobile.custom.js" type="text/javascript"></script>
+
 <script  crossorigin="anonymous">
     var BASE_URL = 'https\u003A\u002F\u002Fmageblueskytech.com\u002Fdukamarket\u002Fen3\u002F';
     var require = {
