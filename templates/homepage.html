@@ -258,7 +258,120 @@
                             </div>
                         </div>
                         <div class="products wrapper grid products-grid" id="ajaxnewarivals">
+                            <div class="products list items product-items owl-carousel owl-theme" data-rtl="false"
+     data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
+     data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
+     data-loop="false"
+     data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1"
+     data-nav="true"
+     data-navnext="" data-navprev="" data-rewind="false" data-dots="false"
+     data-autoplay="true"
+     data-speed="500">
 
+    {% for product in products %}
+        <div class="item-load group-rows-fixed-supper-deal item-row">
+            <div class="item product product-item">
+                <div class="product-item-info">
+                    <a href="{% url 'cart:productdetails' product.id product.category %}"
+                       class="product photo product-item-photo" tabindex="-1">
+                                                  <span class="image0 image-switch product-image-container">
+                                                    <img class="product-image"
+                                                         src='{{ product.imageURL }}' width="550" height="550"
+                                                         alt="{{ product.title|truncatechars:20 }}"/>
+                                                  </span>
+                                                </a>
+                                                <div class="product details product-item-details">
+                                                    <strong class="product name product-item-name">
+                                                        <a class="product-item-link"
+                                                           href="{% url 'cart:productdetails' product.id product.category %}">
+                                                            {{ product.title|truncatechars:25 }}
+                                                        </a>
+                                                    </strong>
+                                                    <div class="product-reviews-summary" itemscope>
+                                                        <div class="rating-summary">
+                                                            <span class="label"><span>Rating:</span></span>
+                                                            <div class="rating-result" title="60%">
+                                                                <span style="width: 60%"> </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="reviews-actions">
+                                                            <a class="action view"
+                                                               href="#">
+                                                                <span itemscope>1</span>&nbsp;
+                                                                <span>Review</span>
+                                                            </a>
+                                                            <a class="action add"
+                                                               href="#">Add
+                                                                Your Review</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box price-final_price" data-role="priceBox"
+                                                         data-product-id="4"
+                                                         data-price-box="product-id-4">
+                                                    <span class="
+                                                                price-container
+                                                                price-final_price&#x20;tax&#x20;weee
+                                                              ">
+                                                      <span data-price-amount="70" data-price-type="finalPrice"
+                                                            class="price-wrapper"><span
+                                                              class="price">KES {{ product.price|floatformat:"0"|intcomma }}</span></span>
+                                                    </span>
+                                                    </div>
+                                                    <div class="product-sold">
+                                                        <div class="ruler-sold">
+                                                            <div class="ruler-sold-count" style="width: 30%"></div>
+                                                        </div>
+                                                        <div class="count-sold-available">
+                                                            <div class="count-sold">
+                                                                Sold: <span> 300/700 </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-item-inner">
+                                                        <div class="product actions product-item-actions">
+                                                            <div class="actions-primary">
+                                                                <form data-role="tocart-form" method="POST"
+                                                                      action='{% url 'cart:update' %}'
+                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                        {% if request.user.is_authenticated %}
+                                                                      data-user='abc'
+                                                                        {% endif %}>
+                                                                    {% csrf_token %}
+                                                                    <input type="hidden" name="product_id"
+                                                                           value='{{ product.id }}'
+                                                                            {% if products.is_digital %}
+                                                                           data-is-digital='true'
+                                                                            {% endif %} >
+                                                                    <button type="submit" title="Add&#x20;to&#x20;Cart"
+                                                                            class="action tocart primary"
+                                                                            onclick="updateCat(event, {{ product.id }})">
+                                                                        <span>Add to Cart</span>
+                                                                    </button>
+
+                                                                </form>
+
+                                                            </div>
+                                                            <div data-role="add-to-links" class="actions-secondary" style="font-size: 13px">
+                                                                <a href="#" class="action towishlist" title="Add to Wish List"
+                                                                   aria-label="Add to Wish List"
+                                                                   data-action="add-to-wishlist" role="button">
+                                                                    <span>Wish List</span>
+                                                                </a>
+                                                                <a href="#" class="action tocompare"
+                                                                   title="Add to Compare" aria-label="Add to Compare"
+                                                                   role="button">
+                                                                    <span>Add to Compare</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
                         </div>
                     </div>
                     <div>

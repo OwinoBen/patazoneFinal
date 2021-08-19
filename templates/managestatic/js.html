@@ -113,11 +113,11 @@
             method: 'get',
             dataType: 'json',
             beforeSend: function (){
-                $("#ajaxnewarivals").html("Fetching data...")
+                $("#ajaxnewarival").html("Fetching data...")
             },
             success: function (response){
                  console.log(response)
-                $("#ajaxnewarivals").html(response.data)
+                $("#ajaxnewarival").html(response.data)
 
             },
             error: function (error){

@@ -1,20 +1,20 @@
 {% load humanize %}
- <div class="products list items product-items owl-carousel owl-theme" data-rtl="false"
-                                 data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
-                                 data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
-                                 data-loop="false"
-                                 data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1"
-                                 data-nav="true"
-                                 data-navnext="" data-navprev="" data-rewind="false" data-dots="false"
-                                 data-autoplay="true"
-                                 data-speed="500">
+<div class="products list items product-items owl-carousel owl-theme" data-rtl="false"
+     data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
+     data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
+     data-loop="false"
+     data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1"
+     data-nav="true"
+     data-navnext="" data-navprev="" data-rewind="false" data-dots="false"
+     data-autoplay="true"
+     data-speed="500">
 
-                                {% for product in products %}
-                                    <div class="item-load group-rows-fixed-supper-deal item-row">
-                                        <div class="item product product-item">
-                                            <div class="product-item-info">
-                                                <a href="{% url 'cart:productdetails' product.id product.category %}"
-                                                   class="product photo product-item-photo" tabindex="-1">
+    {% for product in products %}
+        <div class="item-load group-rows-fixed-supper-deal item-row">
+            <div class="item product product-item">
+                <div class="product-item-info">
+                    <a href="{% url 'cart:productdetails' product.id product.category %}"
+                       class="product photo product-item-photo" tabindex="-1">
                                                   <span class="image0 image-switch product-image-container">
                                                     <img class="product-image"
                                                          src='{{ product.imageURL }}' width="550" height="550"
