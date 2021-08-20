@@ -68,97 +68,21 @@
       </div>
     </div>
     <div class="page-wrapper lazyload-image" >
-      <header class="page-header" >
-        <div
-          class="header-container layout-2 layout-3-additional sticky-header"
-        >
-          <div class="topbar hidden-xs hidden-sticky">
-            <div class="container" >
-              <div class="topbar-inner">
-                <div
-                  class="
-                    flex-layout
-                    space-between
-                    center_vertical center-mobile
-                  "
-                >
-                  <div
-                    class="
-                      col-left col-top-link
-                      flex-layout
-                      center_vertical
-                      hidden-sm
-                      no-wrap-desktop
-                    "
-                  >
-                    <div class="language-currency">
-                      <div class="container-setting-language-currency">
-                        <div
-                          class="switcher language switcher-language"
-                          data-ui-id="language-switcher"
-                          id="switcher-language"
-                        >
-                          <strong class="label switcher-label"
-                            ><span>Language</span></strong
-                          >
-                          <div
-                            class="actions dropdown options switcher-options"
-                          >
-                            <div
-                              class="action toggle switcher-trigger"
-                              id="switcher-language-trigger"
-                              data-mage-init='{"dropdown":{}}'
-                              data-toggle="dropdown"
-                              data-trigger-keypress-button="true"
-                            >
-                              <strong class="view-en3">
-                                  <a href="{% url 'Admins:admin-home' %}">
-                                <span>Track My Order</span>
-                                      </a>
-                              </strong>
-                            </div>
+      <header class="page-header">
+        <div class="header-container layout-1 sticky-header">
+            <div class="topbar hidden-xs hidden-sticky">
+                <div class="container">
+                    <div class="topbar-inner">
+                        <div class="flex-layout space-between center_vertical center-mobile">
+                            <div class="col-left col-top-link flex-layout center_vertical hidden-sm no-wrap-desktop">
+                                <div class="language-currency">
 
-                          </div>
-                        </div>
-                        <div
-                          class="switcher currency switcher-currency"
-                          id="switcher-currency"
-                        >
-                          <strong class="label switcher-label"
-                            ><span>Currency</span></strong
-                          >
-                          <div
-                            class="actions dropdown options switcher-options"
-                          >
-                            <div
-                              class="action toggle switcher-trigger"
-                              id="switcher-currency-trigger"
-                              data-mage-init='{"dropdown":{}}'
-                              data-toggle="dropdown"
-                              data-trigger-keypress-button="true"
-                            >
-                              <strong class="language-USD">
-                                <span>KE - Shillings</span>
-                              </strong>
+                                </div>
+                                <div class="hotline"><p>Need Help? <a title="+001 123 456 789" href="tel:+001123456789">+001
+                                    123 456 789</a></p></div>
                             </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="hotline">
-                      <p>
-                        Need Help?
-                        <a title="+254700 588885" href="tel:+254700 588885"
-                          >+254700 588885</a
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    class="col-right col-top-link flex-layout center_vertical"
-                  >
-                    <div class="topbar-menu hozital-menu">
+                            <div class="col-right col-top-link flex-layout center_vertical">
+                                <div class="topbar-menu hozital-menu">
                       <ul class="hozital-menu">
                         <li>
                           <a title="Order Tracking" href="{% url 'register:myaccount' %}"
@@ -176,313 +100,33 @@
                         <li><a title="FAQs" href="{% url 'fqa' %}">FAQs</a></li>
                       </ul>
                     </div>
-                  </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div
-            class="header panel flex-layout-sticky center_vertical no-wrap-desktop">
-            <div class="flex-layout space-between center_vertical no-wrap-desktop header-middle">
-              <div class="logo-container">
-                <div class="logo-site">
+            <div class="header panel flex-layout-sticky center_vertical no-wrap-desktop">
+                <div class="flex-layout space-between center_vertical no-wrap-desktop header-middle">
+                    <div class="logo-container hidden-sticky-desktop">
+                        <div class="logo-site">
                   <span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
                   <a class="logo" href="{% url 'home' %}" title="" aria-label="store logo">
                   <img id="cart-icon" >
                     <img src="{% static '/images/images/images/patazon.svg' %}" title="" alt="" width="201"  />
                   </a>
                 </div>
-                <div class="primary-menu-container mobile-style">
-{#                    <i class="far fa-align-justify" ></i>#}
-                  <i data-action="toggle-nav" class="far fa-align-justify nav-toggle  "><span>Toggle Nav</span></i>
-
-                  <div class="navigation custommenu main-nav nav-sections mobile-style" role="navigation">
-                    <div class="close-menu-mobile">
-                      <a href="#" id="close-menu">Close</a>
                     </div>
-                    <div class="menu-mobile-title d-block d-xl-none" style="background-color: #b92227;">
-                      <a class="active" data-menu="custommenu-list" href="#"
-                        >Menu</a
-                      >
-                    </div>
-                    <ul class="custommenu-list menu">
-                      <li class="ui-menu-item level0 classic">
-                        <a class="level-top" href="{% url 'home' %}">Home</a>
-                      </li>
-                      <li class="ui-menu-item level0 fullwidth menu-item-has-children parent">
-                        <div class="open-children-toggle"></div>
-                        <a href="{% url 'shop' %}" class="level-top">CATEGORIES</a>
-                        <div class="level0 submenu">
-                          <div class="row">
-                            <ul class="subchildmenu col-sm-9 mega-columns columns4">
-                                <li class="ui-menu-item level1">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'supermarket' %}"
-                                      ><span>Patazon Supermarket</span></a>
-                                </li>
-                                <li class="ui-menu-item level1">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'home appliances' %}"
-                                      ><span>Home Appliances</span></a>
-                                </li>
-                              <li class="ui-menu-item level1 parent">
-                                <div class="open-children-toggle"></div>
-                                <a
-                                  href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                  ><span>Computer Accessories</span></a
-                                >
-                                <ul class="subchildmenu">
-                                  <li class="ui-menu-item level2">
-                                    <a href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Desktops </span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Laptops</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Cleaning & Repair</span></a>
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Computer Cable Adapters</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}"
-                                      ><span>Game Hardware</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a href="{% url 'shop:sortedproducts' 'Computer & Tablets' %}">
-                                        <span>Hard Drive Accessories</span></a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="ui-menu-item level1 parent">
-                                <div class="open-children-toggle"></div>
-                                <a href="{% url 'shop:sortedproducts' 'Electronics' %}"><span>Consumer Electronics</span></a>
-                                <ul class="subchildmenu">
-                                    <li class="ui-menu-item level1 parent">
-                                        <div class="open-children-toggle"></div>
-                                        <a href="{% url 'shop:sortedproductsubcategory' 'television' %}"><span>Televisions</span></a>
-                                        <ul class="subchildmenu">
-                                          <li class="ui-menu-item level2">
-                                            <a href="{% url 'shop:sortedproductminorcategory' 'smart tv' %}"><span>- Smart TV's</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'led tv' %}"
-                                              ><span>- LED & LCD Tv's</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'projector' %}"
-                                              ><span>- Projectors</span></a
-                                            >
-                                          </li>
-                                        </ul>
-                                    </li>
-                                    <li class="ui-menu-item level1 parent">
-                                        <div class="open-children-toggle"></div>
-                                        <a href="{% url 'shop:sortedproductsubcategory' 'home audio' %}"><span>Home Audio</span></a>
-                                        <ul class="subchildmenu">
-                                          <li class="ui-menu-item level2">
-                                            <a href="{% url 'shop:sortedproductminorcategory' 'home theatre' %}"><span>- Home Theatre Systems</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'sound bars' %}"
-                                              ><span>- Sound Bars</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'speakers' %}"
-                                              ><span>- Speakers</span></a
-                                            >
-                                          </li>
-                                        </ul>
-                                    </li>
-                                    <li class="ui-menu-item level1 parent">
-                                        <div class="open-children-toggle"></div>
-                                        <a href="{% url 'shop:sortedproductsubcategory' 'accessories' %}"><span>Accessories</span></a>
-                                        <ul class="subchildmenu">
-                                          <li class="ui-menu-item level2">
-                                            <a href="{% url 'shop:sortedproductminorcategory' 'bateries' %}"><span>- Bateries</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'cables' %}"
-                                              ><span>- Cables</span></a
-                                            >
-                                          </li>
-                                          <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'power protection' %}"
-                                              ><span>- Power Protections</span></a
-                                            >
-                                          </li>
-                                            <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'charger' %}"
-                                              ><span>- Chargers</span></a
-                                            >
-                                          </li>
-                                            </li>
-                                            <li class="ui-menu-item level2">
-                                            <a
-                                              href="{% url 'shop:sortedproductminorcategory' 'television accessories' %}"
-                                              ><span>- Television accessories</span></a
-                                            >
-                                          </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                              </li>
-                              <li class="ui-menu-item level1 parent">
-                                <div class="open-children-toggle"></div>
-                                <a
-                                  href="{% url 'shop:sortedproducts' 'Beauty, Health & Hair' %}"
-                                  ><span>Beauty, Health & Hair</span></a
-                                >
-                                <ul class="subchildmenu">
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href={% url 'shop:sortedproductsubcategory' 'makeup' %}
-                                      ><span>Make Up</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'oral care' %}"
-                                      ><span>Oral Care</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'hair care' %}"
-                                      ><span>Hair Care</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'health care' %}"
-                                      ><span>Health Care</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'luxury beauty' %}"
-                                      ><span>Luxury Beauty</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'personal care' %}"
-                                      ><span>Personal care</span></a
-                                    >
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="ui-menu-item level1 parent">
-                                <div class="open-children-toggle"></div>
-                                <a
-                                  href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                  ><span>Phones & Tabulates</span></a
-                                >
-                                <ul class="subchildmenu">
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproductsubcategory' 'mobile phones' %}"
-                                      ><span>Mobile phones</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                     href="{% url 'shop:sortedproductsubcategory' 'tabulates' %}"
-                                      ><span>Tabulates</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                      ><span>Top smartphones brands</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a
-                                      href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                      ><span>Best selling smartphones</span></a
-                                    >
-                                  </li>
-                                  <li class="ui-menu-item level2">
-                                    <a href="{% url 'shop:sortedproducts' 'Phones & Accessories' %}"
-                                      ><span>New smartphones launch</span></a>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-
-                          </div>
-
-                        </div>
-                      </li>
-
-                      <li class="ui-menu-item level0 classic">
-                        <a
-                          class="level-top"
-                          href="{% url 'contact' %}"
-                          >Contact us</a
-                        >
-                      </li>
-                      <li class="ui-menu-item level0 classic">
-                        <a
-                          class="level-top"
-                          href="{% url 'about' %}"
-                          >About us</a
-                        >
-                      </li>
-                      <li
-                        class="
-                          my_account_link_custom
-                          ui-menu-item
-                          level0
-                          classic
-                        "
-                      >
-                        <a
-                          href="{% url 'register:myaccount' %}"
-                          title="My Account"
-                          class="level-top"
-                          >My Account</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="top-search-not-dropdown button-search-full">
-                <div class="block block-search">
-                  <div class="block-content">
-                    <div class="dropdown">
-                      <div class="dropdown-toggle">
-                        <div class="top-search">
-                          <span class="text">Search</span>
-                        </div>
-                      </div>
-                      <form class="form minisearch search-content cat-search" id="search_mini_form" action="{% url 'shop' %}" method="get">
+                    <div class="top-search-not-dropdown">
+                        <div class="block block-search">
+                            <div class="block-content">
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">
+                                        <div class="top-search">
+                                            <i class="main-icon-search"></i>
+                                            <span class="text">Search</span>
+                                        </div>
+                                    </div>
+                                     <form class="form minisearch search-content cat-search" id="search_mini_form" action="{% url 'shop' %}" method="get">
                           {% csrf_token %}
                         <div class="search-form">
                           <div class="field-by-cat-search hidden-xs">
@@ -533,11 +177,11 @@
                           </div>
                         </div>
                       </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-action col-right">
+                    <div class="col-action col-right">
                 <div class="flex-layout center_vertical" >
                   <ul
                     class="
@@ -626,8 +270,513 @@
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+                </div>
+                <div class="header-content center-element not-visible-mobile hidden-checkout">
+                    <div class="flex-layout for-full-width-menu space-between center_vertical no-wrap-desktop">
+                        <div class="col-menu-on-left flex-layout col-menu center_vertical no-wrap-desktop vertical-hozital-menu">
+                            <div class="rokan-vertical-menu d-none d-xl-block">
+                                <div class="navigation verticalmenu side-verticalmenu">
+                                    <h3 class="title-category-dropdown"><span class="icon icon-align-left"></span>Shop
+                                        By Department</h3>
+                                    <div class="verticalmenu-html">
+                                        <ul class="togge-menu list-category-dropdown verticalmenu-list menu"
+                                            style="display: none;">
+                                            <li class="ui-menu-item level0 nav-1 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Top Deals</a></li>
+                                            <li class="ui-menu-item level0 nav-2 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Top Featured Products</a></li>
+                                            <li class="ui-menu-item level0 nav-3 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Top Selling Products</a></li>
+                                            <li class="ui-menu-item level0 nav-4 staticwidth parent ">
+                                                <div class="open-children-toggle"></div>
+                                                <a href="#"
+                                                   class="level-top">Cameras & Accessories</a>
+                                                <div class="level0 submenu" style="width: 500px; width: 830px">
+                                                    <div class="row">
+                                                        <ul class="subchildmenu col-sm-7 mega-columns columns2">
+                                                            <li class="ui-menu-item nav-4-1 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Smartphone</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-4-1-1 level2 "><a
+                                                                            href="#"><span>Carrier Phones</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-2 level2 "><a
+                                                                            href="#"><span>Unlocked Phones</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-3 level2 "><a
+                                                                            href="#"><span>Phone & Cellphone</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-4 level2 "><a
+                                                                            href="#"><span>Cellphone Charges</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-5 level2 "><a
+                                                                            href="#"><span>Cell Phones</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-6 level2 "><a
+                                                                            href="#"><span>Your Video Library</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-1-7 level2 "><a
+                                                                            href="#"><span>Watch Anywhere</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-4-2 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Laptop & Computer</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-4-2-1 level2 "><a
+                                                                            href="#"><span>Desktop Computer</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-2 level2 "><a
+                                                                            href="#"><span>Monitor</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-3 level2 "><a
+                                                                            href="#"><span>Har Driver & Storage</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-4 level2 "><a
+                                                                            href="#"><span>iPad & Tablets</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-5 level2 "><a
+                                                                            href="#"><span>Laptops</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-6 level2 "><a
+                                                                            href="# "><span>Printer & Supplies</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-2-7 level2 "><a
+                                                                            href="#"><span>Computer Accessories</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-4-3 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Prime Videos</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-4-3-1 level2 "><a
+                                                                            href="#"><span>Carrier Phones</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-2 level2 "><a
+                                                                            href="#"><span>Unlocked Phones</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-3 level2 "><a
+                                                                            href="#"><span>Phone & Cellphone</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-4 level2 "><a
+                                                                            href="#"><span>Cellphone Charges</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-5 level2 "><a
+                                                                            href="#"><span>Printers & Supplies</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-6 level2 "><a
+                                                                            href="#"><span>Desktops & Monitors</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-3-7 level2 parent ">
+                                                                        <div class="open-children-toggle"></div>
+                                                                        <a href="#"><span>Cell Phones</span></a>
+                                                                        <ul class="subchildmenu ">
+                                                                            <li class="ui-menu-item nav-4-3-7-1 level3 ">
+                                                                                <a href="#"><span>Accessories</span></a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-4-4 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Electronics, Computers</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-4-4-1 level2 "><a
+                                                                            href="#"><span>Desktop Computer</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-4-2 level2 "><a
+                                                                            href="#"><span>Monitor</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-4-3 level2 "><a
+                                                                            href="#"><span>iPad & Tablets</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-4-4-4 level2 "><a
+                                                                            href="#"><span>Har Driver & Storage</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="menu-right-block col-sm-5"><p><img
+                                                                style="float: right;"
+                                                                src="https://mageblueskytech.com/dukamarket/static/version1627024984/frontend/bluesky/bluesky_dukamarket_digital_01/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                                                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/vertical_menu1.png"
+                                                                alt="vertical_menu1"/></p></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ui-menu-item level0 nav-5 staticwidth parent ">
+                                                <div class="open-children-toggle"></div>
+                                                <a href="https://mageblueskytech.com/dukamarket/en1/laptop-ipad.html"
+                                                   class="level-top">Tablets & Mobile Phone</a>
+                                                <div class="level0 submenu"
+                                                     style="background-image: url('https://mageblueskytech.com/dukamarket/media/catalog/category/bg_vertical_menu2.jpg'); width: 500px; width: 547px">
+                                                    <div class="row">
+                                                        <ul class="subchildmenu col-sm-12 mega-columns columns2">
+                                                            <li class="ui-menu-item nav-5-1 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Prime Videos</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-5-1-1 level2 "><a
+                                                                            href="#"><span>All Videos</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-2 level2 "><a
+                                                                            href="#"><span>Included with Prime</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-3 level2 "><a
+                                                                            href="#"><span>Prime Video Channels</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-4 level2 "><a
+                                                                            href="#"><span>Rent or Buy</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-5 level2 "><a
+                                                                            href="#"><span>Your Watchlist</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-6 level2 "><a
+                                                                            href="#"><span>Your Video Library</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-7 level2 "><a
+                                                                            href="#"><span>Watch Anywhere</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-8 level2 "><a
+                                                                            href="#"><span>Getting Started</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-9 level2 "><a
+                                                                            href="#"><span>Computers & Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-1-10 level2 "><a
+                                                                            href="#"><span>Laptops, Desktops & Monitors</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-5-2 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Electronics, Computers</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-5-2-1 level2 "><a
+                                                                            href="#"><span>TV & Video</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-2-2 level2 "><a
+                                                                            href="#"><span>Home Audio & Theater</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-2-3 level2 "><a
+                                                                            href="#"><span>Camera, Photo & Video</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-2-4 level2 "><a
+                                                                            href="#"><span>Camera, Photo & Video Cell Phones & Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-5-2-5 level2 "><a
+                                                                            href="#"><span>Headphones</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ui-menu-item level0 nav-6 staticwidth parent ">
+                                                <div class="open-children-toggle"></div>
+                                                <a href="#"
+                                                   class="level-top">Computer & Desktop</a>
+                                                <div class="level0 submenu"
+                                                     style="background-image: url('https://mageblueskytech.com/dukamarket/media/catalog/category/bg_vertical_menu3.jpg'); width: 500px; width: 547px">
+                                                    <div class="row">
+                                                        <ul class="subchildmenu col-sm-12 mega-columns columns2">
+                                                            <li class="ui-menu-item nav-6-1 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Components</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-6-1-1 level2 "><a
+                                                                            href="#"><span>Laptop Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-2 level2 "><a
+                                                                            href="#"><span>Monitors</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-3 level2 "><a
+                                                                            href="#"><span>Networking Products</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-4 level2 "><a
+                                                                            href="#"><span>Power Strips & Surge</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-5 level2 "><a
+                                                                            href="#"><span>Protectors</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-6 level2 "><a
+                                                                            href="#"><span>Printers</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-7 level2 "><a
+                                                                            href="#"><span>Watch Anywhere</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-8 level2 "><a
+                                                                            href="#"><span>Your Video Library</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-9 level2 "><a
+                                                                            href="#"><span>Computers & Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-1-10 level2 "><a
+                                                                            href="#"><span>Laptops, Desktops & Monitors</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-6-2 level1 parent parent-ul-cat-mega-menu">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a class="title-cat-mega-menu"
+                                                                   href="#"><span>Computers & Tablets</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-6-2-1 level2 "><a
+                                                                            href="#"><span>Keyboard Cases</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-2-2 level2 "><a
+                                                                            href="#"><span>Chargers & Adapters</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-2-3 level2 "><a
+                                                                            href="#"><span>Camera Privacy Covers</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-2-4 level2 "><a
+                                                                            href="#"><span>Bags, Cases & Sleeves</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-6-2-5 level2 "><a
+                                                                            href="#"><span>Blue Light Blocking Glasses</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ui-menu-item level0 nav-7 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Kitchen accessories</a></li>
+                                            <li class="ui-menu-item level0 nav-8 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Home & Accessories</a></li>
+                                            <li class="ui-menu-item level0 nav-9 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Sport & Outdoors</a></li>
+                                            <li class="ui-menu-item level0 nav-10 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Audio & Headphones</a></li>
+                                            <li class="ui-menu-item level0 nav-11 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Toys & Hobbies </a></li>
+                                            <li class="ui-menu-item level0 nav-12 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Fashion & Clothing</a></li>
+                                            <li class="ui-menu-item level0 nav-13 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Decor & Furniture</a></li>
+                                            <li class="ui-menu-item level0 nav-14 fullwidth "><a
+                                                    href="#"
+                                                    class="level-top">Stereo Headphones</a></li>
+                                            <li class="expand-category-link level0">
+                                                <a href="javascript:void(0);" class="level-top">More categories</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden-sticky">
+                                <div class="primary-menu-container ">
+                                    <span data-action="toggle-nav"
+                                          class="action nav-toggle d-xl-none sticky-toggle"><span>Toggle Nav</span></span>
+                                    <div class="navigation custommenu main-nav nav-sections " role="navigation">
+                                        <div class="close-menu-mobile"><a href="#" id="close-menu">Close</a></div>
+                                        <div class="menu-mobile-title d-block d-xl-none"><a class="active"
+                                                                                            data-menu="custommenu-list"
+                                                                                            href="#">Menu</a></div>
+                                        <ul class="custommenu-list menu">
+                                            <li class="ui-menu-item level0 classic ">
+                                                <a class="level-top" href="{% url 'home' %}">Home</a>
+                                            </li>
+                                            <li class="ui-menu-item level0 nav-1 fullwidth menu-item-has-children parent">
+                                                <div class="open-children-toggle"></div>
+                                                <a href="#"
+                                                   class="level-top">Shop</a>
+                                                <div class="level0 submenu">
+                                                    <div class="row">
+                                                        <ul class="subchildmenu col-sm-9 mega-columns columns4">
+                                                            <li class="ui-menu-item nav-1-1 level1 parent ">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a href="#"><span>Computer Accessories</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-1-1-1 level2 "><a
+                                                                            href="#"><span>Blue Light Blocking </span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-2 level2 "><a
+                                                                            href="#"><span>Cable Security Devices</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-3 level2 "><a
+                                                                            href="#"><span>Cables & Interconnects</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-4 level2 "><a
+                                                                            href="#"><span>Cleaning & Repair</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-5 level2 "><a
+                                                                            href="#"><span>Computer Cable Adapters</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-6 level2 "><a
+                                                                            href="#"><span>Game Hardware</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-1-7 level2 "><a
+                                                                            href="#"><span>Hard Drive Accessories</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-1-2 level1 parent ">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a href="#"><span>Peripherals</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-1-2-1 level2 "><a
+                                                                            href="#"><span>Input Devices</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-2 level2 "><a
+                                                                            href="#"><span>Keyboards</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-3 level2 "><a
+                                                                            href="#"><span>Mice & Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-4 level2 "><a
+                                                                            href="#"><span>Memory Card Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-5 level2 "><a
+                                                                            href="#"><span>Memory Cards</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-6 level2 "><a
+                                                                            href="#"><span>Monitor Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-2-7 level2 "><a
+                                                                            href="#"><span>Printer Accessories</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-1-3 level1 parent ">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a href="#"><span>Video Accessories</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-1-3-1 level2 "><a
+                                                                            href="#"><span>Printer Ink & Toner</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-2 level2 "><a
+                                                                            href="#"><span>Racks & Cabinets</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-3 level2 "><a
+                                                                            href="#"><span>Scanner Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-4 level2 "><a
+                                                                            href="#"><span>USB Gadgets</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-5 level2 "><a
+                                                                            href="#"><span>USB Hubs</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-6 level2 "><a
+                                                                            href="#"><span>Uninterruptible</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-3-7 level2 "><a
+                                                                            href="#"><span>Power Supply (UPS)</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="ui-menu-item nav-1-4 level1 parent ">
+                                                                <div class="open-children-toggle"></div>
+                                                                <a href="#"><span>Blank Media</span></a>
+                                                                <ul class="subchildmenu ">
+                                                                    <li class="ui-menu-item nav-1-4-1 level2 "><a
+                                                                            href="#"><span>Computer Headsets</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-2 level2 "><a
+                                                                            href="#"><span>Computer Speakers</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-3 level2 "><a
+                                                                            href="#"><span>Webcam Stands & Mounts</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-4 level2 "><a
+                                                                            href="#"><span>Laptop Accessories</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-5 level2 "><a
+                                                                            href="#"><span>Networking Products</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-6 level2 "><a
+                                                                            href="#"><span>Power Strips & Surge</span></a>
+                                                                    </li>
+                                                                    <li class="ui-menu-item nav-1-4-7 level2 "><a
+                                                                            href="#"><span>Tablet Accessories</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="menu-right-block col-sm-3"><p><img
+                                                                style="float: right;"
+                                                                src="https://mageblueskytech.com/dukamarket/static/version1627024984/frontend/bluesky/bluesky_dukamarket_digital_01/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"
+                                                                data-src="https://mageblueskytech.com/dukamarket/media/wysiwyg/banner-menu.png"
+                                                                alt="Banner Menu"/></p></div>
+                                                    </div>
+                                                    <div class="menu-bottom-block"><p style="text-align: center;">
+                                                        <strong>30% Off</strong> the shipping of your first order with
+                                                        the code: <strong>DUKA-SALE30</strong></p></div>
+                                                </div>
+                                            </li>
+                                            <li class="ui-menu-item level0  classic menu-item-has-children parent"><a
+                                                    class="level-top">Page</a>
+                                                <div class="open-children-toggle">&nbsp;</div>
+                                                <div class="level0 submenu">
+                                                    <div class="row">
+                                                        <ul class="subchildmenu ">
+                                                            <li class="ui-menu-item level2 "><a
+                                                                    href="#">Store
+                                                                Locator</a></li>
+                                                            <li class="ui-menu-item level2 "><a
+                                                                    href="#">Shop
+                                                                by brand</a></li>
+                                                            <li class="ui-menu-item level2 "><a
+                                                                    href="#">Faq</a>
+                                                            </li>
+                                                            <li class="ui-menu-item level2 "><a
+                                                                    href="#">404
+                                                                page</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ui-menu-item level0"><a class="level-top"
+                                                                               href="#">Blog</a>
+                                            </li>
+                                            <li class="ui-menu-item level0 classic "><a class="level-top"
+                                                                                        href="#">Contact
+                                                us</a></li>
+                                            <li class="ui-menu-item level0 classic "><a class="level-top"
+                                                                                        href="#">About
+                                                us</a></li>
+                                            <li class="my_account_link_custom ui-menu-item level0 classic"><a
+                                                    href="https://mageblueskytech.com/dukamarket/en1/customer/account/"
+                                                    title="My Account" class="level-top">My Account</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-      </header>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel wrapper">
+            <div class="panel header"><a class="action skip contentarea" href="#contentarea">
+<span>
+Skip to Content </span>
+            </a>
+            </div>
+        </div>
+    </header>

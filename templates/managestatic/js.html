@@ -209,6 +209,90 @@
         });
       });
     </script>
+<script>
+    require([
+        'jquery',
+        'rokanthemes/verticalmenu'
+    ], function ($) {
+        $(".verticalmenu").VerticalMenu();
+		$('.title-category-dropdown').click(function(event){
+			$('.navigation.verticalmenu .togge-menu').slideToggle('slow');
+			$(this).toggleClass('active');
+
+		});
+		$( document ).ready(function() {
+			var lenghtLi = $('.navigation.verticalmenu .ui-menu-item.level0').length;
+			var limitItemShow = 13;
+			if(lenghtLi > limitItemShow)
+			{
+				$('.navigation.verticalmenu .ui-menu-item.level0').each(function( index ) {
+					if(index > (limitItemShow - 1))
+					{
+						$(this).addClass('orther-link');
+						$(this).hide();
+					}
+				});
+				$('.navigation.verticalmenu .expand-category-link').show();
+				$('.navigation.verticalmenu .expand-category-link').on( "click", function() {
+					$(this).toggleClass('expanding');
+					$('.navigation.verticalmenu .ui-menu-item.level0.orther-link').slideToggle('slow');
+				});
+			}else{
+				$('.expand-category-link').hide();
+			}
+			var screenWidth = $(window).width();
+
+			if (screenWidth < 1200){
+				var verticalmenu = $(".verticalmenu .verticalmenu-html").html();
+				$(".custommenu").append(verticalmenu);
+				var html_title = '<a data-menu="verticalmenu-list" href="#">Categories</a>';
+				$(".custommenu .menu-mobile-title").append(html_title);
+			}
+		});
+		$(".title-category-dropdown").click(function(e){
+            if(!$("html").hasClass("vertical-open")) {
+                $("html").addClass("vertical-before-open");
+                setTimeout(function(){
+                    $("html").addClass("vertical-open");
+					$( 'body' ).toggleClass( 'background_shadow' );
+                });
+            }
+            else {
+                $("html").removeClass("vertical-open");
+				$( 'body' ).toggleClass( 'background_shadow' );
+                setTimeout(function(){
+                    $("html").removeClass("vertical-before-open");
+                });
+            }
+        });
+		$("#close-vertical").click(function(e){
+            if(!$("html").hasClass("vertical-open")) {
+                $("html").addClass("vertical-before-open");
+                setTimeout(function(){
+                    $("html").addClass("vertical-open");
+                });
+            }
+            else {
+                $("html").removeClass("vertical-open");
+				$("html").removeClass("vertical-before-open");
+                setTimeout(function(){
+                    $("html").removeClass("vertical-before-open");
+                });
+            }
+        });
+		$(document).on('click', '#focus-area', function(){
+			$('body').removeClass( 'background_shadow' );
+			$("html").removeClass("vertical-open");
+			$("html").removeClass("vertical-before-open");
+			setTimeout(function(){
+				$("html").removeClass("vertical-before-open");
+			});
+			$('.title-category-dropdown').removeClass('active');
+			$('.navigation.verticalmenu .togge-menu').slideToggle('slow');
+			return false;
+		});
+    });
+</script>
     <script>
       require(["jquery", "rokanthemes/custommenu"], function ($) {
         $(".custommenu").CustomMenu();
