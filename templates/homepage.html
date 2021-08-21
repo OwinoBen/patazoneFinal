@@ -229,7 +229,8 @@
                         </div>
                         <div class="col-auto col-lg-3 col-6 hidden-xl">
                             <div class="col-content flex-layout center_hozital no-wrap">
-                                <i class="fa fa-id-card" aria-hidden="true"><span class="hidden">icon icon-help-center</span></i>
+                                <i class="fa fa-id-card" aria-hidden="true"><span
+                                        class="hidden">icon icon-help-center</span></i>
                                 <div class="content">
                                     <h6 class="footer-title uppercase">
                                         Friendly Services
@@ -241,15 +242,198 @@
                     </div>
                 </div>
             </div>
+
             <div class="section full-width has-white-bg" style="background: #fff">
                 <div class="container">
+                <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions"
+                                 id="category_product_tab_843580351">
+                                <div class="rokan-title">
+                                    <h3 class="module-title">
+                                        <span>Essentials</span>
+                                    </h3>
+                                </div>
+                                <div class="widget-tabs">
+                                    <ul>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/8/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/laptop-ipad.html">
+                                                <span>All</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/9/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/cameras-photography.html">
+                                                <span>Baby Care</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/11/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/home-kitchen.html">
+                                                <span>Fresh Food</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/14/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/toys-hobbies.html">
+                                                <span>Beverages </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/14/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/toys-hobbies.html">
+                                                <span>Beauty </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="widget-category-tab-banner">
+                                        <div class="products wrapper grid products-grid">
+                                            <div class="
+                                                          products
+                                                          list
+                                                          items
+                                                          product-items
+                                                          owl-carousel owl-theme
+                                                        " data-rtl="false" data-items="6" data-bigdesktop="8"
+                                                 data-smalldesktop="4"
+                                                 data-bigtablet="4" data-tablet="3" data-smalltablet="3"
+                                                 data-mobile="2.2"
+                                                 data-margin="0"
+                                                 data-loop="false" data-center="false" data-mousedrag="true"
+                                                 data-touchdrag="true"
+                                                 data-stagepadding="1" data-nav="true" data-navnext="true"
+                                                 data-navprev="true"
+                                                 data-rewind="false"
+                                                 data-dots="false" data-autoplay="true" data-speed="500">
+                                                {% for topsel in topselling %}
+                                                    <div class="item-load group-rows-fixed-supper-deal item-row">
+                                                        <div class="item product product-item">
+                                                            <div class="product-item-info">
+                                                                <a href="{% url 'cart:productdetails' topsel.id  topsel.category %}"
+                                                                   class="product photo product-item-photo"
+                                                                   tabindex="-1">
+                                                            <span class="image0 image-switch product-image-container">
+                                                              <img class="product-image"
+                                                                   src="{{ topsel.imageURL }}"
+                                                                   width="550" height="550"
+                                                                   alt=""/>
+                                                            </span>
+                                                                </a>
+                                                                <div class="product details product-item-details">
+                                                                    <strong class="product name product-item-name">
+                                                                        <a class="product-item-link"
+                                                                           href="{% url 'cart:productdetails' topsel.id topsel.category %}">
+                                                                            {{ topsel.title|truncatechars:25 }}
+                                                                        </a>
+                                                                    </strong>
+                                                                    <div class="product-reviews-summary" itemscope>
+                                                                        <div class="rating-summary">
+                                                                            <span class="label"><span>Rating:</span></span>
+                                                                            <div class="rating-result" title="100%">
+                                                                                <span style="width: 100%"> </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="reviews-actions">
+                                                                            <a class="action view" href="#">
+                                                                                <span itemscope>1</span>&nbsp;
+                                                                                <span>Review</span>
+                                                                            </a>
+                                                                            <a class="action add"
+                                                                               href="#">Add
+                                                                                Your Review</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box price-final_price"
+                                                                         data-role="priceBox" data-product-id="6"
+                                                                         data-price-box="product-id-6">
+                                                                  <span class="
+                                                                              price-container
+                                                                              price-final_price&#x20;tax&#x20;weee
+                                                                            ">
+                                                                    <span
+                                                                            data-price-type="finalPrice"
+                                                                            class="price-wrapper"><span
+                                                                            class="price">Ksh. {{ topsel.price|floatformat:"0"|intcomma }}</span>
+                                                                    </span>
+                                                                  </span>
+                                                                    </div>
+                                                                    <div class="product-sold">
+                                                                        <div class="ruler-sold">
+                                                                            <div class="ruler-sold-count"
+                                                                                 style="width: 16%"></div>
+                                                                        </div>
+                                                                        <div class="count-sold-available">
+                                                                            <div class="count-sold">
+                                                                                Sold: <span> 160/840 </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-item-inner">
+                                                                        <div class="product actions product-item-actions">
+                                                                            <div class="actions-primary">
+                                                                                <form data-role="tocart-form"
+                                                                                      method="POST"
+                                                                                      action='{% url 'cart:update' %}'
+                                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                                        {% if request.user.is_authenticated %}
+                                                                                      data-user='abc'
+                                                                                        {% endif %}>
+                                                                                    {% csrf_token %}
+                                                                                    <input type="hidden"
+                                                                                           name="product_id"
+                                                                                           value='{{ topsel.id }}'
+                                                                                            {% if topsel.is_digital %}
+                                                                                           data-is-digital='true'
+                                                                                            {% endif %} >
+                                                                                    <button type="submit"
+                                                                                            title="Add&#x20;to&#x20;Cart"
+                                                                                            class="action tocart primary"
+                                                                                            {#                                                                                            style="background-color: #b92227"#}
+                                                                                            onclick="updateCat(event, {{ topsel.id }})">
+                                                                                        <span>Add to Cart</span>
+                                                                                    </button>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div data-role="add-to-links"
+                                                                                 class="actions-secondary">
+                                                                                <a href="#"
+                                                                                   class="action towishlist"
+                                                                                   title="Add to Wish List"
+                                                                                   aria-label="Add to Wish List"
+                                                                                   role="button">
+                                                                                    <span>Wish List</span>
+                                                                                </a>
+                                                                                <a href="#"
+                                                                                   class="action tocompare"
+                                                                                   title="Add to Compare"
+                                                                                   role="button">
+                                                                                    <span>Add to Compare</span>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     <div class="section hot-deal-tab-slider hot-deal-tab-slider-customcss section-product">
                         <div class="rokan-title">
                             <div class="supper-deal-title flex-layout space-between">
                                 <h3 class="title-deal module-title">
-                                    <span>New Arivals</span>
+                                    <span>Daily Flash Sale</span>
                                 </h3>
                                 <div class="right-deal flex-layout no-wrap-desktop">
+                                    <a href="" style="float: left; margin-right: 20px">View All</a>
                                     <h5 class="sub-title-deal hidden-xs">
                                         Hurry Up! Offer ends in:
                                     </h5>
@@ -259,21 +443,21 @@
                         </div>
                         <div class="products wrapper grid products-grid" id="ajaxnewarivals">
                             <div class="products list items product-items owl-carousel owl-theme" data-rtl="false"
-     data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
-     data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
-     data-loop="false"
-     data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1"
-     data-nav="true"
-     data-navnext="" data-navprev="" data-rewind="false" data-dots="false"
-     data-autoplay="true"
-     data-speed="500">
+                                 data-items="6" data-bigdesktop="8" data-smalldesktop="4" data-bigtablet="4"
+                                 data-tablet="3" data-smalltablet="3" data-mobile="2.2" data-margin="0"
+                                 data-loop="false"
+                                 data-center="false" data-mousedrag="true" data-touchdrag="true" data-stagepadding="1"
+                                 data-nav="true"
+                                 data-navnext="" data-navprev="" data-rewind="false" data-dots="false"
+                                 data-autoplay="true"
+                                 data-speed="500">
 
-    {% for product in products %}
-        <div class="item-load group-rows-fixed-supper-deal item-row">
-            <div class="item product product-item">
-                <div class="product-item-info">
-                    <a href="{% url 'cart:productdetails' product.id product.category %}"
-                       class="product photo product-item-photo" tabindex="-1">
+                                {% for product in products %}
+                                    <div class="item-load group-rows-fixed-supper-deal item-row">
+                                        <div class="item product product-item">
+                                            <div class="product-item-info">
+                                                <a href="{% url 'cart:productdetails' product.id product.category %}"
+                                                   class="product photo product-item-photo" tabindex="-1">
                                                   <span class="image0 image-switch product-image-container">
                                                     <img class="product-image"
                                                          src='{{ product.imageURL }}' width="550" height="550"
@@ -351,8 +535,10 @@
                                                                 </form>
 
                                                             </div>
-                                                            <div data-role="add-to-links" class="actions-secondary" style="font-size: 13px">
-                                                                <a href="#" class="action towishlist" title="Add to Wish List"
+                                                            <div data-role="add-to-links" class="actions-secondary"
+                                                                 style="font-size: 13px">
+                                                                <a href="#" class="action towishlist"
+                                                                   title="Add to Wish List"
                                                                    aria-label="Add to Wish List"
                                                                    data-action="add-to-wishlist" role="button">
                                                                     <span>Wish List</span>
@@ -375,107 +561,187 @@
                         </div>
                     </div>
                     <div>
-                        <div class="banner section banner-middle margin_0">
-                            <div class="row row-10">
-                                <div class="col-md-8 col-lg-6 col-10-padding">
-                                    <div class="row row-10">
-                                        <div class="col-sm-6 col-10-padding">
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image ">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/h3-category-1.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Cameras</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image ">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/h3-category-2.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Accessories</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-10-padding">
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image"
-                                                 style="background: #afafaf; height: 100%">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/banner-h2-4-4.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Keyboard &amp; accessories</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="section section-product wrapper_category_product_tabs container_horizontal_tab_postions"
+                                 id="category_product_tab_843580351">
+                                <div class="rokan-title">
+                                    <h3 class="module-title">
+                                        <span>Products on Offer</span>
+                                    </h3>
                                 </div>
-                                <div class="col-md-4 col-lg-6 d-none d-md-block col-10-padding">
-                                    <div class="row row-10">
-                                        <div class="col-12 col-lg-6 col-10-padding">
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/h3-category-4.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Smartphone</a>
+                                <div class="widget-tabs">
+                                    <ul>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/8/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/laptop-ipad.html">
+                                                <span>All</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/9/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/cameras-photography.html">
+                                                <span>Baby Care</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/11/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/home-kitchen.html">
+                                                <span>Fresh Food</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/14/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/toys-hobbies.html">
+                                                <span>Beverages </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class=""
+                                               href="https://mageblueskytech.com/dukamarket/en3/categorytab/category/view/id/14/limit/10/imgT/small_image/imgW/300/imgH/300/product_list_mode/grid/number_row/1/product_list_order/position/"
+                                               data-href="https://mageblueskytech.com/dukamarket/en3/toys-hobbies.html">
+                                                <span>Beauty </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="widget-category-tab-banner">
+                                        <div class="products wrapper grid products-grid">
+                                            <div class="
+                                                          products
+                                                          list
+                                                          items
+                                                          product-items
+                                                          owl-carousel owl-theme
+                                                        " data-rtl="false" data-items="6" data-bigdesktop="8"
+                                                 data-smalldesktop="4"
+                                                 data-bigtablet="4" data-tablet="3" data-smalltablet="3"
+                                                 data-mobile="2.2"
+                                                 data-margin="0"
+                                                 data-loop="false" data-center="false" data-mousedrag="true"
+                                                 data-touchdrag="true"
+                                                 data-stagepadding="1" data-nav="true" data-navnext="true"
+                                                 data-navprev="true"
+                                                 data-rewind="false"
+                                                 data-dots="false" data-autoplay="true" data-speed="500">
+                                                {% for topsel in topselling %}
+                                                    <div class="item-load group-rows-fixed-supper-deal item-row">
+                                                        <div class="item product product-item">
+                                                            <div class="product-item-info">
+                                                                <a href="{% url 'cart:productdetails' topsel.id  topsel.category %}"
+                                                                   class="product photo product-item-photo"
+                                                                   tabindex="-1">
+                                                            <span class="image0 image-switch product-image-container">
+                                                              <img class="product-image"
+                                                                   src="{{ topsel.imageURL }}"
+                                                                   width="550" height="550"
+                                                                   alt=""/>
+                                                            </span>
+                                                                </a>
+                                                                <div class="product details product-item-details">
+                                                                    <strong class="product name product-item-name">
+                                                                        <a class="product-item-link"
+                                                                           href="{% url 'cart:productdetails' topsel.id topsel.category %}">
+                                                                            {{ topsel.title|truncatechars:25 }}
+                                                                        </a>
+                                                                    </strong>
+                                                                    <div class="product-reviews-summary" itemscope>
+                                                                        <div class="rating-summary">
+                                                                            <span class="label"><span>Rating:</span></span>
+                                                                            <div class="rating-result" title="100%">
+                                                                                <span style="width: 100%"> </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="reviews-actions">
+                                                                            <a class="action view" href="#">
+                                                                                <span itemscope>1</span>&nbsp;
+                                                                                <span>Review</span>
+                                                                            </a>
+                                                                            <a class="action add"
+                                                                               href="#">Add
+                                                                                Your Review</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="price-box price-final_price"
+                                                                         data-role="priceBox" data-product-id="6"
+                                                                         data-price-box="product-id-6">
+                                                                  <span class="
+                                                                              price-container
+                                                                              price-final_price&#x20;tax&#x20;weee
+                                                                            ">
+                                                                    <span
+                                                                            data-price-type="finalPrice"
+                                                                            class="price-wrapper"><span
+                                                                            class="price">Ksh. {{ topsel.price|floatformat:"0"|intcomma }}</span>
+                                                                    </span>
+                                                                  </span>
+                                                                    </div>
+                                                                    <div class="product-sold">
+                                                                        <div class="ruler-sold">
+                                                                            <div class="ruler-sold-count"
+                                                                                 style="width: 16%"></div>
+                                                                        </div>
+                                                                        <div class="count-sold-available">
+                                                                            <div class="count-sold">
+                                                                                Sold: <span> 160/840 </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-item-inner">
+                                                                        <div class="product actions product-item-actions">
+                                                                            <div class="actions-primary">
+                                                                                <form data-role="tocart-form"
+                                                                                      method="POST"
+                                                                                      action='{% url 'cart:update' %}'
+                                                                                      data-endpoint='{% url 'cart:update' %}'
+                                                                                        {% if request.user.is_authenticated %}
+                                                                                      data-user='abc'
+                                                                                        {% endif %}>
+                                                                                    {% csrf_token %}
+                                                                                    <input type="hidden"
+                                                                                           name="product_id"
+                                                                                           value='{{ topsel.id }}'
+                                                                                            {% if topsel.is_digital %}
+                                                                                           data-is-digital='true'
+                                                                                            {% endif %} >
+                                                                                    <button type="submit"
+                                                                                            title="Add&#x20;to&#x20;Cart"
+                                                                                            class="action tocart primary"
+                                                                                            {#                                                                                            style="background-color: #b92227"#}
+                                                                                            onclick="updateCat(event, {{ topsel.id }})">
+                                                                                        <span>Add to Cart</span>
+                                                                                    </button>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div data-role="add-to-links"
+                                                                                 class="actions-secondary">
+                                                                                <a href="#"
+                                                                                   class="action towishlist"
+                                                                                   title="Add to Wish List"
+                                                                                   aria-label="Add to Wish List"
+                                                                                   role="button">
+                                                                                    <span>Wish List</span>
+                                                                                </a>
+                                                                                <a href="#"
+                                                                                   class="action tocompare"
+                                                                                   title="Add to Compare"
+                                                                                   role="button">
+                                                                                    <span>Add to Compare</span>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image ">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/h3-category-5.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Speaker &amp; audio</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 d-none d-lg-block col-10-padding">
-                                            <div class="col-banner bottom center radius as-desktop absolute-content-image"
-                                                 style="background: #201f25; height: 100%">
-                                                <div class="banner-img">
-                                                    <img
-                                                            src="{% static 'images/images/images/h3-category-6.png' %}"
-                                                            alt=""/>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="button-wrap">
-                                                        <a class="btn auto_padding light small" title="shop now"
-                                                           href="shop">Gamepad and
-                                                            controller</a>
-                                                    </div>
-                                                </div>
+                                                {% endfor %}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -539,11 +805,11 @@
                                                                                 prodImageContainersWrappers[i].style.paddingBottom = "100%";
                                                                             }</script>
                                                                         </a>
-{#                                                                        <div class="product-label">#}
-{#                                                                        <span class="onsale">#}
-{#                                                                        <span class="value">-18%</span>#}
-{#                                                                        </span>#}
-{#                                                                        </div>#}
+                                                                        {#                                                                        <div class="product-label">#}
+                                                                        {#                                                                        <span class="onsale">#}
+                                                                        {#                                                                        <span class="value">-18%</span>#}
+                                                                        {#                                                                        </span>#}
+                                                                        {#                                                                        </div>#}
                                                                         <div class="product details product-item-details"
                                                                              style="min-height: 141px;">
                                                                             <strong class="product name product-item-name">
@@ -603,7 +869,7 @@
                                                                                             <button type="submit"
                                                                                                     title="Add&#x20;to&#x20;Cart"
                                                                                                     class="action tocart primary"
-{#                                                                                                    style="background-color: #b92227"#}
+                                                                                                    {#                                                                                                    style="background-color: #b92227"#}
                                                                                                     onclick="updateCat(event, {{ feature.id }})">
                                                                                                 <span>Add to Cart</span>
                                                                                             </button>
@@ -611,7 +877,8 @@
                                                                                     </div>
                                                                                     <div data-role="add-to-links"
                                                                                          class="actions-secondary">
-                                                                                        <a href="#" style="color: #666; font-size: 13px"
+                                                                                        <a href="#"
+                                                                                           style="color: #666; font-size: 13px"
                                                                                            class="action quickview"
                                                                                            title="Quick view"
                                                                                            role="button">
@@ -876,7 +1143,7 @@
                                                                                     <button type="submit"
                                                                                             title="Add&#x20;to&#x20;Cart"
                                                                                             class="action tocart primary"
-{#                                                                                            style="background-color: #b92227"#}
+                                                                                            {#                                                                                            style="background-color: #b92227"#}
                                                                                             onclick="updateCat(event, {{ topsel.id }})">
                                                                                         <span>Add to Cart</span>
                                                                                     </button>
@@ -885,18 +1152,18 @@
                                                                             <div data-role="add-to-links"
                                                                                  class="actions-secondary">
                                                                                 <a href="#"
-                                                                                           class="action towishlist"
-                                                                                           title="Add to Wish List"
-                                                                                           aria-label="Add to Wish List"
-                                                                                           role="button">
-                                                                                            <span>Wish List</span>
-                                                                                        </a>
-                                                                                        <a href="#"
-                                                                                           class="action tocompare"
-                                                                                           title="Add to Compare"
-                                                                                           role="button">
-                                                                                            <span>Add to Compare</span>
-                                                                                        </a>
+                                                                                   class="action towishlist"
+                                                                                   title="Add to Wish List"
+                                                                                   aria-label="Add to Wish List"
+                                                                                   role="button">
+                                                                                    <span>Wish List</span>
+                                                                                </a>
+                                                                                <a href="#"
+                                                                                   class="action tocompare"
+                                                                                   title="Add to Compare"
+                                                                                   role="button">
+                                                                                    <span>Add to Compare</span>
+                                                                                </a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -963,9 +1230,9 @@
                                                             </h3>
                                                         </div>
                                                         <span
-                                                            data-price-type="finalPrice"
-                                                            class="price-wrapper"><span
-                                                            class="price">Ksh. {{ electronic.price|floatformat:"0"|intcomma }}</span>
+                                                                data-price-type="finalPrice"
+                                                                class="price-wrapper"><span
+                                                                class="price">Ksh. {{ electronic.price|floatformat:"0"|intcomma }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -977,100 +1244,100 @@
                         </div>
                     </div>
                 </div>
-{#                <div class="section full-width has-white-bg not-padding" style="background: #fff">#}
-{#                    <div class="container">#}
-{#                        <div class="block-widget-rokanthemes-brand section">#}
-{#                            <div class="block-content">#}
-{#                                <div class="owl-carousel owl-theme" data-rtl="false" data-items="7" data-bigdesktop="6"#}
-{#                                     data-smalldesktop="5" data-bigtablet="4" data-tablet="4" data-smalltablet="3"#}
-{#                                     data-mobile="2.2"#}
-{#                                     data-margin="20" data-loop="true" data-center="false" data-mousedrag="true"#}
-{#                                     data-touchdrag="true"#}
-{#                                     data-stagepadding="1" data-nav="false" data-navnext="" data-navprev=""#}
-{#                                     data-rewind="true"#}
-{#                                     data-dots="false" data-autoplay="false" data-speed="1200">#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Iqvia"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_02.png"#}
-{#                                                        alt="Iqvia"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Impact"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_03.png"#}
-{#                                                        alt="Impact"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Creative"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_04.png"#}
-{#                                                        alt="Creative"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="CarRentals"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"#}
-{#                                                        alt="CarRentals"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Carvoodoo"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_06.png"#}
-{#                                                        alt="Carvoodoo"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Carmentor"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"#}
-{#                                                        alt="Carmentor"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="item-load item-row-slider-brand">#}
-{#                                        <div class="brand-item">#}
-{#                                            <div class="brand-image">#}
-{#                                                <a href="#"#}
-{#                                                   title="Leedsgreen"><img#}
-{#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
-{#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_01.png"#}
-{#                                                        alt="Leedsgreen"/></a>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="section full-width has-white-bg not-padding" style="background: #fff">#}
+                {#                    <div class="container">#}
+                {#                        <div class="block-widget-rokanthemes-brand section">#}
+                {#                            <div class="block-content">#}
+                {#                                <div class="owl-carousel owl-theme" data-rtl="false" data-items="7" data-bigdesktop="6"#}
+                {#                                     data-smalldesktop="5" data-bigtablet="4" data-tablet="4" data-smalltablet="3"#}
+                {#                                     data-mobile="2.2"#}
+                {#                                     data-margin="20" data-loop="true" data-center="false" data-mousedrag="true"#}
+                {#                                     data-touchdrag="true"#}
+                {#                                     data-stagepadding="1" data-nav="false" data-navnext="" data-navprev=""#}
+                {#                                     data-rewind="true"#}
+                {#                                     data-dots="false" data-autoplay="false" data-speed="1200">#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Iqvia"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_02.png"#}
+                {#                                                        alt="Iqvia"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Impact"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_03.png"#}
+                {#                                                        alt="Impact"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Creative"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_04.png"#}
+                {#                                                        alt="Creative"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="CarRentals"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"#}
+                {#                                                        alt="CarRentals"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Carvoodoo"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_06.png"#}
+                {#                                                        alt="Carvoodoo"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Carmentor"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_07.png"#}
+                {#                                                        alt="Carmentor"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                    <div class="item-load item-row-slider-brand">#}
+                {#                                        <div class="brand-item">#}
+                {#                                            <div class="brand-image">#}
+                {#                                                <a href="#"#}
+                {#                                                   title="Leedsgreen"><img#}
+                {#                                                        src="https://mageblueskytech.com/dukamarket/static/version1620272518/frontend/bluesky/bluesky_dukamarket_digital_03/en_US/Rokanthemes_OptimizeSpeed/images/load_defaut.png"#}
+                {#                                                        data-src="https://mageblueskytech.com/dukamarket/media/rokanthemes/brand/brand_01.png"#}
+                {#                                                        alt="Leedsgreen"/></a>#}
+                {#                                            </div>#}
+                {#                                        </div>#}
+                {#                                    </div>#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
             </div>
 
         </div>
