@@ -373,90 +373,12 @@
         "rokanthemes/owl",
       ], function ($) {
         $("#category_product_tab_843580351 .widget-tabs").tabs({
-          cache: true,
+          cache: false,
           activate: function (event, ui) {
             $(window).trigger("resize");
           },
-          /* Called before tab content is loaded */
-          beforeLoad: function (event, ui) {
-            $("#category_product_tab_843580351 .tab-loadding").remove();
-            var height_defaut = 300;
-            var href = ui.tab.find("a").data("href");
-            $("#category_product_tab_843580351 .see-all a").attr("href", href);
-            if (ui.tab.data("loaded")) {
-              $("#category_product_tab_843580351").addClass("loadding");
-              var aria_controls_active = $(
-                "#category_product_tab_843580351 .ui-tabs-active"
-              ).attr("aria-controls");
 
-              var aria_controls = ui.tab.attr("aria-controls");
-              var height = $(
-                "#category_product_tab_843580351 #" +
-                  aria_controls_active +
-                  " .item-row"
-              ).height();
-              var set_height = height_defaut;
-              if (height > 0) {
-                set_height = height;
-              }
 
-              ui.panel.append(
-                '<div class="tab-loadding tab-loadded-back-click" style="min-height: ' +
-                  set_height +
-                  'px;"><div class="loading-icon"><span></span><span></span><span></span><span></span></div></div>'
-              );
-            } else {
-              $("#category_product_tab_843580351").addClass("loadding");
-              var aria_controls = $(
-                "#category_product_tab_843580351 .ui-tabs-active"
-              ).attr("aria-controls");
-              var set_height = height_defaut;
-              if (aria_controls) {
-                var height = $(
-                  "#category_product_tab_843580351 #" +
-                    aria_controls +
-                    " .item-row"
-                ).height();
-                if (height > 0) {
-                  set_height = height;
-                }
-              }
-
-              ui.panel.append(
-                '<div class="tab-loadding" style="min-height: ' +
-                  set_height +
-                  'px;"><div class="loading-icon"><span></span><span></span><span></span><span></span></div></div>'
-              );
-
-              /* if ajax call to retrieve tab content failed */
-              ui.jqXHR.error(function () {
-                $("#category_product_tab_843580351").removeClass("loadding");
-                ui.tab.find(".tab-loadding").hide();
-                ui.panel.html("An error occured while loading store infos");
-              });
-            }
-          },
-          /* Called when tab is loaded */
-          load: function (event, ui) {
-            ui.tab.data("loaded", true);
-            ui.tab.find(".tab-loadding").remove();
-
-            $("#category_product_tab_843580351").removeClass("loadding");
-            ui.panel.find(".owl-carousel").data("nav", true);
-            ui.panel.find(".owl-carousel").data("dots", false);
-            ui.panel.find(".owl-carousel").data("center", false);
-            ui.panel.find(".owl-carousel").data("loop", false);
-            ui.panel.find(".owl-carousel").data("bigdesktop", 8);
-            ui.panel.find(".owl-carousel").data("items", 6);
-            ui.panel.find(".owl-carousel").data("smalldesktop", 5);
-            ui.panel.find(".owl-carousel").data("bigtablet", 4);
-            ui.panel.find(".owl-carousel").data("tablet", 3);
-            ui.panel.find(".owl-carousel").data("smalltablet", 3);
-            ui.panel.find(".owl-carousel").data("mobile", 2.2);
-            ui.panel.find(".owl-carousel").data("margin", 0);
-            var id = "#" + ui.tab.attr("aria-controls") + "";
-            ui.panel.trigger("contentUpdated", [id]);
-          },
         });
       });
     </script>
