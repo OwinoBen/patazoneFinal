@@ -1,0 +1,81 @@
+{% load static %}
+    <script data-dapp-detection="">!function () {
+        let e = !1;
+
+        function n() {
+            if (!e) {
+                const n = document.createElement("meta");
+                n.name = "dapp-detected", document.head.appendChild(n), e = !0
+            }
+        }
+
+        if (window.hasOwnProperty("ethereum")) {
+            if (window.__disableDappDetectionInsertion = !0, void 0 === window.ethereum) return;
+            n()
+        } else {
+            var t = window.ethereum;
+            Object.defineProperty(window, "ethereum", {
+                configurable: !0, enumerable: !1, set: function (e) {
+                    window.__disableDappDetectionInsertion || n(), t = e
+                }, get: function () {
+                    if (!window.__disableDappDetectionInsertion) {
+                        const e = arguments.callee;
+                        e && e.caller && e.caller.toString && -1 !== e.caller.toString().indexOf("getOwnPropertyNames") || n()
+                    }
+                    return t
+                }
+            })
+        }
+    }();
+    </script>
+<script src="{% static 'js/patazonejs/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery.mobile.custom.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/patazonejs/verticalmenu.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/ajaxsuite.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/ajaxsuite-popup.min.js' %}" type="text/javascript"></script>
+{#<script src="{% static 'js/patazonejs/bindings.min.js' %}" type="text/javascript"></script>#}
+{#<script src="{% static 'js/patazonejs/block-loader.min.js' %}" type="text/javascript"></script>#}
+
+<script src="{% static 'js/patazonejs/collapsible.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/core.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/custommenu.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/domReady.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/dropdown.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/dropdowns.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/intlTelInput.min.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/patazonejs/jquery.lazyload.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery.marquee.min.js.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery.metadata.min.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/patazonejs/jquery.parsequery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery.validate.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery-migrate.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery-ui.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/verticalmenu.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery_choose.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/jquery_sameminheight.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/knockout.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/knockout-es5.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/knockout-fast-foreach.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/knockout-repeat.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/underscore.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/layout.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/levels-pool.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/loader.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/local.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/mage.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/mage-init.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/mage-translation-dictionary.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/main.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/matchMedia.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/message-pool.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/messageList.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/messages.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/misc.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/modal.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/moment.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/nivoSlider.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/objects.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/patazonejs/owl_carousel.min.js' %}" type="text/javascript"></script>

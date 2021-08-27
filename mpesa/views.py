@@ -2,97 +2,22 @@ import re
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.auth.models import User
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView,
-    UpdateView,
-    DeleteView
-)
+
 from address.models import Address
-from .models import Post
+
 from django.http import JsonResponse, request
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from .models import Mpesa_Payments
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 from django.conf import settings
-from .forms import MpesaForm, QueryForm, CompleteOrder
+
 from .online import lipa_na_mpesa_online
-from django.db.models import Q
 from orders.models import Order, Payment
 from django.core.mail import send_mail
 
 HOST_USER_EMAIL = settings.EMAIL_HOST_USER
-
-
-
-
-def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'mpesaApp/home.html', context)
-
-
-class PostListView(ListView):
-    model = Post
-    template_name = 'mpesaApp/home.html'
-    context_object_name = 'posts'
-    ordering = ['-date_posted']
-    paginate_by = 5
-
-
-class UserPostListView(ListView):
-    model = Post
-    template_name = 'mpesaApp/user_posts.html'
-    context_object_name = 'posts'
-    paginate_by = 5
-
-    def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Post.objects.filter(author=user).order_by('-date_posted')
-
-
-class PostDetailView(DetailView):
-    model = Post
-
-
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ['title', 'content']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
-class PostUpdateview(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Post
-    fields = ['title', 'content']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
-
-
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Post
-    success_url = '/'
-
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
 
 
 def payment(request):
@@ -100,13 +25,6 @@ def payment(request):
         'payments': Mpesa_Payments.objects.all()
     }
     return render(request, 'mpesaApp/payment.html', context)
-
-
-class Mpesa_PaymentsListView(ListView):
-    model = Mpesa_Payments
-    template_name = 'mpesaApp/payment.html'
-    context_object_name = 'payments'
-    ordering = ['-created_at']
 
 
 @csrf_exempt
@@ -225,40 +143,3 @@ def PaymentDone(request, *args, **kwargs):
     }
 
     return render(request, 'payment_done.html', context)
-
-
-class Online_QueryListView(ListView):
-    model = Mpesa_Payments
-    template_name = 'mpesaApp/online_query.html'
-    context_object_name = 'query'
-
-    def get_queryset(self):
-        query = self.request.GET.get('Query')
-        if query:
-            return Mpesa_Payments.objects.filter(
-                Q(PhoneNumber__exact=query) |
-                Q(MpesaReceiptNumber__exact=query) |
-                Q(Amount__exact=query), Status=0
-            )
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['form'] = QueryForm(initial={
-            'Query': self.request.GET.get('Query', ''),
-        })
-
-        return context
-
-
-@require_http_methods(['POST'])
-def update_status(self, *args, **kwargs):
-    update = Mpesa_Payments.objects.get(Status=0)
-    if update:
-        update.value = 1
-        update.save()
-    super(Mpesa_Payments, self).update_status(*args, **kwargs)
-
-
-from django.shortcuts import render
-
-# Create your views here.

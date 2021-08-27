@@ -1,5 +1,26 @@
 {% load static %}
+<script>
+     function onTabClick(event ){
+        let activeTabs =document.querySelectorAll('.active');
+        //for (let i =0; i<activeTabs.length; i++){
+            //activeTabs[i].className = activeTabs[i].className.replace('active', '');
 
+       // }
+
+        activeTabs.forEach(function (tab){
+            tab.className = tab.className.replace('active', '');
+        });
+
+        // activate the new tabs and panel
+        event.target.parentElement.className += 'active';
+
+        document.getElementById(event.target.href.split('#')).className += 'active';
+    }
+    const  element = document.getElementById('nav-tabs');
+    element.addEventListener('click', onTabClick, false);
+
+
+</script>
         <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="{% static 'assets/global/plugins/jquery.min.js' %}" type="text/javascript"></script>
@@ -11,6 +32,7 @@
 
 
 <script type="text/javascript">
+
     function updateCat(event, id){
         event.preventDefault();
         var actionEndpoint = '/cart/details/update/'
@@ -372,7 +394,7 @@
         "jquery-ui-modules/tabs",
         "rokanthemes/owl",
       ], function ($) {
-        $("#category_product_tab_843580351 .widget-tabs").tabs({
+        $("#category_product_tab_843580351 ").tabs({
           cache: false,
           activate: function (event, ui) {
             $(window).trigger("resize");

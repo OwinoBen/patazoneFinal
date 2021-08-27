@@ -25,12 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECRET_KEY=pk_test_51I60VJBTjFwTIuIO4pckLczHCK2klJyn9C1Zgw9oZRtEpk30uKP3Cw55v7PwjJHLNavBJvwoJbYhnAsx8J2PEFJS00toncWNRK
-# STRIPE_PUBLIC_KEY=STRIPE_PUBLIC_KEY
-# EMAIL_HOST=smtp.gmail.com
-# EMAIL_HOST_USER=owinoben2020@gmail.com
-# EMAIL_HOST_PASSWORD=kwrnhbmunneldnix
-# DEFAULT_FROM_EMAIL=Patazone MarketPlace Team <noreply@codingwithmitch.com
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config['SECRET_KEY']

@@ -2,9 +2,7 @@ import requests
 import json
 from datetime import datetime
 import base64
-from requests.api import request
 from requests.auth import HTTPBasicAuth
-from django.conf import settings
 
 
 def getAccessToken():
@@ -55,10 +53,6 @@ def lipa_na_mpesa_online(Amount, PhoneNumber):
                }, 400
 
     # CheckoutRequestID = response.text['CheckoutRequestID']
-
-    # Do something in your database e.g store the transaction or as an order
-    # make sure to store the CheckoutRequestID to identify the tranaction in
-    # your CallBackURL endpoint.
 
     # return a response to your user
     return {
