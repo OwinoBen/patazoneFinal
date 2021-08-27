@@ -1,1 +1,38 @@
-body{font-size:14px;font-weight:400;font-family:Rubik,sans-serif}button,.cart.table-wrapper .actions-toolbar>.action,.action-gift,.action.primary,.action-primary,.btn,{font-family:Rubik,sans-serif}h1,h2,h3,h4,h5,h6,.block-widget-rokanthemes-brand .brand-item .brand-name,.rokanthemes-onepagecheckout .step-title,.rokanthemes-onepagecheckout #opc-sidebar .title,.rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals,.container_vertical_tab_postions.wrapper_category_product_tabs .ui-tabs-nav li a,.container_vertical_tab_postions.wrapper_product_tabs .ui-tabs-nav li a,.super-deal-banner-content .super-deal-countdown .time_circles .number,.super-deal .super-deal-banner-content .super-deal-countdown .number,.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,.super-deal .item-deal-product .info-price-deal label,.wrapper_sub_category_tabs .widget-tabs ul>ul>li>a,.wrapper_sub_category_tabs.onlyparent .list-category-item .category-item a .cate-name.cate-count,.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,.filter-options .filter-options-title,.sidebar .block .filter-options-title,.filter-options .block-title:not(.filter-title) strong,.sidebar .block .block-title:not(.filter-title) strong{font-family:Rubik,sans-serif}h1,h2,h3,h4,h5,h6,.rokanthemes-onepagecheckout .step-title,.rokanthemes-onepagecheckout #opc-sidebar .title,.rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .items-in-cart .title,.rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals,.rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals .mark,.super-deal .super-deal-banner-content .super-deal-countdown .number,.super-deal .item-deal-product .info-price-deal label,.wrapper_sub_category_tabs .widget-tabs ul>ul>li>a,.super-deal-banner .super-deal-banner-content .super-deal-countdown .number,.super-deal .item-deal-product .info-price-deal label,.wrapper_sub_category_tabs .widget-tabs ul>ul>li>a,.customer-account-create .form-create-account .fieldset:not(.additional_info) .legend,.customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend,.filter-options .filter-options-title,.sidebar .block .filter-options-title,.filter-options .block-title:not(.filter-title) strong,.sidebar .block .block-title:not(.filter-title) strong,.modal-popup .modal-title,.product-info-main .price-box .price-wrapper .price,.product-options-bottom .price-box .price-wrapper .price,b,strong,.cart-totals .grand .amount strong,.opc-block-summary .table-totals .grand .amount strong,.cart-totals .grand .amount strong,.opc-block-summary .table-totals .grand .amount strong,.price-including-tax .price,.price-excluding-tax .price,.minicart-items .product-item-details .price,.block-minicart .amount .price-wrapper:first-child .price,.searchsuite-autocomplete ul li .qs-option-info .qs-option-price,th{font-weight:500}.navigation.custommenu li.level0 .level-top,.navigation li.level0.parent .submenu .mega-columns .level1.parent>a,.verticalmenu.navigation .list-category-dropdown li.level0>.submenu .title-cat-mega-menu span,.verticalmenu.navigation .list-category-dropdown li.level0.classic .parent .subchildmenu .title-cat-mega-menu span,.verticalmenu.navigation li.level0>a{font-family:Rubik,sans-serif}.navigation.custommenu li.level0 .level-top,.navigation li.level0.parent .submenu .mega-columns .level1.parent>a{font-weight:500}#newsletter_pop_up{width:600px;height:600px;background-color:#08223c;color:#fff}#newsletter_pop_up .col-newsletter-popup{}.block-newsletter-form{}
+body {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif
+}
+
+button, .cart.table-wrapper .actions-toolbar > .action, .action-gift, .action.primary, .action-primary, .btn, {
+    font-family: Rubik, sans-serif
+}
+
+h1, h2, h3, h4, h5, h6, .block-widget-rokanthemes-brand .brand-item .brand-name, .rokanthemes-onepagecheckout .step-title, .rokanthemes-onepagecheckout #opc-sidebar .title, .rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals, .container_vertical_tab_postions.wrapper_category_product_tabs .ui-tabs-nav li a, .container_vertical_tab_postions.wrapper_product_tabs .ui-tabs-nav li a, .super-deal-banner-content .super-deal-countdown .time_circles .number, .super-deal .super-deal-banner-content .super-deal-countdown .number, .super-deal-banner .super-deal-banner-content .super-deal-countdown .number, .super-deal .item-deal-product .info-price-deal label, .wrapper_sub_category_tabs .widget-tabs ul > ul > li > a, .wrapper_sub_category_tabs.onlyparent .list-category-item .category-item a .cate-name.cate-count, .customer-account-create .form-create-account .fieldset:not(.additional_info) .legend, .customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend, .filter-options .filter-options-title, .sidebar .block .filter-options-title, .filter-options .block-title:not(.filter-title) strong, .sidebar .block .block-title:not(.filter-title) strong {
+    font-family: Rubik, sans-serif
+}
+
+h1, h2, h3, h4, h5, h6, .rokanthemes-onepagecheckout .step-title, .rokanthemes-onepagecheckout #opc-sidebar .title, .rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .items-in-cart .title, .rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals, .rokanthemes-onepagecheckout #opc-sidebar .opc-block-summary .table-totals .mark, .super-deal .super-deal-banner-content .super-deal-countdown .number, .super-deal .item-deal-product .info-price-deal label, .wrapper_sub_category_tabs .widget-tabs ul > ul > li > a, .super-deal-banner .super-deal-banner-content .super-deal-countdown .number, .super-deal .item-deal-product .info-price-deal label, .wrapper_sub_category_tabs .widget-tabs ul > ul > li > a, .customer-account-create .form-create-account .fieldset:not(.additional_info) .legend, .customer-account-forgotpassword .forget .fieldset:not(.additional_info) .legend, .filter-options .filter-options-title, .sidebar .block .filter-options-title, .filter-options .block-title:not(.filter-title) strong, .sidebar .block .block-title:not(.filter-title) strong, .modal-popup .modal-title, .product-info-main .price-box .price-wrapper .price, .product-options-bottom .price-box .price-wrapper .price, b, strong, .cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong, .cart-totals .grand .amount strong, .opc-block-summary .table-totals .grand .amount strong, .price-including-tax .price, .price-excluding-tax .price, .minicart-items .product-item-details .price, .block-minicart .amount .price-wrapper:first-child .price, .searchsuite-autocomplete ul li .qs-option-info .qs-option-price, th {
+    font-weight: 500
+}
+
+.navigation.custommenu li.level0 .level-top, .navigation li.level0.parent .submenu .mega-columns .level1.parent > a, .verticalmenu.navigation .list-category-dropdown li.level0 > .submenu .title-cat-mega-menu span, .verticalmenu.navigation .list-category-dropdown li.level0.classic .parent .subchildmenu .title-cat-mega-menu span, .verticalmenu.navigation li.level0 > a {
+    font-family: Rubik, sans-serif
+}
+
+.navigation.custommenu li.level0 .level-top, .navigation li.level0.parent .submenu .mega-columns .level1.parent > a {
+    font-weight: 500
+}
+
+#newsletter_pop_up {
+    width: 600px;
+    height: 600px;
+    background-color: #08223c;
+    color: #fff
+}
+
+#newsletter_pop_up .col-newsletter-popup {
+}
+
+.block-newsletter-form {
+}

@@ -70,7 +70,7 @@
     <div class="page-wrapper lazyload-image" >
       <header class="page-header">
         <div class="header-container layout-1 sticky-header">
-            <div class="topbar hidden-xs hidden-sticky">
+            <!--<div class="topbar hidden-xs hidden-sticky">
                 <div class="container">
                     <div class="topbar-inner">
                         <div class="flex-layout space-between center_vertical center-mobile">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="header panel flex-layout-sticky center_vertical no-wrap-desktop">
                 <div class="flex-layout space-between center_vertical no-wrap-desktop header-middle">
                     <div class="logo-container hidden-sticky-desktop">
@@ -129,7 +129,9 @@
                                      <form class="form minisearch search-content cat-search" id="search_mini_form" action="{% url 'shop' %}" method="get">
                           {% csrf_token %}
                         <div class="search-form">
-                          <div class="field-by-cat-search hidden-xs">
+
+                        <!--
+                                <div class="field-by-cat-search hidden-xs">
                             <select name="cat" id="choose_category">
                               <option value="">All Categories</option>
                               <option value="3">Top Deals</option>
@@ -150,6 +152,8 @@
 
                             </select>
                           </div>
+                        -->
+
                           <div class="field search">
                             <label class="label" or="search-input-autocomplate" data-role="minisearch-label">
                               <span>Search</span>
@@ -216,8 +220,7 @@
 
                       </ul>
                     </li>
-
-                    <li
+                    <!--<li
                       class="link wishlist hidden-xs"
                       data-bind="scope: 'wishlist'"
                     >
@@ -230,6 +233,7 @@
                         </span>
                       </a>
                     </li>
+-->
 
                     <li class="minicart-li-content-show-hide">
                         <div data-block="minicart" class="minicart-wrapper">
