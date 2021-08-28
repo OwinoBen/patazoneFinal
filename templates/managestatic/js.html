@@ -1,24 +1,27 @@
 {% load static %}
 <script>
-     function onTabClick(event ){
-        let activeTabs =document.querySelectorAll('.active');
-        //for (let i =0; i<activeTabs.length; i++){
-            //activeTabs[i].className = activeTabs[i].className.replace('active', '');
+     function onTabClick(event) {
+  let activeTabs = document.querySelectorAll('.ui-state-active');
 
-       // }
+  // deactivate existing active tab and panel
+  // for( let i = 0; i < activeTabs.length; i++) {
+  //   activeTabs[i].className = activeTabs[i].className.replace('active', '');
+  // }
 
-        activeTabs.forEach(function (tab){
-            tab.className = tab.className.replace('active', '');
-        });
+  activeTabs.forEach(function(tab) {
+    tab.className = tab.className.replace('ui-state-active', '');
+  });
 
-        // activate the new tabs and panel
-        event.target.parentElement.className += 'active';
+  // activate new tab and panel
+  event.target.parentElement.className += ' ui-state-active';
+  console.log(event.target.parentElement)
+  document.getElementById(event.target.href.split('#')[1]).className += 'ui-state-active';
+  {#console.log(document.getElementById(event.target.href.split('#')[1]).className += 'active');#}
+}
 
-        document.getElementById(event.target.href.split('#')).className += 'active';
-    }
-    const  element = document.getElementById('nav-tabs');
-    element.addEventListener('click', onTabClick, false);
+const element = document.getElementById('nav-tabs');
 
+element.addEventListener('click', onTabClick, false);
 
 </script>
         <![endif]-->
